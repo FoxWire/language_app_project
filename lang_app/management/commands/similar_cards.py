@@ -3,8 +3,8 @@ from lang_app.models import Card, Sentence
 from utils.comparer.comparer import TreeComparer
 from tqdm import tqdm
 import json
-
 from random import randint
+
 
 class Command(BaseCommand):
 

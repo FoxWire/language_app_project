@@ -21,7 +21,7 @@
   <nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg" color-on-scroll="100">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit/index.html">LangApp</a>
+        <a class="navbar-brand" href="/">LangApp</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
@@ -68,7 +68,7 @@
                       </h4>
 
                       <input type="hidden" name="question_number" value="{{ question_number }}">
-                      <input type="submit">
+                      <button class="btn btn-primary btn-round" type="submit">submit</button>
                     </form>
 
 
@@ -100,9 +100,11 @@
                         it should have been <strong>{{ chunk }}</strong>
                       {% endif %}
                     </h4>
+
+                    <a href="/?question_number={{ question_number }}&answered_correctly={{ correct_bool }}"><button class="btn btn-primary btn-round">next card</button></a>
+
                   </div>
 
-                  <a href="/"><button>next card</button></a>
 
                 </div>
                 {% endif %}
