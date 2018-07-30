@@ -21,14 +21,32 @@ class Card(models.Model):
 
     def ask_question(self):
 
+        # sentence = self.sentence.sentence
+        # close_deletion = sentence.replace(self.chunk, '_' * len(self.chunk))
+        # spaces = ' ' * (len(close_deletion.split("_")[0].strip()) - 1)
+        # question = "{}\n{}<{}>".format(close_deletion, spaces, self.chunk_translation)
+
+        # In order to use the question in the html, we need to sentence, split on the chunk
+        # we will return both parts and the chunk
+
         sentence = self.sentence.sentence
-        close_deletion = sentence.replace(self.chunk, '_' * len(self.chunk))
-        spaces = ' ' * (len(close_deletion.split("_")[0].strip()) - 1)
-        question = "{}\n{}<{}>".format(close_deletion, spaces, self.chunk_translation)
-        return question
+        data = {'b': self.chunk_translation}
+
+        if sentence.startswith(self.chunk):
+            data['a'] = None
+            data['c'] = sentence.replace(self.chunk, '')
+        elif sentence.endswith(self.chunk):
+            data['a'] = sentence.replace(self.chunk, '')
+            data['c'] = None
+        else:
+            parts = sentence.split(self.chunk)
+            data['a'] = parts[0]
+            data['c'] = parts[1]
+
+        return data
 
     def give_answer(self, answer):
-        return answer.strip() == self.chunk.strip(), self.chunk.strip()
+        return answer.strip().lower() == self.chunk.strip().lower(), self.chunk.strip()
 
     def _format_tree_string(self, tree_string):
         # remove the newlines and whitespace that comes with tree string

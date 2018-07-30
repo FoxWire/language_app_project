@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>LanguageApp | Home</title>
+  <title>LangApp | Home</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
@@ -21,7 +21,7 @@
   <nav class="navbar navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg" color-on-scroll="100">
     <div class="container">
       <div class="navbar-translate">
-        <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit/index.html">LanguageApp</a>
+        <a class="navbar-brand" href="https://demos.creative-tim.com/material-kit/index.html">LangApp</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="sr-only">Toggle navigation</span>
           <span class="navbar-toggler-icon"></span>
@@ -47,37 +47,65 @@
       <div class="row">
         <div class="col-md-8 ml-auto mr-auto">
           <div class="brand text-center">
-            <h1>LanguageApp</h1>
+            <h1>LangApp</h1>
 
+                <!--The question card -->
                 <div class="card" style="height: 100%;">
+                  <div class="card-body">
+
+                    <form action="/" method="post">
+                      {% csrf_token %}
+
+                      <h4 class="card-title" style="margin-bottom: 20px;">{% if question_data.a %} {{ question_data.a }} {% endif %}
+
+                        <div class="form-group" style="display: inline-block;">
+                          <label id='floating-label' for="answer-box" class="bmd-label-floating">{{ question_data.b }}</label>
+                          <input type="text" class="form-control" id="answer-box" name="user_answer" size="{{ question_data.b | length }}">
+                          <span class="bmd-help">Translate into English</span>
+                        </div>
+                        
+                        {% if question_data.c %} {{ question_data.c }} {% endif %}
+                      </h4>
+
+                      <input type="hidden" name="question_number" value="{{ question_number }}">
+                      <input type="submit">
+                    </form>
+
+
+                  </div>
+                </div>
+
+                <!-- The answer card -->
+                {% if show_answer %}
+                <div class="card" style="height: 100%;">
+
+                  {% if correct_bool %}
+                   <div class="card-header-success">
+                     <h4 class="card-title">Correct!</h4>
+                   </div>
+                  {% else %}
+                    <div class="card-header-danger">
+                     <h4 class="card-title">Wrong!</h4>
+                   </div>
+                  {% endif %}
 
                   <div class="card-body">
 
+                    <h4 style="margin-bottom: 20px;">
 
-                    <h4 class="card-title" style="margin-bottom: 20px;">I think I was walking along the street and I saw
-
-
-
-                      <div class="form-group" style="display: inline-block;">
-                        <label id='floating-label' for="answer-box" class="bmd-label-floating">einen riesigen Hund</label>
-                        <input type="text" class="form-control" id="answer-box" style="">
-                        <span class="bmd-help">Translate into English</span>
-                      </div>
-
-                      runnign towards me. Then I didn't really know what I should do next to be honest.
-
+                      {% if correct_bool == True %}
+                        <strong>{{ user_answer }}</strong> is the correct translation for <strong>{{ chunk_translation }}</strong>
+                      {% else %}
+                        <strong> {{ user_answer }}</strong> is not the correct translation for <strong>{{ chunk_translation }}</strong>
+                        it should have been <strong>{{ chunk }}</strong>
+                      {% endif %}
                     </h4>
-
                   </div>
 
-
-
-
+                  <a href="/"><button>next card</button></a>
 
                 </div>
-
-
-                </div>
+                {% endif %}
 
           </div>
         </div>
@@ -122,7 +150,7 @@
 <!--<script src="static/js/plugins/nouislider.min.js" type="text/javascript"></script>-->
 
 <!--	Plugin for Sharrre btn -->
-  <!--<script src="static/js/plugins/jquery.sharrre.js" type="text/javascript"></script>-->
+  <script src="static/js/plugins/jquery.sharrre.js" type="text/javascript"></script>
 
 <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="static/js/material-kit.min.js?v=2.0.4" type="text/javascript"></script>
