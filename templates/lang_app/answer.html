@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+sentence: {{ question}}<br>
+your translation: {{ answer }}<br>
+correct translation: {{ card.chunk}}<br>
+You got the question   {% if correct_bool == True %} correct {% else %} wrong {% endif %}!<br>
+<a href="/"><button>next</button> </a>
+</body>
+</html>
