@@ -1,4 +1,6 @@
 <!doctype html>
+
+
 <html lang="en">
 
 <head>
@@ -68,7 +70,23 @@
                       </h4>
 
                       <input type="hidden" name="question_number" value="{{ question_number }}">
-                      <button class="btn btn-primary btn-round" type="submit">submit</button>
+
+                      <div class="container">
+                        <div class="row">
+                            <div class="col-sm-4">
+                              <span id="hint-ajax" class="pull-left">hint</span><br>
+                              <div id="hint-words" class="pull-left"></div>
+                            </div>
+                            <div class="col-sm-4">
+                              <button class="btn btn-primary btn-round" type="submit">submit</button>
+                            </div>
+                            <div class="col-sm-4">
+                              <!-- Nothing in here yet-->
+                            </div>
+                        </div>
+                      </div>
+
+
                     </form>
 
 
@@ -156,6 +174,16 @@
 
 <!-- Control Center for Material Kit: parallax effects, scripts for the example pages etc -->
   <script src="static/js/material-kit.min.js?v=2.0.4" type="text/javascript"></script>
+
+  <script>
+  $('#hint-ajax').click(function(){
+      var card_id = {{ question_number }};
+      var shown_words = $('#hint-words').text();
+      $.get('/lang-app/get-hint', {card_id: card_id, shown_words: shown_words}, function(word){
+        $('#hint-words').text(shown_words + " " + word);
+      })
+  })
+  </script>
 
 <!--css overrides to make sure that the input text lines up with the rest of the text-->
   <style>

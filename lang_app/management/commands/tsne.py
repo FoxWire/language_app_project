@@ -75,7 +75,8 @@ class Command(BaseCommand):
         # This will make the matrix and also get the number of lines in the csv file
         num_rows = 0
         array = []
-        with open('/home/stuart/Desktop/matrix.csv', 'r') as file:
+        path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/matrix_1989.csv'
+        with open(path, 'r') as file:
             reader = csv.reader(file, delimiter=',')
             for row in reader:
                 array.append(row)
@@ -90,7 +91,6 @@ class Command(BaseCommand):
         y = int(pk_b[0]) - 1
 
         return float(self.array[x][y])
-
 
 
 

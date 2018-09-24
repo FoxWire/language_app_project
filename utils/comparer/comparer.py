@@ -20,6 +20,11 @@ class TreeComparer():
     def __init__(self):
         self.parser = stanford.StanfordParser()
 
+    def compare_tree_strings(self, tree_string_a, tree_string_b, ignore_leaves=False):
+        zss_tree_a = self.convert_parse_tree_to_zss_tree(tree_string_a, ignore_leaves=ignore_leaves)
+        zss_tree_b = self.convert_parse_tree_to_zss_tree(tree_string_b, ignore_leaves=ignore_leaves)
+        return simple_distance(zss_tree_a, zss_tree_b)
+
     def compare(self, card_a, card_b):
         zss_tree_a = self.convert_parse_tree_to_zss_tree(card_a.tree_string)
         zss_tree_b = self.convert_parse_tree_to_zss_tree(card_b.tree_string)
@@ -57,7 +62,11 @@ class TreeComparer():
     #             stack.pop()
     #     return root
 
-    def convert_parse_tree_to_zss_tree(self, tree_as_string):
+    def convert_parse_tree_to_zss_tree(self, tree_as_string, ignore_leaves=False):
+        '''
+        The ignore leaves argument will create a tree where the words in the sentence
+        are not included. This will only represent sentence structure. 
+        '''
 
         tree_as_list = [item.strip() for item in re.split(r'([\(\)])', tree_as_string) if item.strip()]
         tree_as_list = tree_as_list[2:-1]
@@ -72,7 +81,7 @@ class TreeComparer():
                 if match:
                     # if match, node has no children
                     label = match.group().split(' ')
-                    node = Node(label[0]).addkid(Node(label[1]))
+                    node = Node(label[0]).addkid(Node(label[1])) if not ignore_leaves else Node(label[0])
                 else:
                     # otherwise node has children
                     node = Node(tree_as_list[i + 1])
@@ -86,5 +95,8 @@ class TreeComparer():
         return root_node
 
 
+if __name__ == '__main__':
+    comp = TreeComparer()
+    sentence = "This is a sentence"
 
 

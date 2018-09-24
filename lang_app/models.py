@@ -45,7 +45,7 @@ class Card(models.Model):
 
         return data
 
-    def give_answer(self, answer):
+    def give_answer(self, answer, score=False):
         return answer.strip().lower() == self.chunk.strip().lower(), self.chunk.strip()
 
     def _format_tree_string(self, tree_string):
