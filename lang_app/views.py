@@ -3,18 +3,19 @@ from django.shortcuts import render
 from lang_app.models import Card
 from random import randint
 from utils.question_picker.naive_picker import NaivePicker
+from utils.question_picker.guassian_process_picker import GaussianProcessPicker
 from utils.parser.parser import Parser
 from utils.comparer.comparer import TreeComparer
 from random import choice
 # import csv
 
 
-picker = NaivePicker()
+# picker = NaivePicker()
+picker = GaussianProcessPicker()
 parser = Parser()
 comp = TreeComparer()
 
 
-# Create your views here.
 def index(request):
 
     context = None
@@ -22,9 +23,9 @@ def index(request):
 
         question_number = request.GET.get('question_number')
         if not question_number:
-            # This is the first question so just return a random card
-            all_cards = Card.objects.all()
-            card = all_cards[randint(0, len(all_cards))]
+            # This is the first question, just ask the picker for the next card
+            # it will just pick a random one
+            card = picker.pick()
         else:
             # use the question number to pick the next card
             answered_correctly = request.GET.get('answered_correctly')
@@ -55,6 +56,51 @@ def index(request):
         }
 
     return render(request, 'lang_app/template.html', context)
+
+
+
+
+
+# def index(request):
+#
+#     context = None
+#     if request.method == 'GET':
+#
+#         question_number = request.GET.get('question_number')
+#         if not question_number:
+#             # This is the first question so just return a random card
+#             all_cards = Card.objects.all()
+#             card = all_cards[randint(0, len(all_cards))]
+#         else:
+#             # use the question number to pick the next card
+#             answered_correctly = request.GET.get('answered_correctly')
+#             current_card = Card.objects.get(pk=question_number)
+#             card = picker.pick(current_card, answered_correctly)
+#
+#         data = card.ask_question()
+#
+#         context = {
+#             'question_number': card.pk,
+#             'question_data': data,
+#         }
+#
+#     if request.method == 'POST':
+#         user_answer = request.POST.get('user_answer')
+#
+#         card = Card.objects.get(pk=request.POST.get('question_number'))
+#         correct_bool = card.give_answer(user_answer)[0]
+#
+#         context = {
+#             'show_answer': True,
+#             'question_number': card.pk,
+#             'question_data': card.ask_question(),
+#             'correct_bool': correct_bool,
+#             'user_answer': user_answer,
+#             'chunk': card.chunk,
+#             'chunk_translation': card.chunk_translation
+#         }
+#
+#     return render(request, 'lang_app/template.html', context)
 
 
 # Ajax listener

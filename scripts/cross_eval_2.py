@@ -20,9 +20,10 @@ from sklearn.model_selection import train_test_split, cross_val_score
 # from utils.comparer.comparer import TreeComparer
 
 
+
 class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
 
-    def __init__(self, length_scale=100):  # This value seems to work
+    def __init__(self, length_scale=100):
 
         # Read the csv into memory, there should only be 100 items in it at the moment. 
         path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/matrix_100.csv'
@@ -34,7 +35,7 @@ class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
                 array.append(float_row)
         self.array = np.array(array)
         self.length_scale = length_scale
-
+        
 
     def __call__(self, X, Y=None):
         '''
@@ -51,22 +52,16 @@ class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
         distances.        
         '''
 
-        # Uses looping, should be better numpy way of doing this, but this works for now
-        optional = Y if Y is not None else X
-        values_X = [ob[0] for ob in X]
-        values_Y = [ob[0] for ob in optional]
+        values_X = X[:, 0]
+        values_Y = Y[:, 0] if Y is not None else values_X
 
-        outer = []
-        for i in values_X:
-            inner = []
-            for j in values_Y:
-                inner.append(self.array[i, j])
-            outer.append(inner)
-        outer = np.array(outer)
-
-        kernel = np.exp(-.5 * (outer**2) / self.length_scale)
+        x = self.array[[values_X], :][0]
+        x = x[:, [values_Y]].reshape(len(values_X), len(values_Y))
+        
+        kernel = np.exp(-.5 * (x**2) / self.length_scale)
         return np.atleast_2d(kernel)
 
+# Read in the precomputed user answers to the 100 questions
 def read_user_data():
     dict = {}
     path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/user_function.csv'
@@ -76,39 +71,13 @@ def read_user_data():
             dict[row[0]] = row[1]
     return dict
 
-
 user = read_user_data()
 
 def ask_user(x):
     y_values = [float(user[str(val[0])]) for val in x]
     return np.atleast_2d(y_values).T
 
-
-def eval_scikitlearn():
-    # Create the kernel and the GP
-    kernel = CustomKernel()
-    gp = GaussianProcessRegressor(kernel=kernel, optimizer=0, alpha=1)
-
-    # Get all of the availiable questions
-    questions = np.atleast_2d(range(1, 100)).T
-
-    # Get answers to all of the questions
-    answers = np.atleast_2d(ask_user(questions).ravel()).T
-
-    # Evaluate the model
-    scores = cross_val_score(gp, questions, answers, cv=10, scoring='neg_mean_squared_error')
-    print(scores)
-    print("Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
-
-def eval_manual():
-
-    '''
-    This should do the much the same thing as the code above, but it seems to 
-    give a slightly better score. The results are sill negative though. This
-    might just mean that when it subtracts the predicted from the actual values, 
-    one set is consitently higher than the other that's where the negative values 
-    are coming from.
-    '''
+def evaluate():
 
     # Create the kernel and the GP
     kernel = CustomKernel()
@@ -126,29 +95,24 @@ def eval_manual():
 
         # Split the data
         X_train, X_test, y_train, y_test = train_test_split(questions, answers, 
-                                                            test_size=0.1, random_state=randint(1, 1000000))
+                                                            test_size=0.1, random_state=randint(1, 100))
         # Fit the data
         gp.fit(X_train, y_train)
 
-        # Add the scores to the list
-        scores.append(gp.score(X_test, y_test))
+        # make predictions
+        predictions, sigma = gp.predict(X_test, return_std=True)
+        
+        # get the mean squared error
+        mse = ((predictions - y_test)**2).mean()
+        scores.append(mse)
 
+    # convert the scores array to np array
     scores = np.array(scores)
     print(scores)
+    # print the mean score over all of the folds
     print("Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
 
 
 if __name__ == '__main__':
-        
-   print('Scikitlearn:')
-   eval_scikitlearn()
-   print()
-   print("Manual:")   
-   eval_manual()
-
-
-
-
-
-
-
+   print("Evaluation:")   
+   evaluate()
