@@ -90,7 +90,7 @@ def evaluate():
     answers = np.atleast_2d(ask_user(questions).ravel()).T
 
     scores = []
-    number_of_folds = 10
+    number_of_folds = 1
     for i in range(number_of_folds):
 
         # Split the data
@@ -101,6 +101,9 @@ def evaluate():
 
         # make predictions
         predictions, sigma = gp.predict(X_test, return_std=True)
+
+        for x in predictions:
+            print(x)
         
         # get the mean squared error
         mse = ((predictions - y_test)**2).mean()

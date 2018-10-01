@@ -25,7 +25,7 @@ class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
         self.array = np.array(array)
         self.length_scale = length_scale
 
-    def __call__(self, X, Y=None):
+    def __call__(self, x, y=None, eval_gradient=False):
         '''
             Implements this:
             k(xx_i, xx_j) = exp( -1/2 (d(xx_i, xx_j )^2) / length_scale )
@@ -43,11 +43,11 @@ class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
             stuff off that you don't need
         '''
 
-        values_X = X[:, 0]
-        values_Y = Y[:, 0] if Y is not None else values_X
+        values_x = x[:, 0]
+        values_y = y[:, 0] if Y is not None else values_x
 
-        x = self.array[[values_X], :][0]
-        x = x[:, [values_Y]].reshape(len(values_X), len(values_Y))
+        x = self.array[[values_x], :][0]
+        x = x[:, [values_y]].reshape(len(values_x), len(values_x))
 
         kernel = np.exp(-.5 * (x ** 2) / self.length_scale)
         return np.atleast_2d(kernel)
