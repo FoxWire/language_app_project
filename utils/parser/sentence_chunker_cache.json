@@ -23183,5 +23183,110 @@
             "ever seen kangaroos"
         ],
         "tree_string": "(ROOT\n  (SQ\n    (VBP Have)\n    (NP (PRP you))\n    (VP (ADVP (RB ever)) (VBN seen) (NP (NNS kangaroos)))\n    (. ?)))"
+    },
+    "don't know the answer here": {
+        "chunks": [
+            "know the answer here",
+            "the answer "
+        ],
+        "tree_string": "(ROOT\n  (S\n    (VP\n      (VB do)\n      (RB n't)\n      (VP (VB know) (NP (DT the) (NN answer)) (ADVP (RB here))))))"
+    },
+    "taught me to understand words though pictures": {
+        "chunks": [
+            "taught me to understand words though ",
+            "me to understand words though ",
+            "to understand words though ",
+            "understand words though "
+        ],
+        "tree_string": "(ROOT\n  (SINV\n    (VP\n      (VBD taught)\n      (S\n        (NP (PRP me))\n        (VP\n          (TO to)\n          (VP (VB understand) (NP (NNS words)) (ADVP (RB though))))))\n    (NP (NNS pictures))))"
+    },
+    "My muscle memory": {
+        "chunks": [],
+        "tree_string": "(ROOT (FRAG (NP (PRP$ My) (NN muscle) (NN memory))))"
+    },
+    "lkj l": {
+        "chunks": [],
+        "tree_string": "(ROOT (S (VP (VB lkj) (NP (NN l)))))"
+    },
+    "lksjd l": {
+        "chunks": [],
+        "tree_string": "(ROOT (VP (VBN lksjd) (NP (NN l))))"
+    },
+    "for others for free": {
+        "chunks": [
+            "others for free",
+            "for free"
+        ],
+        "tree_string": "(ROOT\n  (PP (IN for) (NP (NP (NNS others)) (PP (IN for) (ADJP (JJ free))))))"
+    },
+    "five minutes away from the downs": {
+        "chunks": [
+            "five minutes away ",
+            "five minutes ",
+            "the downs"
+        ],
+        "tree_string": "(ROOT\n  (PP\n    (ADVP (NP (CD five) (NNS minutes)) (RB away))\n    (IN from)\n    (NP (DT the) (NNS downs))))"
+    },
+    "backwards and": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (NNP backwards) (NNP and)))"
+    },
+    "s": {
+        "chunks": [],
+        "tree_string": "(ROOT (INTJ (UH s)))"
+    },
+    "him warm while we were waiting for the ambulance": {
+        "chunks": [
+            "while we were waiting for the ambulance",
+            "we were waiting for the ambulance",
+            "were waiting for the ambulance",
+            "waiting for the ambulance",
+            "for the ambulance",
+            "the ambulance"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP him))\n    (ADJP\n      (JJ warm)\n      (SBAR\n        (IN while)\n        (S\n          (NP (PRP we))\n          (VP\n            (VBD were)\n            (VP\n              (VBG waiting)\n              (PP (IN for) (NP (DT the) (NN ambulance))))))))))"
+    },
+    "The examining doctor": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (DT The) (NN examining) (NN doctor)))"
+    },
+    "a few decent tugs": {
+        "chunks": [
+            "a few ",
+            "decent tugs"
+        ],
+        "tree_string": "(ROOT (NP (NP (DT a) (JJ few)) (NP (JJ decent) (NNS tugs))))"
+    },
+    "k": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (NN k)))"
+    },
+    "this is a thing": {
+        "chunks": [
+            "is a thing",
+            "a thing"
+        ],
+        "tree_string": "(ROOT (S (NP (DT this)) (VP (VBZ is) (NP (DT a) (NN thing)))))"
+    },
+    "the head and the hips": {
+        "chunks": [
+            "the head ",
+            "the hips"
+        ],
+        "tree_string": "(ROOT (NP (NP (DT the) (NN head)) (CC and) (NP (DT the) (NNS hips))))"
+    },
+    "in more than 12 years": {
+        "chunks": [
+            "more than 12 years",
+            "more than 12 "
+        ],
+        "tree_string": "(ROOT\n  (PP (IN in) (NP (QP (JJR more) (IN than) (CD 12)) (NNS years))))"
+    },
+    "something had gone wrong": {
+        "chunks": [
+            "had gone wrong",
+            "gone wrong"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (NN something))\n    (VP (VBD had) (VP (VBN gone) (S (ADJP (JJ wrong)))))))"
     }
 }

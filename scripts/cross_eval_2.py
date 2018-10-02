@@ -102,8 +102,8 @@ def evaluate():
         # make predictions
         predictions, sigma = gp.predict(X_test, return_std=True)
 
-        for x in predictions:
-            print(x)
+            for x in predictions:
+                print(x)
         
         # get the mean squared error
         mse = ((predictions - y_test)**2).mean()

@@ -17,6 +17,7 @@ This allows you to interact with the underlying matrix.
 Only requires the upper triangle of the matrix. 
 '''
 
+
 class MatrixWrapper:
 
 	def __init__(self, path):
@@ -44,14 +45,6 @@ class MatrixWrapper:
 
 		return float(self.matrix[x, y])
 
-		# elif x > y:
-		# 	# You are in the lower triangle
-		# 	return float(self.matrix[y, x])
-		# else:
-		# 	# You are in the upper triangle
-		# 	return float(self.matrix[x, y])
-		
-
 
 if __name__ == '__main__':
 	
@@ -66,7 +59,3 @@ if __name__ == '__main__':
 	assert val == wrapper.get(card_b.pk, card_a.pk)
 	assert 0.0 == wrapper.get(card_b.pk, card_b.pk)
 	print('tests completed')
-
-
-
-	

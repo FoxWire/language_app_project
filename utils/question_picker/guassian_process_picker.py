@@ -44,12 +44,17 @@ class GaussianProcessPicker:
         self.kernel = CustomKernel()
         self.gp = GaussianProcessRegressor(kernel=self.kernel, optimizer=0)
         self.number_of_cards = len(Card.objects.all())
-        self.number_of_initial_questions = 10
+        self.number_of_initial_questions = 3
 
         self.mode = 1  # 1 = exploit, 2 = explore, 3 = practise
         self.practise_session = []
         self.practise_answers = []
         self.comp = TreeComparer()
+
+    # this is for debugging
+    def print_mode(self):
+        modes = ['', 'exploit', 'explore', 'practise']
+        return "You are in {} mode".format(modes[self.mode])
 
     def pick(self):
         #  If we don't yet have the ten random cards, return a random card

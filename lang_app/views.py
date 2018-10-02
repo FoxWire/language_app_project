@@ -21,17 +21,12 @@ def index(request):
     context = None
     if request.method == 'GET':
 
-        question_number = request.GET.get('question_number')
-        if not question_number:
-            # This is the first question, just ask the picker for the next card
-            # it will just pick a random one
-            card = picker.pick()
-        else:
-            # use the question number to pick the next card
-            answered_correctly = request.GET.get('answered_correctly')
-            current_card = Card.objects.get(pk=question_number)
-            card = picker.pick(current_card, answered_correctly)
+        '''
+        When we are using the gaussian picker, we just need to call the pick method. 
+        We don't need to pass in any other information about the question etc. 
+        '''
 
+        card = picker.pick()
         data = card.ask_question()
 
         context = {
@@ -40,10 +35,25 @@ def index(request):
         }
 
     if request.method == 'POST':
-        user_answer = request.POST.get('user_answer')
 
+        '''
+        Here we just need to get the score for the user's answer and pass that 
+        to the gp. You can just pass the same data as before back in the context.
+        '''
+
+        user_answer = request.POST.get('user_answer')
         card = Card.objects.get(pk=request.POST.get('question_number'))
         correct_bool = card.give_answer(user_answer)[0]
+
+        # Parse the user's answer and the actual answer
+        user_answer_tree_string = parser.parse(user_answer)[2]
+        actual_answer_tree_string = parser.parse(card.chunk)[2]
+
+        # Get the score by comparing the two
+        answer_score = comp.compare_tree_strings(user_answer_tree_string, actual_answer_tree_string)
+
+        # Update the GP
+        picker.update(card, answer_score)
 
         context = {
             'show_answer': True,
@@ -54,6 +64,9 @@ def index(request):
             'chunk': card.chunk,
             'chunk_translation': card.chunk_translation
         }
+
+        print("Your score was:", answer_score)
+        print(picker.print_mode())
 
     return render(request, 'lang_app/template.html', context)
 
