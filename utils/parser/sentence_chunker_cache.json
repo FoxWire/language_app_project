@@ -23288,5 +23288,324 @@
             "gone wrong"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (NN something))\n    (VP (VBD had) (VP (VBN gone) (S (ADJP (JJ wrong)))))))"
+    },
+    "couldn't find a pulse": {
+        "chunks": [
+            "couldn't find ",
+            "a pulse"
+        ],
+        "tree_string": "(ROOT\n  (SINV\n    (VP (MD could) (RB n't) (VP (VB find)))\n    (NP (DT a) (NN pulse))))"
+    },
+    "in our developments and in me": {
+        "chunks": [
+            "in our developments ",
+            "our developments ",
+            "in me"
+        ],
+        "tree_string": "(ROOT\n  (PP\n    (PP (IN in) (NP (PRP$ our) (NNS developments)))\n    (CC and)\n    (PP (IN in) (NP (PRP me)))))"
+    },
+    "when I sleep through and alarm again": {
+        "chunks": [
+            "I sleep through and alarm again",
+            "sleep through and alarm again",
+            "through and alarm again",
+            "and alarm ",
+            "and alarm "
+        ],
+        "tree_string": "(ROOT\n  (SBAR\n    (WHADVP (WRB when))\n    (S\n      (NP (PRP I))\n      (VP\n        (VBP sleep)\n        (PP\n          (IN through)\n          (NP (QP (CC and) (CD alarm)))\n          (ADVP (RB again)))))))"
+    },
+    "My next memory": {
+        "chunks": [],
+        "tree_string": "(ROOT (FRAG (NP (PRP$ My) (JJ next) (NN memory))))"
+    },
+    "at a high level": {
+        "chunks": [
+            "a high level"
+        ],
+        "tree_string": "(ROOT (PP (IN at) (NP (DT a) (JJ high) (NN level))))"
+    },
+    "had opened the safe once": {
+        "chunks": [
+            "had opened the safe ",
+            "opened the safe ",
+            "the safe "
+        ],
+        "tree_string": "(ROOT\n  (SINV\n    (VP (VBD had) (VP (VBN opened) (NP (DT the) (NN safe))))\n    (NP (RB once))))"
+    },
+    "would still confirm": {
+        "chunks": [],
+        "tree_string": "(ROOT (FRAG (VP (MD would) (ADVP (RB still)) (VP (VB confirm)))))"
+    },
+    "a musical at the drama desk award": {
+        "chunks": [
+            "a musical ",
+            "at the drama desk award",
+            "the drama desk award"
+        ],
+        "tree_string": "(ROOT\n  (NP\n    (NP (DT a) (NN musical))\n    (PP (IN at) (NP (DT the) (NN drama) (NN desk) (NN award)))))"
+    },
+    "would leave at 17 oclock": {
+        "chunks": [
+            "would leave at ",
+            "leave at ",
+            "17 oclock"
+        ],
+        "tree_string": "(ROOT\n  (SINV\n    (VP (MD would) (VP (VB leave) (PP (IN at))))\n    (NP (CD 17) (NN oclock))))"
+    },
+    "Some people fall from 20 feet and die": {
+        "chunks": [
+            "Some people ",
+            "fall from 20 feet and die",
+            "fall from 20 feet ",
+            "from 20 feet ",
+            "20 feet "
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (DT Some) (NNS people))\n    (VP\n      (VP (VBP fall) (PP (IN from) (NP (CD 20) (NNS feet))))\n      (CC and)\n      (VP (NN die)))))"
+    },
+    "Some people fall from 20ft and die so to fall from 500ft and walk away without serious injuries is mind-boggling.": {
+        "chunks": [
+            "Some people fall from 20ft and die so to fall from 500ft and walk away without serious injuries ",
+            "fall from 20ft and die so to fall from 500ft and walk away without serious injuries ",
+            "fall from 20ft and die so to fall from 500ft and walk away without serious injuries ",
+            "fall from 20ft ",
+            "from 20ft ",
+            "die so to fall from 500ft ",
+            "so to fall from 500ft ",
+            "to fall from 500ft ",
+            "fall from 500ft ",
+            "from 500ft ",
+            "walk away without serious injuries ",
+            "without serious injuries ",
+            "serious injuries ",
+            "is mind-boggling"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP\n      (DT Some)\n      (NNS people)\n      (S\n        (VP\n          (VP (VB fall) (PP (IN from) (NP (CD 20ft))))\n          (CC and)\n          (VP\n            (VB die)\n            (S\n              (RB so)\n              (VP\n                (TO to)\n                (VP (VB fall) (PP (IN from) (NP (CD 500ft)))))))\n          (CC and)\n          (VP\n            (VB walk)\n            (PRT (RP away))\n            (PP (IN without) (NP (JJ serious) (NNS injuries)))))))\n    (VP (VBZ is) (ADJP (JJ mind-boggling)))\n    (. .)))"
+    },
+    "Some people fall from 20 feet and die so to fall from 500ft and walk away without serious injuries is mind-boggling.": {
+        "chunks": [
+            "Some people fall from 20 feet and die so to fall from 500ft and walk away without serious injuries ",
+            "fall from 20 feet and die so to fall from 500ft and walk away without serious injuries ",
+            "fall from 20 feet and die so to fall from 500ft and walk away without serious injuries ",
+            "fall from 20 feet ",
+            "from 20 feet ",
+            "20 feet ",
+            "die so to fall from 500ft ",
+            "so to fall from 500ft ",
+            "to fall from 500ft ",
+            "fall from 500ft ",
+            "from 500ft ",
+            "walk away without serious injuries ",
+            "without serious injuries ",
+            "serious injuries ",
+            "is mind-boggling"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP\n      (DT Some)\n      (NNS people)\n      (S\n        (VP\n          (VP (VB fall) (PP (IN from) (NP (CD 20) (NNS feet))))\n          (CC and)\n          (VP\n            (VB die)\n            (S\n              (RB so)\n              (VP\n                (TO to)\n                (VP (VB fall) (PP (IN from) (NP (CD 500ft)))))))\n          (CC and)\n          (VP\n            (VB walk)\n            (PRT (RP away))\n            (PP (IN without) (NP (JJ serious) (NNS injuries)))))))\n    (VP (VBZ is) (ADJP (JJ mind-boggling)))\n    (. .)))"
+    },
+    "If I just write a sentence, I can also type in some random stuff.": {
+        "chunks": [
+            "If I just write a sentence",
+            "I just write a sentence",
+            "write a sentence",
+            "a sentence",
+            "can also type in some random stuff",
+            "type in some random stuff",
+            "in some random stuff",
+            "some random stuff"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (SBAR\n      (IN If)\n      (S\n        (NP (PRP I))\n        (ADVP (RB just))\n        (VP (VB write) (NP (DT a) (NN sentence)))))\n    (, ,)\n    (NP (PRP I))\n    (VP\n      (MD can)\n      (ADVP (RB also))\n      (VP\n        (VB type)\n        (PP (IN in) (NP (DT some) (JJ random) (NN stuff)))))\n    (. .)))"
+    },
+    "If I just write a sentence, I can also give in some random stuff.": {
+        "chunks": [
+            "If I just write a sentence",
+            "I just write a sentence",
+            "write a sentence",
+            "a sentence",
+            "can also give in some random stuff",
+            "give in some random stuff",
+            "in some random stuff",
+            "some random stuff"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (SBAR\n      (IN If)\n      (S\n        (NP (PRP I))\n        (ADVP (RB just))\n        (VP (VB write) (NP (DT a) (NN sentence)))))\n    (, ,)\n    (NP (PRP I))\n    (VP\n      (MD can)\n      (ADVP (RB also))\n      (VP\n        (VB give)\n        (PP (IN in) (NP (DT some) (JJ random) (NN stuff)))))\n    (. .)))"
+    },
+    "If I just write a sentence, I can also in some random stuff.": {
+        "chunks": [
+            "If I just write a sentence",
+            "I just write a sentence",
+            "write a sentence",
+            "a sentence",
+            "can also in some random stuff",
+            "also in some random stuff",
+            "in some random stuff",
+            "some random stuff"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (SBAR\n      (IN If)\n      (S\n        (NP (PRP I))\n        (ADVP (RB just))\n        (VP (VB write) (NP (DT a) (NN sentence)))))\n    (, ,)\n    (NP (PRP I))\n    (VP\n      (MD can)\n      (VP\n        (ADVP (RB also))\n        (PP (IN in) (NP (DT some) (JJ random) (NN stuff)))))\n    (. .)))"
+    },
+    "If I just write a sentence, what does this mean": {
+        "chunks": [
+            "If I just write a sentence",
+            "I just write a sentence",
+            "write a sentence",
+            "a sentence",
+            "does this mean"
+        ],
+        "tree_string": "(ROOT\n  (SBARQ\n    (SBAR\n      (IN If)\n      (S\n        (NP (PRP I))\n        (ADVP (RB just))\n        (VP (VB write) (NP (DT a) (NN sentence)))))\n    (, ,)\n    (WHNP (WP what))\n    (SQ (VBZ does) (NP (DT this)) (VP (VB mean)))))"
+    },
+    "If I just write a sentence, I can type in some random stuff.": {
+        "chunks": [
+            "If I just write a sentence",
+            "I just write a sentence",
+            "write a sentence",
+            "a sentence",
+            "can type in some random stuff",
+            "type in some random stuff",
+            "in some random stuff",
+            "some random stuff"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (SBAR\n      (IN If)\n      (S\n        (NP (PRP I))\n        (ADVP (RB just))\n        (VP (VB write) (NP (DT a) (NN sentence)))))\n    (, ,)\n    (NP (PRP I))\n    (VP\n      (MD can)\n      (VP\n        (VB type)\n        (PP (IN in) (NP (DT some) (JJ random) (NN stuff)))))\n    (. .)))"
+    },
+    "If I just write a sentence, I can all type in some random stuff.": {
+        "chunks": [
+            "If I just write a sentence",
+            "I just write a sentence",
+            "write a sentence",
+            "a sentence",
+            "can all type in some random stuff",
+            "type in some random stuff",
+            "in some random stuff",
+            "some random stuff"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (SBAR\n      (IN If)\n      (S\n        (NP (PRP I))\n        (ADVP (RB just))\n        (VP (VB write) (NP (DT a) (NN sentence)))))\n    (, ,)\n    (NP (PRP I))\n    (VP\n      (MD can)\n      (RB all)\n      (VP\n        (VB type)\n        (PP (IN in) (NP (DT some) (JJ random) (NN stuff)))))\n    (. .)))"
+    },
+    "If I just write a sentence, I can give in some random stuff.": {
+        "chunks": [
+            "If I just write a sentence",
+            "I just write a sentence",
+            "write a sentence",
+            "a sentence",
+            "can give in some random stuff",
+            "give in some random stuff",
+            "in some random stuff",
+            "some random stuff"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (SBAR\n      (IN If)\n      (S\n        (NP (PRP I))\n        (ADVP (RB just))\n        (VP (VB write) (NP (DT a) (NN sentence)))))\n    (, ,)\n    (NP (PRP I))\n    (VP\n      (MD can)\n      (VP\n        (VB give)\n        (PP (IN in) (NP (DT some) (JJ random) (NN stuff)))))\n    (. .)))"
+    },
+    "If I just write a sentence, I can also gave in some random stuff.": {
+        "chunks": [
+            "If I just write a sentence",
+            "I just write a sentence",
+            "write a sentence",
+            "a sentence",
+            "can also gave in some random stuff",
+            "gave in some random stuff",
+            "in some random stuff",
+            "some random stuff"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (SBAR\n      (IN If)\n      (S\n        (NP (PRP I))\n        (ADVP (RB just))\n        (VP (VB write) (NP (DT a) (NN sentence)))))\n    (, ,)\n    (NP (PRP I))\n    (VP\n      (MD can)\n      (ADVP (RB also))\n      (VP\n        (VBD gave)\n        (PP (IN in) (NP (DT some) (JJ random) (NN stuff)))))\n    (. .)))"
+    },
+    "This is just an example sentence that I am using to test some things.": {
+        "chunks": [
+            "is just an example sentence that I am using to test some things",
+            "an example sentence ",
+            "that I am using to test some things",
+            "I am using to test some things",
+            "am using to test some things",
+            "using to test some things",
+            "to test some things",
+            "to test some things",
+            "test some things",
+            "some things"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (DT This))\n    (VP\n      (VBZ is)\n      (ADVP (RB just))\n      (NP (DT an) (NN example) (NN sentence))\n      (SBAR\n        (IN that)\n        (S\n          (NP (PRP I))\n          (VP\n            (VBP am)\n            (VP\n              (VBG using)\n              (S\n                (VP\n                  (TO to)\n                  (VP (VB test) (NP (DT some) (NNS things))))))))))\n    (. .)))"
+    },
+    "This is just an interesting sentence that I am using to test some things.": {
+        "chunks": [
+            "is just an interesting sentence that I am using to test some things",
+            "an interesting sentence ",
+            "that I am using to test some things",
+            "I am using to test some things",
+            "am using to test some things",
+            "using to test some things",
+            "to test some things",
+            "to test some things",
+            "test some things",
+            "some things"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (DT This))\n    (VP\n      (VBZ is)\n      (ADVP (RB just))\n      (NP (DT an) (JJ interesting) (NN sentence))\n      (SBAR\n        (IN that)\n        (S\n          (NP (PRP I))\n          (VP\n            (VBP am)\n            (VP\n              (VBG using)\n              (S\n                (VP\n                  (TO to)\n                  (VP (VB test) (NP (DT some) (NNS things))))))))))\n    (. .)))"
+    },
+    "This is just an example car that I am using to test some things.": {
+        "chunks": [
+            "is just an example car that I am using to test some things",
+            "an example car ",
+            "that I am using to test some things",
+            "I am using to test some things",
+            "am using to test some things",
+            "using to test some things",
+            "to test some things",
+            "to test some things",
+            "test some things",
+            "some things"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (DT This))\n    (VP\n      (VBZ is)\n      (ADVP (RB just))\n      (NP (DT an) (NN example) (NN car))\n      (SBAR\n        (IN that)\n        (S\n          (NP (PRP I))\n          (VP\n            (VBP am)\n            (VP\n              (VBG using)\n              (S\n                (VP\n                  (TO to)\n                  (VP (VB test) (NP (DT some) (NNS things))))))))))\n    (. .)))"
+    },
+    "This is just an example sentence that I am using to look at some things.": {
+        "chunks": [
+            "is just an example sentence that I am using to look at some things",
+            "an example sentence ",
+            "that I am using to look at some things",
+            "I am using to look at some things",
+            "am using to look at some things",
+            "using to look at some things",
+            "to look at some things",
+            "to look at some things",
+            "look at some things",
+            "at some things",
+            "some things"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (DT This))\n    (VP\n      (VBZ is)\n      (ADVP (RB just))\n      (NP (DT an) (NN example) (NN sentence))\n      (SBAR\n        (IN that)\n        (S\n          (NP (PRP I))\n          (VP\n            (VBP am)\n            (VP\n              (VBG using)\n              (S\n                (VP\n                  (TO to)\n                  (VP\n                    (VB look)\n                    (PP (IN at) (NP (DT some) (NNS things)))))))))))\n    (. .)))"
+    },
+    "This is just an example sentence that I am using to check some things.": {
+        "chunks": [
+            "is just an example sentence that I am using to check some things",
+            "an example sentence ",
+            "that I am using to check some things",
+            "I am using to check some things",
+            "am using to check some things",
+            "using to check some things",
+            "to check some things",
+            "to check some things",
+            "check some things",
+            "some things"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (DT This))\n    (VP\n      (VBZ is)\n      (ADVP (RB just))\n      (NP (DT an) (NN example) (NN sentence))\n      (SBAR\n        (IN that)\n        (S\n          (NP (PRP I))\n          (VP\n            (VBP am)\n            (VP\n              (VBG using)\n              (S\n                (VP\n                  (TO to)\n                  (VP (VB check) (NP (DT some) (NNS things))))))))))\n    (. .)))"
+    },
+    "This is just an example sentence that I am using to tested some things.": {
+        "chunks": [
+            "is just an example sentence that I am using to tested some things",
+            "an example sentence ",
+            "that I am using to tested some things",
+            "I am using to tested some things",
+            "am using to tested some things",
+            "using to tested some things",
+            "to tested some things",
+            "to tested some things",
+            "tested some things",
+            "some things"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (DT This))\n    (VP\n      (VBZ is)\n      (ADVP (RB just))\n      (NP (DT an) (NN example) (NN sentence))\n      (SBAR\n        (IN that)\n        (S\n          (NP (PRP I))\n          (VP\n            (VBP am)\n            (VP\n              (VBG using)\n              (S\n                (VP\n                  (TO to)\n                  (VP (VB tested) (NP (DT some) (NNS things))))))))))\n    (. .)))"
+    },
+    "This is just an example sentence that I am using to tree some things.": {
+        "chunks": [
+            "is just an example sentence that I am using to tree some things",
+            "an example sentence ",
+            "that I am using to tree some things",
+            "I am using to tree some things",
+            "am using to tree some things",
+            "using to tree some things",
+            "to tree some things",
+            "to tree some things",
+            "tree some things",
+            "some things"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (DT This))\n    (VP\n      (VBZ is)\n      (ADVP (RB just))\n      (NP (DT an) (NN example) (NN sentence))\n      (SBAR\n        (IN that)\n        (S\n          (NP (PRP I))\n          (VP\n            (VBP am)\n            (VP\n              (VBG using)\n              (S\n                (VP\n                  (TO to)\n                  (VP (VB tree) (NP (DT some) (NNS things))))))))))\n    (. .)))"
     }
 }

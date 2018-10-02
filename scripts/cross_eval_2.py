@@ -20,10 +20,9 @@ from sklearn.model_selection import train_test_split, cross_val_score
 # from utils.comparer.comparer import TreeComparer
 
 
-
 class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
 
-    def __init__(self, length_scale=100):
+    def __init__(self, length_scale=16):
 
         # Read the csv into memory, there should only be 100 items in it at the moment. 
         path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/matrix_100.csv'
@@ -36,7 +35,6 @@ class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
         self.array = np.array(array)
         self.length_scale = length_scale
         
-
     def __call__(self, X, Y=None):
         '''
         Implements this:
@@ -81,7 +79,8 @@ def evaluate():
 
     # Create the kernel and the GP
     kernel = CustomKernel()
-    gp = GaussianProcessRegressor(kernel=kernel, optimizer=0, alpha=1)
+    # kernel = C(1.0, (1e-3, 1e3)) * RBF(10, (1e-2, 1e2))
+    gp = GaussianProcessRegressor(kernel=kernel, optimizer=10, alpha=0.15,normalize_y=True)
 
     # Get all of the availiable questions
     questions = np.atleast_2d(range(1, 100)).T
@@ -102,11 +101,8 @@ def evaluate():
         # make predictions
         predictions, sigma = gp.predict(X_test, return_std=True)
 
-            for x in predictions:
-                print(x)
-        
         # get the mean squared error
-        mse = ((predictions - y_test)**2).mean()
+        mse = np.abs(((predictions - y_test)).mean())
         scores.append(mse)
 
     # convert the scores array to np array
@@ -114,8 +110,9 @@ def evaluate():
     print(scores)
     # print the mean score over all of the folds
     print("Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
-
+    print()
 
 if __name__ == '__main__':
    print("Evaluation:")   
    evaluate()
+
