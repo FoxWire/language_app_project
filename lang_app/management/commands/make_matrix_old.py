@@ -12,43 +12,43 @@ class Command(BaseCommand):
         always continue from where it left off on the last execution.
         '''
     comp = TreeComparer()
-    path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/matrix_2000.csv'
+    path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/matrix_201.csv'
 
     def handle(self, *args, **options):
 
         ## --- USE THIS CODE TO MAKE COMPLETE MATRIX FOR ALL CARDS --- ##
         # Get the index of the last row that was written to the csv file
-        index = self.get_start_point()
-        cards_this_run = Card.objects.all()[index:]
-        all_cards = Card.objects.all()
-        total_number_of_cards = len(Card.objects.all())
+        # index = self.get_start_point()
+        # cards_this_run = Card.objects.all()[index:]
+        # all_cards = Card.objects.all()
+        # total_number_of_cards = len(Card.objects.all())
     
-        # Make the comparisons and write the line to the csv
-        with open(self.path, 'a') as file:
-            writer = csv.writer(file, delimiter=',')
-            for i in cards_this_run:
-                cols = []
-                print("{}/{}".format(i.pk, total_number_of_cards))
-                for j in tqdm(all_cards):
-                    cols.append(self.comp.compare(i, j))
-                writer.writerow(cols)
+        # # Make the comparisons and write the line to the csv
+        # with open(self.path, 'a') as file:
+        #     writer = csv.writer(file, delimiter=',')
+        #     for i in cards_this_run:
+        #         cols = []
+        #         print("{}/{}".format(i.pk, total_number_of_cards))
+        #         for j in tqdm(all_cards):
+        #             cols.append(self.comp.compare(i, j))
+        #         writer.writerow(cols)
 
 
         ##--- USE THIS CODE TO MAKE CUSTOM MATRIX---##
 
-        # cards = Card.objects.all()[:10]
+        cards = Card.objects.all()[:201]
         
-        # total_number_of_cards = len(cards)
+        total_number_of_cards = len(cards)
     
-        # # Make the comparisons and write the line to the csv
-        # with open('/home/stuart/Desktop/matrix_new.csv', 'a') as file:
-        #     writer = csv.writer(file, delimiter=',')
-        #     for i in cards:
-        #         cols = []
-        #         print("{}/{}".format(i.pk, total_number_of_cards))
-        #         for j in tqdm(cards):
-        #             cols.append(self.comp.compare(i, j))
-        #         writer.writerow(cols)
+        # Make the comparisons and write the line to the csv
+        with open(self.path, 'a') as file:
+            writer = csv.writer(file, delimiter=',')
+            for i in cards:
+                cols = []
+                print("{}/{}".format(i.pk, total_number_of_cards))
+                for j in tqdm(cards):
+                    cols.append(self.comp.compare(i, j))
+                writer.writerow(cols)
 
 
     def get_start_point(self):
