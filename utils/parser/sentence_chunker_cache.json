@@ -24973,5 +24973,124 @@
     "the rollercoaster ride": {
         "chunks": [],
         "tree_string": "(ROOT (FRAG (NP (DT the) (JJ rollercoaster) (NN ride))))"
+    },
+    "I'm looking forward to the weekend.": {
+        "chunks": [
+            "looking forward to the weekend",
+            "to the weekend",
+            "the weekend"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBP 'm)\n      (VP\n        (VBG looking)\n        (ADVP (RB forward))\n        (PP (TO to) (NP (DT the) (NN weekend)))))\n    (. .)))"
+    },
+    "I'm looking forward to going on holiday.": {
+        "chunks": [
+            "looking forward to going on holiday",
+            "to going on holiday",
+            "going on holiday",
+            "going on holiday",
+            "on holiday"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBP 'm)\n      (VP\n        (VBG looking)\n        (ADVP (RB forward))\n        (PP\n          (TO to)\n          (S (VP (VBG going) (PP (IN on) (NP (NN holiday))))))))\n    (. .)))"
+    },
+    "I'm looking forward to talking to him.": {
+        "chunks": [
+            "looking forward to talking to him",
+            "to talking to him",
+            "talking to him",
+            "talking to him",
+            "to him"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBP 'm)\n      (VP\n        (VBG looking)\n        (ADVP (RB forward))\n        (PP\n          (TO to)\n          (S (VP (VBG talking) (PP (TO to) (NP (PRP him))))))))\n    (. .)))"
+    },
+    "We were swimming with her this morning.": {
+        "chunks": [
+            "were swimming with her this morning",
+            "swimming with her this morning",
+            "with her ",
+            "this morning"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP We))\n    (VP\n      (VBD were)\n      (VP\n        (VBG swimming)\n        (PP (IN with) (NP (PRP her)))\n        (NP (DT this) (NN morning))))\n    (. .)))"
+    },
+    "I was speaking to him yesterday.": {
+        "chunks": [
+            "was speaking to him yesterday",
+            "speaking to him yesterday",
+            "to him "
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBD was)\n      (VP\n        (VBG speaking)\n        (PP (TO to) (NP (PRP him)))\n        (NP (NN yesterday))))\n    (. .)))"
+    },
+    "We were swimming with her today.": {
+        "chunks": [
+            "were swimming with her today",
+            "swimming with her today",
+            "with her today",
+            "her today"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP We))\n    (VP\n      (VBD were)\n      (VP (VBG swimming) (PP (IN with) (NP (PRP$ her) (NN today)))))\n    (. .)))"
+    },
+    "I was speaking with him yesterday.": {
+        "chunks": [
+            "was speaking with him yesterday",
+            "speaking with him yesterday",
+            "with him "
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBD was)\n      (VP\n        (VBG speaking)\n        (PP (IN with) (NP (PRP him)))\n        (NP (NN yesterday))))\n    (. .)))"
+    },
+    "I was speaking with him today.": {
+        "chunks": [
+            "was speaking with him today",
+            "speaking with him today",
+            "with him "
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBD was)\n      (VP\n        (VBG speaking)\n        (PP (IN with) (NP (PRP him)))\n        (NP (NN today))))\n    (. .)))"
+    },
+    "I was swimming with him today.": {
+        "chunks": [
+            "was swimming with him today",
+            "swimming with him today",
+            "with him "
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBD was)\n      (VP\n        (VBG swimming)\n        (PP (IN with) (NP (PRP him)))\n        (NP (NN today))))\n    (. .)))"
+    },
+    "We were swimming with him today.": {
+        "chunks": [
+            "were swimming with him today",
+            "swimming with him today",
+            "with him "
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP We))\n    (VP\n      (VBD were)\n      (VP\n        (VBG swimming)\n        (PP (IN with) (NP (PRP him)))\n        (NP (NN today))))\n    (. .)))"
+    },
+    "We were speaking with her today.": {
+        "chunks": [
+            "were speaking with her today",
+            "speaking with her today",
+            "with her today",
+            "her today"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP We))\n    (VP\n      (VBD were)\n      (VP (VBG speaking) (PP (IN with) (NP (PRP$ her) (NN today)))))\n    (. .)))"
+    },
+    "Has he ever seen kangaroos?": {
+        "chunks": [
+            "ever seen kangaroos"
+        ],
+        "tree_string": "(ROOT\n  (SQ\n    (VBZ Has)\n    (NP (PRP he))\n    (VP (ADVP (RB ever)) (VBN seen) (NP (NNS kangaroos)))\n    (. ?)))"
+    },
+    "Have I ever seen kangaroos?": {
+        "chunks": [
+            "ever seen kangaroos"
+        ],
+        "tree_string": "(ROOT\n  (SQ\n    (VBP Have)\n    (NP (PRP I))\n    (VP (ADVP (RB ever)) (VBN seen) (NP (NNS kangaroos)))\n    (. ?)))"
+    },
+    "Have you ever eaten fish?": {
+        "chunks": [
+            "ever eaten fish"
+        ],
+        "tree_string": "(ROOT\n  (SQ\n    (VBP Have)\n    (NP (PRP you))\n    (VP (ADVP (RB ever)) (VBN eaten) (NP (NN fish)))\n    (. ?)))"
+    },
+    "Have you ever eaten meat?": {
+        "chunks": [
+            "ever eaten meat"
+        ],
+        "tree_string": "(ROOT\n  (SQ\n    (VBP Have)\n    (NP (PRP you))\n    (VP (ADVP (RB ever)) (VBN eaten) (NP (NN meat)))\n    (. ?)))"
     }
 }
