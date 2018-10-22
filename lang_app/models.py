@@ -6,9 +6,10 @@ from django.db import models
 class Sentence(models.Model):
 
     sentence = models.CharField(max_length=1024, unique=True)
+    uncommon_words_score = models.IntegerField(default=None, blank=True, null=True)
 
     def __str__(self):
-        return self.sentence
+        return self.sentence + ' ' + str(self.uncommon_words_score)
 
 
 class Card(models.Model):

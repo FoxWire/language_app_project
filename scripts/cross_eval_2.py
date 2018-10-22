@@ -25,7 +25,7 @@ import matplotlib.patches as mpatches
 
 class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
 
-    def __init__(self, length_scale=15.0):
+    def __init__(self, length_scale=17.0):
 
         root = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/'
         file = 'matrix_201.csv'
@@ -153,7 +153,6 @@ def evaluate(binary=True):
         # Split the data   
         X_train, X_test, y_train, y_test = train_test_split(questions, answers, 
                                                             test_size=0.005, random_state=randint(1, 100))
-
         # Fit the data
         gp.fit(X_train, y_train)
 
@@ -195,8 +194,11 @@ def evaluate(binary=True):
         master_predictions = [x if x > 0 else 0 for x in master_predictions]
 
     # Plot the test and the training data
-    plot(master_y_test, master_predictions)
+    # plot(master_y_test, master_predictions)
     # plot(master_y_train, master_predictions_train)
+
+    # plot_difference(master_y_test, master_predictions)
+   
 
    
 def log_marginal_likelihood():
@@ -211,7 +213,7 @@ def log_marginal_likelihood():
     '''
 
     kernel = CustomKernel()
-    gp = GaussianProcessRegressor(kernel=kernel, alpha=0.9, normalize_y=True)
+    gp = GaussianProcessRegressor(kernel=kernel, optimizer=None, alpha=0.9, normalize_y=True)
 
     # # Get all of the availiable questions
     questions = np.atleast_2d(range(1, 201)).T
@@ -233,11 +235,32 @@ def log_marginal_likelihood():
     # construct theta
     values = [val for val in kernel.get_params().values()]
     theta = np.array(values)
+    print(theta)
 
-    value = gp.log_marginal_likelihood(theta=theta)
+    value = gp.log_marginal_likelihood()
     print(value)
 
+def plot_difference(master_y_test, master_predictions):
+    '''
+    This should take the predicted value for each question and the values
+    that were actually observed. It should get the absolute differnce between the 
+    two and make a bar chart for them. 
 
+    You'll be able to see how much the model is off for each question
+
+    You want to try to reduce this as much as possible. 
+    '''
+
+    objects = [x for x in range(len(master_predictions))]
+    y_pos = np.arange(len(objects))
+    performance = master_predictions
+     
+    plt.bar(y_pos, performance, align='center', alpha=0.5)
+    plt.ylabel('Difference in score')
+    plt.xlabel('Question number')
+    plt.title('')
+     
+    plt.show()
 
 def plot(master_y_test, master_predictions):
     # Plot the data
@@ -245,9 +268,14 @@ def plot(master_y_test, master_predictions):
     blue_patch =mpatches.Patch(color='blue', label='Observed')
 
     plt.legend(handles=[red_patch, blue_patch])
-    plt.scatter([x for x in range(1, len(master_y_test) + 1)], master_y_test, c='blue', marker='.')
-    plt.scatter([x for x in range(1, len(master_predictions) + 1)], master_predictions, c='red', marker='.')
+    # plt.scatter([x for x in range(1, len(master_y_test) + 1)], master_y_test, c='blue', marker='.')
+    # plt.scatter([x for x in range(1, len(master_predictions) + 1)], master_predictions, c='red', marker='.')
     plt.xlabel('question number')
+
+    
+    plt.bar(np.array(len(master_predictions)), master_predictions, align='center', alpha=0.5)
+    
+
     plt.ylabel('score');
     plt.show()
 
@@ -260,6 +288,6 @@ if __name__ == '__main__':
    and -1 for wrong. Otherwise the full range of values is
    used.
    '''
-   evaluate(binary=False)
-   # log_marginal_likelihood()
+   # evaluate(binary=False)
+   log_marginal_likelihood()
 

@@ -6,13 +6,15 @@ sys.path.append('/home/stuart/PycharmProjects/workspaces/language_app_project')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'language_app_project.settings'
 django.setup()
 
+import csv
+
 from lang_app.models import Card, Sentence
 from utils.comparer.comparer import TreeComparer
 
-'''
-This is just to check if there are any cards with the chunk I am looking for
-'''
+import nltk
+from nltk.corpus import wordnet
 
-for card in Card.objects.all():
-	if "bone cancer" in card.sentence.sentence:
-		print(card)
+from nltk.stem.wordnet import WordNetLemmatizer
+words = ['gave','went','going','dating', 'incredibly', 'democratic']
+for word in words:
+    print(word + "-->" + WordNetLemmatizer().lemmatize(word, pos=wordnet.ADJ))
