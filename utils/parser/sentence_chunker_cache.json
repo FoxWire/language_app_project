@@ -25092,5 +25092,57 @@
             "ever eaten meat"
         ],
         "tree_string": "(ROOT\n  (SQ\n    (VBP Have)\n    (NP (PRP you))\n    (VP (ADVP (RB ever)) (VBN eaten) (NP (NN meat)))\n    (. ?)))"
+    },
+    "Have you eaten meat?": {
+        "chunks": [
+            "eaten meat"
+        ],
+        "tree_string": "(ROOT\n  (SQ\n    (VBP Have)\n    (NP (PRP you))\n    (VP (VBN eaten) (NP (NN meat)))\n    (. ?)))"
+    },
+    "I am considering going on holiday": {
+        "chunks": [
+            "am considering going on holiday",
+            "considering going on holiday",
+            "going on holiday",
+            "going on holiday",
+            "on holiday"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBP am)\n      (VP\n        (VBG considering)\n        (S (VP (VBG going) (PP (IN on) (NP (NN holiday)))))))))"
+    },
+    "I am considering to go on holiday": {
+        "chunks": [
+            "am considering to go on holiday",
+            "considering to go on holiday",
+            "to go on holiday",
+            "to go on holiday",
+            "go on holiday",
+            "on holiday"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBP am)\n      (VP\n        (VBG considering)\n        (S (VP (TO to) (VP (VB go) (PP (IN on) (NP (NN holiday))))))))))"
+    },
+    "Have they ever seen kangaroos?": {
+        "chunks": [
+            "ever seen kangaroos"
+        ],
+        "tree_string": "(ROOT\n  (SQ\n    (VBP Have)\n    (NP (PRP they))\n    (VP (ADVP (RB ever)) (VBN seen) (NP (NNS kangaroos)))\n    (. ?)))"
+    },
+    "Is there any other way to do this?": {
+        "chunks": [
+            "any other way to do this",
+            "any other way ",
+            "to do this",
+            "to do this",
+            "do this"
+        ],
+        "tree_string": "(ROOT\n  (SQ\n    (VBZ Is)\n    (NP (EX there))\n    (NP\n      (NP (DT any) (JJ other) (NN way))\n      (S (VP (TO to) (VP (VB do) (NP (DT this))))))\n    (. ?)))"
+    },
+    "What is the capital of Scotland?": {
+        "chunks": [
+            "is the capital of Scotland",
+            "the capital of Scotland",
+            "the capital ",
+            "of Scotland"
+        ],
+        "tree_string": "(ROOT\n  (SBARQ\n    (WHNP (WP What))\n    (SQ\n      (VBZ is)\n      (NP\n        (NP (DT the) (NN capital))\n        (PP (IN of) (NP (NNP Scotland)))))\n    (. ?)))"
     }
 }

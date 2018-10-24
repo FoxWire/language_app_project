@@ -6,26 +6,16 @@ from sklearn.gaussian_process.kernels import RBF, Kernel, StationaryKernelMixin,
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import RBF, ConstantKernel as C
 from random import randint, shuffle
-from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.model_selection import train_test_split, cross_val_score, KFold
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
-# Django stuff
-# import os
-# import sys
-# import django
-# sys.path.append('/home/stuart/PycharmProjects/workspaces/language_app_project')
-# os.environ['DJANGO_SETTINGS_MODULE'] = 'language_app_project.settings'
-# django.setup()
-
-# from lang_app.models import Card, Sentence
-# from utils.comparer.comparer import TreeComparer
 
 
 class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
 
-    def __init__(self, length_scale=15.0):
+    def __init__(self, length_scale=25):
 
         root = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/'
         file = 'matrix_201.csv'
@@ -59,10 +49,7 @@ class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
         In order to use the log_marginal_likelihood function on the gp, the custom kernel has to register
         the hyperparameters. I also had to override the Hyperparameter getters and setters.
         '''
-        self.length_scale_bounds = np.atleast_2d([1, 100])
-        h = [Hyperparameter(name='length_scale', value_type='numeric', bounds=self.length_scale_bounds),]
-        self.hyperparameters = h    
-
+  
     def __call__(self, X, Y=None):
         '''
         Implements this:
@@ -84,14 +71,6 @@ class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
         
         kernel = np.exp(-.5 * (x**2) / self.length_scale)
         return np.atleast_2d(kernel)
-
-    @property
-    def hyperparameters(self):
-        return self._hyperparameters
-
-    @hyperparameters.setter
-    def hyperparameters(self, array):
-        self._hyperparameters = array
 
 
 # Read in the 200 questions. 
@@ -137,106 +116,80 @@ def evaluate(binary=True):
     # Get answers to all of the questions
     answers = np.atleast_2d(answers.ravel()).T
 
-    # testing
-    master_predictions = []
-    master_y_test = []
 
-    # training
-    master_predictions_train = []
-    master_y_train = []
+    kfold = KFold(n_splits=200)
+    results = []
 
-    test_errors = []
-    training_errors = []
-    number_of_folds = 201
-    for i in tqdm(range(number_of_folds)):
-        
-        # Split the data   
-        X_train, X_test, y_train, y_test = train_test_split(questions, answers, 
-                                                            test_size=0.005, random_state=randint(1, 100))
+    for train, test in kfold.split(questions):
 
-        # Fit the data
+        X_train, X_test, y_train, y_test = questions[train], questions[test], answers[train], answers[test]
+      
         gp.fit(X_train, y_train)
 
-        # Make predictions on the test data, to get test error
         predictions, sigma = gp.predict(X_test, return_std=True)
 
         if binary:
-            predictions = make_binary(predictions)
+            prediction = make_binary(predictions)
+
+        results.append(prediction[0][0] == y_test[0][0])
+
+    correct = 0
+    for x in results:
+        if x:
+            correct += 1
+
+    print(correct)
+
+
+
+        # Split the data   
+        # X_train, X_test, y_train, y_test = train_test_split(questions, answers, 
+        #                                                     test_size=0.005, random_state=x)
       
-        test_error = np.abs((predictions - y_test).mean())
-        test_errors.append(test_error)
 
-        # Collect results from testing to make the plot
-        master_predictions.append(predictions[0][0])
-        master_y_test.append(y_test[0][0])
+        # # Fit the data
+        # gp.fit(X_train, y_train)
 
-        # Make predictions on the training data to get the training error
-        predictions_train, sigma_train = gp.predict(X_train, return_std=True)
-        training_error = np.abs((predictions_train - y_train).mean())
-        training_errors.append(training_error)
+        # # Make predictions on the test data, to get test error
+        # predictions, sigma = gp.predict(X_test, return_std=True)
 
-        # Collect data on training to make the second plot
-        master_predictions_train.append(predictions_train[0][0])
-        master_y_train.append(y_train[0][0])
+        # if binary:
+        #     predictions = make_binary(predictions)
+      
+        # test_error = np.abs((predictions - y_test).mean())
+        # test_errors.append(test_error)
 
-    # Convert the scores array to np array
-    test_errors = np.array(test_errors)
-    training_errors = np.array(training_errors)
-    # Print the mean score over all of the folds
-    print("Test error: %0.2f (+/- %0.2f)" % (test_errors.mean(), test_errors.std() * 2))
-    print("Training error: %0.2f (+/- %0.2f)" % (training_errors.mean(), training_errors.std() * 2))
-    print()
+        # # Collect results from testing to make the plot
+        # master_predictions.append(predictions[0][0])
+        # master_y_test.append(y_test[0][0])
 
-    '''
-    If you are not converting the data to binary, you still need to truncate the 
-    predicted values that are below zero to zero.
-    '''
-    if not binary:
-        master_predictions = [x if x > 0 else 0 for x in master_predictions]
+        # # Make predictions on the training data to get the training error
+        # predictions_train, sigma_train = gp.predict(X_train, return_std=True)
+        # training_error = np.abs((predictions_train - y_train).mean())
+        # training_errors.append(training_error)
 
-    # Plot the test and the training data
-    plot(master_y_test, master_predictions)
-    # plot(master_y_train, master_predictions_train)
+        # # Collect data on training to make the second plot
+        # master_predictions_train.append(predictions_train[0][0])
+        # master_y_train.append(y_train[0][0])
 
-   
-def log_marginal_likelihood():
+    # # Convert the scores array to np array
+    # test_errors = np.array(test_errors)
+    # training_errors = np.array(training_errors)
+    # # Print the mean score over all of the folds
+    # print("Test error: %0.2f (+/- %0.2f)" % (test_errors.mean(), test_errors.std() * 2))
+    # print("Training error: %0.2f (+/- %0.2f)" % (training_errors.mean(), training_errors.std() * 2))
+    # print()
 
+    # '''
+    # If you are not converting the data to binary, you still need to truncate the 
+    # predicted values that are below zero to zero.
+    # '''
+    # if not binary:
+    #     master_predictions = [x if x > 0 else 0 for x in master_predictions]
 
-    '''
-    What is the theta object that you are putting into the log marginal likelihood function?
-    It is a numpy array of shape (2, ). Each of the elements in the array are the float values of the 
-    hyper parameters. The theta looks like this for the rbf kernel: [0.         2.30258509]
-
-    It is a list of the values for each of your hyperparameters
-    '''
-
-    kernel = CustomKernel()
-    gp = GaussianProcessRegressor(kernel=kernel, alpha=0.9, normalize_y=True)
-
-    # # Get all of the availiable questions
-    questions = np.atleast_2d(range(1, 201)).T
-
-    # Get answers to all of the questions
-    answers = np.atleast_2d(ask_user(questions).ravel()).T
-
-    X_train, X_test, y_train, y_test = train_test_split(questions, answers, 
-                                                            test_size=0.1, random_state=1)
-
-    gp.fit(X_train, y_train)
-
-    # # Make predictions on the test data, to get test error
-    # predictions, sigma = gp.predict(X_test, return_std=True)
-
-
-    print("--------------------------")
-  
-    # construct theta
-    values = [val for val in kernel.get_params().values()]
-    theta = np.array(values)
-
-    value = gp.log_marginal_likelihood(theta=theta)
-    print(value)
-
+    # # Plot the test and the training data
+    # plot(master_y_test, master_predictions)
+    # # plot(master_y_train, master_predictions_train)
 
 
 def plot(master_y_test, master_predictions):
@@ -253,13 +206,21 @@ def plot(master_y_test, master_predictions):
 
 
 if __name__ == '__main__':
-   print("Evaluation:")   
-
+  
    '''
    Set binary to true to have values set to 1 for correct 
    and -1 for wrong. Otherwise the full range of values is
    used.
    '''
-   evaluate(binary=False)
-   # log_marginal_likelihood()
+   evaluate(binary=True)
 
+   # X = ["a", "b", "c", "d"]
+   # kf = KFold(n_splits=4)
+   # for train, test in kf.split(X):
+   #      print("%s %s" % (train, test))
+  
+
+'''
+Here we split the test data up into test and training and do the kfold evaluation.
+The result is that it got just more than half right. 
+'''

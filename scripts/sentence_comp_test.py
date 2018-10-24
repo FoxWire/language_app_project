@@ -11,8 +11,8 @@ from utils.comparer.comparer import TreeComparer
 from utils.parser.parser import Parser
 
 
-sentence_a = "Have you ever eaten meat?"
-sentence_b = "Have I ever seen kangaroos?"
+sentence_a = "Is there any other way to do this?"
+sentence_b = "What is the capital of Scotland?"
 comp = TreeComparer()
 parser = Parser()
 
