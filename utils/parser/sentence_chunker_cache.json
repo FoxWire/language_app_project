@@ -24973,5 +24973,132 @@
     "the rollercoaster ride": {
         "chunks": [],
         "tree_string": "(ROOT (FRAG (NP (DT the) (JJ rollercoaster) (NN ride))))"
+    },
+    "I have eaten eggs.": {
+        "chunks": [
+            "have eaten eggs",
+            "eaten eggs"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP (VBP have) (VP (VBN eaten) (NP (NNS eggs))))\n    (. .)))"
+    },
+    "I've eaten eggs.": {
+        "chunks": [
+            "eaten eggs"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP (VBP 've) (VP (VBN eaten) (NP (NNS eggs))))\n    (. .)))"
+    },
+    "I've been open about it.": {
+        "chunks": [
+            "been open about it",
+            "about it"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBP 've)\n      (VP (VBN been) (ADJP (JJ open)) (PP (IN about) (NP (PRP it)))))\n    (. .)))"
+    },
+    "I have missed the point": {
+        "chunks": [
+            "have missed the point",
+            "missed the point",
+            "the point"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP (VBP have) (VP (VBN missed) (NP (DT the) (NN point))))))"
+    },
+    "I had spoken to him about it earlier.": {
+        "chunks": [
+            "had spoken to him about it earlier",
+            "spoken to him about it earlier",
+            "to him about it ",
+            "him about it ",
+            "about it "
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBD had)\n      (VP\n        (VBN spoken)\n        (PP\n          (TO to)\n          (NP (NP (PRP him)) (PP (IN about) (NP (PRP it)))))\n        (ADVP (RBR earlier))))\n    (. .)))"
+    },
+    "I had been driving for hours": {
+        "chunks": [
+            "had been driving for hours",
+            "been driving for hours",
+            "driving for hours",
+            "for hours"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBD had)\n      (VP\n        (VBN been)\n        (VP (VBG driving) (PP (IN for) (NP (NNS hours))))))))"
+    },
+    "I don't really know what to say about it.": {
+        "chunks": [
+            "know what to say about it",
+            "what to say about it",
+            "to say about it",
+            "to say about it",
+            "say about it",
+            "about it"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBP do)\n      (RB n't)\n      (ADVP (RB really))\n      (VP\n        (VB know)\n        (SBAR\n          (WHNP (WP what))\n          (S\n            (VP (TO to) (VP (VB say) (PP (IN about) (NP (PRP it)))))))))\n    (. .)))"
+    },
+    "I don't know, it's hard to say.": {
+        "chunks": [
+            "I don't know",
+            "don't know",
+            "'s hard to say",
+            "to say",
+            "to say"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (S (NP (PRP I)) (VP (VBP do) (RB n't) (VP (VB know))))\n    (, ,)\n    (NP (PRP it))\n    (VP (VBZ 's) (ADJP (JJ hard) (S (VP (TO to) (VP (VB say))))))\n    (. .)))"
+    },
+    "Why don't you ask him?": {
+        "chunks": [
+            "ask him",
+            "don't you ask him"
+        ],
+        "tree_string": "(ROOT\n  (SBARQ\n    (WHADVP (WRB Why))\n    (SQ\n      (VBP do)\n      (RB n't)\n      (NP (PRP you))\n      (VP (VB ask) (NP (PRP him))))\n    (. ?)))"
+    },
+    "I'm considering going away for the weekend.": {
+        "chunks": [
+            "considering going away for the weekend",
+            "for the weekend",
+            "going away for the weekend",
+            "'m considering going away for the weekend",
+            "the weekend"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBP 'm)\n      (VP\n        (VBG considering)\n        (S\n          (VP\n            (VBG going)\n            (PRT (RP away))\n            (PP (IN for) (NP (DT the) (NN weekend)))))))\n    (. .)))"
+    },
+    "What do you think about this?": {
+        "chunks": [
+            "think about this",
+            "do you think about this",
+            "about this"
+        ],
+        "tree_string": "(ROOT\n  (SBARQ\n    (WHNP (WP What))\n    (SQ\n      (VBP do)\n      (NP (PRP you))\n      (VP (VB think) (PP (IN about) (NP (DT this)))))\n    (. ?)))"
+    },
+    "about this": {
+        "chunks": [],
+        "tree_string": "(ROOT (PP (IN about) (NP (DT this))))"
+    },
+    "about the cost of your car": {
+        "chunks": [
+            "your car",
+            "of your car",
+            "the cost ",
+            "the cost of your car"
+        ],
+        "tree_string": "(ROOT\n  (FRAG\n    (IN about)\n    (NP\n      (NP (DT the) (NN cost))\n      (PP (IN of) (NP (PRP$ your) (NN car))))))"
+    },
+    "I've been thinking about it for days.": {
+        "chunks": [
+            "'ve been thinking about it for days",
+            "thinking about it for days",
+            "for days",
+            "been thinking about it for days"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBP 've)\n      (VP\n        (VBN been)\n        (VP\n          (VBG thinking)\n          (IN about)\n          (NP (PRP it))\n          (PP (IN for) (NP (NNS days))))))\n    (. .)))"
+    },
+    "I've been wondering about this for a while now.": {
+        "chunks": [
+            "been wondering about this for a while now",
+            "for a while ",
+            "this for a while ",
+            "about this for a while ",
+            "'ve been wondering about this for a while now",
+            "wondering about this for a while now",
+            "a while "
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBP 've)\n      (VP\n        (VBN been)\n        (VP\n          (VBG wondering)\n          (PP\n            (IN about)\n            (NP (NP (DT this)) (PP (IN for) (NP (DT a) (NN while)))))\n          (ADVP (RB now)))))\n    (. .)))"
     }
 }

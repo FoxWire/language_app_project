@@ -4,6 +4,7 @@ from lang_app.models import Card
 from random import randint
 from utils.question_picker.naive_picker import NaivePicker
 from utils.parser.parser import Parser
+from utils.parser.lemmatizer import Lemmatizer
 from utils.comparer.comparer import TreeComparer
 from random import choice
 import csv
@@ -12,6 +13,7 @@ import csv
 picker = NaivePicker()
 parser = Parser()
 comp = TreeComparer()
+lem = Lemmatizer()
 
 # This is the normal index
 def index(request):
@@ -21,20 +23,25 @@ def index(request):
 
         question_number = request.GET.get('question_number')
         if not question_number:
-            # This is the first question so just return a random card
-            all_cards = Card.objects.all()
+
+            # don't use all cards. Only the cards with less than two uncommon words
+            all_cards = Card.objects.filter(sentence__uncommon_words_score__lt=2)
+
             card = all_cards[randint(0, len(all_cards))]
+
         else:
             # use the question number to pick the next card
             answered_correctly = request.GET.get('answered_correctly')
             current_card = Card.objects.get(pk=question_number)
             card = picker.pick(current_card, answered_correctly)
 
+        print(card.sentence)
         data = card.ask_question()
 
         context = {
             'question_number': card.pk,
             'question_data': data,
+            'required_words': lem.lemmatize(card)
         }
 
     if request.method == 'POST':

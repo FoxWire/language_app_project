@@ -24,7 +24,9 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        # First you will need to read in the list of common words into a set
+        print(len(Sentence.objects.all()))
+
+        # Read in both lists of common words into a set
         common_words = set()
         path = "/home/stuart/PycharmProjects/workspaces/language_app_project/data/"
 
@@ -36,14 +38,24 @@ class Command(BaseCommand):
             for word in file:
                 common_words.add(word.lower().strip())
 
-        for sent_obj in Sentence.objects.all()[90:100]:
+        # iterate over all sentences and apply the score to them
+        for sent_obj in Sentence.objects.all():
             sentence = sent_obj.sentence
 
-            # strip the punctuation
-            words = re.sub(r'[^\w\s\']', '', sentence).lower().split(' ')
+            # strip the punctuation (keep the hyphens though for join words )
+            words = re.sub(r'[^\w\s\'-]', '', sentence).lower()
+
+            # strip out the digits, numbers
+            words = re.sub(r'[0-9]+', '', words)
+
+            # split on spaces and hyphens
+            words = re.split(r'[ -]', words)
 
             # remove any words that are just empty strings
             words = [word for word in words if word]
+
+            # Don't count any duplicate words
+            words = list(set(words))
 
             score, scored_words = 0, []
             for word in words:
@@ -53,9 +65,6 @@ class Command(BaseCommand):
 
             sent_obj.uncommon_words_score = score
             sent_obj.save()
-
-            print(sent_obj)
-            print(scored_words)
 
 
 

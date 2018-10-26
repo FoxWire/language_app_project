@@ -21,17 +21,24 @@ class NaivePicker:
         same question again. Change it so that you see the next most similar question with
         a different question.
 
+        Addition: The picker should not show sentences that contain more than one
+        uncommon word.
+
 
     '''
 
     def __init__(self):
         self.comp = TreeComparer()
-        self.all_cards = [card for card in Card.objects.all()]
+
+        # Only use the cards that have one or less uncommon words
+        self.filtered_cards = Card.objects.filter(sentence__uncommon_words_score__lt=2)
+
+        self.cards_list = [card for card in self.filtered_cards]
 
     def pick(self, card, answered_correctly):
 
         if answered_correctly == 'True':
-            return self.all_cards[randint(0, len(self.all_cards))]
+            return self.cards_list[randint(0, len(self.filtered_cards))]
         else:
 
             if card.similar_cards != 'this':
@@ -55,14 +62,21 @@ class NaivePicker:
             # Get the most similar card that has a sentence different to the current one
             next_card = None
             for pk in similar_card_pks:
-                other_card = Card.objects.get(pk=pk)
-                if other_card.sentence != card.sentence:
-                    next_card = other_card
+                try:
+                    other_card = self.filtered_cards.get(pk=pk)
+                    if other_card.sentence != card.sentence:
+                        next_card = other_card
+                except:
+                    pass
+                    # because of the filtering, it is possible that none of most similar cards
+                    # are in the filtered query set and the get call can't find them. This will throw
+                    # and exception
+
 
             # You are only selecting from the ten most similar cards, so you might not find one from
             # a different sentence. Just take the most similar card even if from the same sentence
             # in this case.
-            next_card = Card.objects.get(pk=similar_card_pks[0]) if not next_card else next_card
+            next_card = self.filtered_cards.get(pk=similar_card_pks[0]) if not next_card else next_card
 
             print("->previous chunk: {}\n->next chunk: {}\n->comparison: {}".format(card.chunk,
                                                                                  next_card.chunk,

@@ -74,18 +74,18 @@ class Parser:
 
         # Check if you have already chunked this sentence
         result = self._check_cache(sentence)
-        if result:
+        if False:
             # print("***   INFO: Sentences retrieved from cache   ***")
             return sentence, result['chunks'], result['tree_string']
 
         # Only attempt to chunk the sentence if it's not in the cache
         else:
             # print("***   INFO: Parsing sentences. This may take some time.   ***")
-            #  Work out the number of parts of speech in the sentence
-            no_of_pos = len(sentence.split(' '))
 
             # Get the parse tree
             tree = next(self.parser.raw_parse(sentence))
+            # get the number of parts of speech in this sentence
+            no_of_pos = len(tree.leaves())
 
             # Get all the subtrees flattened as tuples
             phrases = [(sub.flatten().label(), sub.leaves()) for sub in tree.subtrees()]
@@ -113,8 +113,12 @@ class Parser:
                 else:
                     formatted_chunks.append(result.group())
 
+            # remove any duplicates
+            formatted_chunks = list(set(formatted_chunks))
+
             parsed_object = (sentence, formatted_chunks, str(tree))
             self._write_to_cache(parsed_object)
+
             return parsed_object
 
     # def get_tree_string(self, chunk):
@@ -164,7 +168,7 @@ class Parser:
 
 if __name__ == '__main__':
     parser = Parser()
-    chunks = parser.parse("My name is Stuart.")
+    chunks = parser.parse("I've always worked very hard  outdoors for most of my life as a railway platelayer  and I think that's made me endure as long as I have.")
     print(chunks)
 
 
