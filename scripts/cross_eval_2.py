@@ -15,7 +15,7 @@ import matplotlib.patches as mpatches
 
 class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
 
-    def __init__(self, length_scale=25):
+    def __init__(self, length_scale=0.4):
 
         root = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/'
         file = 'matrix_201.csv'
@@ -94,7 +94,8 @@ def make_binary(array):
     Converts the data to 'binary' (1 for a correct answer and -1 for incorrect)
     This can be toggled when the evaluate function is called.
     '''
-    x = [[1] if a[0] <= 0 else [-1] for a in array]
+    # x = [[1] if a[0] <= 2 else [-1] for a in array]
+    x = [[1] if a[0] >= 0 and a[0] <= 2 else [-1] for a in array]
     return np.atleast_2d(x)
 
 
@@ -115,7 +116,6 @@ def evaluate(binary=True):
   
     # Get answers to all of the questions
     answers = np.atleast_2d(answers.ravel()).T
-
 
     kfold = KFold(n_splits=200)
     results = []
@@ -139,6 +139,7 @@ def evaluate(binary=True):
             correct += 1
 
     print(correct)
+
 
 
 
