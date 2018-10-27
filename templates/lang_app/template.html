@@ -55,7 +55,7 @@
                 <div class="card" style="height: 100%;">
                   <div class="card-body">
 
-                    <form action="/" method="post">
+                    <form id="question-form" action="/" method="post">
                       {% csrf_token %}
 
                       <h4 class="card-title" style="margin-bottom: 20px;">{% if question_data.a %} {{ question_data.a }} {% endif %}
@@ -68,8 +68,6 @@
                         
                         {% if question_data.c %} {{ question_data.c }} {% endif %}
                       </h4>
-
-                      <input type="hidden" name="question_number" value="{{ question_number }}">
 
                       <!--<div class="container">-->
                         <!--<div class="row">-->
@@ -102,6 +100,8 @@
                         </div>
                       </div>
 
+                        <input type="hidden" name="question_number" value="{{ question_number }}">
+                        <input type="hidden" name="second_post" value="False">
 
                     </form>
 
@@ -123,21 +123,55 @@
                    </div>
                   {% endif %}
 
-                  <div class="card-body">
 
-                    <h4 style="margin-bottom: 20px;">
+                    <form action="/" method="post">
+                         {% csrf_token %}
 
-                      {% if correct_bool == True %}
-                        <strong>{{ user_answer }}</strong> is the correct translation for <strong>{{ chunk_translation }}</strong>
-                      {% else %}
-                        <strong> {{ user_answer }}</strong> is not the correct translation for <strong>{{ chunk_translation }}</strong>
-                        it should have been <strong>{{ chunk }}</strong>
-                      {% endif %}
-                    </h4>
 
-                    <a href="/?question_number={{ question_number }}&answered_correctly={{ correct_bool }}"><button class="btn btn-primary btn-round">next card</button></a>
+                      <div class="card-body">
 
-                  </div>
+                        <h4 style="margin-bottom: 20px;">
+                            Your answer: <strong>{{ user_answer }}</strong><br>
+                            Correct answer: <strong>{{ chunk }}</strong>
+                            <br>
+                            <br>
+
+                            <div class="container">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                  <!--{% for word in required_words %}-->
+                                    <!--{{ word }}-->
+                                  <!--{% endfor %}-->
+                                </div>
+                                <div class="col-sm-8">
+                                  <div class="row">
+
+                                    <button name="rating" class="traffic-light btn btn-success btn-round" type="submit" value="1">
+                                        easy</button>
+                                    <button name="rating" class="traffic-light btn btn-round" type="submit" style="background-color:#fcf949;" value="2" >
+                                        easier</button>
+                                    <button name="rating" class="traffic-light btn btn-warning btn-round" type="submit" value="3">
+                                        medium</button>
+                                    <button name="rating" class="traffic-light btn btn-danger btn-round" type="submit" value="4">
+                                        hard</button>
+                                  </div>
+                                </div>
+                                <div class="col-sm-2">
+                                  <!-- Nothing in here yet-->
+                                </div>
+                            </div>
+                          </div>
+
+                        </h4>
+
+                        <!--<a href="/?question_number={{ question_number }}&answered_correctly={{ correct_bool }}"><button class="btn btn-primary btn-round">next card</button></a>-->
+
+                      </div>
+                        <input type="hidden" name="question_number" value="{{question_number}}">
+                        <input type="hidden" name="answered_correctly" value="{{ correct_bool }}">
+                        <input type="hidden" name="second_post" value="True">
+
+                    </form>
 
 
                 </div>
@@ -199,6 +233,14 @@
         $('#hint-words').text(shown_words + " " + word);
       })
   })
+
+/*
+  <!--$(".traffic-light").click(function(){-->
+    <!--var id = $(this).attr('id');-->
+    <!--$("#button-value").attr('value', id.split('-')[1]);-->
+    <!--$("#question-form").submit();-->
+  <!--});-->
+*/
   </script>
 
 <!--css overrides to make sure that the input text lines up with the rest of the text-->

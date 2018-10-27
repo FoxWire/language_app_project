@@ -20958,8 +20958,8 @@
     },
     "spins you round quite fast": {
         "chunks": [
-            "spins you ",
-            "round quite fast"
+            "round quite fast",
+            "spins you "
         ],
         "tree_string": "(ROOT\n  (SINV\n    (VP (VBZ spins) (NP (PRP you)))\n    (NP (NP (NN round)) (ADJP (RB quite) (JJ fast)))))"
     },
@@ -21075,8 +21075,8 @@
     },
     "don't get frightened of anything": {
         "chunks": [
-            "get frightened of anything",
-            "of anything"
+            "of anything",
+            "get frightened of anything"
         ],
         "tree_string": "(ROOT\n  (S\n    (VP\n      (VB do)\n      (RB n't)\n      (VP\n        (VB get)\n        (ADJP (JJ frightened))\n        (PP (IN of) (NP (NN anything)))))))"
     },
@@ -21176,7 +21176,6 @@
     },
     "another shot every night ": {
         "chunks": [
-            "another shot every night ",
             "shot every night ",
             "every night "
         ],
@@ -21225,7 +21224,6 @@
     },
     "a place in the Guinness World Records ": {
         "chunks": [
-            "a place in the Guinness World Records ",
             "a place ",
             "in the Guinness World Records ",
             "the Guinness World Records "
@@ -21283,7 +21281,8 @@
     "know until it's done": {
         "chunks": [
             "it's done",
-            "'s done"
+            "'s done",
+            "until it's done"
         ],
         "tree_string": "(ROOT\n  (S\n    (VP\n      (VB know)\n      (SBAR\n        (IN until)\n        (S (NP (PRP it)) (VP (VBZ 's) (VP (VBN done))))))))"
     },
@@ -21484,20 +21483,20 @@
     },
     "been in more pain having a haircut": {
         "chunks": [
-            "in more pain having a haircut",
-            "more pain having a haircut",
             "more pain ",
+            "a haircut",
             "having a haircut",
-            "a haircut"
+            "in more pain having a haircut",
+            "more pain having a haircut"
         ],
         "tree_string": "(ROOT\n  (VP\n    (VBN been)\n    (PP\n      (IN in)\n      (NP\n        (NP (JJR more) (NN pain))\n        (VP (VBG having) (NP (DT a) (NN haircut)))))))"
     },
     "in more pain having a haircut": {
         "chunks": [
-            "more pain having a haircut",
+            "a haircut",
             "more pain ",
             "having a haircut",
-            "a haircut"
+            "more pain having a haircut"
         ],
         "tree_string": "(ROOT\n  (PP\n    (IN in)\n    (NP\n      (NP (JJR more) (NN pain))\n      (VP (VBG having) (NP (DT a) (NN haircut))))))"
     },
@@ -21525,7 +21524,6 @@
     },
     "at the same time  ": {
         "chunks": [
-            "at the same time  ",
             "the same time  "
         ],
         "tree_string": "(ROOT (PP (IN at) (NP (DT the) (JJ same) (NN time))))"
@@ -21630,7 +21628,6 @@
     },
     "into the bedroom ": {
         "chunks": [
-            "into the bedroom ",
             "the bedroom "
         ],
         "tree_string": "(ROOT (PP (IN into) (NP (DT the) (NN bedroom))))"
@@ -21778,11 +21775,11 @@
     },
     "I should be careful and take it easy": {
         "chunks": [
-            "should be careful and take it easy",
             "be careful and take it easy",
+            "it easy",
             "be careful ",
             "take it easy",
-            "it easy"
+            "should be careful and take it easy"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (MD should)\n      (VP\n        (VP (VB be) (ADJP (JJ careful)))\n        (CC and)\n        (VP (VB take) (S (NP (PRP it)) (ADJP (JJ easy))))))))"
     },
@@ -21843,8 +21840,8 @@
     "had me before the midwife even arrived": {
         "chunks": [
             "before the midwife even arrived",
-            "before the midwife even ",
-            "before the midwife "
+            "before the midwife ",
+            "before the midwife even "
         ],
         "tree_string": "(ROOT\n  (SINV\n    (VBD had)\n    (NP (PRP me))\n    (VP\n      (ADVP (NP (RB before) (DT the) (NN midwife)) (RB even))\n      (VBN arrived))))"
     },
@@ -22029,8 +22026,8 @@
     },
     "spend this extra time with her": {
         "chunks": [
-            "this extra time ",
-            "with her"
+            "with her",
+            "this extra time "
         ],
         "tree_string": "(ROOT\n  (S\n    (VP\n      (VB spend)\n      (NP (DT this) (JJ extra) (NN time))\n      (PP (IN with) (NP (PRP her))))))"
     },
@@ -22174,10 +22171,9 @@
     },
     "for most of my life ": {
         "chunks": [
-            "for most of my life ",
             "most of my life ",
-            "of my life ",
-            "my life "
+            "my life ",
+            "of my life "
         ],
         "tree_string": "(ROOT\n  (PP\n    (IN for)\n    (NP (NP (JJS most)) (PP (IN of) (NP (PRP$ my) (NN life))))))"
     },
@@ -22295,7 +22291,6 @@
     },
     "to spice things ": {
         "chunks": [
-            "to spice things ",
             "spice things "
         ],
         "tree_string": "(ROOT (PP (TO to) (NP (NN spice) (NNS things))))"
@@ -22363,9 +22358,9 @@
     },
     "did it about three times": {
         "chunks": [
-            "it about three times",
             "about three times",
-            "three times"
+            "three times",
+            "it about three times"
         ],
         "tree_string": "(ROOT\n  (SINV\n    (VBD did)\n    (NP (NP (PRP it)) (PP (IN about) (NP (CD three) (NNS times))))))"
     },
@@ -23372,8 +23367,8 @@
     },
     "every evening another shot": {
         "chunks": [
-            "every evening ",
-            "another shot"
+            "another shot",
+            "every evening "
         ],
         "tree_string": "(ROOT (NP (NP (DT every) (NN evening)) (NP (DT another) (NN shot))))"
     },
@@ -25100,5 +25095,132 @@
             "a while "
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBP 've)\n      (VP\n        (VBN been)\n        (VP\n          (VBG wondering)\n          (PP\n            (IN about)\n            (NP (NP (DT this)) (PP (IN for) (NP (DT a) (NN while)))))\n          (ADVP (RB now)))))\n    (. .)))"
+    },
+    "dddd": {
+        "chunks": [],
+        "tree_string": "(ROOT (ADJP (JJ dddd)))"
+    },
+    "sdddd": {
+        "chunks": [],
+        "tree_string": "(ROOT (ADJP (JJ sdddd)))"
+    },
+    "ddddd": {
+        "chunks": [],
+        "tree_string": "(ROOT (ADJP (JJ ddddd)))"
+    },
+    "sdfsfdsf": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (NN sdfsfdsf)))"
+    },
+    "dd": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (NN dd)))"
+    },
+    "jjj": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (NN jjj)))"
+    },
+    "bbbb": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (NN bbbb)))"
+    },
+    "fff": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (NN fff)))"
+    },
+    "ksdjf lkds jflks": {
+        "chunks": [
+            "ksdjf lkds "
+        ],
+        "tree_string": "(ROOT (S (NP (NN ksdjf) (NNS lkds)) (VP (VBZ jflks))))"
+    },
+    "nnnn": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (NN nnnn)))"
+    },
+    "in meorie ": {
+        "chunks": [],
+        "tree_string": "(ROOT (PP (IN in) (NP (NN meorie))))"
+    },
+    "j": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (NN j)))"
+    },
+    "did it roughly three times": {
+        "chunks": [
+            "roughly three times"
+        ],
+        "tree_string": "(ROOT\n  (FRAG\n    (VP\n      (VBD did)\n      (NP (PRP it))\n      (NP (QP (RB roughly) (CD three) (NNS times))))))"
+    },
+    "d": {
+        "chunks": [],
+        "tree_string": "(ROOT (X (NP (SYM d))))"
+    },
+    "nn": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (NN nn)))"
+    },
+    "jj": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (NN jj)))"
+    },
+    "lksjdf lksj": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (JJ lksjdf) (NNS lksj)))"
+    },
+    "lksjd flskjd ": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (JJ lksjd) (NN flskjd)))"
+    },
+    "every evening another on": {
+        "chunks": [
+            "another on",
+            "every evening "
+        ],
+        "tree_string": "(ROOT\n  (NP\n    (NP (DT every) (NN evening))\n    (NP (NP (DT another)) (PP (IN on)))))"
+    },
+    "llll": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (NN llll)))"
+    },
+    "dfsdfs": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (NNS dfsdfs)))"
+    },
+    "dfsdfsfd": {
+        "chunks": [],
+        "tree_string": "(ROOT (ADJP (JJ dfsdfsfd)))"
+    },
+    "lkj lk j": {
+        "chunks": [
+            "lkj "
+        ],
+        "tree_string": "(ROOT (S (VP (VB lkj) (NP (NN lk) (NN j)))))"
+    },
+    "lk jlk j": {
+        "chunks": [
+            "jlk j"
+        ],
+        "tree_string": "(ROOT (S (VP (VB lk) (NP (NN jlk) (NN j)))))"
+    },
+    ", jh j": {
+        "chunks": [
+            "jh j"
+        ],
+        "tree_string": "(ROOT (FRAG (, ,) (NP (NN jh) (NN j))))"
+    },
+    "lkj lkj": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (NN lkj) (NN lkj)))"
+    },
+    "j hkjh ": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (NN j) (NN hkjh)))"
+    },
+    "kj kl j": {
+        "chunks": [
+            "kl j"
+        ],
+        "tree_string": "(ROOT (S (VP (VB kj) (NP (NN kl) (NN j)))))"
     }
 }
