@@ -20,6 +20,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split, cross_val_score, KFold
 import re
 from utils.parser.parser import Parser
+import nltk
 
 # Read in the 200 questions. 
 def read_user_data():
@@ -42,18 +43,17 @@ def make_binary(array):
     Converts the data to 'binary' (1 for a correct answer and -1 for incorrect)
     This can be toggled when the evaluate function is called.
     '''
-    x = [1 if a <= 4 else -1 for a in array]
+    x = [1 if a <= 0 else -1 for a in array]
     # x = [[1] if a[0] >= 0 and a[0] <= 3 else [-1] for a in array]
     return x
 
-def get_features(pk):
+def get_features_pos(pk):
 
 	parser = Parser()
 
 	# get the card and tree string
 	card = Card.objects.get(pk=pk)
-	# tree = card.tree_string
-	
+
 	s = card.sentence.sentence
 	tree = parser.parse(s)[2]
 
@@ -66,28 +66,60 @@ def get_features(pk):
 	for tag in tags:
 		dict[tag] = x.count(tag)
 
-	print(dict)
-
 	# return an array of values for the dict 
 	return [val for val in dict.values()]
 
+
+def get_features_words(pk):
+	# use the pk to get the sentence
+	card = Card.objects.get(pk=pk)
+
+	# iterate over the words in the sentence tokenize
+	tokens = nltk.word_tokenize(card.sentence.sentence)
+
+	dict = {}
+	for word in words:
+		dict[word] = tokens.count(word)
+
+	return [val for val in dict.values()] 
+
 if __name__ == "__main__":
 
-	# read in a list of all the pos tags
-	tags = []
-	with open("all_pos.txt", 'r') as file:
-		for line in file:
-			tags.append(line.split('-')[0].strip())
 
-	# create the features dict for each sentence
-	# you'll need to read in the sentence pks, get the parse tree for the answer
-	#  and find way to iterate over all the tags
-	features = []
-	for pk in user:
-		values = get_features(pk)
-		features.append((pk, values))
+	pos = False
 
-	# Next you need to use the pks in the features to get a list of the answers
+	if pos:
+		# read in a list of all the pos tags (for pos mode)
+		tags = []
+		with open("all_pos.txt", 'r') as file:
+			for line in file:
+				tags.append(line.split('-')[0].strip())
+
+		# create the features dict for each sentence
+		features = []
+		for pk in user:
+			values = get_features_pos(pk)
+			features.append((pk, values))
+
+	else:
+
+		# read in a list of the 1000 most common words
+		words = []
+		with open("3000_most_common.txt", 'r') as file:
+			for line in file:
+				words.append(line)
+
+
+		# create the features dict for each sentence
+		features = []
+		for pk in user:
+			values = get_features_words(pk)
+			features.append((pk, values))
+
+
+
+	# Iterate over the features and get the answer for each question, making a 
+	# list of answers that are in the same order as the pks features.
 	answers = []
 	for f in features:
 		answer = user[f[0]]
@@ -99,34 +131,24 @@ if __name__ == "__main__":
 	# convert the answer to a np array and make binary
 	answers = np.array(make_binary(answers))
 	
-	# get rid of the pks in the array so that you only have the features
+	# strip out the pks in the array so that you only have the features
 	features = np.array([f[1] for f in features])
-
-	# create the model and fit the features and answers
-	model = MultinomialNB()
-	# model.fit(features, answers)
-
 
 	kfold = KFold(n_splits=200)
 	results = []
-
 	for train, test in kfold.split(features):
 
+		# create the model
+		model = MultinomialNB()
+
+		# create the test and train sets
 		X_train, X_test, y_train, y_test = features[train], features[test], answers[train], answers[test]
 
 		model.fit(X_train, y_train)
-
 		prediction = model.predict(X_test)
-		
 		results.append(prediction[0] == y_test[0])
 
-	correct = 0
-	for x in results:
-		if x:
-			correct += 1
-
-
-	print(correct)
+	print(results.count(True), "/200")
 
 
 
