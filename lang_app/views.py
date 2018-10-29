@@ -119,6 +119,7 @@ def index(request):
         context = {
             'question_number': card.pk,
             'question_data': data,
+            'required_words': lem.lemmatize(card),
         }
 
         print("asking question: ", card.pk)
@@ -179,12 +180,6 @@ def index(request):
             # then I think you can just redirect to the get
             redirect = "/?question_number={0}&answered_correctly={1}".format(question_no, request.POST.get("answered_correctly"))
             return HttpResponseRedirect(redirect)
-
-
-
-
-
-
 
     return render(request, 'lang_app/template.html', context)
 

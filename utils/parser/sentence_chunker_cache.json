@@ -18454,35 +18454,32 @@
     },
     "during a production in 2009 ": {
         "chunks": [
-            "during a production in 2009 ",
-            "a production in 2009 ",
+            "in 2009 ",
             "a production ",
-            "in 2009 "
+            "a production in 2009 "
         ],
         "tree_string": "(ROOT\n  (PP\n    (IN during)\n    (NP (NP (DT a) (NN production)) (PP (IN in) (NP (CD 2009))))))"
     },
     "a production in 2009 ": {
         "chunks": [
-            "a production in 2009 ",
-            "a production ",
-            "in 2009 "
+            "in 2009 ",
+            "a production "
         ],
         "tree_string": "(ROOT (NP (NP (DT a) (NN production)) (PP (IN in) (NP (CD 2009)))))"
     },
     "started to feel pain in my right leg": {
         "chunks": [
-            "to feel pain in my right leg",
-            "to feel pain in my right leg",
-            "feel pain in my right leg",
             "in my right leg",
+            "feel pain in my right leg",
+            "to feel pain in my right leg",
             "my right leg"
         ],
         "tree_string": "(ROOT\n  (VP\n    (VBN started)\n    (S\n      (VP\n        (TO to)\n        (VP\n          (VB feel)\n          (NP (NN pain))\n          (PP (IN in) (NP (PRP$ my) (JJ right) (NN leg))))))))"
     },
     "to feel pain in my right leg": {
         "chunks": [
-            "feel pain in my right leg",
             "in my right leg",
+            "feel pain in my right leg",
             "my right leg"
         ],
         "tree_string": "(ROOT\n  (FRAG\n    (S\n      (VP\n        (TO to)\n        (VP\n          (VB feel)\n          (NP (NN pain))\n          (PP (IN in) (NP (PRP$ my) (JJ right) (NN leg))))))))"
@@ -18502,9 +18499,9 @@
     },
     "One year and nine operations later": {
         "chunks": [
-            "One year ",
             "nine operations later",
-            "nine operations "
+            "nine operations ",
+            "One year "
         ],
         "tree_string": "(ROOT\n  (UCP\n    (NP (CD One) (NN year))\n    (CC and)\n    (ADVP (NP (CD nine) (NNS operations)) (RB later))))"
     },
@@ -20820,55 +20817,47 @@
     },
     "for the oldest person in the world ": {
         "chunks": [
-            "for the oldest person in the world ",
-            "the oldest person in the world ",
             "the oldest person ",
-            "in the world ",
-            "the world "
+            "the oldest person in the world ",
+            "the world ",
+            "in the world "
         ],
         "tree_string": "(ROOT\n  (PP\n    (IN for)\n    (NP\n      (NP (DT the) (JJS oldest) (NN person))\n      (PP (IN in) (NP (DT the) (NN world))))))"
     },
     "the oldest person in the world ": {
         "chunks": [
-            "the oldest person in the world ",
             "the oldest person ",
-            "in the world ",
-            "the world "
+            "the world ",
+            "in the world "
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP (DT the) (JJS oldest) (NN person))\n    (PP (IN in) (NP (DT the) (NN world)))))"
     },
     "the oldest person ": {
-        "chunks": [
-            "the oldest person ",
-            "the oldest person "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (FRAG (NP (DT the) (JJS oldest) (NN person))))"
     },
     "in the world ": {
         "chunks": [
-            "in the world ",
             "the world "
         ],
         "tree_string": "(ROOT (PP (IN in) (NP (DT the) (NN world))))"
     },
     "to ride a rollercoaster": {
         "chunks": [
-            "ride a rollercoaster",
-            "a rollercoaster"
+            "a rollercoaster",
+            "ride a rollercoaster"
         ],
         "tree_string": "(ROOT\n  (FRAG\n    (S (VP (TO to) (VP (VB ride) (NP (DT a) (JJ rollercoaster)))))))"
     },
     "Even the doctor ": {
-        "chunks": [
-            "Even the doctor ",
-            "Even the doctor "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (FRAG (NP (RB Even) (DT the) (NN doctor))))"
     },
     "agrees I'm in good shape": {
         "chunks": [
-            "'m in good shape",
+            "I'm in good shape",
             "in good shape",
+            "'m in good shape",
             "good shape"
         ],
         "tree_string": "(ROOT\n  (FRAG\n    (VP\n      (VBZ agrees)\n      (SBAR\n        (S\n          (NP (PRP I))\n          (VP (VBP 'm) (PP (IN in) (NP (JJ good) (NN shape)))))))))"
@@ -20876,6 +20865,7 @@
     "I'm in good shape": {
         "chunks": [
             "in good shape",
+            "'m in good shape",
             "good shape"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP (VBP 'm) (PP (IN in) (NP (JJ good) (NN shape))))))"
@@ -20896,7 +20886,6 @@
     },
     "'m a bit deaf ": {
         "chunks": [
-            "'m a bit deaf ",
             "a bit deaf "
         ],
         "tree_string": "(ROOT (SINV (VP (VBP 'm)) (NP (DT a) (NN bit) (NN deaf))))"
@@ -20904,8 +20893,8 @@
     "my legs are a little wobbly": {
         "chunks": [
             "my legs ",
-            "are a little wobbly",
-            "a little "
+            "a little ",
+            "are a little wobbly"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP$ my) (NNS legs))\n    (VP (VBP are) (ADJP (NP (DT a) (RB little)) (JJ wobbly)))))"
     },
@@ -20917,7 +20906,8 @@
     },
     "they're the only issues": {
         "chunks": [
-            "the only issues"
+            "the only issues",
+            "'re the only issues"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP they))\n    (VP (VBP 're) (NP (DT the) (JJ only) (NNS issues)))))"
     },
@@ -20972,10 +20962,9 @@
     },
     "that  it was a bit too gentle": {
         "chunks": [
-            "that  it was a bit too gentle",
-            "it was a bit too gentle",
             "was a bit too gentle",
-            "a bit "
+            "a bit ",
+            "it was a bit too gentle"
         ],
         "tree_string": "(ROOT\n  (SBAR\n    (IN that)\n    (S\n      (NP (PRP it))\n      (VP (VBD was) (ADJP (NP (DT a) (RB bit)) (RB too) (JJ gentle))))))"
     },
@@ -20988,67 +20977,57 @@
     },
     "was a bit too gentle": {
         "chunks": [
-            "a bit too gentle",
-            "a bit "
+            "a bit ",
+            "a bit too gentle"
         ],
         "tree_string": "(ROOT\n  (SINV\n    (VBD was)\n    (NP (NP (DT a) (NN bit)) (ADJP (RB too) (JJ gentle)))))"
     },
     "a really fast one that went upside down": {
         "chunks": [
-            "a really fast one ",
+            "upside down",
             "that went upside down",
-            "went upside down",
-            "went upside down",
-            "upside down"
+            "a really fast one ",
+            "went upside down"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP\n      (NP (DT a) (ADJP (RB really) (JJ fast)) (NN one))\n      (SBAR\n        (WHNP (WDT that))\n        (S (VP (VBD went) (ADVP (RB upside) (RB down))))))))"
     },
     "a really fast one ": {
-        "chunks": [
-            "a really fast one ",
-            "a really fast one "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (FRAG (NP (DT a) (ADJP (RB really) (JJ fast)) (NN one))))"
     },
     "that went upside down": {
         "chunks": [
-            "went upside down",
-            "went upside down",
-            "upside down"
+            "upside down",
+            "went upside down"
         ],
         "tree_string": "(ROOT\n  (SBAR\n    (WHNP (WDT that))\n    (S (VP (VBD went) (ADVP (RB upside) (RB down))))))"
     },
     "that, because my blood pressure could drop ": {
         "chunks": [
             "because my blood pressure could drop ",
-            "my blood pressure could drop ",
             "my blood pressure ",
-            "could drop "
+            "could drop ",
+            "my blood pressure could drop "
         ],
         "tree_string": "(ROOT\n  (FRAG\n    (NP\n      (NP (DT that))\n      (, ,)\n      (SBAR\n        (IN because)\n        (S\n          (NP (PRP$ my) (NN blood) (NN pressure))\n          (VP (MD could) (VP (VB drop))))))))"
     },
     "because my blood pressure could drop ": {
         "chunks": [
-            "because my blood pressure could drop ",
-            "my blood pressure could drop ",
             "my blood pressure ",
-            "could drop "
+            "could drop ",
+            "my blood pressure could drop "
         ],
         "tree_string": "(ROOT\n  (SBAR\n    (IN because)\n    (S\n      (NP (PRP$ my) (NN blood) (NN pressure))\n      (VP (MD could) (VP (VB drop))))))"
     },
     "my blood pressure could drop ": {
         "chunks": [
-            "my blood pressure could drop ",
             "my blood pressure ",
             "could drop "
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP$ my) (NN blood) (NN pressure))\n    (VP (MD could) (VP (VB drop)))))"
     },
     "my blood pressure ": {
-        "chunks": [
-            "my blood pressure ",
-            "my blood pressure "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (FRAG (NP (PRP$ my) (NN blood) (NN pressure))))"
     },
     "I might have blacked out": {
@@ -21061,15 +21040,16 @@
     },
     "might have blacked out": {
         "chunks": [
-            "have blacked out",
-            "blacked out"
+            "blacked out",
+            "have blacked out"
         ],
         "tree_string": "(ROOT\n  (S\n    (VP (NN might) (VP (VB have) (VP (VBN blacked) (PRT (RP out)))))))"
     },
     "I don't get frightened of anything": {
         "chunks": [
-            "get frightened of anything",
-            "of anything"
+            "don't get frightened of anything",
+            "of anything",
+            "get frightened of anything"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBP do)\n      (RB n't)\n      (VP\n        (VB get)\n        (ADJP (JJ frightened))\n        (PP (IN of) (NP (NN anything)))))))"
     },
@@ -21088,8 +21068,8 @@
     },
     "I was securely fastened in": {
         "chunks": [
-            "was securely fastened in",
-            "fastened in"
+            "fastened in",
+            "was securely fastened in"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBD was)\n      (ADVP (RB securely))\n      (VP (VBN fastened) (PP (IN in))))))"
     },
@@ -21101,10 +21081,10 @@
     },
     "I knew I wouldn't fall out": {
         "chunks": [
-            "I wouldn't fall out",
-            "I wouldn't fall out",
+            "knew I wouldn't fall out",
             "wouldn't fall out",
-            "fall out"
+            "fall out",
+            "I wouldn't fall out"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBD knew)\n      (SBAR\n        (S\n          (NP (PRP I))\n          (VP (MD would) (RB n't) (VP (VB fall) (PRT (RP out)))))))))"
     },
@@ -21117,6 +21097,7 @@
     },
     "I wouldn't fall out": {
         "chunks": [
+            "wouldn't fall out",
             "fall out"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP (MD would) (RB n't) (VP (VB fall) (PRT (RP out))))))"
@@ -21160,39 +21141,34 @@
     },
     "every morning in my tea ": {
         "chunks": [
-            "every morning in my tea ",
             "every morning ",
-            "in my tea ",
-            "my tea "
+            "my tea ",
+            "in my tea "
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP (DT every) (NN morning))\n    (PP (IN in) (NP (PRP$ my) (NN tea)))))"
     },
     "in my tea ": {
         "chunks": [
-            "in my tea ",
             "my tea "
         ],
         "tree_string": "(ROOT (PP (IN in) (NP (PRP$ my) (NN tea))))"
     },
     "another shot every night ": {
         "chunks": [
-            "shot every night ",
-            "every night "
+            "every night ",
+            "shot every night "
         ],
         "tree_string": "(ROOT\n  (S (NP (DT another)) (VP (VBD shot) (NP (DT every) (NN night)))))"
     },
     "The rollercoaster ride ": {
-        "chunks": [
-            "The rollercoaster ride ",
-            "The rollercoaster ride "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (FRAG (NP (DT The) (JJ rollercoaster) (NN ride))))"
     },
     "went on for three or four minutes": {
         "chunks": [
             "went on for three or four ",
-            "for three or four ",
-            "three or four "
+            "three or four ",
+            "for three or four "
         ],
         "tree_string": "(ROOT\n  (SINV\n    (VP\n      (VBD went)\n      (PRT (RP on))\n      (PP (IN for) (NP (CD three) (CC or) (CD four))))\n    (NP (NNS minutes))))"
     },
@@ -21224,38 +21200,34 @@
     },
     "a place in the Guinness World Records ": {
         "chunks": [
-            "a place ",
             "in the Guinness World Records ",
-            "the Guinness World Records "
+            "the Guinness World Records ",
+            "a place "
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP (DT a) (NN place))\n    (PP\n      (IN in)\n      (NP (DT the) (NNP Guinness) (NNP World) (NNPS Records)))))"
     },
     "in the Guinness World Records ": {
         "chunks": [
-            "in the Guinness World Records ",
             "the Guinness World Records "
         ],
         "tree_string": "(ROOT\n  (PP\n    (IN in)\n    (NP (DT the) (NNP Guinness) (NNP World) (NNPS Records))))"
     },
     "the Guinness World Records ": {
         "chunks": [
-            "the Guinness World Records ",
             "Guinness World Records "
         ],
         "tree_string": "(ROOT\n  (FRAG (X (DT the)) (NP (NNP Guinness) (NNP World) (NNPS Records))))"
     },
     "I hoped they were right": {
         "chunks": [
+            "they were right",
             "hoped they were right",
-            "they were right",
-            "they were right",
             "were right"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBD hoped)\n      (SBAR (S (NP (PRP they)) (VP (VBD were) (ADJP (JJ right))))))))"
     },
     "hoped they were right": {
         "chunks": [
-            "they were right",
             "they were right",
             "were right"
         ],
@@ -21264,71 +21236,71 @@
     "you don't know until it's done": {
         "chunks": [
             "know until it's done",
+            "don't know until it's done",
             "until it's done",
-            "it's done",
-            "'s done"
+            "'s done",
+            "it's done"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP you))\n    (VP\n      (VBP do)\n      (RB n't)\n      (VP\n        (VB know)\n        (SBAR\n          (IN until)\n          (S (NP (PRP it)) (VP (VBZ 's) (VP (VBN done)))))))))"
     },
     "don't know until it's done": {
         "chunks": [
-            "until it's done",
+            "'s done",
             "it's done",
-            "'s done"
+            "know until it's done",
+            "until it's done"
         ],
         "tree_string": "(ROOT\n  (S\n    (VP\n      (VB do)\n      (RB n't)\n      (VP\n        (VB know)\n        (SBAR\n          (IN until)\n          (S (NP (PRP it)) (VP (VBZ 's) (VP (VBN done)))))))))"
     },
     "know until it's done": {
         "chunks": [
-            "it's done",
             "'s done",
+            "it's done",
             "until it's done"
         ],
         "tree_string": "(ROOT\n  (S\n    (VP\n      (VB know)\n      (SBAR\n        (IN until)\n        (S (NP (PRP it)) (VP (VBZ 's) (VP (VBN done))))))))"
     },
     "present me with the certificate, which is nice": {
         "chunks": [
-            "with the certificate, which is nice",
-            "the certificate, which is nice",
-            "the certificate",
-            "which is nice",
             "is nice",
-            "is nice"
+            "the certificate",
+            "with the certificate, which is nice",
+            "which is nice",
+            "the certificate, which is nice"
         ],
         "tree_string": "(ROOT\n  (S\n    (VP\n      (VB present)\n      (NP (PRP me))\n      (PP\n        (IN with)\n        (NP\n          (NP (DT the) (NN certificate))\n          (, ,)\n          (SBAR\n            (WHNP (WDT which))\n            (S (VP (VBZ is) (ADJP (JJ nice))))))))))"
     },
     "with the certificate, which is nice": {
         "chunks": [
-            "the certificate",
             "which is nice",
-            "is nice",
+            "the certificate, which is nice",
+            "the certificate",
             "is nice"
         ],
         "tree_string": "(ROOT\n  (PP\n    (IN with)\n    (NP\n      (NP (DT the) (NN certificate))\n      (, ,)\n      (SBAR (WHNP (WDT which)) (S (VP (VBZ is) (ADJP (JJ nice))))))))"
     },
     "the certificate, which is nice": {
         "chunks": [
-            "the certificate",
             "which is nice",
             "is nice",
-            "is nice"
+            "the certificate"
         ],
         "tree_string": "(ROOT\n  (FRAG\n    (NP\n      (NP (DT the) (NN certificate))\n      (, ,)\n      (SBAR (WHNP (WDT which)) (S (VP (VBZ is) (ADJP (JJ nice))))))))"
     },
     "on the wall in my living room": {
         "chunks": [
-            "the wall in my living room",
-            "the wall ",
+            "my living room",
             "in my living room",
-            "my living room"
+            "the wall ",
+            "the wall in my living room"
         ],
         "tree_string": "(ROOT\n  (PP\n    (IN on)\n    (NP\n      (NP (DT the) (NN wall))\n      (PP (IN in) (NP (PRP$ my) (VBG living) (NN room))))))"
     },
     "the wall in my living room": {
         "chunks": [
-            "the wall ",
+            "my living room",
             "in my living room",
-            "my living room"
+            "the wall "
         ],
         "tree_string": "(ROOT\n  (FRAG\n    (NP (DT the) (NN wall))\n    (PP (IN in) (NP (PRP$ my) (VBG living) (NN room)))))"
     },
@@ -21340,34 +21312,31 @@
     },
     "a year earlier ": {
         "chunks": [
-            "a year earlier ",
             "a year "
         ],
         "tree_string": "(ROOT (ADVP (NP (DT a) (NN year)) (RB earlier)))"
     },
     "in the world to get their first tattoo": {
         "chunks": [
+            "to get their first tattoo",
+            "their first tattoo",
             "the world to get their first tattoo",
-            "to get their first tattoo",
-            "to get their first tattoo",
-            "get their first tattoo",
-            "their first tattoo"
+            "get their first tattoo"
         ],
         "tree_string": "(ROOT\n  (PP\n    (IN in)\n    (NP\n      (DT the)\n      (NN world)\n      (S\n        (VP\n          (TO to)\n          (VP (VB get) (NP (PRP$ their) (JJ first) (NN tattoo))))))))"
     },
     "the world to get their first tattoo": {
         "chunks": [
             "to get their first tattoo",
-            "to get their first tattoo",
-            "get their first tattoo",
-            "their first tattoo"
+            "their first tattoo",
+            "get their first tattoo"
         ],
         "tree_string": "(ROOT\n  (FRAG\n    (NP\n      (DT the)\n      (NN world)\n      (S\n        (VP\n          (TO to)\n          (VP (VB get) (NP (PRP$ their) (JJ first) (NN tattoo))))))))"
     },
     "to get their first tattoo": {
         "chunks": [
-            "get their first tattoo",
-            "their first tattoo"
+            "their first tattoo",
+            "get their first tattoo"
         ],
         "tree_string": "(ROOT\n  (FRAG\n    (S\n      (VP\n        (TO to)\n        (VP (VB get) (NP (PRP$ their) (JJ first) (NN tattoo)))))))"
     },
@@ -21379,24 +21348,24 @@
     },
     "had one inked on my right shoulder": {
         "chunks": [
-            "inked on my right shoulder",
+            "my right shoulder",
             "on my right shoulder",
-            "my right shoulder"
+            "inked on my right shoulder"
         ],
         "tree_string": "(ROOT\n  (SINV\n    (VBD had)\n    (NP (CD one))\n    (VP\n      (VBN inked)\n      (PP (IN on) (NP (PRP$ my) (JJ right) (NN shoulder))))))"
     },
     "one inked on my right shoulder": {
         "chunks": [
-            "inked on my right shoulder",
+            "my right shoulder",
             "on my right shoulder",
-            "my right shoulder"
+            "inked on my right shoulder"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP one))\n    (VP\n      (VBN inked)\n      (PP (IN on) (NP (PRP$ my) (JJ right) (NN shoulder))))))"
     },
     "inked on my right shoulder": {
         "chunks": [
-            "on my right shoulder",
-            "my right shoulder"
+            "my right shoulder",
+            "on my right shoulder"
         ],
         "tree_string": "(ROOT\n  (VP\n    (VBN inked)\n    (PP (IN on) (NP (PRP$ my) (JJ right) (NN shoulder)))))"
     },
@@ -21448,8 +21417,8 @@
     },
     "It didn't take long ": {
         "chunks": [
-            "didn't take long ",
-            "take long "
+            "take long ",
+            "didn't take long "
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP It))\n    (VP (VBD did) (RB n't) (VP (VB take) (ADVP (RB long))))))"
     },
@@ -21461,48 +21430,48 @@
     },
     "I've been in more pain having a haircut": {
         "chunks": [
-            "been in more pain having a haircut",
+            "'ve been in more pain having a haircut",
             "in more pain having a haircut",
+            "a haircut",
             "more pain having a haircut",
-            "more pain ",
+            "been in more pain having a haircut",
             "having a haircut",
-            "a haircut"
+            "more pain "
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBP 've)\n      (VP\n        (VBN been)\n        (PP\n          (IN in)\n          (NP\n            (NP (JJR more) (NN pain))\n            (VP (VBG having) (NP (DT a) (NN haircut)))))))))"
     },
     "'ve been in more pain having a haircut": {
         "chunks": [
-            "been in more pain having a haircut",
             "in more pain having a haircut",
+            "a haircut",
             "more pain having a haircut",
-            "more pain ",
+            "been in more pain having a haircut",
             "having a haircut",
-            "a haircut"
+            "more pain "
         ],
         "tree_string": "(ROOT\n  (S\n    (VP\n      (VB 've)\n      (VP\n        (VBN been)\n        (PP\n          (IN in)\n          (NP\n            (NP (JJR more) (NN pain))\n            (VP (VBG having) (NP (DT a) (NN haircut)))))))))"
     },
     "been in more pain having a haircut": {
         "chunks": [
-            "more pain ",
-            "a haircut",
-            "having a haircut",
             "in more pain having a haircut",
-            "more pain having a haircut"
+            "a haircut",
+            "more pain having a haircut",
+            "having a haircut",
+            "more pain "
         ],
         "tree_string": "(ROOT\n  (VP\n    (VBN been)\n    (PP\n      (IN in)\n      (NP\n        (NP (JJR more) (NN pain))\n        (VP (VBG having) (NP (DT a) (NN haircut)))))))"
     },
     "in more pain having a haircut": {
         "chunks": [
-            "a haircut",
-            "more pain ",
             "having a haircut",
-            "more pain having a haircut"
+            "more pain having a haircut",
+            "more pain ",
+            "a haircut"
         ],
         "tree_string": "(ROOT\n  (PP\n    (IN in)\n    (NP\n      (NP (JJR more) (NN pain))\n      (VP (VBG having) (NP (DT a) (NN haircut))))))"
     },
     "more pain having a haircut": {
         "chunks": [
-            "having a haircut",
             "having a haircut",
             "a haircut"
         ],
@@ -21510,16 +21479,12 @@
     },
     "My daughter and grandson ": {
         "chunks": [
-            "My daughter and grandson ",
             "My daughter "
         ],
         "tree_string": "(ROOT (NP (NP (PRP$ My) (NN daughter)) (CC and) (NP (NN grandson))))"
     },
     "the same one ": {
-        "chunks": [
-            "the same one ",
-            "the same one "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (FRAG (NP (DT the) (JJ same) (NN one))))"
     },
     "at the same time  ": {
@@ -21529,24 +21494,19 @@
         "tree_string": "(ROOT (PP (IN at) (NP (DT the) (JJ same) (NN time))))"
     },
     "the same time  ": {
-        "chunks": [
-            "the same time  ",
-            "the same time  "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (FRAG (NP (DT the) (JJ same) (NN time))))"
     },
     "the tattoo artist ": {
-        "chunks": [
-            "the tattoo artist "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (NP (DT the) (NN tattoo) (NN artist)))"
     },
     "did the same one on his own leg": {
         "chunks": [
             "the same one on his own leg",
-            "the same one ",
             "on his own leg",
-            "his own leg"
+            "his own leg",
+            "the same one "
         ],
         "tree_string": "(ROOT\n  (SINV\n    (VBD did)\n    (NP\n      (NP (DT the) (JJ same) (NN one))\n      (PP (IN on) (NP (PRP$ his) (JJ own) (NN leg))))))"
     },
@@ -21558,7 +21518,6 @@
     },
     "My record-breaking ways ": {
         "chunks": [
-            "My record-breaking ways ",
             "My record-breaking "
         ],
         "tree_string": "(ROOT (NP (NP (PRP$ My) (NN record-breaking)) (NP (NNS ways))))"
@@ -21566,8 +21525,8 @@
     "a couple of years ago": {
         "chunks": [
             "a couple ",
-            "of years ago",
-            "years ago"
+            "years ago",
+            "of years ago"
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP (DT a) (NN couple))\n    (PP (IN of) (NP (NP (NNS years)) (ADVP (IN ago))))))"
     },
@@ -21606,6 +21565,7 @@
     "I was 102 then, but thought": {
         "chunks": [
             "was 102 then",
+            "was 102 then, but thought",
             "102 then"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VP (VBD was) (ADVP (NP (CD 102)) (RB then)))\n      (, ,)\n      (CC but)\n      (VP (VBD thought)))))"
@@ -21613,14 +21573,13 @@
     "was 102 then, but thought": {
         "chunks": [
             "102 then",
-            "but thought"
+            "but thought",
+            "102 then, but thought"
         ],
         "tree_string": "(ROOT\n  (SINV\n    (VBD was)\n    (NP\n      (NP (CD 102) (RB then))\n      (, ,)\n      (SBAR (CC but) (S (VP (VBD thought)))))))"
     },
     "went into the bedroom ": {
         "chunks": [
-            "went into the bedroom ",
-            "went into the bedroom ",
             "into the bedroom ",
             "the bedroom "
         ],
@@ -21634,9 +21593,9 @@
     },
     "in nothing but union jack boxer shorts": {
         "chunks": [
-            "nothing but union jack boxer shorts",
             "but union jack boxer shorts",
-            "union jack boxer shorts"
+            "union jack boxer shorts",
+            "nothing but union jack boxer shorts"
         ],
         "tree_string": "(ROOT\n  (PP\n    (IN in)\n    (NP\n      (NP (NN nothing))\n      (PP (CC but) (NP (NN union) (NN jack) (NN boxer) (NNS shorts))))))"
     },
@@ -21659,9 +21618,8 @@
     },
     "in the world to do it": {
         "chunks": [
+            "to do it",
             "the world to do it",
-            "to do it",
-            "to do it",
             "do it"
         ],
         "tree_string": "(ROOT\n  (PP\n    (IN in)\n    (NP\n      (DT the)\n      (NN world)\n      (S (VP (TO to) (VP (VB do) (NP (PRP it))))))))"
@@ -21669,38 +21627,32 @@
     "the world to do it": {
         "chunks": [
             "to do it",
-            "to do it",
             "do it"
         ],
         "tree_string": "(ROOT\n  (FRAG\n    (NP\n      (DT the)\n      (NN world)\n      (S (VP (TO to) (VP (VB do) (NP (PRP it))))))))"
     },
     "the video clip of me was very popular": {
         "chunks": [
-            "the video clip of me ",
-            "the video clip ",
             "of me ",
+            "the video clip ",
+            "the video clip of me ",
             "was very popular"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP\n      (NP (DT the) (JJ video) (NN clip))\n      (PP (IN of) (NP (PRP me))))\n    (VP (VBD was) (ADJP (RB very) (JJ popular)))))"
     },
     "the video clip of me ": {
         "chunks": [
-            "the video clip of me ",
-            "the video clip ",
-            "of me "
+            "of me ",
+            "the video clip "
         ],
         "tree_string": "(ROOT\n  (NP (NP (DT the) (JJ video) (NN clip)) (PP (IN of) (NP (PRP me)))))"
     },
     "the video clip ": {
-        "chunks": [
-            "the video clip "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (NP (DT the) (NN video) (NN clip)))"
     },
     "about what else ": {
         "chunks": [
-            "about what else ",
-            "about what else ",
             "what else "
         ],
         "tree_string": "(ROOT (FRAG (WHPP (IN about) (WHNP (WP what) (RB else)))))"
@@ -21708,33 +21660,30 @@
     "to raise money and awareness for different charities": {
         "chunks": [
             "raise money and awareness for different charities",
-            "money and awareness ",
             "for different charities",
-            "different charities"
+            "different charities",
+            "money and awareness "
         ],
         "tree_string": "(ROOT\n  (FRAG\n    (S\n      (VP\n        (TO to)\n        (VP\n          (VB raise)\n          (NP (NN money) (CC and) (NN awareness))\n          (PP (IN for) (NP (JJ different) (NNS charities))))))))"
     },
     "raise money and awareness for different charities": {
         "chunks": [
-            "money and awareness ",
             "for different charities",
-            "different charities"
+            "different charities",
+            "money and awareness "
         ],
         "tree_string": "(ROOT\n  (S\n    (VP\n      (VB raise)\n      (NP (NN money) (CC and) (NN awareness))\n      (PP (IN for) (NP (JJ different) (NNS charities))))))"
     },
     "money and awareness ": {
-        "chunks": [
-            "money and awareness "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (NP (NN money) (CC and) (NN awareness)))"
     },
     "My family say I'm crazy": {
         "chunks": [
+            "'m crazy",
             "My family ",
-            "say I'm crazy",
             "I'm crazy",
-            "I'm crazy",
-            "'m crazy"
+            "say I'm crazy"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP$ My) (NN family))\n    (VP\n      (VBP say)\n      (SBAR (S (NP (PRP I)) (VP (VBP 'm) (ADJP (JJ crazy))))))))"
     },
@@ -21746,13 +21695,13 @@
     },
     "All my life ": {
         "chunks": [
-            "All my life ",
             "my life "
         ],
         "tree_string": "(ROOT (NP (NP (DT All)) (NP (PRP$ my) (NN life))))"
     },
     "I've liked a challenge": {
         "chunks": [
+            "'ve liked a challenge",
             "liked a challenge",
             "a challenge"
         ],
@@ -21760,50 +21709,50 @@
     },
     "'ve liked a challenge": {
         "chunks": [
-            "'ve liked ",
-            "a challenge"
+            "a challenge",
+            "'ve liked "
         ],
         "tree_string": "(ROOT\n  (SINV (VP (VBP 've) (VP (VBN liked))) (NP (DT a) (NN challenge))))"
     },
     "I like knowing I": {
         "chunks": [
-            "like knowing I",
             "knowing I",
-            "knowing I"
+            "like knowing I"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP (VBP like) (S (VP (VBG knowing) (NP (PRP I)))))))"
     },
     "I should be careful and take it easy": {
         "chunks": [
-            "be careful and take it easy",
             "it easy",
-            "be careful ",
             "take it easy",
-            "should be careful and take it easy"
+            "should be careful and take it easy",
+            "be careful ",
+            "be careful and take it easy"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (MD should)\n      (VP\n        (VP (VB be) (ADJP (JJ careful)))\n        (CC and)\n        (VP (VB take) (S (NP (PRP it)) (ADJP (JJ easy))))))))"
     },
     "should be careful and take it easy": {
         "chunks": [
+            "take it easy",
             "be careful and take it easy",
             "be careful ",
-            "take it easy",
             "it easy"
         ],
         "tree_string": "(ROOT\n  (FRAG\n    (VP\n      (MD should)\n      (VP\n        (VP (VB be) (ADJP (JJ careful)))\n        (CC and)\n        (VP (VB take) (S (NP (PRP it)) (ADJP (JJ easy))))))))"
     },
     "be careful and take it easy": {
         "chunks": [
-            "be careful ",
             "take it easy",
+            "be careful ",
             "it easy"
         ],
         "tree_string": "(ROOT\n  (S\n    (VP\n      (VP (VB be) (ADJP (JJ careful)))\n      (CC and)\n      (VP (VB take) (S (NP (PRP it)) (ADJP (JJ easy)))))))"
     },
     "I'm not taking any notice": {
         "chunks": [
+            "any notice",
             "taking any notice",
-            "any notice"
+            "'m not taking any notice"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBP 'm)\n      (RB not)\n      (VP (VBG taking) (NP (DT any) (NN notice))))))"
     },
@@ -21817,37 +21766,34 @@
     "been a daredevil from birth": {
         "chunks": [
             "a daredevil from birth",
-            "a daredevil ",
-            "from birth"
+            "from birth",
+            "a daredevil "
         ],
         "tree_string": "(ROOT\n  (VP\n    (VBN been)\n    (NP (NP (DT a) (NN daredevil)) (PP (IN from) (NP (NN birth))))))"
     },
     "a daredevil from birth": {
         "chunks": [
-            "a daredevil ",
-            "from birth"
+            "from birth",
+            "a daredevil "
         ],
         "tree_string": "(ROOT (NP (NP (DT a) (NN daredevil)) (PP (IN from) (NP (NN birth)))))"
     },
     "went into labour ": {
         "chunks": [
-            "went into labour ",
-            "went into labour ",
             "into labour "
         ],
         "tree_string": "(ROOT (FRAG (VP (VBD went) (PP (IN into) (NP (NN labour))))))"
     },
     "had me before the midwife even arrived": {
         "chunks": [
-            "before the midwife even arrived",
+            "before the midwife even ",
             "before the midwife ",
-            "before the midwife even "
+            "before the midwife even arrived"
         ],
         "tree_string": "(ROOT\n  (SINV\n    (VBD had)\n    (NP (PRP me))\n    (VP\n      (ADVP (NP (RB before) (DT the) (NN midwife)) (RB even))\n      (VBN arrived))))"
     },
     "before the midwife ": {
         "chunks": [
-            "before the midwife ",
             "the midwife "
         ],
         "tree_string": "(ROOT (PP (IN before) (NP (DT the) (NN midwife))))"
@@ -21930,25 +21876,21 @@
     },
     "an achievement  for me or my mother": {
         "chunks": [
-            "an achievement  for me or my mother",
             "an achievement  ",
+            "my mother",
             "for me or my mother",
-            "me or my mother",
-            "my mother"
+            "me or my mother"
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP (DT an) (NN achievement))\n    (PP\n      (IN for)\n      (NP (NP (PRP me)) (CC or) (NP (PRP$ my) (NN mother))))))"
     },
     "an achievement  ": {
-        "chunks": [
-            "an achievement  ",
-            "an achievement  "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (FRAG (NP (DT an) (NN achievement))))"
     },
     "for me or my mother": {
         "chunks": [
-            "me or my mother",
-            "my mother"
+            "my mother",
+            "me or my mother"
         ],
         "tree_string": "(ROOT\n  (PP (IN for) (NP (NP (PRP me)) (CC or) (NP (PRP$ my) (NN mother)))))"
     },
@@ -21970,79 +21912,66 @@
     },
     "to the best wife in the world ": {
         "chunks": [
-            "to the best wife in the world ",
-            "the best wife in the world ",
-            "the best wife ",
             "in the world ",
-            "the world "
+            "the world ",
+            "the best wife in the world ",
+            "the best wife "
         ],
         "tree_string": "(ROOT\n  (PP\n    (TO to)\n    (NP\n      (NP (DT the) (JJS best) (NN wife))\n      (PP (IN in) (NP (DT the) (NN world))))))"
     },
     "the best wife in the world ": {
         "chunks": [
-            "the best wife in the world ",
-            "the best wife ",
             "in the world ",
-            "the world "
+            "the world ",
+            "the best wife "
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP (DT the) (JJS best) (NN wife))\n    (PP (IN in) (NP (DT the) (NN world)))))"
     },
     "the best wife ": {
-        "chunks": [
-            "the best wife ",
-            "the best wife "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (FRAG (NP (DT the) (JJS best) (NN wife))))"
     },
     "very suddenly of a stroke ": {
         "chunks": [
-            "very suddenly of a stroke ",
-            "of a stroke ",
-            "a stroke "
+            "a stroke ",
+            "of a stroke "
         ],
         "tree_string": "(ROOT\n  (ADVP\n    (RB very)\n    (ADVP (RB suddenly))\n    (PP (IN of) (NP (DT a) (NN stroke)))))"
     },
     "of a stroke ": {
         "chunks": [
-            "of a stroke ",
             "a stroke "
         ],
         "tree_string": "(ROOT (PP (IN of) (NP (DT a) (NN stroke))))"
     },
     "the biggest regret  ": {
-        "chunks": [
-            "the biggest regret  ",
-            "the biggest regret  "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (FRAG (NP (DT the) (JJS biggest) (NN regret))))"
     },
     "to spend this extra time with her": {
         "chunks": [
-            "spend this extra time with her",
             "this extra time ",
-            "with her"
+            "with her",
+            "spend this extra time with her"
         ],
         "tree_string": "(ROOT\n  (FRAG\n    (S\n      (VP\n        (TO to)\n        (VP\n          (VB spend)\n          (NP (DT this) (JJ extra) (NN time))\n          (PP (IN with) (NP (PRP her))))))))"
     },
     "spend this extra time with her": {
         "chunks": [
-            "with her",
-            "this extra time "
+            "this extra time ",
+            "with her"
         ],
         "tree_string": "(ROOT\n  (S\n    (VP\n      (VB spend)\n      (NP (DT this) (JJ extra) (NN time))\n      (PP (IN with) (NP (PRP her))))))"
     },
     "this extra time ": {
-        "chunks": [
-            "this extra time ",
-            "this extra time "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (FRAG (NP (DT this) (JJ extra) (NN time))))"
     },
     "four children, eight grandchildren and 21 great-grandchildren": {
         "chunks": [
-            "four children",
+            "21 great-grandchildren",
             "eight grandchildren ",
-            "21 great-grandchildren"
+            "four children"
         ],
         "tree_string": "(ROOT\n  (FRAG\n    (NP\n      (NP (CD four) (NNS children))\n      (, ,)\n      (NP (CD eight) (NNS grandchildren))\n      (CC and)\n      (NP (CD 21) (NNS great-grandchildren)))))"
     },
@@ -22058,22 +21987,19 @@
     "the nice surprise of a great-great-granddaughter": {
         "chunks": [
             "the nice surprise ",
-            "of a great-great-granddaughter",
-            "a great-great-granddaughter"
+            "a great-great-granddaughter",
+            "of a great-great-granddaughter"
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP (DT the) (JJ nice) (NN surprise))\n    (PP (IN of) (NP (DT a) (NN great-great-granddaughter)))))"
     },
     "the nice surprise ": {
-        "chunks": [
-            "the nice surprise ",
-            "the nice surprise "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (FRAG (NP (DT the) (JJ nice) (NN surprise))))"
     },
     "I could not have a better family": {
         "chunks": [
-            "could not have a better family",
             "have a better family",
+            "could not have a better family",
             "a better family"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (MD could)\n      (RB not)\n      (VP (VB have) (NP (DT a) (JJR better) (NN family))))))"
@@ -22093,31 +22019,26 @@
     },
     "that keeps me going": {
         "chunks": [
-            "keeps me going",
-            "keeps me going",
-            "me going"
+            "me going",
+            "keeps me going"
         ],
         "tree_string": "(ROOT\n  (SBAR\n    (WHNP (WDT that))\n    (S (VP (VBZ keeps) (S (NP (PRP me)) (VP (VBG going)))))))"
     },
     "my world record ": {
-        "chunks": [
-            "my world record ",
-            "my world record "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (FRAG (NP (PRP$ my) (NN world) (NN record))))"
     },
     "as the oldest person ": {
         "chunks": [
-            "as the oldest person ",
             "the oldest person "
         ],
         "tree_string": "(ROOT (PP (IN as) (NP (DT the) (JJS oldest) (NN person))))"
     },
     "'d say, Good luck to you": {
         "chunks": [
-            "say, Good luck ",
             "Good luck ",
-            "to you"
+            "to you",
+            "say, Good luck "
         ],
         "tree_string": "(ROOT\n  (S\n    (VP\n      (VBG 'd)\n      (INTJ (INTJ (UH say)) (, ,) (INTJ (JJ Good) (NN luck)))\n      (PP (TO to) (NP (PRP you))))))"
     },
@@ -22128,16 +22049,13 @@
         "tree_string": "(ROOT (INTJ (INTJ (UH say)) (, ,) (INTJ (JJ Good) (NN luck))))"
     },
     "the real achievement ": {
-        "chunks": [
-            "the real achievement ",
-            "the real achievement "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (FRAG (NP (DT the) (JJ real) (NN achievement))))"
     },
     "is not what I've done": {
         "chunks": [
-            "what I've done",
             "I've done",
+            "what I've done",
             "'ve done"
         ],
         "tree_string": "(ROOT\n  (FRAG\n    (S\n      (VP\n        (VBZ is)\n        (RB not)\n        (SBAR\n          (WHNP (WP what))\n          (S (NP (PRP I)) (VP (VBP 've) (VP (VBN done)))))))))"
@@ -22145,14 +22063,17 @@
     "it's how long I've lived": {
         "chunks": [
             "I've lived",
-            "'ve lived"
+            "'ve lived",
+            "'s how long I've lived",
+            "how long I've lived"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP it))\n    (VP\n      (VBZ 's)\n      (SBAR\n        (WHADVP (WRB how) (RB long))\n        (S (NP (PRP I)) (VP (VBP 've) (VP (VBN lived))))))))"
     },
     "'s how long I've lived": {
         "chunks": [
             "I've lived",
-            "'ve lived"
+            "'ve lived",
+            "how long I've lived"
         ],
         "tree_string": "(ROOT\n  (FRAG\n    (S\n      (VP\n        (VBZ 's)\n        (SBAR\n          (WHADVP (WRB how) (RB long))\n          (S (NP (PRP I)) (VP (VBP 've) (VP (VBN lived)))))))))"
     },
@@ -22245,6 +22166,7 @@
     },
     "I'm taking it easy now": {
         "chunks": [
+            "'m taking it easy now",
             "taking it easy now",
             "it easy "
         ],
@@ -22252,9 +22174,9 @@
     },
     "'m taking it easy now": {
         "chunks": [
-            "'m taking it easy ",
             "taking it easy ",
-            "it easy "
+            "it easy ",
+            "'m taking it easy "
         ],
         "tree_string": "(ROOT\n  (SINV\n    (VP\n      (VBP 'm)\n      (VP (VBG taking) (S (NP (PRP it)) (ADJP (JJ easy)))))\n    (NP (RB now))))"
     },
@@ -22266,26 +22188,25 @@
     },
     "I find challenges to spice things up": {
         "chunks": [
-            "find challenges to spice things up",
+            "spice things ",
             "challenges to spice things ",
-            "to spice things ",
-            "spice things "
+            "find challenges to spice things up",
+            "to spice things "
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBP find)\n      (NP\n        (NP (NNS challenges))\n        (PP (TO to) (NP (NN spice) (NNS things))))\n      (PRT (RP up)))))"
     },
     "find challenges to spice things up": {
         "chunks": [
+            "spice things ",
             "challenges to spice things ",
-            "to spice things ",
-            "spice things "
+            "to spice things "
         ],
         "tree_string": "(ROOT\n  (S\n    (VP\n      (VB find)\n      (NP\n        (NP (NNS challenges))\n        (PP (TO to) (NP (NN spice) (NNS things))))\n      (PRT (RP up)))))"
     },
     "challenges to spice things ": {
         "chunks": [
-            "challenges to spice things ",
-            "to spice things ",
-            "spice things "
+            "spice things ",
+            "to spice things "
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP (NNS challenges))\n    (PP (TO to) (NP (NN spice) (NNS things)))))"
     },
@@ -22297,16 +22218,16 @@
     },
     "as part of a family fun day": {
         "chunks": [
+            "a family fun day",
             "part of a family fun day",
-            "of a family fun day",
-            "a family fun day"
+            "of a family fun day"
         ],
         "tree_string": "(ROOT\n  (PP\n    (IN as)\n    (NP\n      (NP (NN part))\n      (PP (IN of) (NP (DT a) (NN family) (NN fun) (NN day))))))"
     },
     "part of a family fun day": {
         "chunks": [
-            "of a family fun day",
-            "a family fun day"
+            "a family fun day",
+            "of a family fun day"
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP (NN part))\n    (PP (IN of) (NP (DT a) (NN family) (NN fun) (NN day)))))"
     },
@@ -22318,8 +22239,8 @@
     },
     "a family fun day": {
         "chunks": [
-            "a family ",
-            "fun day"
+            "fun day",
+            "a family "
         ],
         "tree_string": "(ROOT (NP (NP (DT a) (NN family)) (NP (NN fun) (NN day))))"
     },
@@ -22358,110 +22279,101 @@
     },
     "did it about three times": {
         "chunks": [
-            "about three times",
             "three times",
+            "about three times",
             "it about three times"
         ],
         "tree_string": "(ROOT\n  (SINV\n    (VBD did)\n    (NP (NP (PRP it)) (PP (IN about) (NP (CD three) (NNS times))))))"
     },
     "a few ideas ": {
-        "chunks": [
-            "a few ideas ",
-            "a few ideas "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (FRAG (NP (DT a) (JJ few) (NNS ideas))))"
     },
     "for the next charity challenge ": {
         "chunks": [
-            "for the next charity challenge ",
             "the next charity challenge "
         ],
         "tree_string": "(ROOT\n  (PP (IN for) (NP (DT the) (JJ next) (NN charity) (NN challenge))))"
     },
     "the next charity challenge ": {
         "chunks": [
-            "the next charity challenge ",
             "the next charity "
         ],
         "tree_string": "(ROOT (S (NP (DT the) (JJ next) (NN charity)) (VP (VBP challenge))))"
     },
     "on my 106th birthday on 6 April": {
         "chunks": [
-            "my 106th birthday on 6 ",
             "my 106th birthday ",
+            "my 106th birthday on 6 ",
             "on 6 "
         ],
         "tree_string": "(ROOT\n  (PP\n    (IN on)\n    (NP\n      (NP (PRP$ my) (JJ 106th) (NN birthday))\n      (PP (IN on) (NP (CD 6))))\n    (NP (NNP April))))"
     },
     "my 106th birthday on 6 April": {
         "chunks": [
-            "my 106th birthday on 6 ",
             "my 106th birthday ",
+            "my 106th birthday on 6 ",
             "on 6 "
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP\n      (NP (PRP$ my) (JJ 106th) (NN birthday))\n      (PP (IN on) (NP (CD 6))))\n    (NP (NNP April))))"
     },
     "my 106th birthday ": {
-        "chunks": [
-            "my 106th birthday ",
-            "my 106th birthday "
-        ],
+        "chunks": [],
         "tree_string": "(ROOT (FRAG (NP (PRP$ my) (JJ 106th) (NN birthday))))"
     },
     "nothing has been confirmed yet": {
         "chunks": [
             "has been confirmed yet",
-            "been confirmed yet",
-            "confirmed yet"
+            "confirmed yet",
+            "been confirmed yet"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (NN nothing))\n    (VP\n      (VBZ has)\n      (VP (VBN been) (VP (VBN confirmed) (ADVP (RB yet)))))))"
     },
     "has been confirmed yet": {
         "chunks": [
-            "has been confirmed ",
-            "been confirmed "
+            "been confirmed ",
+            "has been confirmed "
         ],
         "tree_string": "(ROOT\n  (SINV\n    (VP (VBZ has) (VP (VBN been) (VP (VBN confirmed))))\n    (NP (RB yet))))"
     },
     "All I can say ": {
         "chunks": [
-            "All I can say ",
-            "All I ",
-            "can say "
+            "can say ",
+            "All I "
         ],
         "tree_string": "(ROOT (S (NP (DT All) (NN I)) (VP (MD can) (VP (VB say)))))"
     },
     "I can say ": {
         "chunks": [
-            "I can say ",
             "can say "
         ],
         "tree_string": "(ROOT (S (NP (PRP I)) (VP (MD can) (VP (VB say)))))"
     },
     "par with, if not better than, the rollercoaster": {
         "chunks": [
-            ", if not better than, ",
-            "if not better than",
-            "not better than",
+            "with, if not better than, the rollercoaster",
+            "the rollercoaster",
             "better than",
-            "the rollercoaster"
+            "not better than",
+            "if not better than",
+            ", if not better than, "
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP (NN par))\n    (PP\n      (IN with)\n      (PRN\n        (, ,)\n        (SBAR (IN if) (FRAG (RB not) (ADVP (RB better) (IN than))))\n        (, ,))\n      (NP (DT the) (JJ rollercoaster)))))"
     },
     "with, if not better than, the rollercoaster": {
         "chunks": [
-            ", if not better than, ",
-            "if not better than",
-            "not better than",
+            "the rollercoaster",
             "better than",
-            "the rollercoaster"
+            "not better than",
+            "if not better than",
+            ", if not better than, "
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP (IN with))\n    (PRN\n      (, ,)\n      (SBAR (IN if) (FRAG (RB not) (ADVP (RB better) (IN than))))\n      (, ,))\n    (NP (DT the) (NN rollercoaster))))"
     },
     ", if not better than, ": {
         "chunks": [
-            "if not better than",
             "not better than",
+            "if not better than",
             "better than"
         ],
         "tree_string": "(ROOT\n  (PRN\n    (, ,)\n    (SBAR (IN if) (FRAG (RB not) (ADVP (RB better) (IN than))))\n    (, ,)))"
@@ -22474,69 +22386,70 @@
     },
     "is jealous of all the fun I'm having": {
         "chunks": [
-            "of all the fun I'm having",
-            "all the fun I'm having",
             "all the fun ",
+            "'m having",
             "I'm having",
-            "I'm having",
-            "'m having"
+            "of all the fun I'm having",
+            "jealous of all the fun I'm having",
+            "all the fun I'm having"
         ],
         "tree_string": "(ROOT\n  (SINV\n    (VP (VBZ is))\n    (NP\n      (NP (JJ jealous))\n      (PP\n        (IN of)\n        (NP\n          (NP (PDT all) (DT the) (NN fun))\n          (SBAR (S (NP (PRP I)) (VP (VBP 'm) (ADJP (JJ having))))))))))"
     },
     "jealous of all the fun I'm having": {
         "chunks": [
-            "all the fun I'm having",
             "all the fun ",
+            "'m having",
             "I'm having",
-            "I'm having",
-            "'m having"
+            "of all the fun I'm having",
+            "all the fun I'm having"
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP (JJ jealous))\n    (PP\n      (IN of)\n      (NP\n        (NP (PDT all) (DT the) (NN fun))\n        (SBAR (S (NP (PRP I)) (VP (VBP 'm) (ADJP (JJ having)))))))))"
     },
     "of all the fun I'm having": {
         "chunks": [
             "of all the fun ",
-            "all the fun ",
-            "'m having"
+            "'m having",
+            "all the fun "
         ],
         "tree_string": "(ROOT\n  (S\n    (PP (IN of) (NP (PDT all) (DT the) (NN fun)))\n    (NP (PRP I))\n    (VP (VBP 'm) (ADJP (JJ having)))))"
     },
     "all the fun I'm having": {
         "chunks": [
             "all the fun ",
-            "I'm having",
-            "I'm having",
-            "'m having"
+            "'m having",
+            "I'm having"
         ],
         "tree_string": "(ROOT\n  (FRAG\n    (NP\n      (NP (PDT all) (DT the) (NN fun))\n      (SBAR (S (NP (PRP I)) (VP (VBP 'm) (ADJP (JJ having))))))))"
     },
     "all the fun ": {
         "chunks": [
-            "all the fun ",
             "the fun "
         ],
         "tree_string": "(ROOT (NP (NP (DT all)) (NP (DT the) (NN fun))))"
     },
     "I'm daft and that's about it": {
         "chunks": [
+            "daft and that's about it",
             "that's about it",
-            "'s about it",
-            "'s about it",
-            "about it"
+            "'m daft and that's about it",
+            "about it",
+            "'s about it"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBP 'm)\n      (NP\n        (NP (NN daft))\n        (CC and)\n        (SBAR\n          (WHNP (WDT that))\n          (S (VP (VBZ 's) (PP (IN about) (NP (PRP it))))))))))"
     },
     "had many good days, and many exciting times": {
         "chunks": [
+            "many good days",
             "many good days, and many exciting ",
-            "many good days"
+            "had many good days, and many exciting "
         ],
         "tree_string": "(ROOT\n  (SINV\n    (VP\n      (VBD had)\n      (NP\n        (NP (JJ many) (JJ good) (NNS days))\n        (, ,)\n        (CC and)\n        (ADJP (JJ many) (JJ exciting))))\n    (NP (NNS times))))"
     },
     "many good days, and many exciting times": {
         "chunks": [
             "good days",
-            "many exciting times"
+            "many exciting times",
+            "good days, and many exciting times"
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP (JJ many))\n    (NP\n      (NP (JJ good) (NNS days))\n      (, ,)\n      (CC and)\n      (NP (JJ many) (JJ exciting) (NNS times)))))"
     },
@@ -22552,50 +22465,52 @@
     },
     "think I've wasted any of it": {
         "chunks": [
-            "'ve wasted any of it",
             "wasted any of it",
-            "any of it",
-            "of it"
+            "'ve wasted any of it",
+            "of it",
+            "I've wasted any of it",
+            "any of it"
         ],
         "tree_string": "(ROOT\n  (S\n    (VP\n      (VB think)\n      (SBAR\n        (S\n          (NP (PRP I))\n          (VP\n            (VBP 've)\n            (VP\n              (VBN wasted)\n              (NP (NP (DT any)) (PP (IN of) (NP (PRP it)))))))))))"
     },
     "I've wasted any of it": {
         "chunks": [
-            "wasted any of it",
+            "of it",
             "any of it",
-            "of it"
+            "wasted any of it",
+            "'ve wasted any of it"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBP 've)\n      (VP (VBN wasted) (NP (NP (DT any)) (PP (IN of) (NP (PRP it))))))))"
     },
     "'ve wasted any of it": {
         "chunks": [
-            "'ve wasted ",
+            "of it",
             "any of it",
-            "of it"
+            "'ve wasted "
         ],
         "tree_string": "(ROOT\n  (SINV\n    (VP (VBP 've) (VP (VBN wasted)))\n    (NP (NP (DT any)) (PP (IN of) (NP (PRP it))))))"
     },
     "wasted any of it": {
         "chunks": [
-            "any of it",
-            "of it"
+            "of it",
+            "any of it"
         ],
         "tree_string": "(ROOT\n  (SINV\n    (VP (VBD wasted))\n    (NP (NP (DT any)) (PP (IN of) (NP (PRP it))))))"
     },
     "for the oldest person in the world": {
         "chunks": [
-            "the oldest person in the world",
             "the oldest person ",
-            "in the world",
-            "the world"
+            "the world",
+            "the oldest person in the world",
+            "in the world"
         ],
         "tree_string": "(ROOT\n  (PP\n    (IN for)\n    (NP\n      (NP (DT the) (JJS oldest) (NN person))\n      (PP (IN in) (NP (DT the) (NN world))))))"
     },
     "the oldest person in the world": {
         "chunks": [
             "the oldest person ",
-            "in the world",
-            "the world"
+            "the world",
+            "in the world"
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP (DT the) (JJS oldest) (NN person))\n    (PP (IN in) (NP (DT the) (NN world)))))"
     },
@@ -22731,16 +22646,16 @@
     },
     "because my blood pressure could drop": {
         "chunks": [
+            "could drop",
             "my blood pressure could drop",
-            "my blood pressure ",
-            "could drop"
+            "my blood pressure "
         ],
         "tree_string": "(ROOT\n  (SBAR\n    (IN because)\n    (S\n      (NP (PRP$ my) (NN blood) (NN pressure))\n      (VP (MD could) (VP (VB drop))))))"
     },
     "my blood pressure could drop": {
         "chunks": [
-            "my blood pressure ",
-            "could drop"
+            "could drop",
+            "my blood pressure "
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP$ my) (NN blood) (NN pressure))\n    (VP (MD could) (VP (VB drop)))))"
     },
@@ -22822,8 +22737,8 @@
     },
     "every morning in my tea": {
         "chunks": [
-            "every morning ",
             "in my tea",
+            "every morning ",
             "my tea"
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP (DT every) (NN morning))\n    (PP (IN in) (NP (PRP$ my) (NN tea)))))"
@@ -22980,12 +22895,15 @@
     },
     "It didn't take long": {
         "chunks": [
+            "didn't take long",
             "take long"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP It))\n    (VP (VBD did) (RB n't) (VP (VB take) (ADVP (RB long))))))"
     },
     "didn't take long": {
-        "chunks": [],
+        "chunks": [
+            "didn't take "
+        ],
         "tree_string": "(ROOT (SINV (VP (VBD did) (RB n't) (VP (VB take))) (NP (RB long))))"
     },
     "I had more pain getting my hair cut": {
@@ -23245,8 +23163,8 @@
     },
     "agrees, I'm in good shape": {
         "chunks": [
-            "'m in good shape",
             "in good shape",
+            "'m in good shape",
             "good shape"
         ],
         "tree_string": "(ROOT\n  (S\n    (S (VP (VBZ agrees)))\n    (, ,)\n    (NP (PRP I))\n    (VP (VBP 'm) (PP (IN in) (NP (JJ good) (NN shape))))))"
@@ -23374,9 +23292,9 @@
     },
     "a place in the Guinness World Records": {
         "chunks": [
-            "a place ",
+            "the Guinness World Records",
             "in the Guinness World Records",
-            "the Guinness World Records"
+            "a place "
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP (DT a) (NN place))\n    (PP\n      (IN in)\n      (NP (DT the) (NNP Guinness) (NNP World) (NNPS Records)))))"
     },
@@ -23552,9 +23470,9 @@
     },
     "that it was a bit too gentle": {
         "chunks": [
-            "it was a bit too gentle",
             "was a bit too gentle",
-            "a bit "
+            "a bit ",
+            "it was a bit too gentle"
         ],
         "tree_string": "(ROOT\n  (SBAR\n    (IN that)\n    (S\n      (NP (PRP it))\n      (VP (VBD was) (ADJP (NP (DT a) (RB bit)) (RB too) (JJ gentle))))))"
     },
@@ -23702,6 +23620,7 @@
     },
     "I'm a bit deaf": {
         "chunks": [
+            "'m a bit deaf",
             "a bit "
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP (VBP 'm) (ADJP (NP (DT a) (RB bit)) (JJ deaf)))))"
@@ -23915,9 +23834,9 @@
     },
     "the best wife in the world": {
         "chunks": [
-            "the best wife ",
             "in the world",
-            "the world"
+            "the world",
+            "the best wife "
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP (DT the) (JJS best) (NN wife))\n    (PP (IN in) (NP (DT the) (NN world)))))"
     },
@@ -24135,10 +24054,10 @@
     },
     "that, because my blood pressure could drop": {
         "chunks": [
+            "could drop",
             "because my blood pressure could drop",
-            "my blood pressure could drop",
             "my blood pressure ",
-            "could drop"
+            "my blood pressure could drop"
         ],
         "tree_string": "(ROOT\n  (FRAG\n    (NP\n      (NP (DT that))\n      (, ,)\n      (SBAR\n        (IN because)\n        (S\n          (NP (PRP$ my) (NN blood) (NN pressure))\n          (VP (MD could) (VP (VB drop))))))))"
     },
@@ -24164,8 +24083,8 @@
     "my legs are a bit wobbly": {
         "chunks": [
             "my legs ",
-            "are a bit wobbly",
-            "a bit "
+            "a bit ",
+            "are a bit wobbly"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP (PRP$ my) (NNS legs))\n    (VP (VBP are) (ADJP (NP (DT a) (RB bit)) (JJ wobbly)))))"
     },
@@ -24224,10 +24143,10 @@
     },
     "to the best wife in the world": {
         "chunks": [
-            "the best wife in the world",
-            "the best wife ",
             "in the world",
-            "the world"
+            "the best wife ",
+            "the world",
+            "the best wife in the world"
         ],
         "tree_string": "(ROOT\n  (PP\n    (TO to)\n    (NP\n      (NP (DT the) (JJS best) (NN wife))\n      (PP (IN in) (NP (DT the) (NN world))))))"
     },
@@ -24294,17 +24213,17 @@
     },
     "very suddenly of a stroke": {
         "chunks": [
-            "of a stroke",
-            "a stroke"
+            "a stroke",
+            "of a stroke"
         ],
         "tree_string": "(ROOT\n  (ADVP\n    (RB very)\n    (ADVP (RB suddenly))\n    (PP (IN of) (NP (DT a) (NN stroke)))))"
     },
     "an achievement for me or my mother": {
         "chunks": [
             "an achievement ",
+            "my mother",
             "for me or my mother",
-            "me or my mother",
-            "my mother"
+            "me or my mother"
         ],
         "tree_string": "(ROOT\n  (NP\n    (NP (DT an) (NN achievement))\n    (PP\n      (IN for)\n      (NP (NP (PRP me)) (CC or) (NP (PRP$ my) (NN mother))))))"
     },
@@ -25222,5 +25141,352 @@
             "kl j"
         ],
         "tree_string": "(ROOT (S (VP (VB kj) (NP (NN kl) (NN j)))))"
+    },
+    "in more pain with a haircut": {
+        "chunks": [
+            "with a haircut",
+            "a haircut",
+            "more pain with a haircut",
+            "more pain "
+        ],
+        "tree_string": "(ROOT\n  (PP\n    (IN in)\n    (NP\n      (NP (JJR more) (NN pain))\n      (PP (IN with) (NP (DT a) (NN haircut))))))"
+    },
+    "spend that extra time with her": {
+        "chunks": [
+            "with her",
+            "that extra time "
+        ],
+        "tree_string": "(ROOT\n  (S\n    (VP\n      (VB spend)\n      (NP (DT that) (JJ extra) (NN time))\n      (PP (IN with) (NP (PRP her))))))"
+    },
+    "have done it about three times": {
+        "chunks": [
+            "three times",
+            "about three times",
+            "done it about three times"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (VP\n      (VB have)\n      (VP\n        (VBN done)\n        (NP (PRP it))\n        (PP (IN about) (NP (CD three) (NNS times)))))))"
+    },
+    "frfr ": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (NN frfr)))"
+    },
+    "nnm": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (NN nnm)))"
+    },
+    "another shot every night": {
+        "chunks": [
+            "every night",
+            "shot every night"
+        ],
+        "tree_string": "(ROOT\n  (S (NP (DT another)) (VP (VBD shot) (NP (DT every) (NN night)))))"
+    },
+    "had me even before the midwife had arrived": {
+        "chunks": [
+            "the midwife ",
+            "even before the midwife ",
+            "before the midwife ",
+            "even before the midwife had arrived"
+        ],
+        "tree_string": "(ROOT\n  (SINV\n    (VBD had)\n    (NP (PRP me))\n    (VP\n      (ADVP (RB even) (PP (IN before) (NP (DT the) (NN midwife))))\n      (VBD had)\n      (VP (VBN arrived)))))"
+    },
+    "par with, if not better than the rollercoaster": {
+        "chunks": [
+            "with, if not better than the rollercoaster",
+            "if not ",
+            "the rollercoaster",
+            "better than the rollercoaster"
+        ],
+        "tree_string": "(ROOT\n  (ADJP\n    (JJ par)\n    (PP\n      (PP (IN with))\n      (, ,)\n      (CONJP (IN if) (RB not))\n      (PP\n        (ADVP (RBR better))\n        (IN than)\n        (NP (DT the) (JJ rollercoaster))))))"
+    },
+    "I wasted any of it": {
+        "chunks": [
+            "of it",
+            "any of it",
+            "wasted any of it"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP (VBD wasted) (NP (NP (DT any)) (PP (IN of) (NP (PRP it)))))))"
+    },
+    "many good days and many exciting times": {
+        "chunks": [
+            "many good days ",
+            "many exciting times"
+        ],
+        "tree_string": "(ROOT\n  (NP\n    (NP (JJ many) (JJ good) (NNS days))\n    (CC and)\n    (NP (JJ many) (JJ exciting) (NNS times))))"
+    },
+    "'d say good luck to you": {
+        "chunks": [
+            "'d say good luck to ",
+            "good luck ",
+            "say good luck to "
+        ],
+        "tree_string": "(ROOT\n  (SINV\n    (VP (MD 'd) (VP (VB say) (NP (JJ good) (NN luck)) (PP (TO to))))\n    (NP (PRP you))))"
+    },
+    "the biggest regret": {
+        "chunks": [],
+        "tree_string": "(ROOT (FRAG (NP (DT the) (JJS biggest) (NN regret))))"
+    },
+    "the world, to do": {
+        "chunks": [
+            "the world",
+            "the world, to "
+        ],
+        "tree_string": "(ROOT\n  (S (NP (NP (DT the) (NN world)) (, ,) (X (TO to))) (VP (VBP do))))"
+    },
+    "started, feeling pain in my right leg": {
+        "chunks": [
+            "feeling pain in my right leg",
+            "in my right leg",
+            "my right leg"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (VP\n      (VBN started)\n      (, ,)\n      (S\n        (VP\n          (VBG feeling)\n          (NP (NN pain))\n          (PP (IN in) (NP (PRP$ my) (JJ right) (NN leg))))))))"
+    },
+    "a really fast one that goes upside down": {
+        "chunks": [
+            "a really fast one ",
+            "upside down",
+            "goes upside down",
+            "that goes upside down"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP\n      (NP (DT a) (ADJP (RB really) (JJ fast)) (NN one))\n      (SBAR\n        (WHNP (WDT that))\n        (S (VP (VBZ goes) (ADVP (RB upside) (RB down))))))))"
+    },
+    "My daughter and grandson": {
+        "chunks": [
+            "My daughter "
+        ],
+        "tree_string": "(ROOT (NP (NP (PRP$ My) (NN daughter)) (CC and) (NP (NN grandson))))"
+    },
+    "'m now taking it easy": {
+        "chunks": [
+            "taking it easy",
+            "it easy"
+        ],
+        "tree_string": "(ROOT\n  (FRAG\n    (VP\n      (VBP 'm)\n      (ADVP (RB now))\n      (VP (VBG taking) (S (NP (PRP it)) (ADJP (JJ easy)))))))"
+    },
+    "a few ideas": {
+        "chunks": [],
+        "tree_string": "(ROOT (FRAG (NP (DT a) (JJ few) (NNS ideas))))"
+    },
+    "the next charity challenge": {
+        "chunks": [
+            "the next charity "
+        ],
+        "tree_string": "(ROOT (S (NP (DT the) (JJ next) (NN charity)) (VP (VBP challenge))))"
+    },
+    "they're the only issue": {
+        "chunks": [
+            "the only issue",
+            "'re the only issue"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP they))\n    (VP (VBP 're) (NP (DT the) (JJ only) (NN issue)))))"
+    },
+    "My family says, I'm crazy": {
+        "chunks": [
+            "'m crazy",
+            "My family ",
+            "says, I'm crazy",
+            "I'm crazy"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP$ My) (NN family))\n    (VP\n      (VBZ says)\n      (, ,)\n      (SBAR (S (NP (PRP I)) (VP (VBP 'm) (ADJP (JJ crazy))))))))"
+    },
+    "during a production in 2009": {
+        "chunks": [
+            "in 2009",
+            "a production in 2009",
+            "a production "
+        ],
+        "tree_string": "(ROOT\n  (PP\n    (IN during)\n    (NP (NP (DT a) (NN production)) (PP (IN in) (NP (CD 2009))))))"
+    },
+    "the nicest surprise": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (DT the) (NN nicest) (NN surprise)))"
+    },
+    "a production in 2009": {
+        "chunks": [
+            "in 2009",
+            "a production "
+        ],
+        "tree_string": "(ROOT (NP (NP (DT a) (NN production)) (PP (IN in) (NP (CD 2009)))))"
+    },
+    "my 106. birthday": {
+        "chunks": [
+            "my 106. "
+        ],
+        "tree_string": "(ROOT (FRAG (NP (JJ my) (NN 106) (. .)) (NP (NN birthday))))"
+    },
+    "All my life": {
+        "chunks": [
+            "my life"
+        ],
+        "tree_string": "(ROOT (NP (NP (DT All)) (NP (PRP$ my) (NN life))))"
+    },
+    "all the fun": {
+        "chunks": [
+            "the fun"
+        ],
+        "tree_string": "(ROOT (NP (NP (DT all)) (NP (DT the) (NN fun))))"
+    },
+    "the world, to get their first tattoo": {
+        "chunks": [
+            "get their first tattoo",
+            "to get their first tattoo",
+            "their first tattoo",
+            "the world"
+        ],
+        "tree_string": "(ROOT\n  (NP\n    (NP (DT the) (NN world))\n    (, ,)\n    (PP\n      (TO to)\n      (S (VP (VB get) (NP (PRP$ their) (JJ first) (NN tattoo)))))))"
+    },
+    "went into labour": {
+        "chunks": [
+            "into labour"
+        ],
+        "tree_string": "(ROOT (FRAG (VP (VBD went) (PP (IN into) (NP (NN labour))))))"
+    },
+    "I was fastened in securely": {
+        "chunks": [
+            "in securely",
+            "was fastened in securely",
+            "fastened in securely"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBD was)\n      (VP (VBN fastened) (PP (IN in) (ADVP (RB securely)))))))"
+    },
+    "All I can say": {
+        "chunks": [
+            "All I ",
+            "can say"
+        ],
+        "tree_string": "(ROOT (S (NP (DT All) (NN I)) (VP (MD can) (VP (VB say)))))"
+    },
+    "that I should be careful and take it easy": {
+        "chunks": [
+            "it easy",
+            "take it easy",
+            "should be careful and take it easy",
+            "be careful ",
+            "be careful and take it easy",
+            "I should be careful and take it easy"
+        ],
+        "tree_string": "(ROOT\n  (SBAR\n    (IN that)\n    (S\n      (NP (PRP I))\n      (VP\n        (MD should)\n        (VP\n          (VP (VB be) (ADJP (JJ careful)))\n          (CC and)\n          (VP (VB take) (S (NP (PRP it)) (ADJP (JJ easy)))))))))"
+    },
+    "'ve been in more pain haing a haircut": {
+        "chunks": [
+            "been in more pain haing ",
+            "in more pain haing ",
+            "a haircut",
+            "more pain haing ",
+            "'ve been in more pain haing "
+        ],
+        "tree_string": "(ROOT\n  (SINV\n    (VP\n      (VBP 've)\n      (VP\n        (VBN been)\n        (PP (IN in) (NP (JJR more) (NN pain) (NN haing)))))\n    (NP (DT a) (NN haircut))))"
+    },
+    "I was 102 then but thought": {
+        "chunks": [
+            "was 102 then ",
+            "102 then ",
+            "was 102 then but thought"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VP (VBD was) (ADVP (NP (CD 102)) (RB then)))\n      (CC but)\n      (VP (VBD thought)))))"
+    },
+    "I like to know I": {
+        "chunks": [
+            "know I",
+            "like to know I",
+            "to know I"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP (VBP like) (S (VP (TO to) (VP (VB know) (NP (PRP I))))))))"
+    },
+    "waster any of it": {
+        "chunks": [
+            "of it",
+            "any of it"
+        ],
+        "tree_string": "(ROOT\n  (S (VP (VB waster) (NP (NP (DT any)) (PP (IN of) (NP (PRP it)))))))"
+    },
+    "wouldn't fall out": {
+        "chunks": [
+            "fall out"
+        ],
+        "tree_string": "(ROOT (FRAG (VP (MD would) (RB n't) (VP (VB fall) (PRT (RP out))))))"
+    },
+    "for the next charity challenge": {
+        "chunks": [
+            "the next charity challenge"
+        ],
+        "tree_string": "(ROOT\n  (PP (IN for) (NP (DT the) (JJ next) (NN charity) (NN challenge))))"
+    },
+    "had many good days and many exciting times": {
+        "chunks": [
+            "many good days ",
+            "many exciting times",
+            "many good days and many exciting times"
+        ],
+        "tree_string": "(ROOT\n  (SINV\n    (VBD had)\n    (NP\n      (NP (JJ many) (JJ good) (NNS days))\n      (CC and)\n      (NP (JJ many) (JJ exciting) (NNS times)))))"
+    },
+    "I'm now taking it easy": {
+        "chunks": [
+            "taking it easy",
+            "it easy",
+            "'m now taking it easy"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBP 'm)\n      (ADVP (RB now))\n      (VP (VBG taking) (S (NP (PRP it)) (ADJP (JJ easy)))))))"
+    },
+    "in nothing but my union jack boxer shorts": {
+        "chunks": [
+            "nothing but my union jack ",
+            "my union jack ",
+            "in nothing but my union jack ",
+            "boxer shorts",
+            "but my union jack "
+        ],
+        "tree_string": "(ROOT\n  (FRAG\n    (PP\n      (IN in)\n      (NP\n        (NP (NN nothing))\n        (PP (CC but) (NP (PRP$ my) (NN union) (NN jack)))))\n    (NP (NN boxer) (NNS shorts))))"
+    },
+    "my 106th birthday on April 6th": {
+        "chunks": [
+            "my 106th birthday ",
+            "on April ",
+            "my 106th birthday on April "
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP\n      (NP (PRP$ my) (JJ 106th) (NN birthday))\n      (PP (IN on) (NP (NNP April))))\n    (ADJP (JJ 6th))))"
+    },
+    "I enjoyed every secon": {
+        "chunks": [
+            "every secon",
+            "enjoyed every secon"
+        ],
+        "tree_string": "(ROOT (S (NP (PRP I)) (VP (VBD enjoyed) (NP (DT every) (NN secon)))))"
+    },
+    "hope they were right": {
+        "chunks": [
+            "they were right",
+            "were right"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (VP\n      (VB hope)\n      (SBAR (S (NP (PRP they)) (VP (VBD were) (ADJP (JJ right))))))))"
+    },
+    "I can say": {
+        "chunks": [
+            "can say"
+        ],
+        "tree_string": "(ROOT (S (NP (PRP I)) (VP (MD can) (VP (VB say)))))"
+    },
+    "was 102 then but thought": {
+        "chunks": [
+            "but thought"
+        ],
+        "tree_string": "(ROOT\n  (SINV\n    (VP (VBD was))\n    (NP (CD 102))\n    (NP (RB then))\n    (PP (CC but) (NP (NN thought)))))"
+    },
+    "present me with the certificate which is nice": {
+        "chunks": [
+            "the certificate ",
+            "is nice",
+            "with the certificate which is nice",
+            "which is nice",
+            "the certificate which is nice"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (VP\n      (VB present)\n      (NP (PRP me))\n      (PP\n        (IN with)\n        (NP\n          (NP (DT the) (NN certificate))\n          (SBAR\n            (WHNP (WDT which))\n            (S (VP (VBZ is) (ADJP (JJ nice))))))))))"
+    },
+    "was fastened in securely": {
+        "chunks": [
+            "in securely",
+            "fastened in securely"
+        ],
+        "tree_string": "(ROOT\n  (FRAG\n    (VP\n      (VBD was)\n      (VP (VBN fastened) (PP (IN in) (ADVP (RB securely)))))))"
     }
 }
