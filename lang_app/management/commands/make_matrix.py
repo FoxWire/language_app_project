@@ -33,7 +33,6 @@ class Command(BaseCommand):
                 iterator += 1
                 writer.writerow(m)
 
-            
     def get_start_point(self):
 
         with open(self.path, 'r') as file:

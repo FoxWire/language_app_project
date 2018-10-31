@@ -44,7 +44,9 @@ class Command(BaseCommand):
         for par_obj in tqdm(parsed_objects):
             # Here we iterate over the chunks for each sentence and create a card for each.
             whole_sentence = par_obj[0]
-            sentence_object = Sentence.objects.get_or_create(sentence=whole_sentence)[0]
+            sentence_tree_string = par_obj[2]
+            sentence_object = Sentence.objects.get_or_create(sentence=whole_sentence,
+                                                             sentence_tree_string=sentence_tree_string)[0]
             for chunk in par_obj[1]:
                 # check if suitable
                 chunk_length = len(chunk.split(' '))
@@ -55,7 +57,7 @@ class Command(BaseCommand):
                     Card.objects.get_or_create(sentence=sentence_object,
                                                chunk=chunk,
                                                chunk_translation=chunk_translation,
-                                               tree_string=chunk_tree
+                                               chunk_tree_string=chunk_tree
                                                )
 
 
