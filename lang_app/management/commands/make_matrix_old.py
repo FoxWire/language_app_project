@@ -5,6 +5,11 @@ import csv
 from tqdm import tqdm
 
 
+
+'''
+This version is no longer needed the other command can do everything that this one can.
+'''
+
 class Command(BaseCommand):
 
     help = '''
