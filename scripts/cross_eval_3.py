@@ -1,21 +1,21 @@
 from sklearn.manifold import TSNE
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import numpy as np
 import csv
 from sklearn.gaussian_process.kernels import RBF, Kernel, StationaryKernelMixin, NormalizedKernelMixin, Hyperparameter
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import RBF, ConstantKernel as C
 from random import randint, shuffle
-from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.model_selection import train_test_split, cross_val_score, KFold
 from tqdm import tqdm
+import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
-from matplotlib import pyplot as plt
 
 
 class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
 
-    def __init__(self, length_scale=100.0):
+    def __init__(self, length_scale=25.0):
 
         root = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/'
         file = 'matrix_250.csv'
@@ -43,8 +43,7 @@ class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
 
         self.array = np_array
         self.length_scale = length_scale
-   
-
+  
     def __call__(self, X, Y=None):
         '''
         Implements this:
@@ -67,7 +66,8 @@ class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
         kernel = np.exp(-.5 * (x**2) / self.length_scale)
         return np.atleast_2d(kernel)
 
- # Read in the 200 questions. 
+
+# Read in the question data. Roughly the first 200 odd questions.
 def read_user_data():
     dict = {}
     path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/new_user_function.csv'
@@ -83,35 +83,88 @@ def ask_user(x):
     y_values = [float(user[str(val[0])]) for val in x]
     return np.atleast_2d(y_values).T
 
-def run():
-
+def make_binary(array):
     '''
-    Here we just put the questions into the kernel function and show the 
-    results on an image plot. To see if there are any patterns
-    in the kernel. 
+    Converts the data to 'binary' (1 for a correct answer and -1 for incorrect)
+    This can be toggled when the evaluate function is called.
     '''
+    x = [[1] if a[0] == 2 else [-1] for a in array]
+    # x = [[1] if a[0] >= 0 and a[0] <= 2 else [-1] for a in array]
+    return np.atleast_2d(x)
 
+
+def evaluate(binary=True):
+
+    # Create the kernel and the GP
     kernel = CustomKernel()
+    gp = GaussianProcessRegressor(kernel=kernel, optimizer=None, alpha=0.9, normalize_y=True)
 
-	# get all the sentence scores from the user
+    # You need a list of all the question numbers. Because I left out the questions, with uncommon words
+    # I can't just use a complete list of pks, because there will be gaps. You need to get the sequence
+    # of pks from the user data
     pk_sequence = [int(pk) for pk in user.keys()]
-    pk_sequence = sorted(pk_sequence, key=lambda x: x)
     questions = np.atleast_2d(pk_sequence).T
 
-	# Get the answers to the questions
+    # Get the answers to the questions
     answers = ask_user(questions)
 
-	# Get answers to all of the questions
+    if binary:
+        answers = make_binary(answers)
+  
+    # Get answers to all of the questions
     answers = np.atleast_2d(answers.ravel()).T
 
-    results = kernel(questions)
+    kfold = KFold(n_splits=198)
+    results = []
 
-    plt.imshow(results, interpolation='nearest')
-    plt.show()
+    for train, test in kfold.split(questions):
 
+        X_train, X_test, y_train, y_test = questions[train], questions[test], answers[train], answers[test]
+      
+        gp.fit(X_train, y_train)
+
+        predictions, sigma = gp.predict(X_test, return_std=True)
+
+        if binary:
+            prediction = make_binary(predictions)
+
+        results.append(prediction[0][0] == y_test[0][0])
+
+    correct = results.count(True)
+    print("correct:", correct)
 
 if __name__ == '__main__':
-	print("running")
-	run()
-	print("complete")
+    evaluate(binary=True)
 
+    # ones = 0
+    # twos = 0
+    # threes = 0
+    # fours = 0
+    # for key, val in user.items():
+    #     if int(val) == 1:
+    #         ones += 1
+    #     elif int(val) == 2:
+    #         twos += 1
+    #     elif int(val) == 3:
+    #         threes += 1
+    #     elif int(val) == 4:
+    #         fours += 1
+    #     else:
+    #         print("problem", val)
+    #         break
+
+    # print(ones)
+    # print(twos)
+    # print(threes)
+    # print(fours)
+
+'''
+In this version of the script, we want to analyse the information that we gathered from Eleni. We will
+need to set it up a little differently though because I can no longer just use the 200 first cards because
+I decided to remove some of them. 
+- get the maximum question number from the user data
+- You might need to use a larger matrix too
+- There is some other problem here too
+
+- what was the average score? It will be pretty low, due to the hints
+'''

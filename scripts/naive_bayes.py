@@ -22,14 +22,14 @@ import re
 from utils.parser.parser import Parser
 import nltk
 
-# Read in the 200 questions. 
+# read in the questions from the user function
 def read_user_data():
     dict = {}
-    path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/user_function.csv'
+    path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/new_user_function.csv'
     with open(path, 'r') as file:
         reader = csv.reader(file, delimiter=',')
         for row in reader:
-            dict[row[0]] = row[1]
+            dict[row[0]] = row[2]   # 1 reads in the actual score, 2 reads in the self reported score
     return dict
 
 user = read_user_data()
@@ -43,7 +43,7 @@ def make_binary(array):
     Converts the data to 'binary' (1 for a correct answer and -1 for incorrect)
     This can be toggled when the evaluate function is called.
     '''
-    x = [1 if a <= 0 else -1 for a in array]
+    x = [1 if a == 1 else -1 for a in array]
     # x = [[1] if a[0] >= 0 and a[0] <= 3 else [-1] for a in array]
     return x
 
@@ -85,7 +85,6 @@ def get_features_words(pk):
 
 if __name__ == "__main__":
 
-
 	pos = False
 
 	if pos:
@@ -103,20 +102,17 @@ if __name__ == "__main__":
 
 	else:
 
-		# read in a list of the 1000 most common words
+		# read in a list of the 3000 (odd) most common words
 		words = []
-		with open("3000_most_common.txt", 'r') as file:
+		with open("1000_most_common.txt", 'r') as file:
 			for line in file:
-				words.append(line)
-
+				words.append(line.strip())
 
 		# create the features dict for each sentence
 		features = []
 		for pk in user:
 			values = get_features_words(pk)
 			features.append((pk, values))
-
-
 
 	# Iterate over the features and get the answer for each question, making a 
 	# list of answers that are in the same order as the pks features.
@@ -134,7 +130,7 @@ if __name__ == "__main__":
 	# strip out the pks in the array so that you only have the features
 	features = np.array([f[1] for f in features])
 
-	kfold = KFold(n_splits=200)
+	kfold = KFold(n_splits=198)
 	results = []
 	for train, test in kfold.split(features):
 
@@ -148,9 +144,5 @@ if __name__ == "__main__":
 		prediction = model.predict(X_test)
 		results.append(prediction[0] == y_test[0])
 
-	print(results.count(True), "/200")
-
-
-
+	print(results.count(True), "/198")
 	
-
