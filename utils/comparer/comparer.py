@@ -162,12 +162,9 @@ class TreeComparer():
 
 
 if __name__ == '__main__':
-   card = Card.objects.all()[500]
-   user_anser = card.chunk
+   for c in Card.objects.all()[:100]:
+       print(c.pk)
 
-   x = card.sentence.sentence.split(user_anser)
-   complete_user_answer = x[0] + user_anser + x[1]
-   print(complete_user_answer)
 
 
 

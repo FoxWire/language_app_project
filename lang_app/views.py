@@ -129,7 +129,6 @@ def index(request):
         if request.POST.get("second_post") == 'False':
             # The first post takes the answer that they have entered and deals with it
 
-
             '''
             this is the part where you need to change how the marking is done
             get the question answer string from the user and place it in the sentence

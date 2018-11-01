@@ -168,7 +168,8 @@ class Parser:
 
 if __name__ == '__main__':
     parser = Parser()
-    chunks = parser.parse("I've always worked very hard  outdoors for most of my life as a railway platelayer  and I think that's made me endure as long as I have.")
+    chunks = parser.parse("This is a test sentence")
     print(chunks)
+
 
 
