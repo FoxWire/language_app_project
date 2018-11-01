@@ -5,6 +5,11 @@ import csv
 from tqdm import tqdm
 
 
+
+'''
+This version is no longer needed the other command can do everything that this one can.
+'''
+
 class Command(BaseCommand):
 
     help = '''
@@ -12,7 +17,8 @@ class Command(BaseCommand):
         always continue from where it left off on the last execution.
         '''
     comp = TreeComparer()
-    path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/matrix_201.csv'
+    custom_size = 250
+    path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/matrix_{}.csv'.format(str(custom_size))
 
     def handle(self, *args, **options):
 
@@ -36,7 +42,7 @@ class Command(BaseCommand):
 
         ##--- USE THIS CODE TO MAKE CUSTOM MATRIX---##
 
-        cards = Card.objects.all()[:201]
+        cards = Card.objects.all()[:self.custom_size]
         
         total_number_of_cards = len(cards)
     

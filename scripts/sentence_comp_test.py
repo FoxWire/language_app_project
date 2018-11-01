@@ -10,24 +10,18 @@ from lang_app.models import Card, Sentence
 from utils.comparer.comparer import TreeComparer
 from utils.parser.parser import Parser
 
-sentence_a = "He hasn’t seen her for a while."
-sentence_b = "Why haven’t you been doing your homework?"
-sentence_c = "There’s been a big accident in Market Street."
-sentence_d = "Have you ever eaten snails?"
-sentence_e = "Have you ever seen kangaroos?"
+
+sentence_a = "Is there any other way to do this?"
+sentence_b = "What is the capital of Scotland?"
 comp = TreeComparer()
 parser = Parser()
 
-tree_a = parser.parse(sentence_d)[2]
-tree_b = parser.parse(sentence_e)[2]
+tree_a = parser.parse(sentence_a)[2]
+tree_b = parser.parse(sentence_b)[2]
+
+print(tree_a)
+print(tree_b)
 
 result = comp.compare_tree_strings(tree_a, tree_b, ignore_leaves=True)
 print(result)
 
-
-
-'''
-The program will not be able to recognise any pattern between two sentences that are for example both in the 
-present perfect but where one is a question. But that doens't really matter. We want it to find similar
-sentences and
-'''

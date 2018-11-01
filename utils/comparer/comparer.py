@@ -1,8 +1,16 @@
+# Django stuff
 import os
+import sys
+import django
+sys.path.append('/home/stuart/PycharmProjects/workspaces/language_app_project')
+os.environ['DJANGO_SETTINGS_MODULE'] = 'language_app_project.settings'
+django.setup()
+
 from nltk.parse import stanford
 import nltk
 from scipy.spatial import distance
 from zss import simple_distance, Node
+from lang_app.models import Card, Sentence
 import re
 
 
@@ -15,20 +23,46 @@ class TreeComparer():
     vocabulary.
 
     Each card will need to store a string representation of the chunk as a tree.
+
+    You need to change the compare method so that it compares the sentences with the words removed.
+    This means that you are comparing the questions and not the sentences. To do this you need to
+    get the parse tree for the whole sentence and then black out the words that are missing
+    the nodes for the words
+
+    Maybe the easiest thing is to change the words in the sentence and then reparse them.
+
     '''
 
     def __init__(self):
         self.parser = stanford.StanfordParser()
 
     def compare_tree_strings(self, tree_string_a, tree_string_b, ignore_leaves=False):
+        '''
+        Gets the difference between two parse trees using the zss comparison algorithm
+        :param tree_string_a:
+        :param tree_string_b:
+        :param ignore_leaves:
+        :return:
+        '''
         zss_tree_a = self.convert_parse_tree_to_zss_tree(tree_string_a, ignore_leaves=ignore_leaves)
         zss_tree_b = self.convert_parse_tree_to_zss_tree(tree_string_b, ignore_leaves=ignore_leaves)
         return simple_distance(zss_tree_a, zss_tree_b)
 
     def compare(self, card_a, card_b):
-        zss_tree_a = self.convert_parse_tree_to_zss_tree(card_a.tree_string)
-        zss_tree_b = self.convert_parse_tree_to_zss_tree(card_b.tree_string)
-        return simple_distance(zss_tree_a, zss_tree_b)
+        # zss_tree_a = self.convert_parse_tree_to_zss_tree(card_a.chunk_tree_string)
+        # zss_tree_b = self.convert_parse_tree_to_zss_tree(card_b.chunk_tree_string)
+        # return simple_distance(zss_tree_a, zss_tree_b)
+
+        # You only need to run the remove chunk function if the cards doesn't already have the correct data
+        parse_tree_a = card_a.question_tree_string
+        if not parse_tree_a:
+            parse_tree_a = self.remove_chunk_from_parse_tree(card_a)
+
+        parse_tree_b = card_b.question_tree_string
+        if not parse_tree_b:
+            parse_tree_b = self.remove_chunk_from_parse_tree(card_b)
+
+        return self.compare_tree_strings(parse_tree_a, parse_tree_b, ignore_leaves=True)
 
     # def convert_parse_tree_to_python_tree(self, tree_as_string):
     #     '''
@@ -94,9 +128,46 @@ class TreeComparer():
                 stack.pop()
         return root_node
 
+    def remove_chunk_from_parse_tree(self, card):
+        '''
+        This needs to find out what the pos of the word in the gap is and
+        put a differnt label down if it is a verb.
+        '''
+
+        # Get the parse tree for the whole sentence
+        parse_tree = card.sentence.sentence_tree_string
+
+        # Get the words and their tags for each word in the chunk
+        token_tups = [tuple(token[1:-1].split(' ')) for token in re.findall(r'\([A-Z$.,:]+ [\w\'&\.\-:]+\)', card.chunk_tree_string)]
+
+        # Build up a regex to match the chunk from the parse tree
+        regex_string = r'[\sA-Z$.,:]+'
+        for token in token_tups:
+            r = token[1] + '[()\sA-Z$.,:]*'
+            regex_string += r
+
+        # Extract the chunk from the parse tree and make a copy
+        extracted = re.findall(regex_string, parse_tree)[0]
+        copy = extracted
+
+        # replace the chunks in the copy with dummy values for verb and non verb
+        for token in token_tups:
+            insert_label = "VERB verb" if token[0].startswith("V") else "NON-VERB non-verb"
+            copy = re.sub(r'[A-Z$.,:]+ {}'.format(token[1]), insert_label, copy)
+
+        # Put the changes back into the original parse tree
+        parse_tree = parse_tree.replace(extracted, copy)
+
+        return parse_tree
+
 
 if __name__ == '__main__':
     comp = TreeComparer()
-    sentence = "This is a sentence"
+    card = Card.objects.all()[500]
+    card_2 = Card.objects.all()[105]
+
+    comp.remove_chunk_from_parse_tree(card)
+
+
 
 

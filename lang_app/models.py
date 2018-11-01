@@ -6,10 +6,10 @@ from django.db import models
 class Sentence(models.Model):
 
     sentence = models.CharField(max_length=1024, unique=True)
-    uncommon_words_score = models.IntegerField(default=None, blank=True, null=True)
+    sentence_tree_string = models.CharField(max_length=1024, default=None)
 
     def __str__(self):
-        return self.sentence + ' ' + str(self.uncommon_words_score)
+        return self.sentence
 
 
 class Card(models.Model):
@@ -17,8 +17,9 @@ class Card(models.Model):
     sentence = models.ForeignKey('Sentence', default=None, blank=True, related_name='cards', on_delete=models.CASCADE)
     chunk = models.CharField(max_length=1024)
     chunk_translation = models.CharField(max_length=1024)
-    tree_string = models.CharField(max_length=1024)
-    similar_cards = models.CharField(max_length=128, default='this')
+    chunk_tree_string = models.CharField(max_length=1024)
+    similar_cards = models.CharField(max_length=128, default=None, null=True)
+    question_tree_string = models.CharField(max_length=1024, default=None, null=True)
 
     def ask_question(self):
 
@@ -54,7 +55,6 @@ class Card(models.Model):
         return "".join(tree_string.split())
 
     def __str__(self):
-        s = "\nsentence: {}\n chunk: {}\n chunk translation: {}\n tree_string: {}\n".format(
-            self.sentence, self.chunk, self.chunk_translation, self.tree_string)
+        s = "\nsentence: {}\n chunk: {}\n".format(self.sentence, self.chunk)
         return s
 

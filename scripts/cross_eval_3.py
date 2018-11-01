@@ -15,10 +15,10 @@ import matplotlib.patches as mpatches
 
 class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
 
-    def __init__(self, length_scale=0.4):
+    def __init__(self, length_scale=25.0):
 
         root = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/'
-        file = 'matrix_201.csv'
+        file = 'matrix_250.csv'
         path = root + file
 
         # Read in from the file
@@ -43,12 +43,6 @@ class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
 
         self.array = np_array
         self.length_scale = length_scale
-
-
-        '''
-        In order to use the log_marginal_likelihood function on the gp, the custom kernel has to register
-        the hyperparameters. I also had to override the Hyperparameter getters and setters.
-        '''
   
     def __call__(self, X, Y=None):
         '''
@@ -73,14 +67,14 @@ class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
         return np.atleast_2d(kernel)
 
 
-# Read in the 200 questions. 
+# Read in the question data. Roughly the first 200 odd questions.
 def read_user_data():
     dict = {}
-    path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/user_function.csv'
+    path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/new_user_function.csv'
     with open(path, 'r') as file:
         reader = csv.reader(file, delimiter=',')
         for row in reader:
-            dict[row[0]] = row[1]
+            dict[row[0]] = row[2]
     return dict
 
 user = read_user_data()
@@ -94,7 +88,7 @@ def make_binary(array):
     Converts the data to 'binary' (1 for a correct answer and -1 for incorrect)
     This can be toggled when the evaluate function is called.
     '''
-    x = [[1] if a[0] <= 2 else [-1] for a in array]
+    x = [[1] if a[0] == 2 else [-1] for a in array]
     # x = [[1] if a[0] >= 0 and a[0] <= 2 else [-1] for a in array]
     return np.atleast_2d(x)
 
@@ -105,8 +99,11 @@ def evaluate(binary=True):
     kernel = CustomKernel()
     gp = GaussianProcessRegressor(kernel=kernel, optimizer=None, alpha=0.9, normalize_y=True)
 
-    # Get all of the availiable questions
-    questions = np.atleast_2d(range(1, 201)).T
+    # You need a list of all the question numbers. Because I left out the questions, with uncommon words
+    # I can't just use a complete list of pks, because there will be gaps. You need to get the sequence
+    # of pks from the user data
+    pk_sequence = [int(pk) for pk in user.keys()]
+    questions = np.atleast_2d(pk_sequence).T
 
     # Get the answers to the questions
     answers = ask_user(questions)
@@ -117,7 +114,7 @@ def evaluate(binary=True):
     # Get answers to all of the questions
     answers = np.atleast_2d(answers.ravel()).T
 
-    kfold = KFold(n_splits=200)
+    kfold = KFold(n_splits=198)
     results = []
 
     for train, test in kfold.split(questions):
@@ -133,95 +130,41 @@ def evaluate(binary=True):
 
         results.append(prediction[0][0] == y_test[0][0])
 
-    correct = 0
-    for x in results:
-        if x:
-            correct += 1
-
-    print(correct)
-
-
-
-
-        # Split the data   
-        # X_train, X_test, y_train, y_test = train_test_split(questions, answers, 
-        #                                                     test_size=0.005, random_state=x)
-      
-
-        # # Fit the data
-        # gp.fit(X_train, y_train)
-
-        # # Make predictions on the test data, to get test error
-        # predictions, sigma = gp.predict(X_test, return_std=True)
-
-        # if binary:
-        #     predictions = make_binary(predictions)
-      
-        # test_error = np.abs((predictions - y_test).mean())
-        # test_errors.append(test_error)
-
-        # # Collect results from testing to make the plot
-        # master_predictions.append(predictions[0][0])
-        # master_y_test.append(y_test[0][0])
-
-        # # Make predictions on the training data to get the training error
-        # predictions_train, sigma_train = gp.predict(X_train, return_std=True)
-        # training_error = np.abs((predictions_train - y_train).mean())
-        # training_errors.append(training_error)
-
-        # # Collect data on training to make the second plot
-        # master_predictions_train.append(predictions_train[0][0])
-        # master_y_train.append(y_train[0][0])
-
-    # # Convert the scores array to np array
-    # test_errors = np.array(test_errors)
-    # training_errors = np.array(training_errors)
-    # # Print the mean score over all of the folds
-    # print("Test error: %0.2f (+/- %0.2f)" % (test_errors.mean(), test_errors.std() * 2))
-    # print("Training error: %0.2f (+/- %0.2f)" % (training_errors.mean(), training_errors.std() * 2))
-    # print()
-
-    # '''
-    # If you are not converting the data to binary, you still need to truncate the 
-    # predicted values that are below zero to zero.
-    # '''
-    # if not binary:
-    #     master_predictions = [x if x > 0 else 0 for x in master_predictions]
-
-    # # Plot the test and the training data
-    # plot(master_y_test, master_predictions)
-    # # plot(master_y_train, master_predictions_train)
-
-
-def plot(master_y_test, master_predictions):
-    # Plot the data
-    red_patch = mpatches.Patch(color='red', label='Predictions')
-    blue_patch =mpatches.Patch(color='blue', label='Observed')
-
-    plt.legend(handles=[red_patch, blue_patch])
-    plt.scatter([x for x in range(1, len(master_y_test) + 1)], master_y_test, c='blue', marker='.')
-    plt.scatter([x for x in range(1, len(master_predictions) + 1)], master_predictions, c='red', marker='.')
-    plt.xlabel('question number')
-    plt.ylabel('score');
-    plt.show()
-
+    correct = results.count(True)
+    print("correct:", correct)
 
 if __name__ == '__main__':
-  
-   '''
-   Set binary to true to have values set to 1 for correct 
-   and -1 for wrong. Otherwise the full range of values is
-   used.
-   '''
-   evaluate(binary=True)
+    evaluate(binary=True)
 
-   # X = ["a", "b", "c", "d"]
-   # kf = KFold(n_splits=4)
-   # for train, test in kf.split(X):
-   #      print("%s %s" % (train, test))
-  
+    # ones = 0
+    # twos = 0
+    # threes = 0
+    # fours = 0
+    # for key, val in user.items():
+    #     if int(val) == 1:
+    #         ones += 1
+    #     elif int(val) == 2:
+    #         twos += 1
+    #     elif int(val) == 3:
+    #         threes += 1
+    #     elif int(val) == 4:
+    #         fours += 1
+    #     else:
+    #         print("problem", val)
+    #         break
+
+    # print(ones)
+    # print(twos)
+    # print(threes)
+    # print(fours)
 
 '''
-Here we split the test data up into test and training and do the kfold evaluation.
-The result is that it got just more than half right. 
+In this version of the script, we want to analyse the information that we gathered from Eleni. We will
+need to set it up a little differently though because I can no longer just use the 200 first cards because
+I decided to remove some of them. 
+- get the maximum question number from the user data
+- You might need to use a larger matrix too
+- There is some other problem here too
+
+- what was the average score? It will be pretty low, due to the hints
 '''
