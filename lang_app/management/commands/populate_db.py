@@ -7,6 +7,7 @@ from django.core.management.base import BaseCommand, CommandError
 
 from utils.sentence_reader.sentence_reader import SentenceReader
 from utils.parser.parser import Parser
+from utils.comparer.comparer import TreeComparer
 from utils.google_translate.google_translate import Translator
 from lang_app.models import Sentence, Card
 from tqdm import tqdm
@@ -20,6 +21,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
 
         path_to_texts = os.path.join(BASE_DIR, 'input_texts')
+        comp = TreeComparer()
 
         # Iterate over all the input texts, break each up into sentences and gather all into one
         # list of sentences.
@@ -54,10 +56,14 @@ class Command(BaseCommand):
                     chunk_tree = parser.parse(chunk)[2]
                     chunk_translation = translator.get_translation(chunk)
 
-                    Card.objects.get_or_create(sentence=sentence_object,
-                                               chunk=chunk,
-                                               chunk_translation=chunk_translation,
-                                               chunk_tree_string=chunk_tree
-                                               )
+                    card = Card.objects.get_or_create(sentence=sentence_object,
+                                                      chunk=chunk,
+                                                      chunk_translation=chunk_translation,
+                                                      chunk_tree_string=chunk_tree
+                                                      )[0]
+                    card.question_tree_string = comp.remove_chunk_from_parse_tree(card)
+                    card.save()
+
+
 
 

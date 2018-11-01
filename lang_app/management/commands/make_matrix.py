@@ -42,7 +42,7 @@ class Command(BaseCommand):
             iterator = index + 1
 
             for card_i in cards_this_run:
-                print("Working on card: {}/{}".format(card_i.pk, len(all_cards)))
+                print("Working on card: {}/{}".format(iterator, len(all_cards)))
                 m = [0.0 for x in range(iterator)]
                 m += [self.comp.compare(card_i, card_j) for card_j in tqdm(all_cards[iterator:])]
                 iterator += 1

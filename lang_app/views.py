@@ -9,9 +9,9 @@ from random import choice
 import csv
 
 
-picker = NaivePicker()
-parser = Parser()
-comp = TreeComparer()
+# picker = NaivePicker()
+# parser = Parser()
+# comp = TreeComparer()
 
 # This is the normal index
 def index(request):

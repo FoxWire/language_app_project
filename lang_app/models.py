@@ -18,7 +18,8 @@ class Card(models.Model):
     chunk = models.CharField(max_length=1024)
     chunk_translation = models.CharField(max_length=1024)
     chunk_tree_string = models.CharField(max_length=1024)
-    similar_cards = models.CharField(max_length=128, default=None)
+    similar_cards = models.CharField(max_length=128, default=None, null=True)
+    question_tree_string = models.CharField(max_length=1024, default=None, null=True)
 
     def ask_question(self):
 
@@ -54,7 +55,6 @@ class Card(models.Model):
         return "".join(tree_string.split())
 
     def __str__(self):
-        s = "\nsentence: {}\n chunk: {}\n chunk translation: {}\n tree_string: {}\n".format(
-            self.sentence, self.chunk, self.chunk_translation, self.chunk_tree_string)
+        s = "\nsentence: {}\n chunk: {}\n".format(self.sentence, self.chunk)
         return s
 
