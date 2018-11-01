@@ -16,7 +16,8 @@ from language_app_project.settings import BASE_DIR
 
 class Command(BaseCommand):
 
-    help = "Populates the database with cards and sentences from the input texts."
+    help = "Populates the database with cards and sentences from the input texts." \
+           "In this branch we make cards that are VERBS ONLY"
 
     def handle(self, *args, **options):
 
@@ -37,6 +38,8 @@ class Command(BaseCommand):
         parser = Parser()
         parsed_objects = [parser.parse(sentence) for sentence in tqdm(sentences)]
 
+        # ---change the parse tree to return just the verbs---
+
         # Iterate over the list of parsed objects. You need to create a card for each chunk, with the
         # sentence and the parse tree for the chunk.
 
@@ -49,20 +52,17 @@ class Command(BaseCommand):
             sentence_tree_string = par_obj[2]
             sentence_object = Sentence.objects.get_or_create(sentence=whole_sentence,
                                                              sentence_tree_string=sentence_tree_string)[0]
-            for chunk in par_obj[1]:
-                # check if suitable
-                chunk_length = len(chunk.split(' '))
-                if 4 <= chunk_length <= 8:
-                    chunk_tree = parser.parse(chunk)[2]
-                    chunk_translation = translator.get_translation(chunk)
+            for verb in par_obj[1]:
+                chunk_tree = ""  # don't need anything here anyway
+                chunk_translation = ""  # we don't really need anything here
 
-                    card = Card.objects.get_or_create(sentence=sentence_object,
-                                                      chunk=chunk,
-                                                      chunk_translation=chunk_translation,
-                                                      chunk_tree_string=chunk_tree
-                                                      )[0]
-                    card.question_tree_string = comp.remove_chunk_from_parse_tree(card)
-                    card.save()
+                card = Card.objects.get_or_create(sentence=sentence_object,
+                                                  chunk=verb,
+                                                  chunk_translation=chunk_translation,
+                                                  chunk_tree_string=chunk_tree
+                                                  )[0]
+                card.question_tree_string = comp.remove_chunk_from_parse_tree(card)
+                card.save()
 
 
 

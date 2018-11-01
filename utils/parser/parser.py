@@ -1,10 +1,18 @@
+# Django stuff
 import os
+import sys
+import django
+sys.path.append('/home/stuart/PycharmProjects/workspaces/language_app_project')
+os.environ['DJANGO_SETTINGS_MODULE'] = 'language_app_project.settings'
+django.setup()
+
 from nltk.parse import stanford
 import nltk
 from scipy.spatial import distance
 import re
 import json
 from language_app_project.settings import BASE_DIR
+from lang_app.models import Card, Sentence
 
 text = '''
 S - simple declarative clause, i.e. one that is not introduced by a (possible empty) subordinating conjunction or a wh-word and that does not exhibit subject-verb inversion.
@@ -74,7 +82,7 @@ class Parser:
 
         # Check if you have already chunked this sentence
         result = self._check_cache(sentence)
-        if False:
+        if result:
             # print("***   INFO: Sentences retrieved from cache   ***")
             return sentence, result['chunks'], result['tree_string']
 
@@ -85,38 +93,52 @@ class Parser:
             # Get the parse tree
             tree = next(self.parser.raw_parse(sentence))
             # get the number of parts of speech in this sentence
-            no_of_pos = len(tree.leaves())
+            # no_of_pos = len(tree.leaves())
 
             # Get all the subtrees flattened as tuples
-            phrases = [(sub.flatten().label(), sub.leaves()) for sub in tree.subtrees()]
+            # phrases = [(sub.flatten().label(), sub.leaves()) for sub in tree.subtrees()]
 
             # Convert the text ^^^above^^^ into a set of labels
-            all_labels = {line.split('-')[0].strip() for line in text.split('\n')}
+            # all_labels = {line.split('-')[0].strip() for line in text.split('\n')}
 
             # Filter on the set of labels. This means that you only use the
             # 'higher level' trees that are specified in the text.
-            chunks = [phrase for phrase in phrases if phrase[0] in all_labels]
+            # chunks = [phrase for phrase in phrases if phrase[0] in all_labels]
 
             # filter out the one word phrases and the full sentence
-            chunks = [chunk for chunk in chunks if 1 < len(chunk[1]) < no_of_pos]
+            # chunks = [chunk for chunk in chunks if 1 < len(chunk[1]) < no_of_pos]
 
             # Use regex to rebuild the lists of leaves into strings.
-            formatted_chunks = []
-            for chunk in chunks:
-                regex = r''
-                for leaf in chunk[1]:
-                    regex += leaf + '\s*'
+            # formatted_chunks = []
+            # for chunk in chunks:
+            #     regex = r''
+            #     for leaf in chunk[1]:
+            #         regex += leaf + '\s*'
+            #
+            #     result = re.search(regex, sentence)
+            #     if not result:
+            #         print("***   INFO: Regex: {} didn't match sentence {}   ***".format(regex, sentence))
+            #     else:
+            #         formatted_chunks.append(result.group())
+            #
+            # # remove any duplicates
+            # formatted_chunks = list(set(formatted_chunks))
 
-                result = re.search(regex, sentence)
-                if not result:
-                    print("***   INFO: Regex: {} didn't match sentence {}   ***".format(regex, sentence))
-                else:
-                    formatted_chunks.append(result.group())
+            # For the verbs only branch, you need to return the sentence, a list of the verbs in the sentence
+            # and the tree string of the sentence
+            tree_string = str(tree)
 
-            # remove any duplicates
-            formatted_chunks = list(set(formatted_chunks))
+            verbs = []
+            for token in re.findall(r'\([A-Z$.,:]+ [\w\'&\.\-:]+\)', tree_string):
+                tup = tuple(token[1:-1].split(' '))
+                if tup[0].startswith('V'):
+                    verbs.append(tup[1])
 
-            parsed_object = (sentence, formatted_chunks, str(tree))
+            # for now just filter out the verbs that contain apostrophes, if you decide to use this later.
+            # you'll have to find a way to include them
+            verbs = [verb for verb in verbs if "'" not in verb]
+
+            parsed_object = (sentence, verbs, tree_string)
             self._write_to_cache(parsed_object)
 
             return parsed_object
@@ -168,7 +190,7 @@ class Parser:
 
 if __name__ == '__main__':
     parser = Parser()
-    chunks = parser.parse("I've always worked very hard  outdoors for most of my life as a railway platelayer  and I think that's made me endure as long as I have.")
-    print(chunks)
-
+    card = Card.objects.all()[10]
+    x = parser.parse(card.sentence.sentence)
+    print(x)
 
