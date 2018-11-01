@@ -12,6 +12,7 @@ class Command(BaseCommand):
         always continue from where it left off on the last execution.
         '''
     comp = TreeComparer()
+    path = '/Users/stuartmiller/PycharmProjects/workspaces/language_app_project/data/matrix_2000.csv'
 
     def handle(self, *args, **options):
 
@@ -23,7 +24,7 @@ class Command(BaseCommand):
         total_number_of_cards = len(Card.objects.all())
     
         # Make the comparisons and write the line to the csv
-        with open('/home/stuart/Desktop/matrix_2000.csv', 'a') as file:
+        with open(self.path, 'a') as file:
             writer = csv.writer(file, delimiter=',')
             for i in cards_this_run:
                 cols = []
@@ -52,7 +53,7 @@ class Command(BaseCommand):
 
     def get_start_point(self):
 
-        with open('/home/stuart/Desktop/matrix_2000.csv', 'r') as file:
+        with open(self.path, 'r') as file:
             reader = csv.reader(file, delimiter=',')
             counter = 0
             for row in reader:
