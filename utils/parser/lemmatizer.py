@@ -36,7 +36,7 @@ class Lemmatizer:
             return None
 
     def lemmatize(self, card):
-        tree_string = card.tree_string
+        tree_string = card.chunk_tree_string
         print(tree_string)
         # Get the tags and the words from the tree string of the chunk
         results = re.findall(r'\([A-Z$]+ [A-Za-z\'-]+\)', tree_string)

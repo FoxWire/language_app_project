@@ -98,7 +98,7 @@ def index(request):
         for row in reader:
             rand_nums.append(row[0])
 
-    path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/new_user_function.csv'
+    path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/third_user_function.csv'
     context = None
     if request.method == 'GET':
 
@@ -129,24 +129,42 @@ def index(request):
         if request.POST.get("second_post") == 'False':
             # The first post takes the answer that they have entered and deals with it
 
+
+            '''
+            this is the part where you need to change how the marking is done
+            get the question answer string from the user and place it in the sentence
+            then you can parse it an compare it it with the parse tree of the whole sentence
+            '''
+
             user_answer = request.POST.get('user_answer')
 
             card = Card.objects.get(pk=request.POST.get('question_number'))
             correct_bool = card.give_answer(user_answer)[0]
 
             # use the parser to get the tree string for the user answer
-            user_answer_tree_string = parser.parse(user_answer)[2]
+            # user_answer_tree_string = parser.parse(user_answer)[2]
 
             # do the same to get the actual answer
-            actual_answer_tree_string = parser.parse(card.chunk)[2]
+            # actual_answer_tree_string = parser.parse(card.chunk)[2]
 
-            score = comp.compare_tree_strings(user_answer_tree_string, actual_answer_tree_string)
+            # score = comp.compare_tree_strings(user_answer_tree_string, actual_answer_tree_string)
+
+            # create the whole sentence using the users answer
+            x = card.sentence.sentence.split(card.chunk)
+            complete_user_answer = " ".join([x[0], user_answer, x[1]])
+
+            user_answer_tree_string = parser.parse(complete_user_answer)[2]
+
+            score = comp.compare_tree_strings(user_answer_tree_string, card.sentence.sentence_tree_string)
+            print(complete_user_answer)
+            print(card.sentence.sentence)
+
             print("The score between these two answers was:", score)
 
             # put the score and pk into the csv
             with open(path, 'a') as file:
                 writer = csv.writer(file, delimiter=',')
-                writer.writerow([card.pk, score])
+                writer.writerow([card.pk, score, user_answer])
 
             context = {
                 'show_answer': True,
@@ -173,7 +191,7 @@ def index(request):
                 writer = csv.writer(file, delimiter=',')
                 for d in data:
                     if d[0] == question_no:
-                        writer.writerow([d[0], d[1], rating])
+                        writer.writerow([d[0], d[1], d[2], rating])
                     else:
                         writer.writerow(d)
 

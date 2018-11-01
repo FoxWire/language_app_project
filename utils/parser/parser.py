@@ -74,7 +74,7 @@ class Parser:
 
         # Check if you have already chunked this sentence
         result = self._check_cache(sentence)
-        if False:
+        if result:
             # print("***   INFO: Sentences retrieved from cache   ***")
             return sentence, result['chunks'], result['tree_string']
 

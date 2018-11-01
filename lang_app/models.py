@@ -7,6 +7,7 @@ class Sentence(models.Model):
 
     sentence = models.CharField(max_length=1024, unique=True)
     sentence_tree_string = models.CharField(max_length=1024, default=None)
+    uncommon_words_score = models.IntegerField(default=0)
 
     def __str__(self):
         return self.sentence
