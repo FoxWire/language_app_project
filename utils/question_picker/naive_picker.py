@@ -14,6 +14,14 @@ class NaivePicker:
 
         Note: This does not care about whether card has already been seen or not. This
         will result in a 'stateless' running of the application.
+
+        Improvement: The picker at the moment will try and find the next most similar card when
+        the user gets a question wrong, this often results in a wrong answer resulting in a
+        question with the same sentence and a different chunk. This is annoying that you are seeing the
+        same question again. Change it so that you see the next most similar question with
+        a different question.
+
+
     '''
 
     def __init__(self):
@@ -28,23 +36,39 @@ class NaivePicker:
 
             if card.similar_cards != 'this':
                 # If the card has pre-calculated similar cards, use that
-                similar_data = json.loads(card.similar_cards)
-                return Card.objects.get(pk=similar_data[0])
+                similar_card_pks = json.loads(card.similar_cards)
 
-            else:
-                # otherwise you will need to calculate it
+            else:  # otherwise you will need to calculate it
 
                 # Get all cards, excluding the one that the user has just seen.
-                # other_cards = Card.objects.exclude(pk=card.pk)
                 other_cards = [c for c in self.all_cards if c != card]
 
                 # iterate over all other cards getting their comparison score
-                results = [(other_card, self.comp.compare(card, other_card)) for other_card in tqdm(other_cards)]
+                results = [(other_card.pk, self.comp.compare(card, other_card)) for other_card in tqdm(other_cards)]
 
-                # Get the card that is most similar
-                next_card = sorted(results, key=lambda item: item[1])[0]
-                print("comparison: {} chunk A: '{}' similar to chunk B: '{}'".format(next_card[1], card.chunk, next_card[0].chunk))
-                next_card = next_card[0]
+                # sort based on the comparison values
+                sorted_values = sorted(results, key=lambda item: item[1])[10]
 
-                return next_card
+                # get just the pks
+                similar_card_pks = [tup[0] for tup in sorted_values]
+
+            # Get the most similar card that has a sentence different to the current one
+            next_card = None
+            for pk in similar_card_pks:
+                other_card = Card.objects.get(pk=pk)
+                if other_card.sentence != card.sentence:
+                    next_card = other_card
+
+            # You are only selecting from the ten most similar cards, so you might not find one from
+            # a different sentence. Just take the most similar card even if from the same sentence
+            # in this case.
+            next_card = Card.objects.get(pk=similar_card_pks[0]) if not next_card else next_card
+
+            print("->previous chunk: {}\n->next chunk: {}\n->comparison: {}".format(card.chunk,
+                                                                                 next_card.chunk,
+                                                                                 self.comp.compare(card, next_card)))
+            return next_card
+
+
+
 

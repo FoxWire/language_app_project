@@ -8,48 +8,45 @@ from tqdm import tqdm
 class Command(BaseCommand):
 
     help = '''
-        Create a matrix of comparisons for each of the cards. Can be run muliple times. Will
-        always continue from where it left off on the last execution.
+        Creates a matrix (csv) of comparisons between card objects using the tree comparer. The command can
+        be run multiple times and it will continue where it left off. This only actually calculates half 
+        (the upper triangle) of the matrix to save time. This means that the resulting matrix should be used
+        with the matrix wrapper class. An integer as a command line argument, determines the size of the 
+        matrix to be created.
         '''
+    matrix_size = len(Card.objects.all())
     comp = TreeComparer()
-    path = '/Users/stuartmiller/PycharmProjects/workspaces/language_app_project/data/matrix_2000.csv'
+    path = None
+
+    def add_arguments(self, parser):
+        parser.add_argument('matrix_size', nargs='*', type=int)
 
     def handle(self, *args, **options):
 
-        ## --- USE THIS CODE TO MAKE COMPLETE MATRIX FOR ALL CARDS --- ##
-        # Get the index of the last row that was written to the csv file
-        index = self.get_start_point()
-        cards_this_run = Card.objects.all()[index:]
-        all_cards = Card.objects.all()
-        total_number_of_cards = len(Card.objects.all())
-    
-        # Make the comparisons and write the line to the csv
+        # Get the size of the matrix from the command line options (default is full matrix)
+        opts_list = options['matrix_size']
+        if opts_list:
+            arg = opts_list[0]
+            if arg < self.matrix_size:
+                self.matrix_size = arg
+
+        # Set the name of the path
+        self.path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/matrix_{}.csv'.format(str(self.matrix_size))
+
         with open(self.path, 'a') as file:
             writer = csv.writer(file, delimiter=',')
-            for i in cards_this_run:
-                cols = []
-                print("{}/{}".format(i.pk, total_number_of_cards))
-                for j in tqdm(all_cards):
-                    cols.append(self.comp.compare(i, j))
-                writer.writerow(cols)
 
+            index = self.get_start_point()
+            cards_this_run = Card.objects.all()[index:self.matrix_size]
+            all_cards = Card.objects.all()[:self.matrix_size]
+            iterator = index + 1
 
-        ##--- USE THIS CODE TO MAKE CUSTOM MATRIX---##
-
-        # cards = Card.objects.all()[:10]
-        
-        # total_number_of_cards = len(cards)
-    
-        # # Make the comparisons and write the line to the csv
-        # with open('/home/stuart/Desktop/matrix_new.csv', 'a') as file:
-        #     writer = csv.writer(file, delimiter=',')
-        #     for i in cards:
-        #         cols = []
-        #         print("{}/{}".format(i.pk, total_number_of_cards))
-        #         for j in tqdm(cards):
-        #             cols.append(self.comp.compare(i, j))
-        #         writer.writerow(cols)
-
+            for card_i in cards_this_run:
+                print("Working on card: {}/{}".format(iterator, len(all_cards)))
+                m = [0.0 for x in range(iterator)]
+                m += [self.comp.compare(card_i, card_j) for card_j in tqdm(all_cards[iterator:])]
+                iterator += 1
+                writer.writerow(m)
 
     def get_start_point(self):
 
@@ -57,6 +54,9 @@ class Command(BaseCommand):
             reader = csv.reader(file, delimiter=',')
             counter = 0
             for row in reader:
+                # check that the size of the rows in the file match the matrix size
+                if len(row) != self.matrix_size:
+                    raise Exception("Matrix dimension mismatch")
                 counter += 1
         return counter
 
