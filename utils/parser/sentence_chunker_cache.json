@@ -3792,5 +3792,79 @@
             "is"
         ],
         "tree_string": "(ROOT\n  (S\n    (NP\n      (NP (DT The) (NN fact))\n      (SBAR\n        (IN that)\n        (S\n          (NP (NNS others))\n          (ADVP (RB now))\n          (VP\n            (VBP have)\n            (NP\n              (DT the)\n              (NN freedom)\n              (S\n                (VP\n                  (TO to)\n                  (VP (VB make) (NP (DT that) (NN choice))))))))))\n    (VP\n      (VBZ is)\n      (NP\n        (NP (NN something))\n        (SBAR\n          (S\n            (NP (PRP I))\n            (VP (VBP 'm) (ADJP (RB very) (JJ proud) (PP (IN of))))))))\n    (. .)))"
+    },
+    "see me": {
+        "chunks": [
+            "see"
+        ],
+        "tree_string": "(ROOT (S (VP (VB see) (NP (PRP me)))))"
+    },
+    "present": {
+        "chunks": [
+            "present"
+        ],
+        "tree_string": "(ROOT (S (VP (VB present))))"
+    },
+    "be ": {
+        "chunks": [
+            "be"
+        ],
+        "tree_string": "(ROOT (VP (VB be)))"
+    },
+    "be": {
+        "chunks": [
+            "be"
+        ],
+        "tree_string": "(ROOT (VP (VB be)))"
+    },
+    "vowed": {
+        "chunks": [
+            "vowed"
+        ],
+        "tree_string": "(ROOT (FRAG (VP (VBD vowed))))"
+    },
+    "was": {
+        "chunks": [
+            "was"
+        ],
+        "tree_string": "(ROOT (X (VBD was)))"
+    },
+    "spread": {
+        "chunks": [],
+        "tree_string": "(ROOT (NP (NN spread)))"
+    },
+    "suggesting": {
+        "chunks": [
+            "suggesting"
+        ],
+        "tree_string": "(ROOT (S (VP (VBG suggesting))))"
+    },
+    "vowing": {
+        "chunks": [
+            "vowing"
+        ],
+        "tree_string": "(ROOT (S (VP (VBG vowing))))"
+    },
+    "were": {
+        "chunks": [
+            "were"
+        ],
+        "tree_string": "(ROOT (FRAG (VP (VBD were))))"
+    },
+    "presented": {
+        "chunks": [
+            "presented"
+        ],
+        "tree_string": "(ROOT (S (VP (VBN presented))))"
+    },
+    "presenting": {
+        "chunks": [],
+        "tree_string": "(ROOT (INTJ (UH presenting)))"
+    },
+    "will present": {
+        "chunks": [
+            "present"
+        ],
+        "tree_string": "(ROOT (FRAG (VP (MD will) (VP (VB present)))))"
     }
 }

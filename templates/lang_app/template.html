@@ -87,9 +87,7 @@
                         <div class="container">
                         <div class="row">
                             <div class="col-sm-4">
-                              {% for word in required_words %}
-                                <strong>{{ word }}</strong><br>
-                              {% endfor %}
+                              {{ missing_verb }}
                             </div>
                             <div class="col-sm-4">
                               <button class="btn btn-primary btn-round" type="submit">submit</button>

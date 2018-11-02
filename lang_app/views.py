@@ -98,9 +98,18 @@ def index(request):
         for row in reader:
             rand_nums.append(row[0])
 
-    path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/new_user_function.csv'
+    path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/verb_user_function.csv'
     context = None
     if request.method == 'GET':
+
+
+        '''
+        For this branch, you need to give the question, with the gap taken out, 
+        you need to show the word that you are taking out
+        you also need to just check if the answer if right or wrong, there isn't really 
+        much point in scoring the one word at all. 
+        Can you lemmatize the words. yes because they are english
+        '''
 
         # get the number of the current question, so that we can stop the server here
         # if needed
@@ -111,15 +120,17 @@ def index(request):
                 row_count += 1
 
         # Use the row number to get the pk from the list
+        print(row_count)
         pk = rand_nums[row_count]
         card = Card.objects.get(pk=pk)
 
         data = card.ask_question()
+        print(lem.lemmatize_word(card.chunk))
 
         context = {
             'question_number': card.pk,
             'question_data': data,
-            'required_words': lem.lemmatize(card),
+            'missing_verb': lem.lemmatize_word(card.chunk),
         }
 
         print("asking question: ", card.pk)
@@ -134,19 +145,12 @@ def index(request):
             card = Card.objects.get(pk=request.POST.get('question_number'))
             correct_bool = card.give_answer(user_answer)[0]
 
-            # use the parser to get the tree string for the user answer
-            user_answer_tree_string = parser.parse(user_answer)[2]
-
-            # do the same to get the actual answer
-            actual_answer_tree_string = parser.parse(card.chunk)[2]
-
-            score = comp.compare_tree_strings(user_answer_tree_string, actual_answer_tree_string)
-            print("The score between these two answers was:", score)
+            # No scoring done in this branch, just record the correct bool
 
             # put the score and pk into the csv
             with open(path, 'a') as file:
                 writer = csv.writer(file, delimiter=',')
-                writer.writerow([card.pk, score])
+                writer.writerow([card.pk, correct_bool])
 
             context = {
                 'show_answer': True,

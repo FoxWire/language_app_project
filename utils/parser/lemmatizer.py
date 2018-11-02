@@ -16,6 +16,7 @@ from nltk.corpus import wordnet
 from nltk.stem.wordnet import WordNetLemmatizer
 from lang_app.models import Card
 from random import shuffle
+import nltk
 
 
 class Lemmatizer:
@@ -37,7 +38,6 @@ class Lemmatizer:
 
     def lemmatize(self, card):
         tree_string = card.tree_string
-        print(tree_string)
         # Get the tags and the words from the tree string of the chunk
         results = re.findall(r'\([A-Z$]+ [A-Za-z\'-]+\)', tree_string)
 
@@ -57,6 +57,9 @@ class Lemmatizer:
 
         shuffle(lemmatized)
         return lemmatized
+
+    def lemmatize_word(self, word):
+        return WordNetLemmatizer().lemmatize(word, pos=wordnet.VERB)
 
 
 if __name__ == "__main__":
