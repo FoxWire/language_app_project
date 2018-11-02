@@ -10,10 +10,10 @@ from random import choice
 import csv
 
 
-picker = NaivePicker()
-parser = Parser()
-comp = TreeComparer()
-lem = Lemmatizer()
+# picker = NaivePicker()
+# parser = Parser()
+# comp = TreeComparer()
+# lem = Lemmatizer()
 
 # This is the normal index
 # def index(request):
