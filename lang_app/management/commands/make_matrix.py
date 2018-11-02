@@ -31,7 +31,7 @@ class Command(BaseCommand):
                 self.matrix_size = arg
 
         # Set the name of the path
-        self.path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/matrix_{}.csv'.format(str(self.matrix_size))
+        self.path = '/home/stuart/Desktop/matrix_{}.csv'.format(str(self.matrix_size))
 
         with open(self.path, 'a') as file:
             writer = csv.writer(file, delimiter=',')
