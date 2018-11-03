@@ -18,7 +18,7 @@ class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
     def __init__(self, length_scale=25.0):
 
         root = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/'
-        file = 'matrix_250.csv'
+        file = 'matrix_500.csv'
         path = root + file
 
         # Read in from the file
@@ -70,11 +70,11 @@ class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
 # Read in the question data. Roughly the first 200 odd questions.
 def read_user_data():
     dict = {}
-    path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/new_user_function.csv'
+    path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/third_user_function.csv'
     with open(path, 'r') as file:
         reader = csv.reader(file, delimiter=',')
         for row in reader:
-            dict[row[0]] = row[2]
+            dict[row[0]] = row[3]
     return dict
 
 user = read_user_data()
@@ -88,7 +88,7 @@ def make_binary(array):
     Converts the data to 'binary' (1 for a correct answer and -1 for incorrect)
     This can be toggled when the evaluate function is called.
     '''
-    x = [[1] if a[0] == 2 else [-1] for a in array]
+    x = [[1] if a[0] == 1 else [-1] for a in array]
     # x = [[1] if a[0] >= 0 and a[0] <= 2 else [-1] for a in array]
     return np.atleast_2d(x)
 
@@ -114,7 +114,7 @@ def evaluate(binary=True):
     # Get answers to all of the questions
     answers = np.atleast_2d(answers.ravel()).T
 
-    kfold = KFold(n_splits=198)
+    kfold = KFold(n_splits=135)
     results = []
 
     for train, test in kfold.split(questions):
@@ -136,27 +136,19 @@ def evaluate(binary=True):
 if __name__ == '__main__':
     evaluate(binary=True)
 
-    # ones = 0
-    # twos = 0
-    # threes = 0
-    # fours = 0
-    # for key, val in user.items():
-    #     if int(val) == 1:
-    #         ones += 1
-    #     elif int(val) == 2:
-    #         twos += 1
-    #     elif int(val) == 3:
-    #         threes += 1
-    #     elif int(val) == 4:
-    #         fours += 1
-    #     else:
-    #         print("problem", val)
-    #         break
+    # count the number of each score
+    dict = {}
+    for val in user.values():
+        if val in dict:
+            dict[val] += 1
+        else:
+            dict[val] = 1
 
-    # print(ones)
-    # print(twos)
-    # print(threes)
-    # print(fours)
+    for key, val in dict.items():
+        print(key, val)
+
+
+
 
 '''
 In this version of the script, we want to analyse the information that we gathered from Eleni. We will
