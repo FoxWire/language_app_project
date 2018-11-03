@@ -8,12 +8,12 @@ from utils.parser.lemmatizer import Lemmatizer
 from utils.comparer.comparer import TreeComparer
 from random import choice
 import csv
+from django.conf import settings
 
-
-# picker = NaivePicker()
-# parser = Parser()
-# comp = TreeComparer()
-# lem = Lemmatizer()
+picker = NaivePicker()
+parser = Parser()
+comp = TreeComparer()
+lem = Lemmatizer()
 
 # This is the normal index
 # def index(request):
@@ -91,14 +91,16 @@ def index(request):
     This is how you maintain the order.
     '''
 
+    print(settings.BASE_DIR)
+
     rand_nums = [None,]   # dummy value to get counting from 1
     # Read in the data to a list
-    with open("/home/stuart/PycharmProjects/workspaces/language_app_project/data/new_random_nums.csv", 'r') as file:
+    with open(settings.BASE_DIR + "/data/new_random_nums.csv", 'r') as file:
         reader = csv.reader(file, delimiter='\n')
         for row in reader:
             rand_nums.append(row[0])
 
-    path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/third_user_function.csv'
+    path = settings.BASE_DIR + '/data/third_user_function.csv'
     context = None
     if request.method == 'GET':
 

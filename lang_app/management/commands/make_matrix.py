@@ -3,6 +3,7 @@ from lang_app.models import Card, Sentence
 from utils.comparer.comparer import TreeComparer
 import csv
 from tqdm import tqdm
+from django.conf import settings
 
 
 class Command(BaseCommand):
@@ -31,7 +32,7 @@ class Command(BaseCommand):
                 self.matrix_size = arg
 
         # Set the name of the path
-        self.path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/matrix_{}.csv'.format(str(self.matrix_size))
+        self.path = settings.BASE_DIR + '/data/matrix_{}.csv'.format(str(self.matrix_size))
 
         with open(self.path, 'a') as file:
             writer = csv.writer(file, delimiter=',')
