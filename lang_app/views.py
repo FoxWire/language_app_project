@@ -91,8 +91,6 @@ def index(request):
     This is how you maintain the order.
     '''
 
-    print(settings.BASE_DIR)
-
     rand_nums = [None,]   # dummy value to get counting from 1
     # Read in the data to a list
     with open(settings.BASE_DIR + "/data/new_random_nums.csv", 'r') as file:
@@ -121,7 +119,7 @@ def index(request):
         context = {
             'question_number': card.pk,
             'question_data': data,
-            'required_words': lem.lemmatize(card),
+            # 'required_words': lem.lemmatize(card),
         }
 
         print("asking question: ", card.pk)

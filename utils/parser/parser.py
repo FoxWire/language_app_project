@@ -1,4 +1,10 @@
+# Django stuff
 import os
+import sys
+import django
+sys.path.append('/home/stuart/PycharmProjects/workspaces/language_app_project')
+os.environ['DJANGO_SETTINGS_MODULE'] = 'language_app_project.settings'
+django.setup()
 from nltk.parse import stanford
 import nltk
 from scipy.spatial import distance
@@ -48,7 +54,8 @@ class Parser:
     '''
 
     def __init__(self):
-        self.parser = stanford.StanfordParser()
+        path = '/home/stuart/Documents/masters_project/stanford-parser-full-2018-02-27/edu/stanford/nlp/models/lexparser/germanPCFG.ser.gz'
+        self.parser = stanford.StanfordParser(model_path=path)
         self.cache_file = os.path.join(BASE_DIR, 'utils/parser/sentence_chunker_cache.json')
         self.labels_file = 'higher_level_labels.txt'
         # self.all_labels = self.load_labels()
@@ -82,43 +89,47 @@ class Parser:
         else:
             # print("***   INFO: Parsing sentences. This may take some time.   ***")
 
-            # Get the parse tree
+            # # Get the parse tree
+            # tree = next(self.parser.raw_parse(sentence))
+            # # get the number of parts of speech in this sentence
+            # no_of_pos = len(tree.leaves())
+            #
+            # # Get all the subtrees flattened as tuples
+            # phrases = [(sub.flatten().label(), sub.leaves()) for sub in tree.subtrees()]
+            #
+            # # Convert the text ^^^above^^^ into a set of labels
+            # all_labels = {line.split('-')[0].strip() for line in text.split('\n')}
+            #
+            # # Filter on the set of labels. This means that you only use the
+            # # 'higher level' trees that are specified in the text.
+            # chunks = [phrase for phrase in phrases if phrase[0] in all_labels]
+            #
+            # # filter out the one word phrases and the full sentence
+            # chunks = [chunk for chunk in chunks if 1 < len(chunk[1]) < no_of_pos]
+            #
+            # # Use regex to rebuild the lists of leaves into strings.
+            # formatted_chunks = []
+            # for chunk in chunks:
+            #     regex = r''
+            #     for leaf in chunk[1]:
+            #         regex += leaf + '\s*'
+            #
+            #     result = re.search(regex, sentence)
+            #     if not result:
+            #         print("***   INFO: Regex: {} didn't match sentence {}   ***".format(regex, sentence))
+            #     else:
+            #         formatted_chunks.append(result.group())
+            #
+            # # remove any duplicates
+            # formatted_chunks = list(set(formatted_chunks))
+            #
+            # parsed_object = (sentence, formatted_chunks, str(tree))
+            # self._write_to_cache(parsed_object)
+
+            # For this branch we don't need the chunks
             tree = next(self.parser.raw_parse(sentence))
-            # get the number of parts of speech in this sentence
-            no_of_pos = len(tree.leaves())
-
-            # Get all the subtrees flattened as tuples
-            phrases = [(sub.flatten().label(), sub.leaves()) for sub in tree.subtrees()]
-
-            # Convert the text ^^^above^^^ into a set of labels
-            all_labels = {line.split('-')[0].strip() for line in text.split('\n')}
-
-            # Filter on the set of labels. This means that you only use the
-            # 'higher level' trees that are specified in the text.
-            chunks = [phrase for phrase in phrases if phrase[0] in all_labels]
-
-            # filter out the one word phrases and the full sentence
-            chunks = [chunk for chunk in chunks if 1 < len(chunk[1]) < no_of_pos]
-
-            # Use regex to rebuild the lists of leaves into strings.
-            formatted_chunks = []
-            for chunk in chunks:
-                regex = r''
-                for leaf in chunk[1]:
-                    regex += leaf + '\s*'
-
-                result = re.search(regex, sentence)
-                if not result:
-                    print("***   INFO: Regex: {} didn't match sentence {}   ***".format(regex, sentence))
-                else:
-                    formatted_chunks.append(result.group())
-
-            # remove any duplicates
-            formatted_chunks = list(set(formatted_chunks))
-
-            parsed_object = (sentence, formatted_chunks, str(tree))
+            parsed_object = (sentence, None, str(tree))
             self._write_to_cache(parsed_object)
-
             return parsed_object
 
     # def get_tree_string(self, chunk):
@@ -167,9 +178,8 @@ class Parser:
 
 
 if __name__ == '__main__':
+    # We will need to run a little test here to make sure that the German parser works that way you are expecting
     parser = Parser()
-    chunks = parser.parse("This is a test sentence")
-    print(chunks)
-
-
+    test = "Dies ist kein Satz."
+    print(parser.parse(test))
 

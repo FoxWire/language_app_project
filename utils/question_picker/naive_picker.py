@@ -31,7 +31,8 @@ class NaivePicker:
         self.comp = TreeComparer()
 
         # Only use the cards that have one or less uncommon words
-        self.filtered_cards = Card.objects.filter(sentence__uncommon_words_score__lt=2)
+        # self.filtered_cards = Card.objects.filter(sentence__uncommon_words_score__lt=2)
+        self.filtered_cards = Card.objects.all()
 
         self.cards_list = [card for card in self.filtered_cards]
 

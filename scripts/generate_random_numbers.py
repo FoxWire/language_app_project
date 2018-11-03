@@ -23,7 +23,7 @@ with open(path, 'a') as file:
 	# 	file.write('\n')
 
 	# Get the pks of the first 200 cards where the sentences have less than one uncommon word
-	all_cards = [c for c in Card.objects.filter(sentence__uncommon_words_score__lt=2)[250:505]]
+	all_cards = [c for c in Card.objects.all()[1:100]]
 	shuffle(all_cards)
 	for c in all_cards:
 		file.write(str(c.pk))
