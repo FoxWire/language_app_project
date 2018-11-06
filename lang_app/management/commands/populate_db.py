@@ -80,12 +80,12 @@ class Command(BaseCommand):
 
             unique_sentences = {}
             for line in tqdm(raw_sentences):
+
                 # Get the different parts out of the sentence
                 line = line.strip()
-
                 chunk_translation = re.findall(r'\([\w\s\'.:;,\-&!?\"/]+\)', line)[0][1:-1]
 
-                chunk = re.findall(r'{{c1::[\w\s\':;,.\-&!?\"\(\)\"]+}}', line)[0][6:-2]
+                chunk = re.findall(r'{{c1::[\w\s\'`:;,.\-&!?\"\(\)\"]+}}', line)[0][6:-2]
 
                 sen_part_a, sen_part_b = re.split(r'\([\w\s:.,;{}!?\-\'/\)\(\"]+}', line)
 
@@ -113,6 +113,4 @@ class Command(BaseCommand):
 
                 card_object.question_tree_string = comp.remove_chunk_from_parse_tree(card_object)
                 card_object.save()
-
-
 
