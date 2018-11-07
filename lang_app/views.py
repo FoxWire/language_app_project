@@ -82,6 +82,7 @@ def get_hint(request):
 
         return HttpResponse(word)
 
+
 # This is the test index that will record your answers
 def index(request):
     '''

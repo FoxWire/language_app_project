@@ -21,54 +21,20 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        # path_to_texts = os.path.join(BASE_DIR, 'input_texts')
         comp = TreeComparer()
-        #
-        # # Iterate over all the input texts, break each up into sentences and gather all into one
-        # # list of sentences.
-        # sr = SentenceReader()
-        # sentences = []
-        # for file in os.listdir(path_to_texts):
-        #     path = os.path.join(path_to_texts, file)
-        #     sentences.extend([sentence for sentence in sr.get_sentences(path)])
-        #
-        # # For each of the sentences, create a list of parsed objects. These are just tuples with,
-        # # the sentence, the list of chunks and the parse tree as a string
-        # print("*** Parsing sentences: ")
         parser = Parser()
-        # parsed_objects = [parser.parse(sentence) for sentence in tqdm(sentences)]
-        #
-        # # Iterate over the list of parsed objects. You need to create a card for each chunk, with the
-        # # sentence and the parse tree for the chunk.
-        #
-        # # Make a list of cards
-        # print("*** Creating cards: ")
-        # translator = Translator()
-        # for par_obj in tqdm(parsed_objects):
-        #     # Here we iterate over the chunks for each sentence and create a card for each.
-        #     whole_sentence = par_obj[0]
-        #     sentence_tree_string = par_obj[2]
-        #     sentence_object = Sentence.objects.get_or_create(sentence=whole_sentence,
-        #                                                      sentence_tree_string=sentence_tree_string)[0]
-        #     for chunk in par_obj[1]:
-        #         # check if suitable
-        #         chunk_length = len(chunk.split(' '))
-        #         if 4 <= chunk_length <= 8:
-        #             chunk_tree = parser.parse(chunk)[2]
-        #             chunk_translation = translator.get_translation(chunk)
-        #
-        #             card = Card.objects.get_or_create(sentence=sentence_object,
-        #                                               chunk=chunk,
-        #                                               chunk_translation=chunk_translation,
-        #                                               chunk_tree_string=chunk_tree
-        #                                               )[0]
-        #             card.question_tree_string = comp.remove_chunk_from_parse_tree(card)
-        #             card.save()
-        #
+        trans = Translator()
 
-        # --- New for German Version ---
+        '''
+         --- New for One Word German Version  ---
+         Loop over all the sentences
+         for each verb in the sentence, you need to make a card
+         you need to get the English translation of the word if it is not in the chunk
+         and you will need to build up the question tree and the sentence tree
+         
+        '''
 
-        # load in the stuff from the text
+        # Read in all the sentences
         path = os.path.join(BASE_DIR, 'input_texts/Deutsch.txt')
         raw_sentences = []
 
@@ -83,7 +49,7 @@ class Command(BaseCommand):
 
                 # Get the different parts out of the sentence
                 line = line.strip()
-                chunk_translation = re.findall(r'\([\w\s\'.:;,\-&!?\"/]+\)', line)[0][1:-1]
+                # chunk_translation = re.findall(r'\([\w\s\'.:;,\-&!?\"/]+\)', line)[0][1:-1]
 
                 chunk = re.findall(r'{{c1::[\w\s\'`:;,.\-&!?\"\(\)\"]+}}', line)[0][6:-2]
 
@@ -104,13 +70,28 @@ class Command(BaseCommand):
                     no_spaces = re.sub(r'[\s]+', '', complete_sentence)
                     sentence_object = Sentence.objects.get(sentence=unique_sentences[no_spaces])
 
-                # Create the card object
-                card_object = Card.objects.get_or_create(sentence=sentence_object,
-                                                         chunk=chunk,
-                                                         chunk_translation=chunk_translation,
-                                                         chunk_tree_string=parser.parse(chunk)[2]
-                                                         )[0]
+                # You don't use the chunk that you have taken from the text here. You need to find all the verbs in the
+                # complete sentence
 
-                card_object.question_tree_string = comp.remove_chunk_from_parse_tree(card_object)
-                card_object.save()
+                # get all words with tags
+                token_tups = [tuple(token[1:-1].split(' ')) for token in
+                          re.findall(r'\([A-Z\[$.,:]+ [\w\'&\.\-:"`]+\)', sentence_object.sentence_tree_string)]
+
+                # Filter on the verbs
+                verb_tups = [t for t in token_tups if t[0].startswith("V")]
+
+                # Now you need to make card for each verb
+                for verb_tup in verb_tups:
+
+                    verb = verb_tup[1]
+                    verb_translation = trans.get_translation(verb)
+
+                    # Create the card object
+                    card_object = Card.objects.get_or_create(sentence=sentence_object,
+                                                             chunk=verb,
+                                                             chunk_translation=verb_translation,
+                                                             )[0]
+
+                    card_object.question_tree_string = comp.remove_chunk_from_parse_tree(card_object)
+                    card_object.save()
 

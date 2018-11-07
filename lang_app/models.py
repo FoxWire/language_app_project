@@ -17,7 +17,6 @@ class Card(models.Model):
     sentence = models.ForeignKey('Sentence', default=None, blank=True, related_name='cards', on_delete=models.CASCADE)
     chunk = models.CharField(max_length=1024)
     chunk_translation = models.CharField(max_length=1024)
-    chunk_tree_string = models.CharField(max_length=1024)
     similar_cards = models.CharField(max_length=128, default=None, null=True)
     question_tree_string = models.CharField(max_length=1024, default=None, null=True)
 

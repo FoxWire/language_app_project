@@ -139,7 +139,8 @@ class TreeComparer():
         parse_tree = card.sentence.sentence_tree_string
 
         # Get a list of the words that are in the chunk
-        tokens = [token.split(' ')[1][:-1] for token in re.findall(r'\([A-Z\[$.,:]+ [\w\'&\.\-:"`]+\)', card.chunk_tree_string)]
+        # tokens = [token.split(' ')[1][:-1] for token in re.findall(r'\([A-Z\[$.,:]+ [\w\'&\.\-:"`]+\)', card.chunk_tree_string)]
+        tokens = [card.chunk]
 
         # Build up a regex to match the chunks from the parse tree (you can't just use the labels from the chunk tree
         # string it might not be the same)
@@ -175,7 +176,7 @@ class TreeComparer():
 if __name__ == '__main__':
     # I need to get a parse tree and see what it looks like
     comp = TreeComparer()
-    card = Card.objects.all()[79]
+    card = Card.objects.all()[32]
     x = comp.remove_chunk_from_parse_tree(card)
     print(x)
 

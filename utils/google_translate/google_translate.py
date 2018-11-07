@@ -18,7 +18,8 @@ class Translator:
 
     def __init__(self):
         self.url = 'https://translation.googleapis.com/language/translate/v2'
-        self.target_language = 'de'
+        self.target_language = 'en'
+        self.source_language = 'de'
         self.api_key = self._get_api_key()
         self.cache_file = os.path.join(BASE_DIR, 'utils/google_translate/translation_cache.json')
         self.characters_translated, self.characters_saved = self._get_character_data()
@@ -33,7 +34,7 @@ class Translator:
 
         # check that the translation has not already been done.
         result = self._check_cache(chunk)
-        if result:
+        if False:
             # print("***  INFO: Translation retrieved from cache   ***")
             self.characters_saved += len(chunk)
             self._update_character_data()
@@ -41,7 +42,7 @@ class Translator:
 
         else:
             # make the api call
-            data = {'q': chunk, 'target': self.target_language, 'key': self.api_key}
+            data = {'q': chunk, 'target': self.target_language, 'source': self.source_language, 'key': self.api_key}
             response = requests.post(self.url, data=data)
             data = json.loads(response.text)
             translations = data['data']['translations']

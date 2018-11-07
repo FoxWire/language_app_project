@@ -19090,5 +19090,365 @@
     "\u00dcben Sie sich darin, ein Unruhestifter zu sein und sich einfach zu entschuldigen, wenn tats\u00e4chlich einmal etwas   grundlich schiefgegangen   ist.": {
         "chunks": null,
         "tree_string": "(ROOT\n  (S\n    (VVFIN \u00dcben)\n    (PPER Sie)\n    (PRF sich)\n    (PP\n      (PROAV darin)\n      ($, ,)\n      (CVP\n        (VP\n          (NP (ART ein) (NN Unruhestifter))\n          (VZ (PTKZU zu) (VAINF sein)))\n        (KON und)\n        (VP\n          (NP (PRF sich) (ADV einfach))\n          (VZ (PTKZU zu) (VVINF entschuldigen)))))\n    ($, ,)\n    (S\n      (KOUS wenn)\n      (ADJD tats\u00e4chlich)\n      (NP (ADV einmal) (PIS etwas))\n      (VP (ADJD grundlich) (VVINF schiefgegangen))\n      (VAFIN ist))\n    ($. .)))"
+    },
+    " Sei  Sie nicht dumm, sondern  hinterfragen  Sie den Status quo.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NP (S (VAIMP Sei) (NP (PPER Sie))))\n      (AP (PTKNEG nicht) (ADJD dumm)))\n    ($, ,)\n    (KON sondern)\n    (S\n      (VVFIN hinterfragen)\n      (NP (PPER Sie))\n      (NP (ART den) (MPN (NN Status) (FM quo))))\n    ($. .)))"
+    },
+    "Irgendwie habe ich  mir da selbst ins Knie  geschossen  .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (NE Irgendwie)\n    (VAFIN habe)\n    (PPER ich)\n    (VP\n      (PPER mir)\n      (AVP (ADV da) (ADV selbst))\n      (PP (APPRART ins) (NE Knie))\n      (VVPP geschossen))\n    ($. .)))"
+    },
+    "Ich  kehre  in die USA zur\u00fcck,  beschlie\u00dfe , Kickboxen zu lernen, und gewinne vier Wochen sp\u00e4ter die amerikanischen Meisterschaften mit dem h\u00e4sslichsten und unorthodoxesten Stil aller Zeiten.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (PPER Ich)\n      (VVFIN kehre)\n      (PP (APPR in) (ART die) (NE USA))\n      (PTKVZ zur\u00fcck))\n    ($, ,)\n    (S\n      (VVFIN beschlie\u00dfe)\n      ($, ,)\n      (VP (NN Kickboxen) (VZ (PTKZU zu) (VVINF lernen))))\n    ($, ,)\n    (KON und)\n    (S\n      (VVFIN gewinne)\n      (AP (NP (CARD vier) (NN Wochen)) (ADJD sp\u00e4ter))\n      (NP (ART die) (ADJA amerikanischen) (NN Meisterschaften))\n      (PP\n        (APPR mit)\n        (ART dem)\n        (CAP (ADJA h\u00e4sslichsten) (KON und) (ADJA unorthodoxesten))\n        (NN Stil))\n      (NP (PIDAT aller) (NN Zeiten)))\n    ($. .)))"
+    },
+    "Ich lande in London und  will  nach Spanien  weiterfliegen , um dort vier Wochen lang meine Batterien wieder aufzuladen, bevor ich in die Tretm\u00fchle zur\u00fcckkehre.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S (PPER Ich) (VVFIN lande) (PP (APPR in) (NE London)))\n    (KON und)\n    (S\n      (VMFIN will)\n      (VP\n        (PP (APPR nach) (NE Spanien))\n        (VVINF weiterfliegen)\n        ($, ,)\n        (VP\n          (KOUI um)\n          (ADV dort)\n          (PP (CARD vier) (NN Wochen) (APPO lang))\n          (NP (PPOSAT meine) (NN Batterien) (ADV wieder))\n          (VVIZU aufzuladen)))\n      ($, ,)\n      (S\n        (KOUS bevor)\n        (PPER ich)\n        (PP (APPR in) (ART die) (NN Tretm\u00fchle))\n        (VVFIN zur\u00fcckkehre)))\n    ($. .)))"
+    },
+    "Mein Leben ist  nicht zu Ende , und wie es  aussieht , hat das Jahr meiner Abwesenheit sich zu meinen Gunsten ausgewirkt.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NP (PPOSAT Mein) (NN Leben))\n      (VAFIN ist)\n      (PTKNEG nicht)\n      (PP (APPR zu) (NN Ende)))\n    ($, ,)\n    (KON und)\n    (S\n      (S (PWAV wie) (PPER es) (VVFIN aussieht))\n      ($, ,)\n      (VAFIN hat)\n      (NP (ART das) (NN Jahr) (NP (PPOSAT meiner) (NN Abwesenheit)))\n      (VP\n        (PRF sich)\n        (PP (APPR zu) (PPOSAT meinen) (NN Gunsten))\n        (VVPP ausgewirkt)))\n    ($. .)))"
+    },
+    "Es  gibt  immer mehrere Optionen, und  die m\u00fcssen einander nicht ausschlie\u00dfen .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (PPER Es)\n      (VVFIN gibt)\n      (ADV immer)\n      (NP (PIAT mehrere) (NN Optionen)))\n    ($, ,)\n    (KON und)\n    (S\n      (PDS die)\n      (VMFIN m\u00fcssen)\n      (ADV einander)\n      (PTKNEG nicht)\n      (VP (VVINF ausschlie\u00dfen)))\n    ($. .)))"
+    },
+    "Die Zivilisation hatte zu viele Regeln f\u00fcr mich, also habe ich mein  Bestes  getan, sie  umzuschreiben .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NP (ART Die) (NN Zivilisation))\n      (VAFIN hatte)\n      (NP (AP (PTKA zu) (PIDAT viele)) (NN Regeln))\n      (PP (APPR f\u00fcr) (PRF mich)))\n    ($, ,)\n    (S\n      (ADV also)\n      (VAFIN habe)\n      (PPER ich)\n      (VP (NP (PPOSAT mein) (NN Bestes)) (VVPP getan)))\n    ($, ,)\n    (S (PPER sie) (VVFIN umzuschreiben))\n    ($. .)))"
+    },
+    "Ich komme zu der Erkenntnis , dass ich da herauskommen  muss , bevor ich \u00fcberschnappe wie Howard Hughes.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PPER Ich)\n    (VVFIN komme)\n    (PP\n      (APPR zu)\n      (ART der)\n      (NN Erkenntnis)\n      ($, ,)\n      (S\n        (KOUS dass)\n        (PPER ich)\n        (ADV da)\n        (VP (VVINF herauskommen))\n        (VVFIN muss)\n        ($, ,)\n        (S (KOUS bevor) (PPER ich) (VVFIN \u00fcberschnappe))))\n    (NP (KOKOM wie) (MPN (NE Howard) (NE Hughes)))\n    ($. .)))"
+    },
+    "Dienstleistungen sind nicht mein Ding - was ich  brauche , ist ein Produkt, das ich  verschicken  kann.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NN Dienstleistungen)\n      (VAFIN sind)\n      (PTKNEG nicht)\n      (NP (PPOSAT mein) (NN Ding)))\n    ($[ -)\n    (S\n      (S (PWS was) (PPER ich) (VVFIN brauche))\n      ($, ,)\n      (VAFIN ist)\n      (NP\n        (ART ein)\n        (NN Produkt)\n        ($, ,)\n        (S\n          (PRELS das)\n          (PPER ich)\n          (VP (VVINF verschicken))\n          (VMFIN kann))))\n    ($. .)))"
+    },
+    "Die Gr\u00fcnde, zu Hause zu bleiben -  berechtigt  oder nicht -, w\u00fcrden einfach immer zahlreicher werden, und irgendwann w\u00fcrde es nicht mehr m\u00f6glich sein, sich selbst davon zu  \u00fcberzeugen , dass ein Entfliehen m\u00f6glich war.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (CS\n      (S\n        (NP\n          (ART Die)\n          (NN Gr\u00fcnde)\n          ($, ,)\n          (VP\n            (PP (APPR zu) (NN Hause))\n            (VZ (PTKZU zu) (VVINF bleiben))))\n        ($[ -)\n        (VVFIN berechtigt))\n      (KON oder)\n      (PTKNEG nicht))\n    ($[ -)\n    ($, ,)\n    (CS\n      (S\n        (VAFIN w\u00fcrden)\n        (VP\n          (ADV einfach)\n          (CAP (AP (ADV immer) (ADJA zahlreicher)))\n          (VAINF werden)))\n      ($, ,)\n      (KON und)\n      (S\n        (ADV irgendwann)\n        (VAFIN w\u00fcrde)\n        (PPER es)\n        (VP\n          (AP (PTKNEG nicht) (ADV mehr) (ADJD m\u00f6glich))\n          (VAINF sein)\n          ($, ,)\n          (VP\n            (PRF sich)\n            (PP (ADV selbst) (PROAV davon))\n            (VZ (PTKZU zu) (VVINF \u00fcberzeugen))))\n        ($, ,)\n        (S\n          (KOUS dass)\n          (NP (ART ein) (NN Entfliehen))\n          (ADJD m\u00f6glich)\n          (VAFIN war))))\n    ($. .)))"
+    },
+    "Meine Mutter denkt, dass das alles kein  Beinbruch   ist  und dass \u00fcberhaupt kein Anlass besteht, sich so theatralisch aufzuf\u00fchren.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NP (PPOSAT Meine) (NN Mutter))\n      (VVFIN denkt)\n      ($, ,)\n      (S\n        (KOUS dass)\n        (NP (PDS das) (PIS alles))\n        (NP (PIAT kein) (NN Beinbruch))\n        (VAFIN ist)))\n    (KON und)\n    (S\n      (KOUS dass)\n      (NP (ADV \u00fcberhaupt) (PIAT kein) (NN Anlass))\n      (VVFIN besteht)\n      ($, ,)\n      (VP\n        (PRF sich)\n        (AP (ADV so) (ADJD theatralisch))\n        (VVIZU aufzuf\u00fchren)))\n    ($. .)))"
+    },
+    "Kurz darauf  versuchen  beide Unternehmen, mein Produkt zu kopieren, und verlieren  dabei  Millionen von Dollars.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (AVP (ADJD Kurz) (PROAV darauf))\n      (VVFIN versuchen)\n      (NP\n        (PIDAT beide)\n        (NN Unternehmen)\n        ($, ,)\n        (VP\n          (NP (PPOSAT mein) (NN Produkt))\n          (VZ (PTKZU zu) (VVINF kopieren)))))\n    ($, ,)\n    (KON und)\n    (S\n      (VVFIN verlieren)\n      (PROAV dabei)\n      (NP (NN Millionen) (PP (APPR von) (NE Dollars))))\n    ($. .)))"
+    },
+    "Ich lande in London und will nach Spanien   weiterfliegne  , um dort vier Wochen lang meine Batterien wieder aufzuladen, bevor ich in die Tretm\u00fchle zur\u00fcckkehre.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S (PPER Ich) (VVFIN lande) (PP (APPR in) (NE London)))\n    (KON und)\n    (S\n      (VMFIN will)\n      (VP\n        (PP (APPR nach) (NE Spanien))\n        (VVPP weiterfliegne)\n        ($, ,)\n        (VP\n          (KOUI um)\n          (ADV dort)\n          (PP (CARD vier) (NN Wochen) (APPO lang))\n          (NP (PPOSAT meine) (NN Batterien) (ADV wieder))\n          (VVIZU aufzuladen)))\n      ($, ,)\n      (S\n        (KOUS bevor)\n        (PPER ich)\n        (PP (APPR in) (ART die) (NN Tretm\u00fchle))\n        (VVFIN zur\u00fcckkehre)))\n    ($. .)))"
+    },
+    "Das  kann  zum Beispiel hei\u00dfen, Verantwortlichkeiten  umzukehren  oder die herk\u00f6mmliche Definition von \"Erfolg\" \u00fcber Bord zu werfen.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PDS Das)\n    (VMFIN kann)\n    (CVP\n      (VP (PP (APPRART zum) (NN Beispiel)) (VVINF hei\u00dfen))\n      ($, ,)\n      (VP (NN Verantwortlichkeiten) (VVINF umzukehren))\n      (KON oder)\n      (VP\n        (NP (ART die) (ADJA herk\u00f6mmliche) (NN Definition))\n        (PP\n          (APPR von)\n          (CARD ``)\n          (NN Erfolg)\n          (CNP (TRUNC '') (APPR \u00fcber) (NN Bord)))\n        (VZ (PTKZU zu) (VVINF werfen))))\n    ($. .)))"
+    },
+    "Ich   g\u00f6nne   mir und meiner Familie einen einw\u00f6chigen \"Urlaub\" in Florenz, wo ich jeden Tag zehn Stunden lang in einem Internetcaf\u00e9 sitze und ausraste.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S (PPER Ich) (VVFIN g\u00f6nne) (PPER mir))\n    (KON und)\n    (S\n      (NP (PPOSAT meiner) (NN Familie))\n      (NP (ART einen) (ADJA einw\u00f6chigen) (TRUNC ``) (NN Urlaub))\n      (VVFIN '')\n      (PP (APPR in) (NE Florenz))\n      ($, ,)\n      (S\n        (PWAV wo)\n        (PPER ich)\n        (NP (PIDAT jeden) (NN Tag))\n        (PP (CARD zehn) (NN Stunden) (APPO lang))\n        (PP (APPR in) (ART einem) (NN Internetcaf\u00e9))\n        (VVFIN sitze)))\n    (KON und)\n    (VVFIN ausraste)\n    ($. .)))"
+    },
+    "Ich kehre in die USA zur\u00fcck,  beschlie\u00dfe , Kickboxen zu  learnen , und gewinne vier Wochen sp\u00e4ter die amerikanischen Meisterschaften mit dem h\u00e4sslichsten und unorthodoxesten Stil aller Zeiten.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (PPER Ich)\n      (VVFIN kehre)\n      (PP (APPR in) (ART die) (NE USA))\n      (PTKVZ zur\u00fcck))\n    ($, ,)\n    (S\n      (VVFIN beschlie\u00dfe)\n      ($, ,)\n      (VP (NN Kickboxen) (VZ (PTKZU zu) (VVINF learnen))))\n    ($, ,)\n    (KON und)\n    (S\n      (VVFIN gewinne)\n      (AP (NP (CARD vier) (NN Wochen)) (ADJD sp\u00e4ter))\n      (NP (ART die) (ADJA amerikanischen) (NN Meisterschaften))\n      (PP\n        (APPR mit)\n        (ART dem)\n        (CAP (ADJA h\u00e4sslichsten) (KON und) (ADJA unorthodoxesten))\n        (NN Stil))\n      (NP (PIDAT aller) (NN Zeiten)))\n    ($. .)))"
+    },
+    "In zw\u00f6lf Stunden w\u00fcrden sie alle wieder zur\u00fcck in Paris  sein ,  gesund und wohlbehalten .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PP (APPR In) (CARD zw\u00f6lf) (NN Stunden))\n    (VAFIN w\u00fcrden)\n    (PPER sie)\n    (VP\n      (AVP (AVP (PIDAT alle) (ADV wieder)) (PTKVZ zur\u00fcck))\n      (PP (APPR in) (NE Paris))\n      (VAINF sein))\n    ($, ,)\n    (AP (CAP (ADJD gesund) (KON und) (ADJD wohlbehalten)))\n    ($. .)))"
+    },
+    "Ich kehre in die USA zur\u00fcck,  beschlie\u00dfe , Kickboxen zu lernen, und  gewinne  vier Wochen sp\u00e4ter die amerikanischen Meisterschaften mit dem h\u00e4sslichsten und unorthodoxesten Stil aller Zeiten.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (PPER Ich)\n      (VVFIN kehre)\n      (PP (APPR in) (ART die) (NE USA))\n      (PTKVZ zur\u00fcck))\n    ($, ,)\n    (S\n      (VVFIN beschlie\u00dfe)\n      ($, ,)\n      (VP (NN Kickboxen) (VZ (PTKZU zu) (VVINF lernen))))\n    ($, ,)\n    (KON und)\n    (S\n      (VVFIN gewinne)\n      (AP (NP (CARD vier) (NN Wochen)) (ADJD sp\u00e4ter))\n      (NP (ART die) (ADJA amerikanischen) (NN Meisterschaften))\n      (PP\n        (APPR mit)\n        (ART dem)\n        (CAP (ADJA h\u00e4sslichsten) (KON und) (ADJA unorthodoxesten))\n        (NN Stil))\n      (NP (PIDAT aller) (NN Zeiten)))\n    ($. .)))"
+    },
+    "Gro\u00dfe finanzielle Reserven  haben , aber  sich dar\u00fcber im Klaren sein , dass die meisten materiellen Bed\u00fcrfnisse nur eine Ausrede daf\u00fcr sind, Zeit mit Dingen zu verschwenden, die nicht wirklich wichtig sind.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (NP (ADJA Gro\u00dfe) (ADJA finanzielle) (NN Reserven))\n    (VAFIN haben)\n    ($, ,)\n    (AVP (ADV aber))\n    (VP\n      (PRF sich)\n      (PP (PROAV dar\u00fcber))\n      (PP (APPRART im) (NN Klaren))\n      (VAINF sein)\n      ($, ,)\n      (S\n        (KOUS dass)\n        (NP\n          (ART die)\n          (PIDAT meisten)\n          (ADJA materiellen)\n          (NN Bed\u00fcrfnisse))\n        (ADV nur)\n        (NP (ART eine) (NN Ausrede) (PROAV daf\u00fcr))\n        (VAFIN sind)))\n    ($, ,)\n    (VP\n      (NP (NN Zeit) (PP (APPR mit) (NN Dingen)))\n      (VZ (PTKZU zu) (VVINF verschwenden))\n      ($, ,)\n      (S\n        (PRELS die)\n        (AP (PTKNEG nicht) (ADJD wirklich) (ADJD wichtig))\n        (VAFIN sind)))\n    ($. .)))"
+    },
+    "Mein Leben  ist   nicht zu Ende , und wie es aussieht, hat das Jahr meiner Abwesenheit sich zu meinen Gunsten ausgewirkt.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NP (PPOSAT Mein) (NN Leben))\n      (VAFIN ist)\n      (PTKNEG nicht)\n      (PP (APPR zu) (NN Ende)))\n    ($, ,)\n    (KON und)\n    (S\n      (S (PWAV wie) (PPER es) (VVFIN aussieht))\n      ($, ,)\n      (VAFIN hat)\n      (NP (ART das) (NN Jahr) (NP (PPOSAT meiner) (NN Abwesenheit)))\n      (VP\n        (PRF sich)\n        (PP (APPR zu) (PPOSAT meinen) (NN Gunsten))\n        (VVPP ausgewirkt)))\n    ($. .)))"
+    },
+    "Meine Erholung  beginnt  damit, dass ich am ersten Morgen prompt einen  Nervenzusammenbruch  erleide.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (NP (PPOSAT Meine) (NN Erholung))\n    (VVFIN beginnt)\n    (PROAV damit)\n    ($, ,)\n    (S\n      (KOUS dass)\n      (PPER ich)\n      (PP (APPRART am) (ADJA ersten) (NN Morgen))\n      (ADJD prompt)\n      (NP (ART einen) (NN Nervenzusammenbruch))\n      (VVFIN erleide))\n    ($. .)))"
+    },
+    "Innerhalb von drei Monaten nehme ich zwei Jobs an, die ich  umgehend  wieder  hinschei\u00dfe : zuerst als Lehrplanentwickler bei Berlitz, dem weltgr\u00f6\u00dften Verlag f\u00fcr Fremdsprachenmaterialien. Dann als Analyst bei einem Dreipersonen-Institut, das Forschungen \u00fcber politisches Asyl betreibt.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PP (APPR Innerhalb) (APPR von) (CARD drei) (NN Monaten))\n    (VVFIN nehme)\n    (PPER ich)\n    (NP (CARD zwei) (NN Jobs))\n    (PTKVZ an)\n    ($, ,)\n    (S\n      (PRELS die)\n      (PPER ich)\n      (ADJD umgehend)\n      (AVP (ADV wieder))\n      (VVFIN hinschei\u00dfe)\n      ($. :)\n      (CNP\n        (NP\n          (ADV zuerst)\n          (KOKOM als)\n          (NN Lehrplanentwickler)\n          (PP (APPR bei) (NN Berlitz))\n          ($, ,)\n          (S\n            (NP (ART dem) (ADJA weltgr\u00f6\u00dften) (NN Verlag))\n            (PP (APPR f\u00fcr) (NN Fremdsprachenmaterialien))))\n        ($. .)\n        (NP\n          (ADV Dann)\n          (KOKOM als)\n          (NN Analyst)\n          (PP (APPR bei) (ART einem) (NN Dreipersonen-Institut))\n          ($, ,)\n          (S\n            (PRELS das)\n            (NP\n              (NN Forschungen)\n              (PP (APPR \u00fcber) (ADJA politisches) (NN Asyl)))\n            (VVFIN betreibt)))))\n    ($. .)))"
+    },
+    "Meine Mutter denkt, dass das alles kein  Beinbruch  ist und dass \u00fcberhaupt kein Anlass  besteht , sich so theatralisch aufzuf\u00fchren.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NP (PPOSAT Meine) (NN Mutter))\n      (VVFIN denkt)\n      ($, ,)\n      (S\n        (KOUS dass)\n        (NP (PDS das) (PIS alles))\n        (NP (PIAT kein) (NN Beinbruch))\n        (VAFIN ist)))\n    (KON und)\n    (S\n      (KOUS dass)\n      (NP (ADV \u00fcberhaupt) (PIAT kein) (NN Anlass))\n      (VVFIN besteht)\n      ($, ,)\n      (VP\n        (PRF sich)\n        (AP (ADV so) (ADJD theatralisch))\n        (VVIZU aufzuf\u00fchren)))\n    ($. .)))"
+    },
+    "Die Zivilisation hatte zu viele Regeln f\u00fcr mich, also  hab  ich mein  Bestes  getan, sie umzuschreiben.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NP (ART Die) (NN Zivilisation))\n      (VAFIN hatte)\n      (NP (AP (PTKA zu) (PIDAT viele)) (NN Regeln))\n      (PP (APPR f\u00fcr) (PRF mich)))\n    ($, ,)\n    (S\n      (ADV also)\n      (VAFIN hab)\n      (PPER ich)\n      (VP (NP (PPOSAT mein) (NN Bestes)) (VVPP getan)))\n    ($, ,)\n    (S (PPER sie) (VVFIN umzuschreiben))\n    ($. .)))"
+    },
+    "Nat\u00fcrlich nur  unter der Voraussetzung , dass das Flugzeug nicht unterwegs  auseinanderf\u00e4llt .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (ADV Nat\u00fcrlich)\n      (PP (ADV nur) (APPR unter) (ART der) (NN Voraussetzung)))\n    ($, ,)\n    (S\n      (KOUS dass)\n      (NP (ART das) (NN Flugzeug))\n      (AVP (PTKNEG nicht) (ADV unterwegs))\n      (VVFIN auseinanderf\u00e4llt))\n    ($. .)))"
+    },
+    "Innerhalb von drei Monaten nehme ich zwei Jobs an, die ich  umgehend  wieder hinschmei\u00dfe: zuerst als Lehrplanentwickler bei Berlitz, dem weltgr\u00f6\u00dften Verlag f\u00fcr Fremdsprachenmaterialien. Dann als Analyst bei einem Dreipersonen-Institut, das Forschungen \u00fcber politisches Asyl  betreibt .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PP (APPR Innerhalb) (APPR von) (CARD drei) (NN Monaten))\n    (VVFIN nehme)\n    (PPER ich)\n    (NP (CARD zwei) (NN Jobs))\n    (PTKVZ an)\n    ($, ,)\n    (S\n      (PRELS die)\n      (PPER ich)\n      (ADJD umgehend)\n      (AVP (ADV wieder))\n      (VVFIN hinschmei\u00dfe)\n      ($. :)\n      (CNP\n        (NP\n          (ADV zuerst)\n          (KOKOM als)\n          (NN Lehrplanentwickler)\n          (PP (APPR bei) (NN Berlitz))\n          ($, ,)\n          (S\n            (NP (ART dem) (ADJA weltgr\u00f6\u00dften) (NN Verlag))\n            (PP (APPR f\u00fcr) (NN Fremdsprachenmaterialien))))\n        ($. .)\n        (NP\n          (ADV Dann)\n          (KOKOM als)\n          (NN Analyst)\n          (PP (APPR bei) (ART einem) (NN Dreipersonen-Institut))\n          ($, ,)\n          (S\n            (PRELS das)\n            (NP\n              (NN Forschungen)\n              (PP (APPR \u00fcber) (ADJA politisches) (NN Asyl)))\n            (VVFIN betreibt)))))\n    ($. .)))"
+    },
+    "Dienstle ist ungen sind nicht mein Ding - was ich brauche, ": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (NUR\n    (XY Dienstle)\n    (S\n      (VAFIN ist)\n      (NP (S (VP (VVINF ungen)) (VAFIN sind)))\n      (PTKNEG nicht)\n      (NP\n        (PPOSAT mein)\n        (NN Ding)\n        ($[ -)\n        (S (PRELS was) (PPER ich) (VVFIN brauche))))\n    ($, ,)))"
+    },
+    "Ich  stelle fest , dass man von der Produktion bis zur Werbung alles  outsourcen  kann.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PPER Ich)\n    (VVFIN stelle)\n    (PTKVZ fest)\n    ($, ,)\n    (S\n      (KOUS dass)\n      (PIS man)\n      (VP\n        (PP\n          (APPR von)\n          (ART der)\n          (NN Produktion)\n          (PP (APPR bis) (APPRART zur) (NN Werbung)))\n        (PIS alles)\n        (VVINF outsourcen))\n      (VMFIN kann))\n    ($. .)))"
+    },
+    "Ich  stelle fest , dass man von der Produktion bis zur Werbung alles outsourcen  kann .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PPER Ich)\n    (VVFIN stelle)\n    (PTKVZ fest)\n    ($, ,)\n    (S\n      (KOUS dass)\n      (PIS man)\n      (VP\n        (PP\n          (APPR von)\n          (ART der)\n          (NN Produktion)\n          (PP (APPR bis) (APPRART zur) (NN Werbung)))\n        (PIS alles)\n        (VVINF outsourcen))\n      (VMFIN kann))\n    ($. .)))"
+    },
+    "Gro\u00dfe finanzielle Reserven haben, aber  sich dar\u00fcber im Klaren  sein  , dass die meisten materiellen Bed\u00fcrfnisse nur eine Ausrede daf\u00fcr sind, Zeit mit Dingen zu verschwenden, die nicht wirklich wichtig sind.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (NP (ADJA Gro\u00dfe) (ADJA finanzielle) (NN Reserven))\n    (VAFIN haben)\n    ($, ,)\n    (AVP (ADV aber))\n    (VP\n      (PRF sich)\n      (PP (PROAV dar\u00fcber))\n      (PP (APPRART im) (NN Klaren))\n      (VAINF sein)\n      ($, ,)\n      (S\n        (KOUS dass)\n        (NP\n          (ART die)\n          (PIDAT meisten)\n          (ADJA materiellen)\n          (NN Bed\u00fcrfnisse))\n        (ADV nur)\n        (NP (ART eine) (NN Ausrede) (PROAV daf\u00fcr))\n        (VAFIN sind)))\n    ($, ,)\n    (VP\n      (NP (NN Zeit) (PP (APPR mit) (NN Dingen)))\n      (VZ (PTKZU zu) (VVINF verschwenden))\n      ($, ,)\n      (S\n        (PRELS die)\n        (AP (PTKNEG nicht) (ADJD wirklich) (ADJD wichtig))\n        (VAFIN sind)))\n    ($. .)))"
+    },
+    "Ich   stelle  fest , dass man von der Produktion bis zur Werbung alles outsourcen kann.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PPER Ich)\n    (VVFIN stelle)\n    (PTKVZ fest)\n    ($, ,)\n    (S\n      (KOUS dass)\n      (PIS man)\n      (VP\n        (PP\n          (APPR von)\n          (ART der)\n          (NN Produktion)\n          (PP (APPR bis) (APPRART zur) (NN Werbung)))\n        (PIS alles)\n        (VVINF outsourcen))\n      (VMFIN kann))\n    ($. .)))"
+    },
+    "Einige Menschen sind noch immer davon  \u00fcberzeugt , dass ein bisschen mehr Geld all ihren Sorgen  ein Ende bereiten  w\u00fcrde.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (NP (PIAT Einige) (NN Menschen))\n    (VAFIN sind)\n    (VP\n      (PP (ADV noch) (ADV immer) (PROAV davon))\n      (VVPP \u00fcberzeugt)\n      ($, ,)\n      (S\n        (KOUS dass)\n        (NP (ART ein) (AP (ADV bisschen) (PIAT mehr)) (NN Geld))\n        (VP\n          (NP (PIDAT all) (PPOSAT ihren) (NN Sorgen))\n          (NP (ART ein) (NN Ende))\n          (VVINF bereiten))\n        (VAFIN w\u00fcrde)))\n    ($. .)))"
+    },
+    "Mein Leben ist  nicht zu Ende , und wie es aussieht,  hat  das Jahr meiner Abwesenheit sich zu meinen Gunsten ausgewirkt.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NP (PPOSAT Mein) (NN Leben))\n      (VAFIN ist)\n      (PTKNEG nicht)\n      (PP (APPR zu) (NN Ende)))\n    ($, ,)\n    (KON und)\n    (S\n      (S (PWAV wie) (PPER es) (VVFIN aussieht))\n      ($, ,)\n      (VAFIN hat)\n      (NP (ART das) (NN Jahr) (NP (PPOSAT meiner) (NN Abwesenheit)))\n      (VP\n        (PRF sich)\n        (PP (APPR zu) (PPOSAT meinen) (NN Gunsten))\n        (VVPP ausgewirkt)))\n    ($. .)))"
+    },
+    "Die Gr\u00fcnde, zu Hause zu bleiben -  berechtigt  oder nicht -, w\u00fcrden einfach immer zahlreicher werden, und irgendwann w\u00fcrde es nicht mehr m\u00f6glich sein, sich selbst davon zu \u00fcberzeugen, dass ein Entfliehen m\u00f6glich  war .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (CS\n      (S\n        (NP\n          (ART Die)\n          (NN Gr\u00fcnde)\n          ($, ,)\n          (VP\n            (PP (APPR zu) (NN Hause))\n            (VZ (PTKZU zu) (VVINF bleiben))))\n        ($[ -)\n        (VVFIN berechtigt))\n      (KON oder)\n      (PTKNEG nicht))\n    ($[ -)\n    ($, ,)\n    (CS\n      (S\n        (VAFIN w\u00fcrden)\n        (VP\n          (ADV einfach)\n          (CAP (AP (ADV immer) (ADJA zahlreicher)))\n          (VAINF werden)))\n      ($, ,)\n      (KON und)\n      (S\n        (ADV irgendwann)\n        (VAFIN w\u00fcrde)\n        (PPER es)\n        (VP\n          (AP (PTKNEG nicht) (ADV mehr) (ADJD m\u00f6glich))\n          (VAINF sein)\n          ($, ,)\n          (VP\n            (PRF sich)\n            (PP (ADV selbst) (PROAV davon))\n            (VZ (PTKZU zu) (VVINF \u00fcberzeugen))))\n        ($, ,)\n        (S\n          (KOUS dass)\n          (NP (ART ein) (NN Entfliehen))\n          (ADJD m\u00f6glich)\n          (VAFIN war))))\n    ($. .)))"
+    },
+    "Meine Mutter denkt, dass das alles kein  Beinbruch  ist und dass \u00fcberhaupt kein Anlass besteht, sich so theatralisch  auzuf\u00fchren .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NP (PPOSAT Meine) (NN Mutter))\n      (VVFIN denkt)\n      ($, ,)\n      (S\n        (KOUS dass)\n        (NP (PDS das) (PIS alles))\n        (NP (PIAT kein) (NN Beinbruch))\n        (VAFIN ist)))\n    (KON und)\n    (S\n      (S\n        (KOUS dass)\n        (ADV \u00fcberhaupt)\n        (NP (PIAT kein) (NN Anlass))\n        (VVFIN besteht))\n      ($, ,)\n      (PRF sich)\n      (AP (ADV so) (ADJD theatralisch))\n      (VVFIN auzuf\u00fchren))\n    ($. .)))"
+    },
+    "Einige Menschen sind noch immer davon \u00fcberzeugt, dass ein bisschen mehr Geld all ihren Sorgen  ein Ende  bereiten   w\u00fcrde.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (NP (PIAT Einige) (NN Menschen))\n    (VAFIN sind)\n    (VP\n      (PP (ADV noch) (ADV immer) (PROAV davon))\n      (VVPP \u00fcberzeugt)\n      ($, ,)\n      (S\n        (KOUS dass)\n        (NP (ART ein) (AP (ADV bisschen) (PIAT mehr)) (NN Geld))\n        (VP\n          (NP (PIDAT all) (PPOSAT ihren) (NN Sorgen))\n          (NP (ART ein) (NN Ende))\n          (VVINF bereiten))\n        (VAFIN w\u00fcrde)))\n    ($. .)))"
+    },
+    "Mein  Selbstvertrauen  ist  widerhergestellt  und meine Abschlussarbeit ist nicht einmal in Gedanken angefangen.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NP (PPOSAT Mein) (NN Selbstvertrauen))\n      (VAFIN ist)\n      (VVPP widerhergestellt))\n    (KON und)\n    (S\n      (NP (PPOSAT meine) (NN Abschlussarbeit))\n      (VAFIN ist)\n      (VP\n        (AVP (PTKNEG nicht) (ADV einmal))\n        (PP (APPR in) (NN Gedanken))\n        (VVPP angefangen)))\n    ($. .)))"
+    },
+    "Immer wieder  gab  es neue Gr\u00fcnde daf\u00fcr, den Trip  aufzuschieben .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (AVP (ADV Immer) (ADV wieder))\n    (VVFIN gab)\n    (PPER es)\n    (NP (ADJA neue) (NN Gr\u00fcnde))\n    (PP\n      (PROAV daf\u00fcr)\n      ($, ,)\n      (VP (NP (ART den) (NN Trip)) (VVIZU aufzuschieben)))\n    ($. .)))"
+    },
+    "Wenn Sie der Bewegung beitreten wollen, sollten Sie sich einen neuen Wortschatz   aneignen  .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (S\n      (KOUS Wenn)\n      (PPER Sie)\n      (VP (NP (ART der) (NN Bewegung)) (VVINF beitreten))\n      (VMFIN wollen))\n    ($, ,)\n    (VMFIN sollten)\n    (PPER Sie)\n    (VP\n      (PRF sich)\n      (NP (ART einen) (ADJA neuen) (NN Wortschatz))\n      (VVINF aneignen))\n    ($. .)))"
+    },
+    "Ich teile dem Pr\u00fcfungsamt mit, dass ich die Universit\u00e4t  bis auf weiteres   verlasse .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PPER Ich)\n    (VVFIN teile)\n    (NP (ART dem) (NN Pr\u00fcfungsamt))\n    (PTKVZ mit)\n    ($, ,)\n    (S\n      (KOUS dass)\n      (PPER ich)\n      (NP\n        (ART die)\n        (NN Universit\u00e4t)\n        (PP (APPR bis) (APPR auf) (ADJA weiteres)))\n      (VVFIN verlasse))\n    ($. .)))"
+    },
+    "Mein  Selbstvertrauen  ist wiederhergestellt und meine Abschlussarbeit ist nicht einmal in Gedanken  angefangen .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NP (PPOSAT Mein) (NN Selbstvertrauen))\n      (VAFIN ist)\n      (VVPP wiederhergestellt))\n    (KON und)\n    (S\n      (NP (PPOSAT meine) (NN Abschlussarbeit))\n      (VAFIN ist)\n      (VP\n        (AVP (PTKNEG nicht) (ADV einmal))\n        (PP (APPR in) (NN Gedanken))\n        (VVPP angefangen)))\n    ($. .)))"
+    },
+    "Gro\u00dfe finanzielle Reserven haben, aber  sich dar\u00fcber im Klaren sein , dass die meisten materiellen Bed\u00fcrfnisse nur eine Ausrede daf\u00fcr  sind , Zeit mit Dingen zu verschwenden, die nicht wirklich wichtig ": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (NUR\n    (S\n      (NP\n        (CS\n          (S\n            (NP (ADJA Gro\u00dfe) (ADJA finanzielle) (NN Reserven))\n            (VAFIN haben))\n          ($, ,)\n          (KON aber)\n          (S\n            (VP\n              (PRF sich)\n              (PP (PROAV dar\u00fcber))\n              (PP (APPRART im) (NN Klaren))\n              (VAINF sein)\n              ($, ,)\n              (S\n                (KOUS dass)\n                (NP\n                  (ART die)\n                  (PIDAT meisten)\n                  (ADJA materiellen)\n                  (NN Bed\u00fcrfnisse))\n                (ADV nur)\n                (NP (ART eine) (NN Ausrede) (PROAV daf\u00fcr))\n                (VAFIN sind)\n                ($, ,)\n                (VP\n                  (NN Zeit)\n                  (PP (APPR mit) (NN Dingen))\n                  (VZ (PTKZU zu) (VVINF verschwenden)))))))\n        ($, ,)\n        (PDS die))\n      (AP (PTKNEG nicht) (ADJD wirklich) (ADJD wichtig)))))"
+    },
+    " Kurz darauf   versuchen  beide Unternehmen, mein Produkt zu kopieren, und verlieren dabei Millionen von Dollars.\tkurz darauf = kurz danach": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (NUR\n    (CS\n      (S\n        (AVP (ADJD Kurz) (PROAV darauf))\n        (VVFIN versuchen)\n        (NP\n          (PIDAT beide)\n          (NN Unternehmen)\n          ($, ,)\n          (VP\n            (NP (PPOSAT mein) (NN Produkt))\n            (VZ (PTKZU zu) (VVINF kopieren)))))\n      ($, ,)\n      (KON und)\n      (S\n        (VVFIN verlieren)\n        (PROAV dabei)\n        (AVP\n          (NP\n            (NN Millionen)\n            (PP (APPR von) (MPN (NE Dollars) ($. .))))\n          (ADJD kurz)\n          (PROAV darauf))\n        (NP\n          (CS\n            (S\n              (XY =)\n              (PP (S (NP (AP (ADJD kurz))) (PP (PROAV danach)))))))))))"
+    },
+    "Mein Leben ist  nicht zu Ende , und wie es aussieht, hat das Jahr meiner Abwesenheit sich zu meinen Gunsten  ausgewirkt .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NP (PPOSAT Mein) (NN Leben))\n      (VAFIN ist)\n      (PTKNEG nicht)\n      (PP (APPR zu) (NN Ende)))\n    ($, ,)\n    (KON und)\n    (S\n      (S (PWAV wie) (PPER es) (VVFIN aussieht))\n      ($, ,)\n      (VAFIN hat)\n      (NP (ART das) (NN Jahr) (NP (PPOSAT meiner) (NN Abwesenheit)))\n      (VP\n        (PRF sich)\n        (PP (APPR zu) (PPOSAT meinen) (NN Gunsten))\n        (VVPP ausgewirkt)))\n    ($. .)))"
+    },
+    "Die Zivilisation hatte zu viele Regeln f\u00fcr mich, also habe ich mein  Bestes   getan , sie umzuschreiben.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NP (ART Die) (NN Zivilisation))\n      (VAFIN hatte)\n      (NP (AP (PTKA zu) (PIDAT viele)) (NN Regeln))\n      (PP (APPR f\u00fcr) (PRF mich)))\n    ($, ,)\n    (S\n      (ADV also)\n      (VAFIN habe)\n      (PPER ich)\n      (VP (NP (PPOSAT mein) (NN Bestes)) (VVPP getan)))\n    ($, ,)\n    (S (PPER sie) (VVFIN umzuschreiben))\n    ($. .)))"
+    },
+    "Die Gr\u00fcnde, zu Hause zu  bleiben  -  berechtigt  oder nicht -, w\u00fcrden einfach immer zahlreicher werden, und irgendwann w\u00fcrde es nicht mehr m\u00f6glich sein, sich selbst davon zu \u00fcberzeugen, dass ein Entfliehen m\u00f6glich war.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (CS\n      (S\n        (NP\n          (ART Die)\n          (NN Gr\u00fcnde)\n          ($, ,)\n          (VP\n            (PP (APPR zu) (NN Hause))\n            (VZ (PTKZU zu) (VVINF bleiben))))\n        ($[ -)\n        (VVFIN berechtigt))\n      (KON oder)\n      (PTKNEG nicht))\n    ($[ -)\n    ($, ,)\n    (CS\n      (S\n        (VAFIN w\u00fcrden)\n        (VP\n          (ADV einfach)\n          (CAP (AP (ADV immer) (ADJA zahlreicher)))\n          (VAINF werden)))\n      ($, ,)\n      (KON und)\n      (S\n        (ADV irgendwann)\n        (VAFIN w\u00fcrde)\n        (PPER es)\n        (VP\n          (AP (PTKNEG nicht) (ADV mehr) (ADJD m\u00f6glich))\n          (VAINF sein)\n          ($, ,)\n          (VP\n            (PRF sich)\n            (PP (ADV selbst) (PROAV davon))\n            (VZ (PTKZU zu) (VVINF \u00fcberzeugen))))\n        ($, ,)\n        (S\n          (KOUS dass)\n          (NP (ART ein) (NN Entfliehen))\n          (ADJD m\u00f6glich)\n          (VAFIN war))))\n    ($. .)))"
+    },
+    "Das kann zum Beispiel  hei\u00dfen , Verantwortlichkeiten  umzukehren  oder die herk\u00f6mmliche Definition von \"Erfolg\" \u00fcber Bord zu werfen.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PDS Das)\n    (VMFIN kann)\n    (CVP\n      (VP (PP (APPRART zum) (NN Beispiel)) (VVINF hei\u00dfen))\n      ($, ,)\n      (VP (NN Verantwortlichkeiten) (VVINF umzukehren))\n      (KON oder)\n      (VP\n        (NP (ART die) (ADJA herk\u00f6mmliche) (NN Definition))\n        (PP\n          (APPR von)\n          (CARD ``)\n          (NN Erfolg)\n          (CNP (TRUNC '') (APPR \u00fcber) (NN Bord)))\n        (VZ (PTKZU zu) (VVINF werfen))))\n    ($. .)))"
+    },
+    "Die Gr\u00fcnde, zu Hause zu bleiben -  berechtigt  oder nicht -,  w\u00fcrden  einfach immer zahlreicher werden, und irgendwann w\u00fcrde es nicht mehr m\u00f6glich sein, sich selbst davon zu \u00fcberzeugen, dass ein Entfliehen m\u00f6glich war.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (CS\n      (S\n        (NP\n          (ART Die)\n          (NN Gr\u00fcnde)\n          ($, ,)\n          (VP\n            (PP (APPR zu) (NN Hause))\n            (VZ (PTKZU zu) (VVINF bleiben))))\n        ($[ -)\n        (VVFIN berechtigt))\n      (KON oder)\n      (PTKNEG nicht))\n    ($[ -)\n    ($, ,)\n    (CS\n      (S\n        (VAFIN w\u00fcrden)\n        (VP\n          (ADV einfach)\n          (CAP (AP (ADV immer) (ADJA zahlreicher)))\n          (VAINF werden)))\n      ($, ,)\n      (KON und)\n      (S\n        (ADV irgendwann)\n        (VAFIN w\u00fcrde)\n        (PPER es)\n        (VP\n          (AP (PTKNEG nicht) (ADV mehr) (ADJD m\u00f6glich))\n          (VAINF sein)\n          ($, ,)\n          (VP\n            (PRF sich)\n            (PP (ADV selbst) (PROAV davon))\n            (VZ (PTKZU zu) (VVINF \u00fcberzeugen))))\n        ($, ,)\n        (S\n          (KOUS dass)\n          (NP (ART ein) (NN Entfliehen))\n          (ADJD m\u00f6glich)\n          (VAFIN war))))\n    ($. .)))"
+    },
+    "Dienstleistungen sind nicht mein Ding - was ich brauche, ist ein Produkt, das ich  verschicken   kann .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NN Dienstleistungen)\n      (VAFIN sind)\n      (PTKNEG nicht)\n      (NP (PPOSAT mein) (NN Ding)))\n    ($[ -)\n    (S\n      (S (PWS was) (PPER ich) (VVFIN brauche))\n      ($, ,)\n      (VAFIN ist)\n      (NP\n        (ART ein)\n        (NN Produkt)\n        ($, ,)\n        (S\n          (PRELS das)\n          (PPER ich)\n          (VP (VVINF verschicken))\n          (VMFIN kann))))\n    ($. .)))"
+    },
+    "Aus vier Wochen werden acht, und ich  beschlie\u00dfe ,  auf unbestimmte Zeit  in \u00dcbersee zu bleiben, um dort ein Diplom in \"Automatisierung und Experimentaler Lebensweise\" zu erwerben.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PP (APPR Aus) (CARD vier) (NN Wochen))\n    (VAFIN werden)\n    (AP (CARD acht))\n    ($, ,)\n    (S\n      (KON und)\n      (PPER ich)\n      (VVFIN beschlie\u00dfe)\n      ($, ,)\n      (VP\n        (VP\n          (PP (APPR auf) (ADJA unbestimmte) (NN Zeit))\n          (PP (APPR in) (NN \u00dcbersee))\n          (VZ (PTKZU zu) (VVINF bleiben))\n          ($, ,)\n          (VP\n            (KOUI um)\n            (ADV dort)\n            (NP\n              (ART ein)\n              (NN Diplom)\n              (PP\n                (APPR in)\n                (CNP\n                  (NP (TRUNC ``) (NN Automatisierung))\n                  (KON und)\n                  (NP (ADJA Experimentaler) (NN Lebensweise)))))\n            (VVIZU '')))\n        (VZ (PTKZU zu) (VVINF erwerben))))\n    ($. .)))"
+    },
+    "Es gibt immer mehrere Optionen, und  die m\u00fcssen einander nicht  ausschlie\u00dfen  .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (PPER Es)\n      (VVFIN gibt)\n      (ADV immer)\n      (NP (PIAT mehrere) (NN Optionen)))\n    ($, ,)\n    (KON und)\n    (S\n      (PDS die)\n      (VMFIN m\u00fcssen)\n      (ADV einander)\n      (PTKNEG nicht)\n      (VP (VVINF ausschlie\u00dfen)))\n    ($. .)))"
+    },
+    "Irgendwie  habe  ich  mir da selbst ins Knie geschossen .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (NE Irgendwie)\n    (VAFIN habe)\n    (PPER ich)\n    (VP\n      (PPER mir)\n      (AVP (ADV da) (ADV selbst))\n      (PP (APPRART ins) (NE Knie))\n      (VVPP geschossen))\n    ($. .)))"
+    },
+    "Ich  komme  zu der Erkenntnis , dass ich da heraus": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (NUR\n    (S\n      (AVP\n        (S\n          (NP (PPER Ich))\n          (VVFIN komme)\n          (PP (APPR zu) (ART der) (NN Erkenntnis)))\n        ($, ,)\n        (KOUS dass))\n      (NP (PPER ich) (AVP (ADV da) (PTKVZ heraus))))))"
+    },
+    "Das kann zum Beispiel hei\u00dfen, Verantwortlichkeiten  umzukehren  oder die herk\u00f6mmliche Definition von \"Erfolg\" \u00fcber Bord zu  werfen .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PDS Das)\n    (VMFIN kann)\n    (CVP\n      (VP (PP (APPRART zum) (NN Beispiel)) (VVINF hei\u00dfen))\n      ($, ,)\n      (VP (NN Verantwortlichkeiten) (VVINF umzukehren))\n      (KON oder)\n      (VP\n        (NP (ART die) (ADJA herk\u00f6mmliche) (NN Definition))\n        (PP\n          (APPR von)\n          (CARD ``)\n          (NN Erfolg)\n          (CNP (TRUNC '') (APPR \u00fcber) (NN Bord)))\n        (VZ (PTKZU zu) (VVINF werfen))))\n    ($. .)))"
+    },
+    "Die Gr\u00fcnde, zu Hause zu bleiben -  berechtigt  oder nicht -, w\u00fcrden einfach immer zahlreicher  werden , und irgendwann w\u00fcrde es nicht mehr m\u00f6glich sein, sich selbst davon zu \u00fcberzeugen, dass ein Entfliehen m\u00f6glich war.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (CS\n      (S\n        (NP\n          (ART Die)\n          (NN Gr\u00fcnde)\n          ($, ,)\n          (VP\n            (PP (APPR zu) (NN Hause))\n            (VZ (PTKZU zu) (VVINF bleiben))))\n        ($[ -)\n        (VVFIN berechtigt))\n      (KON oder)\n      (PTKNEG nicht))\n    ($[ -)\n    ($, ,)\n    (CS\n      (S\n        (VAFIN w\u00fcrden)\n        (VP\n          (ADV einfach)\n          (CAP (AP (ADV immer) (ADJA zahlreicher)))\n          (VAINF werden)))\n      ($, ,)\n      (KON und)\n      (S\n        (ADV irgendwann)\n        (VAFIN w\u00fcrde)\n        (PPER es)\n        (VP\n          (AP (PTKNEG nicht) (ADV mehr) (ADJD m\u00f6glich))\n          (VAINF sein)\n          ($, ,)\n          (VP\n            (PRF sich)\n            (PP (ADV selbst) (PROAV davon))\n            (VZ (PTKZU zu) (VVINF \u00fcberzeugen))))\n        ($, ,)\n        (S\n          (KOUS dass)\n          (NP (ART ein) (NN Entfliehen))\n          (ADJD m\u00f6glich)\n          (VAFIN war))))\n    ($. .)))"
+    },
+    "Zu diesem Zweck   beschr\u00e4nke   ich das Lesen und Beantworten von E-Mails auf eine Stunde jeden Montagmorgen.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PP (APPR Zu) (PDAT diesem) (NN Zweck))\n    (VVFIN beschr\u00e4nke)\n    (PPER ich)\n    (NP\n      (ART das)\n      (CNP (NN Lesen) (KON und) (NN Beantworten))\n      (PP (APPR von) (NE E-Mails)))\n    (PP (APPR auf) (ART eine) (NN Stunde))\n    (NP (PIDAT jeden) (NN Montagmorgen))\n    ($. .)))"
+    },
+    "Ich lande in London und will nach Spanien  weiterfliegen , um dort vier Wochen lang meine Batterien wieder  aufladen , bevor ich in die Tretm\u00fchle zur\u00fcckkehre.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S (PPER Ich) (VVFIN lande) (PP (APPR in) (NE London)))\n    (KON und)\n    (S\n      (VMFIN will)\n      (VP\n        (PP (APPR nach) (NE Spanien))\n        (VVINF weiterfliegen)\n        ($, ,)\n        (VP\n          (KOUI um)\n          (ADV dort)\n          (PP (CARD vier) (NN Wochen) (APPO lang))\n          (NP (PPOSAT meine) (NN Batterien) (ADV wieder))\n          (VVIZU aufladen)))\n      ($, ,)\n      (S\n        (KOUS bevor)\n        (PPER ich)\n        (PP (APPR in) (ART die) (NN Tretm\u00fchle))\n        (VVFIN zur\u00fcckkehre)))\n    ($. .)))"
+    },
+    " Kurz darauf  versuchen beide Unternehmen, mein Produkt zu kopieren, und  verliere  dabei Millionen von Dollars.\tkurz darauf = kurz danach": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (NUR\n    (CS\n      (S\n        (AVP (ADJD Kurz) (PROAV darauf))\n        (VVFIN versuchen)\n        (NP\n          (PIDAT beide)\n          (NN Unternehmen)\n          ($, ,)\n          (VP\n            (NP (PPOSAT mein) (NN Produkt))\n            (VZ (PTKZU zu) (VVINF kopieren)))))\n      ($, ,)\n      (KON und)\n      (S\n        (VVFIN verliere)\n        (PROAV dabei)\n        (AVP\n          (NP\n            (NN Millionen)\n            (PP (APPR von) (MPN (NE Dollars) ($. .))))\n          (ADJD kurz)\n          (PROAV darauf))\n        (NP\n          (CS\n            (S\n              (XY =)\n              (PP (S (NP (AP (ADJD kurz))) (PP (PROAV danach)))))))))))"
+    },
+    "Ich  g\u00f6nne  mir und meiner Familie einen einw\u00f6chigen \"Urlaub\" in Florenz, wo ich jeden Tag zehn Stunden lang in einem Internetcaf\u00e9  sitze  und ausraste.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S (PPER Ich) (VVFIN g\u00f6nne) (PPER mir))\n    (KON und)\n    (S\n      (NP (PPOSAT meiner) (NN Familie))\n      (NP (ART einen) (ADJA einw\u00f6chigen) (TRUNC ``) (NN Urlaub))\n      (VVFIN '')\n      (PP (APPR in) (NE Florenz))\n      ($, ,)\n      (S\n        (PWAV wo)\n        (PPER ich)\n        (NP (PIDAT jeden) (NN Tag))\n        (PP (CARD zehn) (NN Stunden) (APPO lang))\n        (PP (APPR in) (ART einem) (NN Internetcaf\u00e9))\n        (VVFIN sitze)))\n    (KON und)\n    (VVFIN ausraste)\n    ($. .)))"
+    },
+    "Es gibt immer mehrere Optionen, und  die  m\u00fcssen  einander nicht ausschlie\u00dfen .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (PPER Es)\n      (VVFIN gibt)\n      (ADV immer)\n      (NP (PIAT mehrere) (NN Optionen)))\n    ($, ,)\n    (KON und)\n    (S\n      (PDS die)\n      (VMFIN m\u00fcssen)\n      (ADV einander)\n      (PTKNEG nicht)\n      (VP (VVINF ausschlie\u00dfen)))\n    ($. .)))"
+    },
+    "Wenn Sie der Bewegung  anschlie\u00dfen  wollen, sollten Sie sich einen neuen Wortschatz  aneignen .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (S\n      (KOUS Wenn)\n      (PPER Sie)\n      (VP (NP (ART der) (NN Bewegung)) (VVINF anschlie\u00dfen))\n      (VMFIN wollen))\n    ($, ,)\n    (VMFIN sollten)\n    (PPER Sie)\n    (VP\n      (PRF sich)\n      (NP (ART einen) (ADJA neuen) (NN Wortschatz))\n      (VVINF aneignen))\n    ($. .)))"
+    },
+    "Wenn Sie der Bewegung beitreten wollen,  sollten  Sie sich einen neuen Wortschatz  aneignen .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (S\n      (KOUS Wenn)\n      (PPER Sie)\n      (VP (NP (ART der) (NN Bewegung)) (VVINF beitreten))\n      (VMFIN wollen))\n    ($, ,)\n    (VMFIN sollten)\n    (PPER Sie)\n    (VP\n      (PRF sich)\n      (NP (ART einen) (ADJA neuen) (NN Wortschatz))\n      (VVINF aneignen))\n    ($. .)))"
+    },
+    "Wenn Sie der Bewegung beitreten  wollen , sollten Sie sich einen neuen Wortschatz  aneignen .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (S\n      (KOUS Wenn)\n      (PPER Sie)\n      (VP (NP (ART der) (NN Bewegung)) (VVINF beitreten))\n      (VMFIN wollen))\n    ($, ,)\n    (VMFIN sollten)\n    (PPER Sie)\n    (VP\n      (PRF sich)\n      (NP (ART einen) (ADJA neuen) (NN Wortschatz))\n      (VVINF aneignen))\n    ($. .)))"
+    },
+    "Ich  lande  in London und will nach Spanien  weiterfliegen , um dort vier Wochen lang meine Batterien wieder aufzuladen, bevor ich in die Tretm\u00fchle zur\u00fcckkehre.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S (PPER Ich) (VVFIN lande) (PP (APPR in) (NE London)))\n    (KON und)\n    (S\n      (VMFIN will)\n      (VP\n        (PP (APPR nach) (NE Spanien))\n        (VVINF weiterfliegen)\n        ($, ,)\n        (VP\n          (KOUI um)\n          (ADV dort)\n          (PP (CARD vier) (NN Wochen) (APPO lang))\n          (NP (PPOSAT meine) (NN Batterien) (ADV wieder))\n          (VVIZU aufzuladen)))\n      ($, ,)\n      (S\n        (KOUS bevor)\n        (PPER ich)\n        (PP (APPR in) (ART die) (NN Tretm\u00fchle))\n        (VVFIN zur\u00fcckkehre)))\n    ($. .)))"
+    },
+    "Gro\u00dfe finanzielle Reserven haben, aber  sich dar\u00fcber im Klaren sein , dass die meisten materiellen Bed\u00fcrfnisse nur eine Ausrede daf\u00fcr sind, Zeit mit Dingen zu  verschwenden , die nicht wirklich wichtig sind.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (NP (ADJA Gro\u00dfe) (ADJA finanzielle) (NN Reserven))\n    (VAFIN haben)\n    ($, ,)\n    (AVP (ADV aber))\n    (VP\n      (PRF sich)\n      (PP (PROAV dar\u00fcber))\n      (PP (APPRART im) (NN Klaren))\n      (VAINF sein)\n      ($, ,)\n      (S\n        (KOUS dass)\n        (NP\n          (ART die)\n          (PIDAT meisten)\n          (ADJA materiellen)\n          (NN Bed\u00fcrfnisse))\n        (ADV nur)\n        (NP (ART eine) (NN Ausrede) (PROAV daf\u00fcr))\n        (VAFIN sind)))\n    ($, ,)\n    (VP\n      (NP (NN Zeit) (PP (APPR mit) (NN Dingen)))\n      (VZ (PTKZU zu) (VVINF verschwenden))\n      ($, ,)\n      (S\n        (PRELS die)\n        (AP (PTKNEG nicht) (ADJD wirklich) (ADJD wichtig))\n        (VAFIN sind)))\n    ($. .)))"
+    },
+    "Innerhalb von drei Monaten  nehme  ich zwei Jobs an, die ich  umgehend  wieder hinschmei\u00dfe: zuerst als Lehrplanentwickler bei Berlitz, dem weltgr\u00f6\u00dften Verlag f\u00fcr Fremdsprachenmaterialien. Dann als Analyst bei einem Dreipersonen-Institut, das Forschungen \u00fcber politisches Asyl betreibt.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PP (APPR Innerhalb) (APPR von) (CARD drei) (NN Monaten))\n    (VVFIN nehme)\n    (PPER ich)\n    (NP (CARD zwei) (NN Jobs))\n    (PTKVZ an)\n    ($, ,)\n    (S\n      (PRELS die)\n      (PPER ich)\n      (ADJD umgehend)\n      (AVP (ADV wieder))\n      (VVFIN hinschmei\u00dfe)\n      ($. :)\n      (CNP\n        (NP\n          (ADV zuerst)\n          (KOKOM als)\n          (NN Lehrplanentwickler)\n          (PP (APPR bei) (NN Berlitz))\n          ($, ,)\n          (S\n            (NP (ART dem) (ADJA weltgr\u00f6\u00dften) (NN Verlag))\n            (PP (APPR f\u00fcr) (NN Fremdsprachenmaterialien))))\n        ($. .)\n        (NP\n          (ADV Dann)\n          (KOKOM als)\n          (NN Analyst)\n          (PP (APPR bei) (ART einem) (NN Dreipersonen-Institut))\n          ($, ,)\n          (S\n            (PRELS das)\n            (NP\n              (NN Forschungen)\n              (PP (APPR \u00fcber) (ADJA politisches) (NN Asyl)))\n            (VVFIN betreibt)))))\n    ($. .)))"
+    },
+    "Julies Ziel hingegen war nachvollziehbar: Sie wollte  mit der gleichen Anzahl Kinder   zur\u00fcckkommen , mit der sie losgefahren war.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NP (ADJA Julies) (NN Ziel) (ADV hingegen))\n      (VAFIN war)\n      (ADJD nachvollziehbar))\n    ($. :)\n    (S\n      (PPER Sie)\n      (VMFIN wollte)\n      (VP\n        (PP (APPR mit) (ART der) (ADJA gleichen) (NN Anzahl))\n        (NN Kinder)\n        (VVINF zur\u00fcckkommen)\n        ($, ,)\n        (S\n          (PP (APPR mit) (PRELS der))\n          (PPER sie)\n          (VP (VVINF losgefahren))\n          (VAFIN war))))\n    ($. .)))"
+    },
+    "Kurz darauf versuchen beide Unternehmen, mein Produkt zu kopieren, und  verlieren   dabei  Millionen von Dollars.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (AVP (ADJD Kurz) (PROAV darauf))\n      (VVFIN versuchen)\n      (NP\n        (PIDAT beide)\n        (NN Unternehmen)\n        ($, ,)\n        (VP\n          (NP (PPOSAT mein) (NN Produkt))\n          (VZ (PTKZU zu) (VVINF kopieren)))))\n    ($, ,)\n    (KON und)\n    (S\n      (VVFIN verlieren)\n      (PROAV dabei)\n      (NP (NN Millionen) (PP (APPR von) (NE Dollars))))\n    ($. .)))"
+    },
+    "Julies Ziel hingegen  war  nachvollziehbar: Sie wollte  mit der gleichen Anzahl Kinder  zur\u00fcckkommen, mit der sie losgefahren ": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (NUR\n    (NP (NN Julies) (NN Ziel))\n    (S\n      (ADV hingegen)\n      (VAFIN war)\n      (CO (ADJD nachvollziehbar))\n      ($. :)\n      (S\n        (PPER Sie)\n        (VMFIN wollte)\n        (VP\n          (PP (APPR mit) (ART der) (ADJA gleichen) (NN Anzahl))\n          (NN Kinder)\n          (VVINF zur\u00fcckkommen)))\n      ($, ,)\n      (S (PP (APPR mit) (PRELS der)) (PPER sie) (VVFIN losgefahren)))))"
+    },
+    "Die Gr\u00fcnde, zu Hause zu bleiben -  berechtigt  oder nicht -,  w\u00fcrde n einfach immer zahlreicher werden, und irgendwann ": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (NUR\n    (S\n      (CS\n        (S\n          (NP\n            (ART Die)\n            (NN Gr\u00fcnde)\n            ($, ,)\n            (VP\n              (PP (APPR zu) (NN Hause))\n              (VZ (PTKZU zu) (VVINF bleiben))))\n          ($[ -)\n          (VVFIN berechtigt))\n        (KON oder)\n        (PTKNEG nicht))\n      ($[ -)\n      ($, ,)\n      (VAFIN w\u00fcrde)\n      (NP (CS (S (XY n) (PP (ADV einfach)))))\n      (VP (AP (ADV immer) (ADJA zahlreicher)) (VAINF werden))\n      ($, ,)\n      (VP (AVP (KON und) (ADV irgendwann))))))"
+    },
+    "Einige Menschen  sind  noch immer davon \u00fcberzeugt, dass ein bisschen mehr Geld all ihren Sorgen  ein Ende bereiten  w\u00fcrde.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (NP (PIAT Einige) (NN Menschen))\n    (VAFIN sind)\n    (VP\n      (PP (ADV noch) (ADV immer) (PROAV davon))\n      (VVPP \u00fcberzeugt)\n      ($, ,)\n      (S\n        (KOUS dass)\n        (NP (ART ein) (AP (ADV bisschen) (PIAT mehr)) (NN Geld))\n        (VP\n          (NP (PIDAT all) (PPOSAT ihren) (NN Sorgen))\n          (NP (ART ein) (NN Ende))\n          (VVINF bereiten))\n        (VAFIN w\u00fcrde)))\n    ($. .)))"
+    },
+    "Ich komme zu der Erkenntnis , dass ich da herauskommen muss, bevor ich  \u00fcberschnape  wie Howard Hughes.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PPER Ich)\n    (VVFIN komme)\n    (PP\n      (APPR zu)\n      (ART der)\n      (NN Erkenntnis)\n      ($, ,)\n      (S\n        (KOUS dass)\n        (PPER ich)\n        (ADV da)\n        (VP (VVINF herauskommen))\n        (VVFIN muss)\n        ($, ,)\n        (S (KOUS bevor) (PPER ich) (VVFIN \u00fcberschnape))))\n    (NP (KOKOM wie) (MPN (NE Howard) (NE Hughes)))\n    ($. .)))"
+    },
+    "Aus vier Wochen werden acht, und ich beschlie\u00dfe,  auf unbestimmte Zeit  in \u00dcbersee zu  bleiben , um dort ein Diplom in \"Automatisierung und Experimentaler Lebensweise\" zu erwerben.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PP (APPR Aus) (CARD vier) (NN Wochen))\n    (VAFIN werden)\n    (AP (CARD acht))\n    ($, ,)\n    (S\n      (KON und)\n      (PPER ich)\n      (VVFIN beschlie\u00dfe)\n      ($, ,)\n      (VP\n        (VP\n          (PP (APPR auf) (ADJA unbestimmte) (NN Zeit))\n          (PP (APPR in) (NN \u00dcbersee))\n          (VZ (PTKZU zu) (VVINF bleiben))\n          ($, ,)\n          (VP\n            (KOUI um)\n            (ADV dort)\n            (NP\n              (ART ein)\n              (NN Diplom)\n              (PP\n                (APPR in)\n                (CNP\n                  (NP (TRUNC ``) (NN Automatisierung))\n                  (KON und)\n                  (NP (ADJA Experimentaler) (NN Lebensweise)))))\n            (VVIZU '')))\n        (VZ (PTKZU zu) (VVINF erwerben))))\n    ($. .)))"
+    },
+    "Ich komme zu der Erkenntnis , dass ich da  rauskommen  muss, bevor ich \u00fcberschnappe wie Howard Hughes.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PPER Ich)\n    (VVFIN komme)\n    (PP\n      (APPR zu)\n      (ART der)\n      (NN Erkenntnis)\n      ($, ,)\n      (S\n        (KOUS dass)\n        (PPER ich)\n        (ADV da)\n        (VP (VVINF rauskommen))\n        (VVFIN muss)\n        ($, ,)\n        (S (KOUS bevor) (PPER ich) (VVFIN \u00fcberschnappe))))\n    (NP (KOKOM wie) (MPN (NE Howard) (NE Hughes)))\n    ($. .)))"
+    },
+    "Ich  g\u00f6nne  mir und meiner Familie einen einw\u00f6chigen \"Urlaub\" in Florenz, wo ich jeden Tag zehn Stunden lang in einem Internetcaf\u00e9 sitze und  ausraste .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S (PPER Ich) (VVFIN g\u00f6nne) (PPER mir))\n    (KON und)\n    (S\n      (NP (PPOSAT meiner) (NN Familie))\n      (NP (ART einen) (ADJA einw\u00f6chigen) (TRUNC ``) (NN Urlaub))\n      (VVFIN '')\n      (PP (APPR in) (NE Florenz))\n      ($, ,)\n      (S\n        (PWAV wo)\n        (PPER ich)\n        (NP (PIDAT jeden) (NN Tag))\n        (PP (CARD zehn) (NN Stunden) (APPO lang))\n        (PP (APPR in) (ART einem) (NN Internetcaf\u00e9))\n        (VVFIN sitze)))\n    (KON und)\n    (VVFIN ausraste)\n    ($. .)))"
+    },
+    "Dienstleistungen sind nicht mein Ding - was ich brauche, ist ein Produkt, das ich   verschicken   kann.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NN Dienstleistungen)\n      (VAFIN sind)\n      (PTKNEG nicht)\n      (NP (PPOSAT mein) (NN Ding)))\n    ($[ -)\n    (S\n      (S (PWS was) (PPER ich) (VVFIN brauche))\n      ($, ,)\n      (VAFIN ist)\n      (NP\n        (ART ein)\n        (NN Produkt)\n        ($, ,)\n        (S\n          (PRELS das)\n          (PPER ich)\n          (VP (VVINF verschicken))\n          (VMFIN kann))))\n    ($. .)))"
+    },
+    "Kurz darauf versuchen beide Unternehmen, mein Produkt zu  kopieren , und verlieren  dabei  Millionen von Dollars.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (AVP (ADJD Kurz) (PROAV darauf))\n      (VVFIN versuchen)\n      (NP\n        (PIDAT beide)\n        (NN Unternehmen)\n        ($, ,)\n        (VP\n          (NP (PPOSAT mein) (NN Produkt))\n          (VZ (PTKZU zu) (VVINF kopieren)))))\n    ($, ,)\n    (KON und)\n    (S\n      (VVFIN verlieren)\n      (PROAV dabei)\n      (NP (NN Millionen) (PP (APPR von) (NE Dollars))))\n    ($. .)))"
+    },
+    "Julies Ziel hingegen war nachvollziehbar: Sie wollte  mit der gleichen Anzahl Kinder  zur\u00fcckkommen, mit der sie  losgefahren  war.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NP (ADJA Julies) (NN Ziel) (ADV hingegen))\n      (VAFIN war)\n      (ADJD nachvollziehbar))\n    ($. :)\n    (S\n      (PPER Sie)\n      (VMFIN wollte)\n      (VP\n        (PP (APPR mit) (ART der) (ADJA gleichen) (NN Anzahl))\n        (NN Kinder)\n        (VVINF zur\u00fcckkommen)\n        ($, ,)\n        (S\n          (PP (APPR mit) (PRELS der))\n          (PPER sie)\n          (VP (VVINF losgefahren))\n          (VAFIN war))))\n    ($. .)))"
+    },
+    "Meine Mutter  denkt , dass das alles kein  Beinbruch  ist und dass \u00fcberhaupt kein Anlass besteht, sich so theatralisch aufzuf\u00fchren.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NP (PPOSAT Meine) (NN Mutter))\n      (VVFIN denkt)\n      ($, ,)\n      (S\n        (KOUS dass)\n        (NP (PDS das) (PIS alles))\n        (NP (PIAT kein) (NN Beinbruch))\n        (VAFIN ist)))\n    (KON und)\n    (S\n      (KOUS dass)\n      (NP (ADV \u00fcberhaupt) (PIAT kein) (NN Anlass))\n      (VVFIN besteht)\n      ($, ,)\n      (VP\n        (PRF sich)\n        (AP (ADV so) (ADJD theatralisch))\n        (VVIZU aufzuf\u00fchren)))\n    ($. .)))"
+    },
+    "Die Zivilisation  h\u00e4tte  zu viele Regeln f\u00fcr mich, also habe ich mein  Bestes  getan, sie umzuschreiben.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NP (ART Die) (NN Zivilisation))\n      (VAFIN h\u00e4tte)\n      (NP (AP (PTKA zu) (PIDAT viele)) (NN Regeln))\n      (PP (APPR f\u00fcr) (PRF mich)))\n    ($, ,)\n    (S\n      (ADV also)\n      (VAFIN habe)\n      (PPER ich)\n      (VP (NP (PPOSAT mein) (NN Bestes)) (VVPP getan)))\n    ($, ,)\n    (S (PPER sie) (VVFIN umzuschreiben))\n    ($. .)))"
+    },
+    "Julies Ziel hingegen war nachvollziehbar: Sie  wollte   mit der gleichen Anzahl Kinder  zur\u00fcckkommen, mit der sie losgefahren war.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S\n      (NP (ADJA Julies) (NN Ziel) (ADV hingegen))\n      (VAFIN war)\n      (ADJD nachvollziehbar))\n    ($. :)\n    (S\n      (PPER Sie)\n      (VMFIN wollte)\n      (VP\n        (PP (APPR mit) (ART der) (ADJA gleichen) (NN Anzahl))\n        (NN Kinder)\n        (VVINF zur\u00fcckkommen)\n        ($, ,)\n        (S\n          (PP (APPR mit) (PRELS der))\n          (PPER sie)\n          (VP (VVINF losgefahren))\n          (VAFIN war))))\n    ($. .)))"
+    },
+    "Mein  Selbstvertrauen   ist  wiederhergestellt und meine Abschlussarbeit ": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (NUR\n    (S\n      (NP (PPOSAT Mein) (NN Selbstvertrauen))\n      (VAFIN ist)\n      (CVP\n        (VVPP wiederhergestellt)\n        (KON und)\n        (VP (NP (PPOSAT meine) (NN Abschlussarbeit)))))))"
+    },
+    "Die Gr\u00fcnde, zu Hause zu bleiben -  berechtigt  oder nicht -, w\u00fcrden einfach immer zahlreicher werden, und irgendwann w\u00fcrde es nicht mehr m\u00f6glich  sein , sich selbst davon zu \u00fcberzeugen, dass ein Entfliehen m\u00f6glich war.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (CS\n      (S\n        (NP\n          (ART Die)\n          (NN Gr\u00fcnde)\n          ($, ,)\n          (VP\n            (PP (APPR zu) (NN Hause))\n            (VZ (PTKZU zu) (VVINF bleiben))))\n        ($[ -)\n        (VVFIN berechtigt))\n      (KON oder)\n      (PTKNEG nicht))\n    ($[ -)\n    ($, ,)\n    (CS\n      (S\n        (VAFIN w\u00fcrden)\n        (VP\n          (ADV einfach)\n          (CAP (AP (ADV immer) (ADJA zahlreicher)))\n          (VAINF werden)))\n      ($, ,)\n      (KON und)\n      (S\n        (ADV irgendwann)\n        (VAFIN w\u00fcrde)\n        (PPER es)\n        (VP\n          (AP (PTKNEG nicht) (ADV mehr) (ADJD m\u00f6glich))\n          (VAINF sein)\n          ($, ,)\n          (VP\n            (PRF sich)\n            (PP (ADV selbst) (PROAV davon))\n            (VZ (PTKZU zu) (VVINF \u00fcberzeugen))))\n        ($, ,)\n        (S\n          (KOUS dass)\n          (NP (ART ein) (NN Entfliehen))\n          (ADJD m\u00f6glich)\n          (VAFIN war))))\n    ($. .)))"
+    },
+    "In zw\u00f6lf Stunden  w\u00fcrde  sie alle wieder zur\u00fcck in Paris sein,  gesund und wohlbehalten .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PP (APPR In) (CARD zw\u00f6lf) (NN Stunden))\n    (VAFIN w\u00fcrde)\n    (PPER sie)\n    (VP\n      (AVP (AVP (PIDAT alle) (ADV wieder)) (PTKVZ zur\u00fcck))\n      (PP (APPR in) (NE Paris))\n      (VAINF sein))\n    ($, ,)\n    (AP (CAP (ADJD gesund) (KON und) (ADJD wohlbehalten)))\n    ($. .)))"
+    },
+    " Kurz darauf  versuchen beide Unternehmen, mein Produkt zu  kopieren , und verlieren dabei Millionen von Dollars.\tkurz darauf = kurz danach": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (NUR\n    (CS\n      (S\n        (AVP (ADJD Kurz) (PROAV darauf))\n        (VVFIN versuchen)\n        (NP\n          (PIDAT beide)\n          (NN Unternehmen)\n          ($, ,)\n          (VP\n            (NP (PPOSAT mein) (NN Produkt))\n            (VZ (PTKZU zu) (VVINF kopieren)))))\n      ($, ,)\n      (KON und)\n      (S\n        (VVFIN verlieren)\n        (PROAV dabei)\n        (AVP\n          (NP\n            (NN Millionen)\n            (PP (APPR von) (MPN (NE Dollars) ($. .))))\n          (ADJD kurz)\n          (PROAV darauf))\n        (NP\n          (CS\n            (S\n              (XY =)\n              (PP (S (NP (AP (ADJD kurz))) (PP (PROAV danach)))))))))))"
+    },
+    "Ich  teile  dem Pr\u00fcfungsamt mit, dass ich die Universit\u00e4t  bis auf weiteres  verlasse.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PPER Ich)\n    (VVFIN teile)\n    (NP (ART dem) (NN Pr\u00fcfungsamt))\n    (PTKVZ mit)\n    ($, ,)\n    (S\n      (KOUS dass)\n      (PPER ich)\n      (NP\n        (ART die)\n        (NN Universit\u00e4t)\n        (PP (APPR bis) (APPR auf) (ADJA weiteres)))\n      (VVFIN verlasse))\n    ($. .)))"
+    },
+    "Ich lande in London und will nach Spanien  weiterfliegen , um dort vier Wochen lang meine Batterien wieder aufzuladen, bevor ich in die Tretm\u00fchle  kdkd .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S (PPER Ich) (VVFIN lande) (PP (APPR in) (NE London)))\n    (KON und)\n    (S\n      (VMFIN will)\n      (VP\n        (PP (APPR nach) (NE Spanien))\n        (VVINF weiterfliegen)\n        ($, ,)\n        (VP\n          (KOUI um)\n          (ADV dort)\n          (PP (CARD vier) (NN Wochen) (APPO lang))\n          (NP (PPOSAT meine) (NN Batterien) (ADV wieder))\n          (VVIZU aufzuladen)))\n      ($, ,)\n      (S\n        (KOUS bevor)\n        (PPER ich)\n        (PP (APPR in) (ART die) (NN Tretm\u00fchle))\n        (VVFIN kdkd)))\n    ($. .)))"
+    },
+    "Aus vier Wochen  werden  acht, und ich beschlie\u00dfe,  auf unbestimmte Zeit  in \u00dcbersee zu bleiben, um dort ein Diplom in \"Automatisierung und Experimentaler Lebensweise\" zu erwerben.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (PP (APPR Aus) (CARD vier) (NN Wochen))\n    (VAFIN werden)\n    (AP (CARD acht))\n    ($, ,)\n    (S\n      (KON und)\n      (PPER ich)\n      (VVFIN beschlie\u00dfe)\n      ($, ,)\n      (VP\n        (VP\n          (PP (APPR auf) (ADJA unbestimmte) (NN Zeit))\n          (PP (APPR in) (NN \u00dcbersee))\n          (VZ (PTKZU zu) (VVINF bleiben))\n          ($, ,)\n          (VP\n            (KOUI um)\n            (ADV dort)\n            (NP\n              (ART ein)\n              (NN Diplom)\n              (PP\n                (APPR in)\n                (CNP\n                  (NP (TRUNC ``) (NN Automatisierung))\n                  (KON und)\n                  (NP (ADJA Experimentaler) (NN Lebensweise)))))\n            (VVIZU '')))\n        (VZ (PTKZU zu) (VVINF erwerben))))\n    ($. .)))"
+    },
+    " Seien  Sie nicht dumm, sondern  hinterfragen  Sie den Status quo.": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (CS\n    (S (VVFIN Seien) (PPER Sie) (AP (PTKNEG nicht) (ADJD dumm)))\n    ($, ,)\n    (KON sondern)\n    (S\n      (VVFIN hinterfragen)\n      (NP (PPER Sie))\n      (NP (ART den) (MPN (NN Status) (FM quo))))\n    ($. .)))"
+    },
+    "Einige Menschen sind noch immer davon \u00fcberzeugt, dass ein bisschen mehr Geld all ihren Sorgen  ein Ende bereiten   w\u00fcrde .": {
+        "chunks": null,
+        "tree_string": "(ROOT\n  (S\n    (NP (PIAT Einige) (NN Menschen))\n    (VAFIN sind)\n    (VP\n      (PP (ADV noch) (ADV immer) (PROAV davon))\n      (VVPP \u00fcberzeugt)\n      ($, ,)\n      (S\n        (KOUS dass)\n        (NP (ART ein) (AP (ADV bisschen) (PIAT mehr)) (NN Geld))\n        (VP\n          (NP (PIDAT all) (PPOSAT ihren) (NN Sorgen))\n          (NP (ART ein) (NN Ende))\n          (VVINF bereiten))\n        (VAFIN w\u00fcrde)))\n    ($. .)))"
     }
 }
