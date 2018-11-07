@@ -16,7 +16,8 @@ class Command(BaseCommand):
         all_cards = Card.objects.all()
         for card in tqdm(all_cards):
             # check if this card has already been calculated
-            if card.similar_cards == 'this':
+
+            if card.similar_cards is None:
                 # Get all cards - excluding this one
                 other_cards = Card.objects.exclude(pk=card.pk)
                 results = []
@@ -33,6 +34,7 @@ class Command(BaseCommand):
                 # Put the json into the sentence object in the db
                 card.similar_cards = pks_as_json
                 card.save()
+
 
 
 
