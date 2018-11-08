@@ -117,6 +117,8 @@ class Parser:
             formatted_chunks = list(set(formatted_chunks))
 
             parsed_object = (sentence, formatted_chunks, str(tree))
+            # parsed_object = (sentence, formatted_chunks, tree)
+
             self._write_to_cache(parsed_object)
 
             return parsed_object

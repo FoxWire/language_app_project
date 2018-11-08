@@ -102,7 +102,11 @@ class TreeComparer():
         are not included. This will only represent sentence structure. 
         '''
 
+        print(type(tree_as_string))
+        print("one")
         tree_as_list = [item.strip() for item in re.split(r'([\(\)])', tree_as_string) if item.strip()]
+        print("two")
+        print(tree_as_list)
         tree_as_list = tree_as_list[2:-1]
 
         stack = [Node('ROOT')]
@@ -131,11 +135,15 @@ class TreeComparer():
     def remove_chunk_from_parse_tree(self, card):
         '''
         This needs to find out what the pos of the word in the gap is and
-        put a differnt label down if it is a verb.
+        put a different label down if it is a verb.
         '''
+
+
 
         # Get the parse tree for the whole sentence
         parse_tree = card.sentence.sentence_tree_string
+
+
 
         # Get the words and their tags for each word in the chunk
         token_tups = [tuple(token[1:-1].split(' ')) for token in re.findall(r'\([A-Z$.,:]+ [\w\'&\.\-:]+\)', card.chunk_tree_string)]
@@ -145,6 +153,8 @@ class TreeComparer():
         for token in token_tups:
             r = token[1] + '[()\sA-Z$.,:]*'
             regex_string += r
+
+
 
         # Extract the chunk from the parse tree and make a copy
         extracted = re.findall(regex_string, parse_tree)[0]
