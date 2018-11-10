@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from lang_app.models import Card
+from lang_app.models import Card, UserState
 from lang_app.forms import UserForm, UserProfileForm
 from utils.question_picker.picker import Picker
 from utils.parser.parser import Parser
@@ -106,45 +106,21 @@ def index(request):
 
     '''
 
-    You don't really want the view to deal too much with the state. It will take the answers and
-    put them into the correct format, but they will then be passed to the picker.
+    This is the view that deals with the main user interaction of the application
+
     '''
 
     context = None
     if request.method == 'GET':
-
-        # get the user and the question number and pass it to the picker.
-        question_number = request.GET.get('question_number')
-        card = Card.objects.get(pk=question_number) if question_number else None
-        user_pk = request.user.pk
-
-        # return whatever the picker gives you
-        next_question = picker.get_question(user_pk, card)
+        # Get the user and get the user state
+        user = request.user
+        for u in UserState.objects.all():
+            print(u)
+        print('end')
 
 
 
-        # question_number = request.GET.get('question_number')
-        # if not question_number:
-        #
-        #     # don't use all cards. Only the cards with less than two uncommon words
-        #     all_cards = Card.objects.filter(sentence__uncommon_words_score__lt=2)
-        #
-        #     card = all_cards[randint(0, len(all_cards))]
-        #
-        # else:
-        #     # use the question number to pick the next card
-        #     answered_correctly = request.GET.get('answered_correctly')
-        #     current_card = Card.objects.get(pk=question_number)
-        #     card = picker.pick(current_card, answered_correctly)
-        #
-        # print(card.sentence)
-        # data = card.ask_question()
-        #
-        # context = {
-        #     'question_number': card.pk,
-        #     'question_data': data,
-        #     'required_words': lem.lemmatize(card)
-        # }
+        pass
 
     if request.method == 'POST':
         pass

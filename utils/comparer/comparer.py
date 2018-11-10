@@ -12,6 +12,7 @@ from scipy.spatial import distance
 from zss import simple_distance, Node
 from lang_app.models import Card, Sentence
 import re
+from utils.parser.parser import Parser
 
 
 class TreeComparer():
@@ -138,15 +139,11 @@ class TreeComparer():
         put a different label down if it is a verb.
         '''
 
-
-
         # Get the parse tree for the whole sentence
         parse_tree = card.sentence.sentence_tree_string
 
-
-
         # Get the words and their tags for each word in the chunk
-        token_tups = [tuple(token[1:-1].split(' ')) for token in re.findall(r'\([A-Z$.,:]+ [\w\'&\.\-:]+\)', card.chunk_tree_string)]
+        token_tups = [tuple(token[1:-1].split(' ')) for token in re.findall(r'\([A-Z$.,:\'\"]+ [\w\'\"&\.\-:]+\)', card.chunk_tree_string)]
 
         # Build up a regex to match the chunk from the parse tree
         regex_string = r'[\sA-Z$.,:]+'
@@ -154,10 +151,13 @@ class TreeComparer():
             r = token[1] + '[()\sA-Z$.,:]*'
             regex_string += r
 
-
-
         # Extract the chunk from the parse tree and make a copy
-        extracted = re.findall(regex_string, parse_tree)[0]
+        extracted = re.findall(regex_string, parse_tree)
+
+        if not extracted:
+            print(card.pk)
+
+        extracted = extracted[0]
         copy = extracted
 
         # replace the chunks in the copy with dummy values for verb and non verb
@@ -172,8 +172,11 @@ class TreeComparer():
 
 
 if __name__ == '__main__':
-   for c in Card.objects.all()[:100]:
-       print(c.pk)
+    card = Card.objects.get(pk=1832)
+    print(card.sentence)
+    comp = TreeComparer()
+    comp.remove_chunk_from_parse_tree(card)
+
 
 
 

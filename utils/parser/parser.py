@@ -1,3 +1,12 @@
+# Django stuff
+import os
+import sys
+import django
+sys.path.append('/home/stuart/PycharmProjects/workspaces/language_app_project')
+os.environ['DJANGO_SETTINGS_MODULE'] = 'language_app_project.settings'
+django.setup()
+
+
 import os
 from nltk.parse import stanford
 import nltk
@@ -5,6 +14,9 @@ from scipy.spatial import distance
 import re
 import json
 from language_app_project.settings import BASE_DIR
+# from utils.comparer.comparer import TreeComparer
+from utils.sentence_reader.sentence_reader import SentenceReader
+from tqdm import tqdm
 
 text = '''
 S - simple declarative clause, i.e. one that is not introduced by a (possible empty) subordinating conjunction or a wh-word and that does not exhibit subject-verb inversion.
@@ -23,7 +35,7 @@ PRT - Particle. Category for words that should be tagged RP.
 QP - Quantifier Phrase (i.e. complex measure/amount phrase); used within NP.
 RRC - Reduced Relative Clause. 
 UCP - Unlike Coordinated Phrase. 
-VP - Vereb Phrase. 
+VP - Verb Phrase. 
 WHADJP - Wh-adjective Phrase. Adjectival phrase containing a wh-adverb, as in how hot.
 WHAVP - Wh-adverb Phrase. Introduces a clause with an NP gap. May be null (containing the 0 complementizer) or lexical, containing a wh-adverb such as how or why.
 WHNP - Wh-noun Phrase. Introduces a clause with an NP gap. May be null (containing the 0 complementizer) or lexical, containing some wh-word, e.g. who, which book, whose daughter, none of which, or how many leopards.
@@ -84,6 +96,7 @@ class Parser:
 
             # Get the parse tree
             tree = next(self.parser.raw_parse(sentence))
+
             # get the number of parts of speech in this sentence
             no_of_pos = len(tree.leaves())
 
@@ -100,6 +113,15 @@ class Parser:
             # filter out the one word phrases and the full sentence
             chunks = [chunk for chunk in chunks if 1 < len(chunk[1]) < no_of_pos]
 
+            # This is a bit hacky, you just need to filter out a few problematic characters
+            y = []
+            for chunk in chunks:
+                x = ['\(' if c == '-LRB-' else c for c in chunk[1]]
+                x = ['\)' if c == '-RRB-' else c for c in x]
+                x = ['"' if c == '``' or c == "''" else c for c in x]
+                y.append((chunk[0], x))
+            chunks = y
+
             # Use regex to rebuild the lists of leaves into strings.
             formatted_chunks = []
             for chunk in chunks:
@@ -107,18 +129,16 @@ class Parser:
                 for leaf in chunk[1]:
                     regex += leaf + '\s*'
 
-                result = re.search(regex, sentence)
+                result = re.findall(regex, sentence)
                 if not result:
                     print("***   INFO: Regex: {} didn't match sentence {}   ***".format(regex, sentence))
                 else:
-                    formatted_chunks.append(result.group())
+                    formatted_chunks.append(result[0])
 
             # remove any duplicates
             formatted_chunks = list(set(formatted_chunks))
 
             parsed_object = (sentence, formatted_chunks, str(tree))
-            # parsed_object = (sentence, formatted_chunks, tree)
-
             self._write_to_cache(parsed_object)
 
             return parsed_object
@@ -169,9 +189,23 @@ class Parser:
 
 
 if __name__ == '__main__':
+    # path_to_texts = os.path.join(BASE_DIR, 'input_texts')
+    # comp = TreeComparer()
+    #
+    # # Iterate over all the input texts, break each up into sentences and gather all into one
+    # # list of sentences.
+    # sr = SentenceReader()
+    # sentences = []
+    # for file in os.listdir(path_to_texts):
+    #     path = os.path.join(path_to_texts, file)
+    #     sentences.extend([sentence for sentence in sr.get_sentences(path)])
+    #
+    # parser = Parser()
+    #
+    # for sentence in sentences:
+    #     parser.parse(sentence)
+
+
     parser = Parser()
-    chunks = parser.parse("This is a test sentence")
-    print(chunks)
-
-
-
+    x = parser.parse("I said 'Let's go for it'")
+    print(x)

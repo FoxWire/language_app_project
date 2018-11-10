@@ -47,6 +47,7 @@ class Command(BaseCommand):
             # Here we iterate over the chunks for each sentence and create a card for each.
             whole_sentence = par_obj[0]
             sentence_tree_string = par_obj[2]
+
             sentence_object = Sentence.objects.get_or_create(sentence=whole_sentence,
                                                              sentence_tree_string=sentence_tree_string)[0]
             for chunk in par_obj[1]:
