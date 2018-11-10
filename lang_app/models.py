@@ -109,6 +109,7 @@ class QandA(models.Model):
 
 
 class UserState(models.Model):
+
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     current_session = models.OneToOneField(Session, on_delete=models.CASCADE, default=None, null=True)
 

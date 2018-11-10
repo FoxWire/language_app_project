@@ -20,79 +20,79 @@ from django.urls import reverse
 # lem = Lemmatizer()
 
 
-def register(request):
+# def register(request):
+#
+#     # Boolean value signals to the template if registration was completed successfully
+#     # initially set to false, it will be flipped to true if registration is completed
+#     registered = False
+#
+#     # If post request
+#     if request.method == 'POST':
+#
+#         # Take the post data from the request and attempt to populate
+#         # the form instances with it
+#         user_form = UserForm(data=request.POST)
+#         profile_form = UserProfileForm(data=request.POST)
+#
+#         # Check that the forms are valid
+#         if user_form.is_valid() and profile_form.is_valid():
+#
+#             user = user_form.save()
+#             user.set_password(user.password)
+#             user.save()
+#
+#             profile = profile_form.save(commit=False)
+#             profile.user = user
+#
+#             # if 'picture' in request.FILES:
+#             #     profile.picture = request.FILES['picture']
+#
+#             profile.save()
+#
+#             registered = True
+#
+#         else:
+#             print(user_form.errors, profile_form.errors)
+#
+#     else:
+#         # If get request:
+#         # Just create two blank form objects to return to the template
+#         user_form = UserForm()
+#         profile_form = UserProfileForm()
+#
+#     context_dict = {'user_form': user_form,
+#                     'profile_form': profile_form,
+#                     'registered': registered
+#                     }
+#
+#     return render(request, 'lang_app/registration_form.html', context_dict)
 
-    # Boolean value signals to the template if registration was completed successfully
-    # initially set to false, it will be flipped to true if registration is completed
-    registered = False
 
-    # If post request
-    if request.method == 'POST':
-
-        # Take the post data from the request and attempt to populate
-        # the form instances with it
-        user_form = UserForm(data=request.POST)
-        profile_form = UserProfileForm(data=request.POST)
-
-        # Check that the forms are valid
-        if user_form.is_valid() and profile_form.is_valid():
-
-            user = user_form.save()
-            user.set_password(user.password)
-            user.save()
-
-            profile = profile_form.save(commit=False)
-            profile.user = user
-
-            # if 'picture' in request.FILES:
-            #     profile.picture = request.FILES['picture']
-
-            profile.save()
-
-            registered = True
-
-        else:
-            print(user_form.errors, profile_form.errors)
-
-    else:
-        # If get request:
-        # Just create two blank form objects to return to the template
-        user_form = UserForm()
-        profile_form = UserProfileForm()
-
-    context_dict = {'user_form': user_form,
-                    'profile_form': profile_form,
-                    'registered': registered
-                    }
-
-    return render(request, 'lang_app/register.html', context_dict)
-
-
-def user_login(request):
-
-    if request.method == 'POST':
-
-        # If this is a post request, get the username and password
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        # Authenticate the details, if the details are correct, a user object is returns else None
-        user = authenticate(username=username, password=password)
-
-        # If the user exists and their account is active, login and redirect to the main page
-        if user:
-            if user.is_active:
-                login(request, user)
-                return HttpResponseRedirect(reverse('index'))
-            else:
-                return HttpResponse("Your Rango account is disabled")
-        else:
-            print("Invalid login details: {0} {1}".format(username, password))
-            return HttpResponse("Invalid login details supplied")
-
-    # If this is a get request, render the login page
-    else:
-        return render(request, 'lang_app/login.html', {})
+# def user_login(request):
+#
+#     if request.method == 'POST':
+#
+#         # If this is a post request, get the username and password
+#         username = request.POST.get('username')
+#         password = request.POST.get('password')
+#
+#         # Authenticate the details, if the details are correct, a user object is returns else None
+#         user = authenticate(username=username, password=password)
+#
+#         # If the user exists and their account is active, login and redirect to the main page
+#         if user:
+#             if user.is_active:
+#                 login(request, user)
+#                 return HttpResponseRedirect(reverse('index'))
+#             else:
+#                 return HttpResponse("Your Rango account is disabled")
+#         else:
+#             print("Invalid login details: {0} {1}".format(username, password))
+#             return HttpResponse("Invalid login details supplied")
+#
+#     # If this is a get request, render the login page
+#     else:
+#         return render(request, 'lang_app/login.html', {})
 
 
 @login_required
@@ -101,7 +101,7 @@ def user_logout(request):
     return HttpResponseRedirect(reverse('index'))
 
 # This is the normal index
-@login_required
+# @login_required
 def index(request):
 
     '''
@@ -167,8 +167,8 @@ def get_hint(request):
         return HttpResponse(word)
 
 
-def authenticate_user(request):
-    return render(request, 'lang_app/authenticate.html', context={})
+# def authenticate_user(request):
+#     return render(request, 'lang_app/authenticate.html', context={})
 
 
 # This is the test index that will record your answers

@@ -32,12 +32,14 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
+
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
+            <li>{{ user }}</li>
           <li class="nav-item">
-            <a href="{% url 'user_logout' %}" class="nav-link">
-              <i class="material-icons">apps</i>
-            </a>
+              {% if user.is_authenticated %}
+            <a href="{% url 'user_logout' %}" class="nav-link">Logout</a>
+              {% endif %}
           </li>
         </ul>
       </div>

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'lang_app',
+    'registration',
 ]
 
 MIDDLEWARE = [
@@ -131,4 +132,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-LOGIN_URL = '/lang-app/authenticate/'
+
+# Stuff for Django Redux
+REGISTRATION_OPEN = True    # If true the users can log in
+ACCOUNT_ACTIVATION_DAYS = True  # activation window in days
+REGISTRATION_AUTO_LOGIN = True  # the user will be automatically logged in
+LOGIN_REDIRECT_URL = '/lang-app/'  # Redirect to this page after a successful login
+LOGIN_URL = '/accounts/login/'  # Redirect to this page after unsuccessful login
