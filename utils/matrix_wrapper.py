@@ -1,15 +1,14 @@
 import os
 import sys
 import django
-
 sys.path.append('/home/stuart/PycharmProjects/workspaces/language_app_project')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'language_app_project.settings'
 django.setup()
 
 import csv
 import numpy as np
-from lang_app.models import Card, Sentence
-from utils.comparer.comparer import TreeComparer
+from language_app_project.settings import BASE_DIR
+import re
 
 '''
 The initialiser takes a path, it reads in from the path to create a numpy array.
@@ -17,56 +16,57 @@ This allows you to interact with the underlying matrix.
 Only requires the upper triangle of the matrix. 
 '''
 
+
 class MatrixWrapper:
 
-	def __init__(self, path):
+    matrix = None
 
-		with open(path, 'r') as file:
-			matrix = []
-			reader = csv.reader(file, delimiter=',')
-			for row in reader:
-				matrix.append(row)
-		self.matrix = np.array(matrix)
+    def __init__(self):
 
-	def get(self, x, y, use_pks=True):
+        # Find the biggest matrix you can that we have created so far
+        path = os.path.join(BASE_DIR, "data")
+        matrices = [file for file in os.listdir(path) if 'matrix_' in file]
 
-		if use_pks:
-			x -= 1  
-			y -= 1
+        file_name, file_size = '', 0
+        for matrix in matrices:
+            number = int(re.findall(r'[0-9]+', matrix)[0])
+            if number > file_size:
+                largest = matrix
 
-		if x == y:
-			return 0.0
+        # Read in the comparison array from the file
+        path = os.path.join(BASE_DIR, 'data', largest)
+        temp_array = []
+        with open(path, 'r') as file:
+            reader = csv.reader(file, delimiter=',')
+            for row in reader:
+                float_row = [float(r) for r in row]
+                temp_array.append(float_row)
 
-		# If you know you are accessing a value in the lower triangle, you can 
-		# just flip the coordinates and get the value form the upper triangle
-		if x > y:
-			x, y = y, x
+        np_array = np.array(temp_array)
 
-		return float(self.matrix[x, y])
+        '''
+        For some of the larger arrays, I am only computing half of the values because of the
+        time needed for the tree comparison to run on all questions. The next block just checks
+        if only half of the array is present and mirrors it.
+        '''
+        if not (np_array[0] == np_array[:, 0, None].T[0]).all():
+            # Use mask to combine the array and the transposed array.
+            mask = np_array != 0
+            np_array.T[mask] = np_array[mask]
 
-		# elif x > y:
-		# 	# You are in the lower triangle
-		# 	return float(self.matrix[y, x])
-		# else:
-		# 	# You are in the upper triangle
-		# 	return float(self.matrix[x, y])
-		
+        self.matrix = np_array
 
+    def get_value(self, x, y):
+        a, b = self.matrix.shape
+        if x < a and x < b and y < a and y < b:
+            return self.matrix[x][y]
+        else:
+            return None
 
-if __name__ == '__main__':
-	
-	comp = TreeComparer()
-	wrapper = MatrixWrapper('/home/stuart/PycharmProjects/workspaces/language_app_project/data/matrix_1989.csv')
-	card_a = Card.objects.get(pk=100)
-	card_b = Card.objects.get(pk=567)
-
-	val = comp.compare(card_a, card_b)
-
-	assert val == wrapper.get(card_a.pk, card_b.pk)
-	assert val == wrapper.get(card_b.pk, card_a.pk)
-	assert 0.0 == wrapper.get(card_b.pk, card_b.pk)
-	print('tests completed')
-
+    def get_matrix(self):
+        return self.matrix
 
 
-	
+if __name__ == "__main__":
+    m = MatrixWrapper()
+    print(m.get_value(5, 9))

@@ -65,6 +65,16 @@ class Parser:
         self.labels_file = 'higher_level_labels.txt'
         # self.all_labels = self.load_labels()
 
+        path = "/home/stuart/PycharmProjects/workspaces/language_app_project/data/"
+        self.common_words = set()
+        with open(path + "common_words_3000.txt", 'r') as file:
+            for word in file:
+                self.common_words.add(word.lower().strip())
+
+        with open(path + "common_words_10000.txt", 'r') as file:
+            for word in file:
+                self.common_words.add(word.lower().strip())
+
     # def load_labels(self):
     #
     #     '''
@@ -138,10 +148,38 @@ class Parser:
             # remove any duplicates
             formatted_chunks = list(set(formatted_chunks))
 
-            parsed_object = (sentence, formatted_chunks, str(tree))
+            # Filter out some of the uncommon chunks
+            chunks = [chunk for chunk in formatted_chunks if self.common_chunk(chunk)]
+
+            parsed_object = (sentence, chunks, str(tree))
             self._write_to_cache(parsed_object)
 
             return parsed_object
+
+    # def common_chunk(self, sentence):
+    #     tokens = nltk.word_tokenize(sentence)
+    #     uncommon_count = [token in self.common_words for token in tokens].count(False)
+    #     return uncommon_count < (len(tokens) * 0.2)
+
+    def common_chunk(self, chunk):
+
+        # strip the punctuation (keep the hyphens though for join words)
+        words = re.sub(r'[^\w\s\'-]', '', chunk).lower()
+
+        # strip out the digits
+        words = re.sub(r'[0-9]+', '', words)
+
+        # split on spaces and hyphens
+        words = re.split(r'[ -]', words)
+
+        # remove any words that are just empty strings
+        words = [word for word in words if word]
+
+        # Don't count any duplicate words
+        words = list(set(words))
+
+        return all([word in self.common_words for word in words])
+
 
     # def get_tree_string(self, chunk):
     #     results = self._check_cache(chunk)

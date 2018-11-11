@@ -17,7 +17,7 @@ from django.urls import reverse
 # picker = Picker()
 # parser = Parser()
 # comp = TreeComparer()
-# lem = Lemmatizer()
+lem = Lemmatizer()
 
 
 # def register(request):
@@ -100,49 +100,55 @@ def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
 
+
 # This is the normal index
-# @login_required
 def index(request):
 
-    '''
+    context = {}
 
-    This is the view that deals with the main user interaction of the application
+    if request.user.is_authenticated:
 
-    '''
+        # Get the user state object
+        user_state = UserState.objects.get(user=request.user)
+        context = None
 
-    context = None
-    if request.method == 'GET':
-        # Get the user and get the user state
-        user = request.user
-        for u in UserState.objects.all():
-            print(u)
-        print('end')
+        '''
+        The get request will only be made when the user logs onto the site.
+        '''
+        if request.method == 'GET':
 
+            # get the next card from the user state
+            question = user_state.get_question()
 
+            context = {
+                'question_number': question.pk,
+                'question_data': question.ask_question(),
+                'required_words': lem.lemmatize(question),
+            }
 
-        pass
+        '''
+        With the post request, the user will pass their answer for the previous question and 
+        return the result
+        '''
+        if request.method == 'POST':
 
-    if request.method == 'POST':
-        pass
+            # Get the previous question that has just been answered
+            question_number = request.POST.get('question_number')
+            user_answer = request.POST.get('user_answer')
+            question = Card.objects.get(pk=question_number)
+            correct_bool = question.give_answer(user_answer)[0]
 
-        # take the answer from the user and pass it to the picker for marking etc
+            user_state.update_state(question_number, user_answer, correct_bool)
 
-
-
-        # user_answer = request.POST.get('user_answer')
-        #
-        # card = Card.objects.get(pk=request.POST.get('question_number'))
-        # correct_bool = card.give_answer(user_answer)[0]
-        #
-        # context = {
-        #     'show_answer': True,
-        #     'question_number': card.pk,
-        #     'question_data': card.ask_question(),
-        #     'correct_bool': correct_bool,
-        #     'user_answer': user_answer,
-        #     'chunk': card.chunk,
-        #     'chunk_translation': card.chunk_translation
-        # }
+            context = {
+                'show_answer': True,
+                'question_number': question.pk,
+                'question_data': question.ask_question(),
+                'correct_bool': correct_bool,
+                'user_answer': user_answer,
+                'chunk': question.chunk,
+                'chunk_translation': question.chunk_translation
+            }
 
     return render(request, 'lang_app/index.html', context)
 

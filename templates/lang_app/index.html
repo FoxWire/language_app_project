@@ -78,8 +78,8 @@
           {% endif %}
 
 
-            <form action="/" method="post">
-                 {% csrf_token %}
+            <!--<form action="/" method="post">-->
+                 <!--{% csrf_token %}-->
 
 
               <div class="card-body">
@@ -99,15 +99,15 @@
                         </div>
                         <div class="col-sm-8">
                           <div class="row">
-
-                            <button name="rating" class="traffic-light btn btn-success btn-round" type="submit" value="1">
-                                easy</button>
-                            <button name="rating" class="traffic-light btn btn-round" type="submit" style="background-color:#fcf949;" value="2" >
-                                easier</button>
-                            <button name="rating" class="traffic-light btn btn-warning btn-round" type="submit" value="3">
-                                medium</button>
-                            <button name="rating" class="traffic-light btn btn-danger btn-round" type="submit" value="4">
-                                hard</button>
+                              <a href="{% url 'index' %}?question_number={{ question_number }}">next</a>
+                            <!--<button name="rating" class="traffic-light btn btn-success btn-round" type="submit" value="1">-->
+                                <!--easy</button>-->
+                            <!--<button name="rating" class="traffic-light btn btn-round" type="submit" style="background-color:#fcf949;" value="2" >-->
+                                <!--easier</button>-->
+                            <!--<button name="rating" class="traffic-light btn btn-warning btn-round" type="submit" value="3">-->
+                                <!--medium</button>-->
+                            <!--<button name="rating" class="traffic-light btn btn-danger btn-round" type="submit" value="4">-->
+                                <!--hard</button>-->
                           </div>
                         </div>
                         <div class="col-sm-2">
@@ -121,11 +121,11 @@
                 <!--<a href="/?question_number={{ question_number }}&answered_correctly={{ correct_bool }}"><button class="btn btn-primary btn-round">next card</button></a>-->
 
               </div>
-                <input type="hidden" name="question_number" value="{{question_number}}">
-                <input type="hidden" name="answered_correctly" value="{{ correct_bool }}">
-                <input type="hidden" name="second_post" value="True">
+                <!--<input type="hidden" name="question_number" value="{{question_number}}">-->
+                <!--<input type="hidden" name="answered_correctly" value="{{ correct_bool }}">-->
+                <!--<input type="hidden" name="second_post" value="True">-->
 
-            </form>
+            <!--</form>-->
         </div>
         {% endif %}
 

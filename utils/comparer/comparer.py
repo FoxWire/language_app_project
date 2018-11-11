@@ -103,11 +103,9 @@ class TreeComparer():
         are not included. This will only represent sentence structure. 
         '''
 
-        print(type(tree_as_string))
-        print("one")
+
         tree_as_list = [item.strip() for item in re.split(r'([\(\)])', tree_as_string) if item.strip()]
-        print("two")
-        print(tree_as_list)
+
         tree_as_list = tree_as_list[2:-1]
 
         stack = [Node('ROOT')]
