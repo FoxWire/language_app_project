@@ -8,7 +8,7 @@ from django.core.management.base import BaseCommand, CommandError
 from utils.sentence_reader.sentence_reader import SentenceReader
 from utils.parser.parser import Parser
 from utils.comparer.comparer import TreeComparer
-from utils.google_translate.google_translate import Translator
+# from utils.google_translate.google_translate import Translator
 from lang_app.models import Sentence, Card
 from tqdm import tqdm
 from language_app_project.settings import BASE_DIR

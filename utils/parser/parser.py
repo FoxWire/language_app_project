@@ -5,6 +5,7 @@ import django
 sys.path.append('/home/stuart/PycharmProjects/workspaces/language_app_project')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'language_app_project.settings'
 django.setup()
+
 from nltk.parse import stanford
 import nltk
 from scipy.spatial import distance
@@ -54,7 +55,7 @@ class Parser:
     '''
 
     def __init__(self):
-        path = '/home/stuart/Documents/masters_project/stanford-parser-full-2018-02-27/edu/stanford/nlp/models/lexparser/germanPCFG.ser.gz'
+        path = '/Users/stuartmiller/Desktop/edu/stanford/nlp/models/lexparser/germanPCFG.ser.gz'
         self.parser = stanford.StanfordParser(model_path=path)
         self.cache_file = os.path.join(BASE_DIR, 'utils/parser/sentence_chunker_cache.json')
         self.labels_file = 'higher_level_labels.txt'
