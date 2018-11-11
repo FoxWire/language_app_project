@@ -137,23 +137,34 @@ class TreeComparer():
 
         # Get the parse tree for the whole sentence
         parse_tree = card.sentence.sentence_tree_string
-        # Get the words and their tags for each word in the chunk
-        token_tups = [tuple(token[1:-1].split(' ')) for token in re.findall(r'\([A-Z\[$.,:]+ [\w\'&\.\-:"`]+\)', card.chunk_tree_string)]
 
-        # Build up a regex to match the chunk from the parse tree
+        # Get a list of the words that are in the chunk
+        tokens = [token.split(' ')[1][:-1] for token in re.findall(r'\([A-Z\[$.,:]+ [\w\'&\.\-:"`]+\)', card.chunk_tree_string)]
+
+        # Build up a regex to match the chunks from the parse tree (you can't just use the labels from the chunk tree
+        # string it might not be the same)
         regex_string = r'[\sA-Z$.,:"\'\-`\[]+'
-        for token in token_tups:
-            r = token[1] + '[()\sA-Z$.,:"\'\-`\[]*'
+        for token in tokens:
+            r = token + '[()\sA-Z$.,:"\'\-`\[]*'
             regex_string += r
 
         # Extract the chunk from the parse tree and make a copy
         extracted = re.findall(regex_string, parse_tree)[0]
         copy = extracted
 
-        # replace the chunks in the copy with dummy values for verb and non verb
-        for token in token_tups:
-            insert_label = "VERB verb" if token[0].startswith("V") else "NON-VERB non-verb"
-            copy = re.sub(r'[A-Z$.,:]+ {}'.format(token[1]), insert_label, copy)
+        # Create the list of tuples of the tokens and their correct labels (from the parse tree)
+        token_tups = [tuple(token.split(' ')) for token in re.findall(r'[A-Z\[$.,:]+ [\w\'&\.\-:"`]+', copy)]
+
+        # Replace the chunks in the copy with dummy values for verb and non verb
+        for token_tup in token_tups:
+
+            # select the label to insert
+            insert_label = "VERB verb" if token_tup[0].startswith("V") else "NON-VERB non-verb"
+
+            # You need to filter out the 'full stops' which can throw off the regex
+            regex_string = r'[A-Z$.,:]+ \.' if token_tup[1] == '.' else r'[A-Z$.,:]+ {}'.format(token_tup[1])
+
+            copy = re.sub(regex_string, insert_label, copy)
 
         # Put the changes back into the original parse tree
         parse_tree = parse_tree.replace(extracted, copy)
@@ -163,8 +174,9 @@ class TreeComparer():
 
 if __name__ == '__main__':
     # I need to get a parse tree and see what it looks like
-    parser = Parser()
-    x = parser.parse('-')
+    comp = TreeComparer()
+    card = Card.objects.all()[79]
+    x = comp.remove_chunk_from_parse_tree(card)
     print(x)
 
 
