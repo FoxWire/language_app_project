@@ -57,8 +57,6 @@ class Command(BaseCommand):
             for row in reader:
                 # check that the size of the rows in the file match the matrix size
                 if len(row) != self.matrix_size:
-                    print(len(row))
-                    print(self.matrix_size)
                     raise Exception("Matrix dimension mismatch")
                 counter += 1
         return counter

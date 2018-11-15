@@ -95,6 +95,7 @@ def make_binary(array):
     This can be toggled when the evaluate function is called.
     '''
     x = [[1] if a[0] <= 2 else [-1] for a in array]
+    
     # x = [[1] if a[0] >= 0 and a[0] <= 2 else [-1] for a in array]
     return np.atleast_2d(x)
 
