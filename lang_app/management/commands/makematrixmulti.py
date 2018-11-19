@@ -64,24 +64,25 @@ class Command(BaseCommand):
                 for line in reader:
                     all_lines.append(line)
 
-        # Make sure the data has the correct structure
-        num_zeros = 0
-        for line in all_lines:
-            count = line.count('0.0')
-            if count != num_zeros + 1:
-                raise Exception("Master list cannot be properly assembled")
-            num_zeros = count
+        # # Make sure the data has the correct structure
+        # num_zeros = 0
+        # for line in all_lines:
+        #     count = line.count('0.0')
+        #     if count != num_zeros + 1:
+        #         # raise Exception("Master list cannot be properly assembled")
+        #         pass
+        #     num_zeros = count
             
-        # Iterate over all lines and put it all into a new file
-        path = os.path.join(settings.BASE_DIR, 'data/matrix_{}_master.csv'.format(self.matrix_size))
-        with open(path, 'w') as file:
-            writer = csv.writer(file, delimiter=',')
-            for row in all_lines:
-                writer.writerow(row)
+        # # Iterate over all lines and put it all into a new file
+        # path = os.path.join(settings.BASE_DIR, 'data/matrix_{}_master.csv'.format(self.matrix_size))
+        # with open(path, 'w') as file:
+        #     writer = csv.writer(file, delimiter=',')
+        #     for row in all_lines:
+        #         writer.writerow(row)
 
         # Delete the temporary files
-        for i in range(self.cores):
-            os.remove(os.path.join(settings.BASE_DIR, 'data/matrix_{}_process_{}.csv'.format(self.matrix_size, i)))
+        # for i in range(self.cores):
+        #     os.remove(os.path.join(settings.BASE_DIR, 'data/matrix_{}_process_{}.csv'.format(self.matrix_size, i)))
 
     def work(self, task_name, card_range, start_point):
 
@@ -110,14 +111,14 @@ class Command(BaseCommand):
 
             print("{} complete".format(task_name))
 
-    def get_continue_point(self, path):
-
-        with open(path, 'r') as file:
-            reader = csv.reader(file, delimiter=',')
-            counter = 0
-            for row in reader:
-                # check that the size of the rows in the file match the matrix size
-                if len(row) != self.matrix_size:
-                    raise Exception("Matrix dimension mismatch")
-                counter += 1
-        return counter
+    # def get_continue_point(self, path):
+    #
+    #     with open(path, 'r') as file:
+    #         reader = csv.reader(file, delimiter=',')
+    #         counter = 0
+    #         for row in reader:
+    #             # check that the size of the rows in the file match the matrix size
+    #             if len(row) != self.matrix_size:
+    #                 raise Exception("Matrix dimension mismatch")
+    #             counter += 1
+    #     return counter

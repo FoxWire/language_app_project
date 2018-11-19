@@ -24,17 +24,17 @@ class MatrixWrapper:
     def __init__(self):
 
         # Find the biggest matrix you can that we have created so far
-        path = os.path.join(BASE_DIR, "data")
-        matrices = [file for file in os.listdir(path) if 'matrix_' in file]
-
-        file_name, file_size = '', 0
-        for matrix in matrices:
-            number = int(re.findall(r'[0-9]+', matrix)[0])
-            if number > file_size:
-                largest = matrix
+        # path = os.path.join(BASE_DIR, "data")
+        # matrices = [file for file in os.listdir(path) if 'matrix_' in file]
+        #
+        # file_name, file_size = '', 0
+        # for matrix in matrices:
+        #     number = int(re.findall(r'[0-9]+', matrix)[0])
+        #     if number > file_size:
+        #         largest = matrix
 
         # Read in the comparison array from the file
-        path = os.path.join(BASE_DIR, 'data', largest)
+        path = os.path.join(BASE_DIR, 'data', 'matrix_copy.csv')
         temp_array = []
         with open(path, 'r') as file:
             reader = csv.reader(file, delimiter=',')

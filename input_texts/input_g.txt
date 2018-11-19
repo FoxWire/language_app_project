@@ -8,7 +8,7 @@ From there, it was a small step to build a webpage so I could add a “snooze bu
 
 I was happier and no longer feared going to sleep, but this was still an “open loop” system: it was up to me to take any needed action. A few months later, working with others in the open-source diabetes community, we realised that by adding a small computer and a radio stick to the pump and CGM, we could create a system that not only processed the data, but also sent commands directly to the pump. That’s how we created what is in effect an artificial pancreas, or a “closed loop” system.
 
-The first day I woke up after closing the loop, I was blown away by how much better I felt. I decided I was never going to leave home (Scott and I live in Seattle) without it. The equipment can fit in a bag or a pocket. We designed it for safety: if something breaks or I lose it, I can go back to using my insulin pump manually.
+The first day I woke up after closing the loop, I was blown away by how much better I felt. I decided I was never going to leave home without it. The equipment can fit in a bag or a pocket. We designed it for safety: if something breaks or I lose it, I can go back to using my insulin pump manually.
 
 Endocrinologists have been interested in our developments, and for me, having a computer make adjustments while I sleep is far safer than trying groggily to make decisions overnight. The system also makes small adjustments every five minutes, rather than large adjustments infrequently, as humans do.
 

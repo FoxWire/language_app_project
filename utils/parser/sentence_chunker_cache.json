@@ -14145,5 +14145,73 @@
             "that choice "
         ],
         "tree_string": "(ROOT\n  (S\n    (VP\n      (VB have)\n      (NP\n        (DT the)\n        (NN freedom)\n        (S (VP (TO to) (VP (VB make) (NP (DT that) (NN choice)))))))))"
+    },
+    "All I can say is that it will be on par with if not better than the rollercoaster.": {
+        "chunks": [
+            "I can say ",
+            "can say ",
+            "with if not ",
+            "on par with if not ",
+            "All I can say ",
+            "on par ",
+            "if not "
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP\n      (NP (DT All))\n      (SBAR (S (NP (PRP I)) (VP (MD can) (VP (VB say))))))\n    (VP\n      (VBZ is)\n      (SBAR\n        (IN that)\n        (S\n          (NP (PRP it))\n          (VP\n            (MD will)\n            (VP\n              (VB be)\n              (PP\n                (PP (IN on) (NP (NN par)))\n                (PP (IN with) (FRAG (IN if) (RB not))))\n              (ADVP (RBR better))\n              (PP (IN than) (NP (DT the) (JJ rollercoaster))))))))\n    (. .)))"
+    },
+    "I decided I was never going to leave home without it.": {
+        "chunks": [
+            "was never going to leave home without it",
+            "leave home without it",
+            "decided I was never going to leave home without it",
+            "without it",
+            "going to leave home without it",
+            "to leave home without it",
+            "I was never going to leave home without it"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (NP (PRP I))\n    (VP\n      (VBD decided)\n      (SBAR\n        (S\n          (NP (PRP I))\n          (VP\n            (VBD was)\n            (ADVP (RB never))\n            (VP\n              (VBG going)\n              (S\n                (VP\n                  (TO to)\n                  (VP\n                    (VB leave)\n                    (NP (NN home))\n                    (PP (IN without) (NP (PRP it)))))))))))\n    (. .)))"
+    },
+    "with if not ": {
+        "chunks": [
+            "if not "
+        ],
+        "tree_string": "(ROOT (FRAG (SBAR (IN with) (FRAG (IN if) (RB not)))))"
+    },
+    "on par with if not ": {
+        "chunks": [
+            "on par ",
+            "if not ",
+            "with if not "
+        ],
+        "tree_string": "(ROOT\n  (PP\n    (PP (IN on) (NP (NN par)))\n    (PP (IN with) (FRAG (IN if) (RB not)))))"
+    },
+    "was never going to leave home without it": {
+        "chunks": [
+            "was never going to leave home without ",
+            "to leave home without ",
+            "leave home without ",
+            "never going to leave home without "
+        ],
+        "tree_string": "(ROOT\n  (SINV\n    (VP\n      (VBD was)\n      (VP\n        (ADVP (RB never))\n        (VBG going)\n        (S\n          (VP\n            (TO to)\n            (VP (VB leave) (NP (NN home)) (PP (IN without)))))))\n    (NP (PRP it))))"
+    },
+    "leave home without it": {
+        "chunks": [
+            "without it"
+        ],
+        "tree_string": "(ROOT\n  (S (VP (VB leave) (NP (NN home)) (PP (IN without) (NP (PRP it))))))"
+    },
+    "going to leave home without it": {
+        "chunks": [
+            "to leave home without it",
+            "leave home without it",
+            "without it"
+        ],
+        "tree_string": "(ROOT\n  (S\n    (VP\n      (VBG going)\n      (S\n        (VP\n          (TO to)\n          (VP\n            (VB leave)\n            (NP (NN home))\n            (PP (IN without) (NP (PRP it)))))))))"
+    },
+    "to leave home without it": {
+        "chunks": [
+            "leave home without it",
+            "without it"
+        ],
+        "tree_string": "(ROOT\n  (FRAG\n    (S\n      (VP\n        (TO to)\n        (VP\n          (VB leave)\n          (NP (NN home))\n          (PP (IN without) (NP (PRP it))))))))"
     }
 }
