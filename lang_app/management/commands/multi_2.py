@@ -20,7 +20,7 @@ class Command(BaseCommand):
         '''
     matrix_size = len(Card.objects.all())
     comp = TreeComparer()
-    cores = 3
+    cores = 1
 
     def handle(self, *args, **options):
 
