@@ -9,6 +9,9 @@ import csv
 import numpy as np
 from language_app_project.settings import BASE_DIR
 import re
+from lang_app.models import Question
+from random import randint
+from utils.comparer.comparer import TreeComparer
 
 '''
 The initialiser takes a path, it reads in from the path to create a numpy array.
@@ -34,7 +37,7 @@ class MatrixWrapper:
         #         largest = matrix
 
         # Read in the comparison array from the file
-        path = os.path.join(BASE_DIR, 'data', 'matrix_copy.csv')
+        path = os.path.join(BASE_DIR, 'data', 'matrix_100_master.csv')
         temp_array = []
         with open(path, 'r') as file:
             reader = csv.reader(file, delimiter=',')
@@ -50,6 +53,7 @@ class MatrixWrapper:
         if only half of the array is present and mirrors it.
         '''
         if not (np_array[0] == np_array[:, 0, None].T[0]).all():
+
             # Use mask to combine the array and the transposed array.
             mask = np_array != 0
             np_array.T[mask] = np_array[mask]
@@ -57,11 +61,12 @@ class MatrixWrapper:
         self.matrix = np_array
 
     def get_value(self, x, y):
+        # Returns the values if within the size of the array else none
         a, b = self.matrix.shape
-        if x < a and x < b and y < a and y < b:
-            return self.matrix[x][y]
-        else:
-            return None
+        return self.matrix[x][y] if x < a and x < b and y < a and y < b else None
+
+    def get_similar_pks(self, row):
+        return self.matrix[row]
 
     def get_matrix(self):
         return self.matrix
@@ -69,4 +74,14 @@ class MatrixWrapper:
 
 if __name__ == "__main__":
     m = MatrixWrapper()
-    print(m.get_value(5, 9))
+    comp = TreeComparer()
+
+    size = m.matrix.shape[0] - 1
+    # Now compose a proper test for the 10 matrix
+    randnums = [(randint(0, size), randint(0, size)) for x in range(100)]
+
+    for a, b in randnums:
+        result = m.get_value(a, b)
+        x = comp.compare(Question.objects.get(pk=a + 1), Question.objects.get(pk=b + 1))
+        print(result, x, result == x)
+

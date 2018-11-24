@@ -1,10 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from lang_app.models import Card, UserState
+from lang_app.models import Question, UserState
 from lang_app.forms import UserForm, UserProfileForm
 from utils.question_picker.picker import Picker
 from utils.parser.parser import Parser
+from utils.Policies.Polices import PolicyOne, PolicyTwo, PolicyThree
 from utils.parser.lemmatizer import Lemmatizer
 from utils.comparer.comparer import TreeComparer
 from random import choice
@@ -19,6 +20,12 @@ from django.urls import reverse
 # comp = TreeComparer()
 lem = Lemmatizer()
 
+
+policies = (
+    PolicyOne(),
+    PolicyTwo(),
+    PolicyThree()
+)
 
 # def register(request):
 #
@@ -110,6 +117,10 @@ def index(request):
 
         # Get the user state object
         user_state = UserState.objects.get(user=request.user)
+
+        # Get the policy for this user state
+        policy = policies[user_state.policy_id]
+
         context = None
 
         '''
@@ -117,8 +128,8 @@ def index(request):
         '''
         if request.method == 'GET':
 
-            # get the next card from the user state
-            question = user_state.get_question()
+            # Get the next question from the policy, passing in the user state
+            question = policy.get_question(user_state)
 
             context = {
                 'question_number': question.pk,
@@ -135,10 +146,10 @@ def index(request):
             # Get the previous question that has just been answered
             question_number = request.POST.get('question_number')
             user_answer = request.POST.get('user_answer')
-            question = Card.objects.get(pk=question_number)
+            question = Question.objects.get(pk=question_number)
             correct_bool = question.give_answer(user_answer)[0]
 
-            user_state.update_state(question_number, user_answer, correct_bool)
+            policy.update_state(user_state, question_number, user_answer, correct_bool)
 
             context = {
                 'show_answer': True,

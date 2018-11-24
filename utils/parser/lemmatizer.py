@@ -14,7 +14,7 @@ django.setup()
 import re
 from nltk.corpus import wordnet
 from nltk.stem.wordnet import WordNetLemmatizer
-from lang_app.models import Card
+from lang_app.models import Question
 from random import shuffle
 
 
@@ -60,9 +60,9 @@ class Lemmatizer:
 
 
 if __name__ == "__main__":
-    card = Card.objects.all()[1399]
+    card = Question.objects.all()[1399]
     lem = Lemmatizer()
     result = lem.lemmatize(card)
     # print(card.chunk)
     # print(result)
-    print(Card.objects.all()[183])
+    print(Question.objects.all()[183])

@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from lang_app.models import Card
+from lang_app.models import Question
 from utils.comparer.comparer import TreeComparer
 import csv
 from tqdm import tqdm
@@ -10,7 +10,6 @@ import os
 from time import sleep
 import re
 
-
 class Command(BaseCommand):
     help = '''
         Creates a matrix (csv) of comparisons between card objects using the tree comparer. 
@@ -18,13 +17,11 @@ class Command(BaseCommand):
             - Only calculates half (the upper triangle) of the matrix to save running time.
             - Uses multiprocessing
         '''
-    matrix_size = len(Card.objects.all())
+    matrix_size = len(Question.objects.all())
     comp = TreeComparer()
-    cores = 1
+    cores = 3
 
     def handle(self, *args, **options):
-
-
 
         # Get the next row that you want to work on
         missing, start_point = self.get_continue_point()
@@ -33,12 +30,11 @@ class Command(BaseCommand):
         else:
 
             completed_row_count = start_point
-
             running_processes = []
             all_processes = []
 
             # Add the missing cards onto the ones that you are using for this run
-            list_of_cards = [Card.objects.get(pk=pk) for pk in missing] + [c for c in Card.objects.all()[start_point:self.matrix_size]]
+            list_of_cards = [Question.objects.get(pk=pk) for pk in missing] + [c for c in Question.objects.all()[start_point:self.matrix_size]]
 
             # Create a list of all the processes that you will be running, but don't start them
             for card in list_of_cards:
@@ -104,7 +100,7 @@ class Command(BaseCommand):
 
         index = card.pk
         row = [0.0 for x in range(index)]
-        for other_card in Card.objects.all()[index + 1:self.matrix_size + 1]:
+        for other_card in Question.objects.all()[index:self.matrix_size]:
             row.append(self.comp.compare(card, other_card))
 
         file_name = "row_{}.csv".format(card.pk)
@@ -113,7 +109,8 @@ class Command(BaseCommand):
             writer = csv.writer(file, delimiter=',')
             writer.writerow(row)
 
-    def get_continue_point(self):
+    @staticmethod
+    def get_continue_point():
 
         files = os.listdir(os.path.join(settings.BASE_DIR, 'data', 'matrix_data'))
         pks = [int(re.findall(r'[0-9]+', file)[0]) for file in files]

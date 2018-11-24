@@ -10,7 +10,7 @@ from nltk.parse import stanford
 import nltk
 from scipy.spatial import distance
 from zss import simple_distance, Node
-from lang_app.models import Card, Sentence
+from lang_app.models import Question, Sentence
 import re
 from utils.parser.parser import Parser
 
@@ -49,19 +49,19 @@ class TreeComparer():
         zss_tree_b = self.convert_parse_tree_to_zss_tree(tree_string_b, ignore_leaves=ignore_leaves)
         return simple_distance(zss_tree_a, zss_tree_b)
 
-    def compare(self, card_a, card_b):
+    def compare(self, question_a, question_b):
         # zss_tree_a = self.convert_parse_tree_to_zss_tree(card_a.chunk_tree_string)
         # zss_tree_b = self.convert_parse_tree_to_zss_tree(card_b.chunk_tree_string)
         # return simple_distance(zss_tree_a, zss_tree_b)
 
         # You only need to run the remove chunk function if the cards doesn't already have the correct data
-        parse_tree_a = card_a.question_tree_string
+        parse_tree_a = question_a.question_tree_string
         if not parse_tree_a:
-            parse_tree_a = self.remove_chunk_from_parse_tree(card_a)
+            parse_tree_a = self.remove_chunk_from_parse_tree(question_a)
 
-        parse_tree_b = card_b.question_tree_string
+        parse_tree_b = question_b.question_tree_string
         if not parse_tree_b:
-            parse_tree_b = self.remove_chunk_from_parse_tree(card_b)
+            parse_tree_b = self.remove_chunk_from_parse_tree(question_b)
 
         return self.compare_tree_strings(parse_tree_a, parse_tree_b, ignore_leaves=True)
 
@@ -103,7 +103,6 @@ class TreeComparer():
         are not included. This will only represent sentence structure. 
         '''
 
-
         tree_as_list = [item.strip() for item in re.split(r'([\(\)])', tree_as_string) if item.strip()]
 
         tree_as_list = tree_as_list[2:-1]
@@ -131,17 +130,17 @@ class TreeComparer():
                 stack.pop()
         return root_node
 
-    def remove_chunk_from_parse_tree(self, card):
+    def remove_chunk_from_parse_tree(self, question):
         '''
         This needs to find out what the pos of the word in the gap is and
         put a different label down if it is a verb.
         '''
 
         # Get the parse tree for the whole sentence
-        parse_tree = card.sentence.sentence_tree_string
+        parse_tree = question.sentence.sentence_tree_string
 
         # Get the words and their tags for each word in the chunk
-        token_tups = [tuple(token[1:-1].split(' ')) for token in re.findall(r'\([A-Z$.,:\'\"]+ [\w\'\"&\.\-:]+\)', card.chunk_tree_string)]
+        token_tups = [tuple(token[1:-1].split(' ')) for token in re.findall(r'\([A-Z$.,:\'\"]+ [\w\'\"&\.\-:]+\)', question.chunk_tree_string)]
 
         # Build up a regex to match the chunk from the parse tree
         regex_string = r'[\sA-Z$.,:]+'
@@ -170,7 +169,7 @@ class TreeComparer():
 
 
 if __name__ == '__main__':
-    card = Card.objects.get(pk=1832)
+    card = Question.objects.get(pk=1832)
     print(card.sentence)
     comp = TreeComparer()
     comp.remove_chunk_from_parse_tree(card)

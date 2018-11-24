@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from random import randint
+# from utils.Policies.Polices import PolicyOne, PolicyTwo, PolicyThree
 
 
 class Sentence(models.Model):
@@ -13,9 +13,9 @@ class Sentence(models.Model):
         return self.sentence
 
 
-class Card(models.Model):
+class Question(models.Model):
 
-    sentence = models.ForeignKey('Sentence', default=None, blank=True, related_name='cards', on_delete=models.CASCADE)
+    sentence = models.ForeignKey(Sentence, default=None, blank=True, related_name='questions', on_delete=models.CASCADE)
     chunk = models.CharField(max_length=1024)
     chunk_translation = models.CharField(max_length=1024)
     chunk_tree_string = models.CharField(max_length=1024)
@@ -60,16 +60,51 @@ class Card(models.Model):
         return s
 
 
-class Session(models.Model):
+class QandA(models.Model):
+    '''
+    this will represent one question and answer pair.
+    This will just be a link from a specific question to an answer
+    you might want to store the users actual answer.
+    '''
+
+    block = models.ForeignKey('Block', on_delete=models.CASCADE, related_name='qandas')
+    question = models.ForeignKey(Question, on_delete=None)
+    answer = models.CharField(max_length=1024, default=None, null=True)
+    answer_correct = models.BooleanField(null=True, default=None)
+
+    def __str__(self):
+        return "QandA for session: {}, question: {}..., answer: {}".format(self.block.pk,
+                                                                           self.question.sentence.sentence[:25],
+                                                                           self.answer)
+
+
+class Block(models.Model):
     '''
     This will represent a block of questions and answers.
     This will have the type of the session, explore, train test
     It will also have a list of the qandq objects that are attached to it
     '''
 
-    user = models.ForeignKey(User, on_delete=None)
-    session_type = models.CharField(max_length=1024)
-    next_session = models.ForeignKey('Session', on_delete=None, default=None, null=True)
+    # user = models.ForeignKey(User, on_delete=None)
+    block_type = models.CharField(max_length=1024)
+    # you could still keep this if you want to preserve the order between the blocks
+    next_block = models.OneToOneField('Block', on_delete=None, default=None, null=True)
+    session = models.ForeignKey('Session', default=None, blank=True, on_delete=models.CASCADE, related_name='blocks')
+
+    @property
+    def is_full(self):
+        # Return true if there is no more space in the block for qandas
+        return len(self.all_qandas) == self.session.user_state.block_size
+
+    # Return true if all answers are complete
+    @property
+    def is_complete(self):
+        return [qanda.answer for qanda in QandA.objects.filter(block=self)].count(None) == 0
+
+    @property
+    def all_qandas(self):
+        # Gets all the qandas for this session
+        return QandA.objects.filter(block=self)
 
     # Add the answer to the question
     def add_answer(self, question_pk, answer, correct_bool):
@@ -80,114 +115,94 @@ class Session(models.Model):
 
     # Return the first question you find that doesn't have an answer
     def get_question(self):
-        for qanda in QandA.objects.filter(session=self):
+        for qanda in QandA.objects.filter(block=self):
             if qanda.answer is None:
                 return qanda.question
 
-    # Return true if all answers are complete
-    def is_complete(self):
-        return [qanda.answer for qanda in QandA.objects.filter(session=self)].count(None) == 0
-
-    def add_next_session(self, new_session):
+    def add_next_block(self, new_block):
         # recursively add the session to the chain of sessions
-        if not self.next_session:
-            self.next_session = new_session
+        if not self.next_block:
+            self.next_block = new_block
             self.save()
         else:
-            self.next_session.add_next_session(new_session)
+            self.next_block.add_next_block(new_block)
 
 
-class QandA(models.Model):
-    '''
-    this will represent one question and answer pair.
-    This will just be a link from a specific question to an answer
-    you might want to store the users actual answer.
-    '''
+class Session(models.Model):
 
-    session = models.ForeignKey(Session, on_delete=models.CASCADE)
-    question = models.ForeignKey(Card, on_delete=None)
-    answer = models.CharField(max_length=1024, default=None, null=True)
-    answer_correct = models.BooleanField(null=True, default=None)
+    user_state = models.ForeignKey('UserState', on_delete=None)
+    current_block = models.OneToOneField(Block, default=None, blank=True, on_delete=models.CASCADE,
+                                         related_name='current_block', null=True)
 
-    def __str__(self):
-        return "QandA for session: {}, question: {}..., answer: {}".format(self.session.pk, self.question.sentence.sentence[:25], self.answer)
+    @property
+    def all_qandas(self):
+        # This is the history of all the quandas for this session
+        return QandA.objects.filter(block__in=self.blocks.all())
+
+    @property
+    def passed_qandas(self):
+        return self.all_qandas.filter(answer_correct=True)
+
+    @property
+    def failed_qandas(self):
+        return self.all_qandas.filter(answer_correct=False)
+
+    @property
+    def is_complete(self):
+        return len(self.blocks.all()) >= 10
 
 
 class UserState(models.Model):
+    """
+    This should also track the number of blocks in a session and be able to tell when the session
+    is over. When that happens, the user should be told and the policy should switch
+    over to the next one.
+    """
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    current_session = models.OneToOneField(Session, on_delete=None, default=None, null=True, blank=True)
-    session_size = models.IntegerField(default=3)
+    block_size = models.IntegerField(default=3)
+    policy_id = models.IntegerField(default=2)
+    policy_ids = models.CharField(max_length=1024, default="213")
+    current_session = models.OneToOneField(Session, default=None, blank=True, on_delete=None,
+                                           related_name='current_session', null=True)
 
-    def get_question(self):
-        '''
-        Returns the next question. If there is no next session (as is the case
-        with the first question), create the initial session first
-        :return:
-        '''
+    @property
+    def session_history(self):
+        return self.current_session.all_qandas
 
-        if not self.current_session:
-            print("here lksjd flks jlkjlk jk")
-            new_session = Session.objects.create(user=self.user,
-                                                 session_type='explore')
-            # new_session.save()
-            total_cards = len(Card.objects.all())
+    def create_session(self):
+        self.current_session = Session.objects.create(user_state=self)
+        self.save()
+        return self.current_session
 
-            # Put sentences in the session
-            for x in range(self.session_size):
-                pk = randint(1, total_cards)
-                qanda = QandA.objects.create(session=new_session,
-                                             question=Card.objects.get(pk=pk))
-                # qanda.save()
-
-            # Set the session
-            self.current_session = new_session
-            self.save()
-
-        return self.current_session.get_question()
-
-    def update_state(self, question_pk, answer, correct_bool):
+    def add_block(self, block):
         '''
 
-        :param question_pk:
-        :param answer:
-        :return:
+        This is where you can track when new blocks are being added. When you reach ten, you will need to stop
+        and show a message to the user and switch to the next policy
+
+        There will be a different number of blocks for each policy as well. you need to bear that in mind
         '''
 
-        # If the current session is not complete, add the answer to the current question
-        if not self.current_session.is_complete():
-            self.current_session.add_answer(question_pk, answer, correct_bool)
+        # Find out how many blocks are in this session already
+        if not self.current_session.is_complete:
+            self.current_session.current_block.add_next_block(block)
 
-        # If the session is complete then you need to move onto the next session
-        if self.current_session.is_complete():
-            # If there is a next session, set that to the current session
-            if self.current_session.next_session:
-                self.current_session = self.current_session.next_session
-                self.save()
+        ''' YOU NEED TO FIX THIS, I'VE JUST LEFT IT HALF DONE'''
 
-            # If there is no next session you need to create some.
-            else:
-                # Iterate over the failed questions from the current session, creating sessions and questions
-                for qanda in QandA.objects.filter(session=self.current_session, answer_correct=False):
+        return self.switch_policy()
 
-                    # create the train session
-                    train_session = Session.objects.create(user=self.user,
-                                                           session_type='train')
-                    for q in qanda.question.similar_cards[:self.session_size]:
-                        QandA.objects.create(session=train_session,
-                                             question=q)
+    def switch_policy(self):
 
-                    self.current_session.add_next_session(train_session)
-
-                    # create the test session
-                    test_session = Session.objects.create(user=self.user,
-                                                          session_type='test')
-                    for q in qanda.question.similar_cards[self.session_size:self.session_size * 2]:
-                        QandA.objects.create(session=test_session,
-                                             question=q)
-
-                    self.current_session.add_next_session(test_session)
-                    self.save()
+        # If there is another policy id, move onto it
+        if len(self.policy_ids) > 0:
+            self.policy_id = int(self.policy_ids[0])
+            self.policy_ids = self.policy_ids[1:]
+            self.policy_ids.save()
+            self.policy_id.save()
+            return True
+        else:
+            return False
 
     def flush_state(self):
         '''
@@ -200,34 +215,10 @@ class UserState(models.Model):
         self.save()
 
         # Delete all sessions
-        for session in Session.objects.filter(user=self.user):
+        user_state = UserState.objects.get(user=self.user)
+        for session in Session.objects.filter(user_state=user_state):
             session.delete()
 
     def __str__(self):
         return "User State Object for {}".format(self.user)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

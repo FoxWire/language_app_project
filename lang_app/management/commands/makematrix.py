@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from lang_app.models import Card, Sentence
+from lang_app.models import Question, Sentence
 from utils.comparer.comparer import TreeComparer
 import csv
 from tqdm import tqdm
@@ -15,7 +15,7 @@ class Command(BaseCommand):
         with the matrix wrapper class. An integer as a command line argument, determines the size of the 
         matrix to be created.
         '''
-    matrix_size = len(Card.objects.all())
+    matrix_size = len(Question.objects.all())
     comp = TreeComparer()
     path = None
 
@@ -38,8 +38,8 @@ class Command(BaseCommand):
             writer = csv.writer(file, delimiter=',')
 
             index = self.get_start_point()
-            cards_this_run = Card.objects.all()[index:self.matrix_size]
-            all_cards = Card.objects.all()[:self.matrix_size]
+            cards_this_run = Question.objects.all()[index:self.matrix_size]
+            all_cards = Question.objects.all()[:self.matrix_size]
             iterator = index + 1
 
             for card_i in cards_this_run:

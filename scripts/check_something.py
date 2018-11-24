@@ -6,24 +6,14 @@ sys.path.append('/home/stuart/PycharmProjects/workspaces/language_app_project')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'language_app_project.settings'
 django.setup()
 
-from lang_app.models import Card
+from lang_app.models import Question, Block, Session
+from utils.Policies.Polices import PolicyOne, PolicyTwo, PolicyThree
 
-from nltk.parse import stanford
-from utils.parser.parser import Parser
+a = PolicyOne.get_question.__code__.co_code
+b = PolicyTwo.get_question.__code__.co_code
+c = PolicyThree.get_question.__code__.co_code
 
-# stan = stanford.StanfordParser()
-# parser = Parser()
-#
-# a= "I've always worked very hard  outdoors for most of my life as a railway platelayer  and I think that's made me endure as long as I have."
-# b = "But the real achievement is not what I've done; it's how long I've lived."
-# c = "I've been wondering about this for a while now."
-# x = stan.raw_parse(c)
-#
-# # print(next(x))
-#
-#
-# x = parser.parse(c)
-# print(x[1])
-# print(x[2])
 
-print(Card.objects.get(pk=1212))
+print(a == b)
+print(b == c)
+print(a == c)

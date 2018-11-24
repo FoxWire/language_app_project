@@ -1,5 +1,5 @@
 from utils.comparer.comparer import TreeComparer
-from lang_app.models import Card, Sentence, UserState
+from lang_app.models import Question, Sentence, UserState
 from random import randint
 from tqdm import tqdm
 import json
