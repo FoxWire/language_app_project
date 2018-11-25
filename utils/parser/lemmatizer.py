@@ -23,7 +23,8 @@ class Lemmatizer:
     def __init__(self):
         pass
 
-    def convert_tag(self, tag):
+    @staticmethod
+    def convert_tag(tag):
         if tag.startswith('J'):
             return wordnet.ADJ
         elif tag.startswith('R'):
@@ -35,9 +36,10 @@ class Lemmatizer:
         else:
             return None
 
-    def lemmatize(self, card):
-        tree_string = card.chunk_tree_string
-        print(tree_string)
+    def lemmatize(self, question):
+
+        tree_string = question.chunk_tree_string
+
         # Get the tags and the words from the tree string of the chunk
         results = re.findall(r'\([A-Z$]+ [A-Za-z\'-]+\)', tree_string)
 
@@ -47,13 +49,9 @@ class Lemmatizer:
         # Lemmatize and put into list
         lemmatized = []
         for tup in tuples:
-
             tag, word = self.convert_tag(tup[0]), tup[1]
-            print(tag, word)
-            if tag:
-                lemmatized.append(WordNetLemmatizer().lemmatize(word, pos=tag))
-            else:
-                lemmatized.append(word)
+            lem = WordNetLemmatizer().lemmatize(word, pos=tag) if tag else word
+            lemmatized.append({'word': word, 'lem': lem})
 
         shuffle(lemmatized)
         return lemmatized

@@ -12,41 +12,40 @@
             <form id="question-form" action="/" method="post">
               {% csrf_token %}
 
-              <h4 class="card-title" style="margin-bottom: 20px;">{% if question_data.a %} {{ question_data.a }} {% endif %}
+              <h4 class="card-title" style="margin-bottom: 20px;">
+                  {% if question_data.a %} {{ question_data.a }} {% endif %}
+                  {% if show_answer %}
+                        <strong>{{ chunk }}</strong>
+                    {% else %}
 
-                <div class="form-group" style="display: inline-block;">
-                  <label id='floating-label' for="answer-box" class="bmd-label-floating">{{ question_data.b }}</label>
-                  <input type="text" class="form-control" id="answer-box" name="user_answer" size="{{ question_data.b | length }}" autocomplete="off">
-                  <span class="bmd-help">Translate into English</span>
-                </div>
+                        <div class="form-group" style="display: inline-block;">
+                          <label id='floating-label' for="answer-box" class="bmd-label-floating">{{ question_data.b }}</label>
+                          <input type="text" class="form-control" id="answer-box" name="user_answer" size="{{ question_data.b | length }}" autocomplete="off">
+                          <span class="bmd-help">Translate into English</span>
+                        </div>
 
-                {% if question_data.c %} {{ question_data.c }} {% endif %}
+                    {% endif %}
+                    {% if question_data.c %} {{ question_data.c }} {% endif %}
               </h4>
 
-              <!--<div class="container">-->
-                <!--<div class="row">-->
-                    <!--<div class="col-sm-4">-->
-                      <!--<span id="hint-ajax" class="pull-left">hint</span><br>-->
-                      <!--<div id="hint-words" class="pull-left"></div>-->
-                    <!--</div>-->
-                    <!--<div class="col-sm-4">-->
-                      <!--<button class="btn btn-primary btn-round" type="submit">submit</button>-->
-                    <!--</div>-->
-                    <!--<div class="col-sm-4">-->
-                      <!--&lt;!&ndash; Nothing in here yet&ndash;&gt;-->
-                    <!--</div>-->
-                <!--</div>-->
-              <!--</div>-->
-
                 <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                      {% for word in required_words %}
-                        <strong>{{ word }}</strong><br>
+
+                    <div style="display:inline-block;">
+                    {% for lem_item in lem_items %}
+                        <div id="lem-{{ lem_item.lem }}" class="btn btn-outline-primary btn-sm" style="pointer-events: none;">{{ lem_item.lem }}</div>
                       {% endfor %}
                     </div>
+
+                    <br><br>
+
+                <div class="row">
                     <div class="col-sm-4">
+                        <!--nothing in here either-->
+                    </div>
+                    <div class="col-sm-4">
+                        {% if not show_answer %}
                       <button class="btn btn-primary btn-round" type="submit">submit</button>
+                        {% endif %}
                     </div>
                     <div class="col-sm-4">
                       <!-- Nothing in here yet-->
@@ -78,10 +77,6 @@
           {% endif %}
 
 
-            <!--<form action="/" method="post">-->
-                 <!--{% csrf_token %}-->
-
-
               <div class="card-body">
 
                 <h4 style="margin-bottom: 20px;">
@@ -92,25 +87,19 @@
 
                     <div class="container">
                     <div class="row">
-                        <div class="col-sm-2">
-                          <!--{% for word in required_words %}-->
-                            <!--{{ word }}-->
-                          <!--{% endfor %}-->
+                        <div class="col-sm-4">
+                            <!--nothing in here either-->
                         </div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-4">
                           <div class="row">
-                              <a href="{% url 'index' %}?question_number={{ question_number }}">next</a>
-                            <!--<button name="rating" class="traffic-light btn btn-success btn-round" type="submit" value="1">-->
-                                <!--easy</button>-->
-                            <!--<button name="rating" class="traffic-light btn btn-round" type="submit" style="background-color:#fcf949;" value="2" >-->
-                                <!--easier</button>-->
-                            <!--<button name="rating" class="traffic-light btn btn-warning btn-round" type="submit" value="3">-->
-                                <!--medium</button>-->
-                            <!--<button name="rating" class="traffic-light btn btn-danger btn-round" type="submit" value="4">-->
-                                <!--hard</button>-->
+
+                              <a href="{% url 'index' %}?question_number={{ question_number }}" style="margin: 0 auto;">
+                                  <button class="btn btn-primary btn-round" type="button">next card</button>
+                              </a>
+
                           </div>
                         </div>
-                        <div class="col-sm-2">
+                        <div class="col-sm-4">
                           <!-- Nothing in here yet-->
                         </div>
                     </div>

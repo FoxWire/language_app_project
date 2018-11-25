@@ -1,6 +1,6 @@
 from lang_app.models import Question, QandA, Session, Block
 from utils.matrix_wrapper import MatrixWrapper
-from random import choice
+from random import choice, randint
 
 # matrix = MatrixWrapper()
 
@@ -19,21 +19,24 @@ class Policy:
         :return: Question
         """
 
-        if not user_state.current_session:
 
-            # Create the new session
-            new_session = user_state.create_session()
-            # Create the new block for the session
-            new_block = Block.objects.create(session=new_session, block_type='explore')
+        return Question.objects.all()[randint(1, 1000)]
 
-            # Fill up the new block with random qandas
-            while not new_block.is_full:
-                QandA.objects.create(question=self.get_random(user_state), block=new_block)
-
-            # Add the new block
-            user_state.add_block(new_block)
-
-        return user_state.current_session.current_block.get_question()
+        # if not user_state.current_session:
+        #
+        #     # Create the new session
+        #     new_session = user_state.create_session()
+        #     # Create the new block for the session
+        #     new_block = Block.objects.create(session=new_session, block_type='explore')
+        #
+        #     # Fill up the new block with random qandas
+        #     while not new_block.is_full:
+        #         QandA.objects.create(question=self.get_random(user_state), block=new_block)
+        #
+        #     # Add the new block
+        #     user_state.add_block(new_block)
+        #
+        # return user_state.current_session.current_block.get_question()
 
     def update_state(self, user_state, question_pk, answer, correct_bool): pass
 

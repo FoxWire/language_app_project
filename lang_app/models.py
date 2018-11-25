@@ -184,6 +184,10 @@ class UserState(models.Model):
         There will be a different number of blocks for each policy as well. you need to bear that in mind
         '''
 
+        if not self.current_session.current_block:
+            self.current_session.current_block = block
+            self.current_session.save()
+
         # Find out how many blocks are in this session already
         if not self.current_session.is_complete:
             self.current_session.current_block.add_next_block(block)

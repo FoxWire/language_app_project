@@ -35,7 +35,9 @@
 
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-            <li>{{ user }}</li>
+            {% if user.is_authenticated %}
+              <li>{{ user }}</li>
+            {% endif %}
           <li class="nav-item">
               {% if user.is_authenticated %}
             <a href="{% url 'user_logout' %}" class="nav-link">Logout</a>
@@ -63,30 +65,6 @@
       </div>
     </div>
   </div>
-
-
-
-
-  <footer class="footer footer-default">
-    <div class="container">
-      <nav class="float-left">
-        <ul>
-          <li>
-            <a href="https://www.creative-tim.com/">
-              Creative Tim
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div class="copyright float-right">
-        &copy;
-        <script>
-          document.write(new Date().getFullYear())
-        </script>, made with <i class="material-icons">favorite</i> by
-        <a href="https://www.creative-tim.com/" target="blank">Creative Tim</a> for a better web.
-      </div>
-    </div>
-  </footer>
 
 <!--   Core JS Files   -->
 <script src="{% static 'js/core/jquery.min.js' %}" type="text/javascript"></script>
@@ -123,6 +101,42 @@
     <!--$("#question-form").submit();-->
   <!--});-->
 */
+
+  /* One each keyboard press of the input box check if they have typed the correct */
+
+
+
+  var dict = {
+    {% for lem_item in lem_items %}
+        "{{lem_item.word}}": "{{lem_item.lem}}",
+    {% endfor %}
+  };
+
+  $('#answer-box').keypress(function(event){
+
+    // read in the text from the input box
+    var typed = $('#answer-box').val();
+
+    // split it into words
+    var words = typed.split(" ");
+    console.log(words);
+
+    // if any of the words are the actual words, grey then out the buttons
+    for (var key in dict){
+      if (words.includes(key)){
+        $('#lem-' + dict[key]).attr('class', 'btn btn-outline-success btn-sm');
+      } else {
+         $('#lem-' + dict[key]).attr('class', 'btn btn-outline-primary btn-sm');
+      }
+    }
+  });
+
+
+
+
+
+
+
   </script>
 
 <!--css overrides to make sure that the input text lines up with the rest of the text-->

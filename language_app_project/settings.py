@@ -29,7 +29,7 @@ SECRET_KEY = 'ois&v8@c)glg4=h-w-pe40^8byl@4-85ve+pj@+2^8f#ntxgxe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sdmiller.pythonanywhere.com']
+ALLOWED_HOSTS = ['sdmiller.pythonanywhere.com', 'localhost']
 INTERNAL_IPS = ['127.0.0.1', '::1']
 
 # Application definition
@@ -79,7 +79,7 @@ TEMPLATES = [
 STATICFILES_DIRS = [STATIC_DIR]
 MEDIA_ROOT = MEDIA_DIR
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 
 WSGI_APPLICATION = 'language_app_project.wsgi.application'
