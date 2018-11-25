@@ -23,7 +23,6 @@ class Policy:
 
             # Create the new session
             new_session = user_state.create_session()
-
             # Create the new block for the session
             new_block = Block.objects.create(session=new_session, block_type='explore')
 

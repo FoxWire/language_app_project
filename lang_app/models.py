@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-# from utils.Policies.Polices import PolicyOne, PolicyTwo, PolicyThree
+# from utils.policies.Polices import PolicyOne, PolicyTwo, PolicyThree
 
 
 class Sentence(models.Model):

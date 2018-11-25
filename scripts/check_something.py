@@ -7,7 +7,7 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'language_app_project.settings'
 django.setup()
 
 from lang_app.models import Question, Block, Session
-from utils.Policies.Polices import PolicyOne, PolicyTwo, PolicyThree
+from utils.policies.polices import PolicyOne, PolicyTwo, PolicyThree
 
 a = PolicyOne.get_question.__code__.co_code
 b = PolicyTwo.get_question.__code__.co_code

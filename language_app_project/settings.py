@@ -29,7 +29,7 @@ SECRET_KEY = 'ois&v8@c)glg4=h-w-pe40^8byl@4-85ve+pj@+2^8f#ntxgxe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sdmiller.pythonanywhere.com']
 INTERNAL_IPS = ['127.0.0.1', '::1']
 
 # Application definition
