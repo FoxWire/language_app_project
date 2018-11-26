@@ -5,7 +5,7 @@ from lang_app.models import Question, UserState
 from lang_app.forms import UserForm, UserProfileForm
 from utils.question_picker.picker import Picker
 from utils.parser.parser import Parser
-from utils.policies.polices import PolicyOne, PolicyTwo, PolicyThree
+from utils.policies.policies import PolicyOne, PolicyTwo, PolicyThree
 from utils.parser.lemmatizer import Lemmatizer
 from utils.comparer.comparer import TreeComparer
 from random import choice
