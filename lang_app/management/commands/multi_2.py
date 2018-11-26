@@ -19,7 +19,7 @@ class Command(BaseCommand):
         '''
     matrix_size = len(Question.objects.all())
     comp = TreeComparer()
-    cores = 1
+    cores = 3
 
     def handle(self, *args, **options):
 

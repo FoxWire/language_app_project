@@ -44,7 +44,7 @@ def index(request):
         user_state = UserState.objects.get(user=request.user)
 
         # Get the policy for this user state
-        policy = policies[user_state.policy_id]
+        policy = policies[user_state.current_policy_id - 1]
 
         context = None
 
@@ -53,14 +53,24 @@ def index(request):
         '''
         if request.method == 'GET':
 
-            # Get the next question from the policy, passing in the user state
-            question = policy.get_question(user_state)
+            # If they are starting the next session
+            if request.GET.get('next_session'):
+                user_state.current_session = None
 
-            context = {
-                'question_number': question.pk,
-                'question_data': question.ask_question(),
-                'lem_items': lem.lemmatize(question),
-            }
+            if user_state.current_session and user_state.current_session.is_complete:
+                context = {
+                    'session_complete': True
+                }
+            else:
+                # Get the next question from the policy, passing in the user state
+                question = policy.get_question(user_state)
+
+                context = {
+                    'question_number': question.pk,
+                    'question_data': question.ask_question(),
+                    'lem_items': lem.lemmatize(question),
+                    'session_complete': user_state.current_session.is_complete
+                }
 
         '''
         With the post request, the user will pass their answer for the previous question and 
@@ -83,7 +93,7 @@ def index(request):
                 'correct_bool': correct_bool,
                 'user_answer': user_answer,
                 'chunk': question.chunk,
-                'chunk_translation': question.chunk_translation
+                'chunk_translation': question.chunk_translation,
             }
 
     return render(request, 'lang_app/index.html', context)

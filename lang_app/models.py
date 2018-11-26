@@ -67,8 +67,8 @@ class QandA(models.Model):
     you might want to store the users actual answer.
     '''
 
-    block = models.ForeignKey('Block', on_delete=models.CASCADE, related_name='qandas')
-    question = models.ForeignKey(Question, on_delete=None)
+    block = models.ForeignKey('Block', on_delete=models.CASCADE, null=True, related_name='qandas')
+    question = models.ForeignKey(Question, on_delete=models.SET_NULL, null=True)
     answer = models.CharField(max_length=1024, default=None, null=True)
     answer_correct = models.BooleanField(null=True, default=None)
 
@@ -88,8 +88,9 @@ class Block(models.Model):
     # user = models.ForeignKey(User, on_delete=None)
     block_type = models.CharField(max_length=1024)
     # you could still keep this if you want to preserve the order between the blocks
-    next_block = models.OneToOneField('Block', on_delete=None, default=None, null=True)
-    session = models.ForeignKey('Session', default=None, blank=True, on_delete=models.CASCADE, related_name='blocks')
+    next_block = models.OneToOneField('Block', on_delete=models.SET_NULL, default=None, null=True)
+    session = models.ForeignKey('Session', default=None, blank=True, null=True,
+                                on_delete=models.CASCADE, related_name='blocks')
 
     @property
     def is_full(self):
@@ -99,7 +100,7 @@ class Block(models.Model):
     # Return true if all answers are complete
     @property
     def is_complete(self):
-        return [qanda.answer for qanda in QandA.objects.filter(block=self)].count(None) == 0
+        return all([qanda.answer is not None for qanda in QandA.objects.filter(block=self)])
 
     @property
     def all_qandas(self):
@@ -131,8 +132,15 @@ class Block(models.Model):
 class Session(models.Model):
 
     user_state = models.ForeignKey('UserState', on_delete=None)
-    current_block = models.OneToOneField(Block, default=None, blank=True, on_delete=models.CASCADE,
+    current_block = models.OneToOneField(Block, default=None, blank=True, on_delete=models.SET_NULL,
                                          related_name='current_block', null=True)
+    # This should keep track of which policy it was used with.
+    policy_id = models.IntegerField(default=None)
+    session_size = models.IntegerField(default=2)
+
+    @property
+    def is_complete(self):
+        return len(Block.objects.filter(session=self)) >= self.session_size and self.current_block.is_complete
 
     @property
     def all_qandas(self):
@@ -147,10 +155,6 @@ class Session(models.Model):
     def failed_qandas(self):
         return self.all_qandas.filter(answer_correct=False)
 
-    @property
-    def is_complete(self):
-        return len(self.blocks.all()) >= 10
-
 
 class UserState(models.Model):
     """
@@ -161,9 +165,9 @@ class UserState(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     block_size = models.IntegerField(default=3)
-    policy_id = models.IntegerField(default=2)
-    policy_ids = models.CharField(max_length=1024, default="213")
-    current_session = models.OneToOneField(Session, default=None, blank=True, on_delete=None,
+    current_policy_id = models.IntegerField(default=None, null=True, blank=True)
+    policy_ids = models.CharField(max_length=1024, default="123")
+    current_session = models.OneToOneField(Session, default=None, blank=True, on_delete=models.SET_NULL,
                                            related_name='current_session', null=True)
 
     @property
@@ -171,7 +175,8 @@ class UserState(models.Model):
         return self.current_session.all_qandas
 
     def create_session(self):
-        self.current_session = Session.objects.create(user_state=self)
+        self.switch_policy()
+        self.current_session = Session.objects.create(user_state=self, policy_id=self.current_policy_id)
         self.save()
         return self.current_session
 
@@ -189,21 +194,21 @@ class UserState(models.Model):
             self.current_session.save()
 
         # Find out how many blocks are in this session already
-        if not self.current_session.is_complete:
-            self.current_session.current_block.add_next_block(block)
+        # if not self.current_session.is_complete:
+        #     self.current_session.current_block.add_next_block(block)
 
         ''' YOU NEED TO FIX THIS, I'VE JUST LEFT IT HALF DONE'''
-
-        return self.switch_policy()
 
     def switch_policy(self):
 
         # If there is another policy id, move onto it
         if len(self.policy_ids) > 0:
-            self.policy_id = int(self.policy_ids[0])
+            self.current_policy_id = int(self.policy_ids[0])
             self.policy_ids = self.policy_ids[1:]
-            self.policy_ids.save()
-            self.policy_id.save()
+
+            self.current_session = None
+            self.save()
+
             return True
         else:
             return False

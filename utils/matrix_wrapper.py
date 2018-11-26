@@ -65,7 +65,7 @@ class MatrixWrapper:
         a, b = self.matrix.shape
         return self.matrix[x][y] if x < a and x < b and y < a and y < b else None
 
-    def get_similar_pks(self, row):
+    def get_similar_(self, row):
         return self.matrix[row]
 
     def get_matrix(self):
