@@ -1,0 +1,79 @@
+{
+    "user_name": "stuart",
+    "session_pk": 33,
+    "session_size": 2,
+    "block_size": 3,
+    "policy_id": 1,
+    "block_data": [
+        {
+            "block_id": 57,
+            "qanda_data": [
+                {
+                    "qanda_pk": 165,
+                    "question_pk": 866,
+                    "question": "The unlocked safe had been there when they moved in and was in an area they didn't use much.",
+                    "chunk": "when they moved in and was ",
+                    "chunk_translation": "als sie eingezogen sind und war",
+                    "answer": "",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 166,
+                    "question_pk": 476,
+                    "question": "The next moment, I felt I had to push again, and the baby started coming out.",
+                    "chunk": "had to push again",
+                    "chunk_translation": "musste nochmal dr\u00fccken",
+                    "answer": "",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 167,
+                    "question_pk": 550,
+                    "question": "Probably, but I do think that this way it's a nice story to remember.",
+                    "chunk": "that this way ",
+                    "chunk_translation": "dass auf diese Weise",
+                    "answer": "",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 58,
+            "qanda_data": [
+                {
+                    "qanda_pk": 168,
+                    "question_pk": 1239,
+                    "question": "More than 725 people worldwide have now built various types of DIY closed-loop systems, and the growing community has continued to improve the code and the systems.",
+                    "chunk": "to improve the code and the systems",
+                    "chunk_translation": "um den Code und die Systeme zu verbessern",
+                    "answer": "",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 169,
+                    "question_pk": 10,
+                    "question": "I rode the Twistosaurus at Flamingo Land in North Yorkshire, which spins you round quite fast.",
+                    "chunk": "you round quite fast",
+                    "chunk_translation": "Du reitest ziemlich schnell",
+                    "answer": "",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 170,
+                    "question_pk": 559,
+                    "question": "I now know that I had a trio of conditions: dyslexia, attention deficit hyperactivity disorder and Irlen Syndrome, a neurological condition that makes it hard to process visual information.",
+                    "chunk": "that makes it hard to process visual information",
+                    "chunk_translation": "das macht es schwierig, visuelle Informationen zu verarbeiten",
+                    "answer": "",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                }
+            ]
+        }
+    ]
+}

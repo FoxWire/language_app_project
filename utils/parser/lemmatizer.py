@@ -41,17 +41,17 @@ class Lemmatizer:
         tree_string = question.chunk_tree_string
 
         # Get the tags and the words from the tree string of the chunk
-        results = re.findall(r'\([A-Z$]+ [A-Za-z\'-]+\)', tree_string)
+        results = re.findall(r'\([A-Z$]+ [A-Za-z1-9\'-]+\)', tree_string)
 
         # Convert the strings to tuples
         tuples = [tuple(result[1:-1].split()) for result in results]
 
         # Lemmatize and put into list
         lemmatized = []
-        for tup in tuples:
+        for i, tup in enumerate(tuples):
             tag, word = self.convert_tag(tup[0]), tup[1]
             lem = WordNetLemmatizer().lemmatize(word, pos=tag) if tag else word
-            lemmatized.append({'word': word, 'lem': lem})
+            lemmatized.append({'word': word, 'lem': lem, 'id': str(i)})
 
         shuffle(lemmatized)
         return lemmatized

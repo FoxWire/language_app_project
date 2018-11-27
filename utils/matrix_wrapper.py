@@ -37,7 +37,7 @@ class MatrixWrapper:
         #         largest = matrix
 
         # Read in the comparison array from the file
-        path = os.path.join(BASE_DIR, 'data', 'matrix_100_master.csv')
+        path = os.path.join(BASE_DIR, 'data', 'matrix_1265_master.csv')
         temp_array = []
         with open(path, 'r') as file:
             reader = csv.reader(file, delimiter=',')
@@ -74,14 +74,27 @@ class MatrixWrapper:
 
 if __name__ == "__main__":
     m = MatrixWrapper()
+    # print(m.matrix.shape)
+
+
     comp = TreeComparer()
 
     size = m.matrix.shape[0] - 1
     # Now compose a proper test for the 10 matrix
-    randnums = [(randint(0, size), randint(0, size)) for x in range(100)]
+    randnums = [(randint(0, size), randint(0, size)) for x in range(1000)]
 
+    correct = 0
+    wrong = 0
     for a, b in randnums:
         result = m.get_value(a, b)
         x = comp.compare(Question.objects.get(pk=a + 1), Question.objects.get(pk=b + 1))
-        print(result, x, result == x)
+        # print(result, x, result == x)
+        if result == x:
+            correct += 1
+        else:
+            wrong += 1
+
+    print("{} correct out of 1000".format(correct))
+    print("{} wrong out of 1000".format(wrong))
+
 

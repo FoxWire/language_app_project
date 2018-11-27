@@ -1,5 +1,6 @@
 <!doctype html>
 {% load staticfiles %}
+{% load lang_app_tags %}
 
 <html lang="en">
 
@@ -105,10 +106,9 @@
   /* One each keyboard press of the input box check if they have typed the correct */
 
 
-
   var dict = {
     {% for lem_item in lem_items %}
-        "{{lem_item.word}}": "{{lem_item.lem}}",
+        "{{lem_item.id}}": ["{% remove_non_alpha lem_item.word %}", "{{lem_item.lem}}"],
     {% endfor %}
   };
 
@@ -118,15 +118,24 @@
     var typed = $('#answer-box').val();
 
     // split it into words
-    var words = typed.split(" ");
-    console.log(words);
+    var words = typed.split(/[\s']+/);
 
-    // if any of the words are the actual words, grey then out the buttons
+    console.log(dict);
+
+
     for (var key in dict){
-      if (words.includes(key)){
-        $('#lem-' + dict[key]).attr('class', 'btn btn-outline-success btn-sm');
+      if (words.includes(dict[key][0])){
+        $('#lem-' + key).attr('class', 'btn btn-outline-success btn-sm');
       } else {
-         $('#lem-' + dict[key]).attr('class', 'btn btn-outline-primary btn-sm');
+        $('#lem-' + key).attr('class', 'btn btn-outline-primary btn-sm');
+      }
+
+      // Remove the word from the words list
+      for (var i = 0; i < words.length; i++){
+        if (words[i] === dict[key][1]){
+          words.splice(i, 1);
+          break;
+        }
       }
     }
   });

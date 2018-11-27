@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.translation import ugettext_lazy as _
 # from utils.policies.Polices import PolicyOne, PolicyTwo, PolicyThree
 
 
@@ -51,6 +52,7 @@ class Question(models.Model):
     def give_answer(self, answer):
         return answer.strip().lower() == self.chunk.strip().lower(), self.chunk.strip()
 
+    @staticmethod
     def _format_tree_string(self, tree_string):
         # remove the newlines and whitespace that comes with tree string
         return "".join(tree_string.split())
@@ -67,10 +69,15 @@ class QandA(models.Model):
     you might want to store the users actual answer.
     '''
 
+    class Meta:
+        verbose_name = _("QandA")
+        verbose_name_plural = _("QandAs")
+
     block = models.ForeignKey('Block', on_delete=models.CASCADE, null=True, related_name='qandas')
     question = models.ForeignKey(Question, on_delete=models.SET_NULL, null=True)
     answer = models.CharField(max_length=1024, default=None, null=True)
     answer_correct = models.BooleanField(null=True, default=None)
+    qanda_type = models.CharField(max_length=1024, default='explore')
 
     def __str__(self):
         return "QandA for session: {}, question: {}..., answer: {}".format(self.block.pk,
@@ -86,7 +93,7 @@ class Block(models.Model):
     '''
 
     # user = models.ForeignKey(User, on_delete=None)
-    block_type = models.CharField(max_length=1024)
+    # block_type = models.CharField(max_length=1024)
     # you could still keep this if you want to preserve the order between the blocks
     next_block = models.OneToOneField('Block', on_delete=models.SET_NULL, default=None, null=True)
     session = models.ForeignKey('Session', default=None, blank=True, null=True,
@@ -95,7 +102,7 @@ class Block(models.Model):
     @property
     def is_full(self):
         # Return true if there is no more space in the block for qandas
-        return len(self.all_qandas) == self.session.user_state.block_size
+        return len(self.all_qandas) == self.session.block_size
 
     # Return true if all answers are complete
     @property
@@ -128,6 +135,9 @@ class Block(models.Model):
         else:
             self.next_block.add_next_block(new_block)
 
+    def __str__(self):
+        return "Block: {}, for Session: {}, Complete: {}".format(self.pk, self.session.pk, self.is_complete)
+
 
 class Session(models.Model):
 
@@ -137,6 +147,16 @@ class Session(models.Model):
     # This should keep track of which policy it was used with.
     policy_id = models.IntegerField(default=None)
     session_size = models.IntegerField(default=2)
+    block_size = models.IntegerField(default=3)
+    split = models.FloatField(default=0.5, null=True, blank=True)
+
+    def increment_split(self, ratio):
+        self.split += ratio
+        # The split value should not go higher than one.
+        if self.split > 1:
+            self.split = 1
+        self.save()
+        return self.split
 
     @property
     def is_complete(self):
@@ -155,6 +175,9 @@ class Session(models.Model):
     def failed_qandas(self):
         return self.all_qandas.filter(answer_correct=False)
 
+    def __str__(self):
+        return "Session for {} using Policy #{}".format(self.user_state.user, self.policy_id)
+
 
 class UserState(models.Model):
     """
@@ -164,8 +187,8 @@ class UserState(models.Model):
     """
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    block_size = models.IntegerField(default=3)
-    current_policy_id = models.IntegerField(default=None, null=True, blank=True)
+
+    current_policy_id = models.IntegerField(default=1, null=True, blank=True)
     policy_ids = models.CharField(max_length=1024, default="123")
     current_session = models.OneToOneField(Session, default=None, blank=True, on_delete=models.SET_NULL,
                                            related_name='current_session', null=True)
@@ -221,6 +244,8 @@ class UserState(models.Model):
 
         # set the current session to null
         self.current_session = None
+        self.current_policy_id = 1
+        self.policy_ids = "123"
         self.save()
 
         # Delete all sessions
@@ -229,5 +254,5 @@ class UserState(models.Model):
             session.delete()
 
     def __str__(self):
-        return "User State Object for {}".format(self.user)
+        return "User State for {}".format(self.user)
 

@@ -1,4 +1,5 @@
 {% extends "lang_app/base.html" %}
+{% load lang_app_tags %}
 
 {% block main %}
 
@@ -22,7 +23,7 @@
 
                             <div class="form-group" style="display: inline-block;">
                               <label id='floating-label' for="answer-box" class="bmd-label-floating">{{ question_data.b }}</label>
-                              <input type="text" class="form-control" id="answer-box" name="user_answer" size="{{ question_data.b | length }}" autocomplete="off">
+                              <input type="text" class="form-control" id="answer-box" name="user_answer" size="{% get_longest_length question_number %}" autocomplete="off">
                               <span class="bmd-help">Translate into English</span>
                             </div>
 
@@ -34,7 +35,7 @@
 
                         <div style="display:inline-block;">
                         {% for lem_item in lem_items %}
-                            <div id="lem-{{ lem_item.lem }}" class="btn btn-outline-primary btn-sm" style="pointer-events: none;">{{ lem_item.lem }}</div>
+                            <div id="lem-{{ lem_item.id }}" class="btn btn-outline-primary btn-sm" style="pointer-events: none;">{{ lem_item.lem }}</div>
                           {% endfor %}
                         </div>
 
@@ -121,7 +122,14 @@
                 </div>
                 <div class="card-body">
 
-                    You have now completed this session. You can continue or keep going.
+                    Well done {{ user }}!
+                    You have now completed <strong>{{ session_number }} of 3</strong> sessions.
+
+                    {% if session_number == 3 %}
+                        <br>All sessions are now complete, thanks for taking part.
+                    {% else %}
+                        <br>You can logout and continue later or start the next session.
+                    {% endif %}
 
                     <div class="container">
                         <div class="row">
@@ -129,9 +137,11 @@
                                 <a href="{% url 'user_logout' %}" style="margin: 0 auto;">
                                   <button class="btn btn-primary btn-round" type="button">Logout</button>
                                 </a>
-                                <a href="{% url 'index' %}?next_session=True" style="margin: 0 auto;">
-                                  <button class="btn btn-primary btn-round" type="button">Start next session</button>
-                                </a>
+                                {% if session_number != 3 %}
+                                    <a href="{% url 'index' %}?next_session=True" style="margin: 0 auto;">
+                                      <button class="btn btn-primary btn-round" type="button">Start next session</button>
+                                    </a>
+                                {% endif %}
                         </div>
                     </div>
                 </div>

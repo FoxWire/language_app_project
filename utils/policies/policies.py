@@ -37,7 +37,7 @@ class Policy:
             # Create the new session
             new_session = user_state.create_session()
             # Create the new block for the session
-            new_block = Block.objects.create(session=new_session, block_type='explore')
+            new_block = Block.objects.create(session=new_session)
 
             # Fill up the new block with random qandas
             while not new_block.is_full:
@@ -60,9 +60,6 @@ class Policy:
             qs = Question.objects.all()
         return choice(list(qs))
 
-    def switch_policy(self):
-        pass
-
 
 class PolicyOne(Policy):
 
@@ -82,11 +79,11 @@ class PolicyOne(Policy):
         if user_state.current_session.current_block.is_complete:
 
             # Create a new block ...
-            new_block = Block.objects.create(session=user_state.current_session, block_type='explore')
+            new_block = Block.objects.create(session=user_state.current_session)
 
             # Fill up the new block with random qandas
             while not new_block.is_full:
-                QandA.objects.create(question=self.get_random(user_state), block=new_block)
+                QandA.objects.create(question=self.get_random(user_state), block=new_block, qanda_type='explore')
 
                 user_state.current_session.current_block = new_block
                 user_state.current_session.save()
@@ -101,7 +98,6 @@ class PolicyTwo(Policy):
     """
 
     def update_state(self, user_state, question_pk, answer, correct_bool):
-
         '''
         When you are creating a new block, you look at all the questions that they have failed in this session
         you find the next most similar question for each that hasn't already been asked and doesn't have the same sentence
@@ -122,7 +118,7 @@ class PolicyTwo(Policy):
         if user_state.current_session.current_block.is_complete:
 
             # Create a new block
-            new_block = Block.objects.create(session=user_state.current_session, block_type='explore')
+            new_block = Block.objects.create(session=user_state.current_session)
 
             # Get a list of all the questions that have been seen already
             seen_questions = [qanda.question for qanda in user_state.session_history]
@@ -139,15 +135,15 @@ class PolicyTwo(Policy):
                         next_question = Question.objects.get(pk=pk)
                         break
 
-                # If there is still space in the block, add the new quanda
+                # If there is space in the block, add the new quanda
                 if not new_block.is_full:
-                    QandA.objects.create(question=next_question, block=new_block)
+                    QandA.objects.create(question=next_question, block=new_block, qanda_type='exploit')
                 else:
                     break
 
             # If the block is not yet filled up, add some more random questions
             while not new_block.is_full:
-                QandA.objects.create(question=self.get_random(user_state), block=new_block)
+                QandA.objects.create(question=self.get_random(user_state), block=new_block, qanda_type='explore')
 
             user_state.current_session.current_block = new_block
             user_state.current_session.save()
@@ -178,12 +174,22 @@ class PolicyThree(Policy):
         # Check if the current block now complete after you added the answer
         if user_state.current_session.current_block.is_complete:
 
-            # Otherwise, you need to create the new block
+            # Get the previous exploit questions
+            exploit_previous = user_state.current_session.current_block.all_qandas.filter(qanda_type='exploit')
+            exploit_previous_correct = exploit_previous.filter(answer_correct=True)
+
+            # If they got them all right, increase split by 0.1, if only one wrong increase by 0.05
+            difference = abs(len(exploit_previous) - len(exploit_previous_correct))
+            split_val = 0.05
+            values = {0: 0.15, 1: 0.1}
+            if difference in values:
+                split_val = values[difference]
+            split = user_state.current_session.increment_split(split_val)
+            print('increment!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
             # The ratio between explore and exploit in the block
-            split = 0.5
-            explore_size = ceil(user_state.block_size * split)
-            exploit_size = user_state.block_size - explore_size
+            explore_size = ceil(user_state.current_session.block_size * split)
+            exploit_size = user_state.current_session.block_size - explore_size
 
             # Get the list of the pks to explore. This is just the list that represents the model
             model = self._get_model(user_state)
@@ -194,7 +200,7 @@ class PolicyThree(Policy):
             seen_questions = [qanda.question for qanda in seen_qandas]
 
             # make the block
-            new_block = Block.objects.create(session=user_state.current_session, block_type='explore')
+            new_block = Block.objects.create(session=user_state.current_session)
 
             '''
             To get the explore questions, you iterate over the model, looking for the first (most difficult)
@@ -204,7 +210,9 @@ class PolicyThree(Policy):
             for pk in model:
                 question = Question.objects.get(pk=pk)
                 if question not in seen_questions:
-                    explore_qandas.append(QandA.objects.create(question=question, block=new_block))
+                    explore_qandas.append(QandA.objects.create(question=question,
+                                                               block=new_block,
+                                                               qanda_type='explore'))
                 if len(explore_qandas) >= explore_size:
                     break
 
@@ -229,7 +237,9 @@ class PolicyThree(Policy):
                 for similar_pk in similar:
                     question = Question.objects.get(pk=similar_pk)
                     if question not in seen_questions:
-                        exploit_qandas.append(QandA.objects.create(question=question, block=new_block))
+                        exploit_qandas.append(QandA.objects.create(question=question,
+                                                                   block=new_block,
+                                                                   qanda_type='exploit'))
                         break
 
             user_state.current_session.current_block = new_block
