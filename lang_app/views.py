@@ -70,14 +70,34 @@ def index(request):
                 call_command('output_session', user_state.current_session.pk)
             else:
                 # Get the next question from the policy, passing in the user state
-                question = policy.get_question(user_state)
+                # question = policy.get_question(user_state)
+
+                question = Question.objects.get(pk=142)
+
+                lem_items = lem.lemmatize(question)
+
+                # Find any duplicate words in the lem items
+                lems = [lem_item['lem'].lower() for lem_item in lem_items]
+                duplicates = list(set([l for l in lems if lems.count(l) > 1]))
+
+                # For each of the possible words that corresponds to a duplicate, an extra tag must be added
+                # to differentiate them on client side.
+                for duplicate in duplicates:
+                    i = 0
+                    for lem_item in lem_items:
+                        if lem_item['lem'].lower() == duplicate:
+                            lem_item['possible_words'] = [possible_word.lower() + '_' + str(i) for possible_word in lem_item['possible_words']]
+                            i += 1
+
+                print(lem_items)
 
                 context = {
                     'question_number': question.pk,
                     'question_data': question.ask_question(),
-                    'lem_items': lem.lemmatize(question),
+                    'lem_items': lem_items,
                     'session_complete': user_state.current_session.is_complete,
                     'session_number': user_state.current_policy_id,
+                    'duplicate_lems': duplicates
                 }
 
         '''

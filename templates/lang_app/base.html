@@ -103,41 +103,133 @@
   <!--});-->
 */
 
-  /* One each keyboard press of the input box check if they have typed the correct */
+  /* On each keyboard press of the input box check if they have typed the correct */
 
-
+  // Create the two dictionaries that are needed
   var dict = {
     {% for lem_item in lem_items %}
-        "{{lem_item.id}}": ["{% remove_non_alpha lem_item.word %}", "{{lem_item.lem}}"],
+
+      {% for possible_word in lem_item.possible_words %}
+
+        "{% remove_non_alpha possible_word %}": "{{ lem_item.id }}",
+
+      {% endfor %}
+
+
     {% endfor %}
   };
+
+  var reverse_dict = {
+
+    {% for lem_item in lem_items %}
+
+    "{{ lem_item.id }}": [
+      {% for possible_word in lem_item.possible_words %}
+
+        "{% remove_non_alpha possible_word %}",
+
+      {% endfor %}
+    ],
+
+    {% endfor %}
+  };
+
+
+  var duplicate_lems = [
+    {% for duplicate in duplicate_lems %}
+      "{{ duplicate }}",
+    {% endfor %}
+  ];
 
   $('#answer-box').keypress(function(event){
 
     // read in the text from the input box
     var typed = $('#answer-box').val();
 
+    // remove n't and add space so that it is treated as seperate word
+    typed = typed.replace("n't", ' nt');
+
+    // now remove all other apostrophes and punctuation
+    typed = typed.replace(/[^\w\s]/g, '');
+
     // split it into words
     var words = typed.split(/[\s']+/);
 
-    console.log(dict);
+    // if the word ends with n't remove it from the word and add nt to the list of words
+    for (var i = 0; i < words.length; i++){
+      if (words[i].endsWith("n't")){
+        words[i].replace("n't", '');
+        words.push('nt');
+      }
+      // make all words lower case
+      words[i] = words[i].toLowerCase();
+    }
 
 
+    // Before you change the colour, you need to check if there are any duplicates
+    var dup = 0;
+    for (var i = 0; i < words.length; i++){
+      if (duplicate_lems.includes(words[i])){
+        words[i] = words[i] + '_' + dup;
+        dup ++;
+      }
+    }
+
+    // Iterate over the words, if the word in the dict, change colour
+    for (var i = 0; i < words.length; i++){
+
+      if (words[i] in dict){
+        $('#lem-' + dict[words[i]][0]).attr('class', 'btn btn-outline-success btn-sm');
+      }
+    }
+
+
+
+
+    /*
+    // iterate over the first dict
     for (var key in dict){
-      if (words.includes(dict[key][0])){
-        $('#lem-' + key).attr('class', 'btn btn-outline-success btn-sm');
-      } else {
+      console.log(key);
+
+      // if the key is in the words
+      if (words.includes(key)){
+
+        // change the colour
+        $('#lem-' + dict[key]).attr('class', 'btn btn-outline-success btn-sm');
+
+        // now you need to remove that word from the words list
+        for (var i = 0; i < words.length; i++){
+          if (words[i] === key){
+            words.splice(i, 1);
+            break;
+          }
+
+
+
+        }
+
+      }
+    }
+    */
+
+
+
+
+    // iterate over the reverse dict, if none of the words for an id are in the words
+    // turn off the id
+
+    for (var key in reverse_dict){
+      var found = reverse_dict[key].some(r=> words.includes(r));
+
+      if (!(found)){
         $('#lem-' + key).attr('class', 'btn btn-outline-primary btn-sm');
       }
 
-      // Remove the word from the words list
-      for (var i = 0; i < words.length; i++){
-        if (words[i] === dict[key][1]){
-          words.splice(i, 1);
-          break;
-        }
-      }
     }
+
+
+
+
   });
 
   </script>

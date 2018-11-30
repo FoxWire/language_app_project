@@ -17,4 +17,4 @@ def get_longest_length(question_pk):
 # This is needed for the java script hint updater.
 @register.simple_tag
 def remove_non_alpha(lem_string):
-    return re.sub(r'[\W^-]', '', lem_string)
+    return re.sub(r'[\']', '', lem_string)

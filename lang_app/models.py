@@ -2,6 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 # from utils.policies.Polices import PolicyOne, PolicyTwo, PolicyThree
+import re
+
+verb_tags = {'MD', 'VB', 'VBD', 'VBG', 'VBN', 'VBP'}
 
 
 class Sentence(models.Model):
@@ -9,6 +12,15 @@ class Sentence(models.Model):
     sentence = models.CharField(max_length=1024, unique=True)
     sentence_tree_string = models.CharField(max_length=1024, default=None)
     uncommon_words_score = models.IntegerField(default=0)
+
+    @property
+    def verbs(self):
+        # Returns all the verbs in this sentence
+
+        results = re.findall(r'\([A-Z]+ [A-Za-z\']+\)', self.sentence_tree_string)
+        results = [result[1:-1].split(' ') for result in results]
+        verbs = [result[1] for result in results if result[0] in verb_tags]
+        return [verb.lower() for verb in verbs]
 
     def __str__(self):
         return self.sentence
@@ -49,8 +61,15 @@ class Question(models.Model):
 
         return data
 
-    def give_answer(self, answer):
-        return answer.strip().lower() == self.chunk.strip().lower(), self.chunk.strip()
+    def give_answer(self, user_answer):
+        user_answer = user_answer.strip().lower()
+        chunk = self.chunk.strip().lower()
+
+        regex = r'[^\w\s]'
+        user_answer = re.sub(regex, '', user_answer)
+        chunk = re.sub(regex, '', chunk)
+
+        return user_answer == chunk, self.chunk.strip()
 
     @staticmethod
     def _format_tree_string(self, tree_string):
@@ -173,6 +192,7 @@ class Session(models.Model):
 
     @property
     def failed_qandas(self):
+        # Returns all the wrong answers for this session so far.
         return self.all_qandas.filter(answer_correct=False)
 
     def __str__(self):

@@ -3,19 +3,19 @@ from utils.matrix_wrapper import MatrixWrapper
 from random import choice, randint, shuffle
 from math import ceil
 
-# matrix = MatrixWrapper()
+matrix = MatrixWrapper()
 
 
 # Just returns some random pks, for testing
 class DummyMatrix:
 
-    def get_similar_pks(self, pk):
+    def get_similar_question_pks(self, pk):
         pks = [q.pk for q in Question.objects.all()]
         shuffle(pks)
         return pks
 
 
-matrix = DummyMatrix()
+# matrix = DummyMatrix()
 
 
 # Abstract class
@@ -95,6 +95,8 @@ class PolicyTwo(Policy):
     similar questions to ones that were previously failed (answered wrongly). It will attempt
     to fill the block with as many of these as possible and add random questions if there are
     not enough.
+
+    For each block, it will consider all of the failed questions for the session so far.
     """
 
     def update_state(self, user_state, question_pk, answer, correct_bool):
@@ -128,12 +130,21 @@ class PolicyTwo(Policy):
                 # For each of the failed qandas, find the next most similar question that doesn't have the same
                 # sentence and hasn't been see already. The default is a random question
                 next_question = self.get_random(user_state)
-                for pk in matrix.get_similar_pks(failed_qanda.pk):
+                for pk in matrix.get_similar_question_pks(failed_qanda.question.pk):
                     question = Question.objects.get(pk=pk)
 
-                    if question.sentence is not failed_qanda.question.sentence and question not in seen_questions:
-                        next_question = Question.objects.get(pk=pk)
+                    if question.sentence != failed_qanda.question.sentence and question not in seen_questions:
+                        next_question = question
+                        seen_questions.append(next_question)
                         break
+
+                '''
+                I don't know if I should shuffle the list of canditate questions here. At the moment, it will 
+                just find the next most similar cards to the same ones that you got wrong at the start. 
+                
+                OR do you want it to only look at the wrong questions from the previous block? and fill up the rest with 
+                randoms?
+                '''
 
                 # If there is space in the block, add the new quanda
                 if not new_block.is_full:
@@ -185,7 +196,6 @@ class PolicyThree(Policy):
             if difference in values:
                 split_val = values[difference]
             split = user_state.current_session.increment_split(split_val)
-            print('increment!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
 
             # The ratio between explore and exploit in the block
             explore_size = ceil(user_state.current_session.block_size * split)
@@ -225,7 +235,13 @@ class PolicyThree(Policy):
             '''
 
             # Create a list of the wrong questions and their postions within the model
-            tuples = ((wrong_q.question.pk, model.index(wrong_q.question.pk)) for wrong_q in wrong_qandas)
+            # tuples = [(wrong_q.question.pk, model.index(wrong_q.question.pk)) for wrong_q in wrong_qandas]
+
+            tuples = []
+            for wrong_q in wrong_qandas:
+                a = wrong_q.question.pk
+                b = model.index(wrong_q.question.pk)
+                tuples.append((a, b))
 
             # sort these on the position to get the highest pks
             tuples = sorted(tuples, key=lambda y: y[1])
@@ -233,7 +249,7 @@ class PolicyThree(Policy):
             exploit_qandas = []
             for tup in tuples[:exploit_size]:
                 pk = tup[0]
-                similar = matrix.get_similar_pks(pk)
+                similar = matrix.get_similar_question_pks(pk)
                 for similar_pk in similar:
                     question = Question.objects.get(pk=similar_pk)
                     if question not in seen_questions:
@@ -267,7 +283,7 @@ class PolicyThree(Policy):
         # For each qanda object in this sitting, get the comparison values for the questions with right answers
         value_lists = []
         for qanda in user_state.session_history:
-            values = matrix.get_similar_pks(qanda.question.pk)
+            values = matrix.get_similar_question_pks(qanda.question.pk)
             # If they got the answer correct, reverse the list
             if qanda.answer_correct:
                 values = reversed(values)

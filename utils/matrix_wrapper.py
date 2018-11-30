@@ -65,8 +65,29 @@ class MatrixWrapper:
         a, b = self.matrix.shape
         return self.matrix[x][y] if x < a and x < b and y < a and y < b else None
 
-    def get_similar_(self, row):
-        return self.matrix[row]
+    def get_row(self, pk):
+        return self.matrix[pk - 1]
+
+    def get_similar_question_pks(self, pk):
+
+        """
+        For the pk passed in get a list of all other question pk, sorted in the order of
+        similarity to pk passed in.
+        :param pk:
+        :return:
+        """
+        size = self.matrix.shape[0]
+
+        # Get list of tuples with matrix indexes and comparison values for all other questions
+        # NOTE: why i + 1 here? You need to return a list of pks not of indices in for the matrix
+
+        pks = [(i + 1, self.get_value(pk - 1, i)) for i in range(size)]
+
+        # sort on comparison value
+        sorted_values = sorted(pks, key=lambda y: y[1])
+
+        # remove the values and remove the first value, ie the comparison to its self
+        return [tup[0] for tup in sorted_values][1:]
 
     def get_matrix(self):
         return self.matrix
@@ -74,27 +95,35 @@ class MatrixWrapper:
 
 if __name__ == "__main__":
     m = MatrixWrapper()
-    # print(m.matrix.shape)
 
+    # comp = TreeComparer()
+    #
+    # size = m.matrix.shape[0] - 1
+    # # Now compose a proper test for the 10 matrix
+    # randnums = [(randint(0, size), randint(0, size)) for x in range(10000)]
+    #
+    # correct = 0
+    # for a, b in randnums:
+    #     result = m.get_value(a, b)
+    #     x = comp.compare(Question.objects.get(pk=a + 1), Question.objects.get(pk=b + 1))
+    #     # print(result, x, result == x)
+    #     if result == x:
+    #         correct += 1
+    #
+    # print("{} correct out of 1000".format(correct))
 
-    comp = TreeComparer()
+    # nums = [x for x in range(1, 1265)]
+    #
+    # counter = 0
+    # for i in range(1, 1265):
+    #     row = m.get_similar_pks(i)
+    #     sorted_row = sorted(row)
+    #     if sorted_row == nums:
+    #         counter += 1
+    #
+    # print(counter)
 
-    size = m.matrix.shape[0] - 1
-    # Now compose a proper test for the 10 matrix
-    randnums = [(randint(0, size), randint(0, size)) for x in range(1000)]
-
-    correct = 0
-    wrong = 0
-    for a, b in randnums:
-        result = m.get_value(a, b)
-        x = comp.compare(Question.objects.get(pk=a + 1), Question.objects.get(pk=b + 1))
-        # print(result, x, result == x)
-        if result == x:
-            correct += 1
-        else:
-            wrong += 1
-
-    print("{} correct out of 1000".format(correct))
-    print("{} wrong out of 1000".format(wrong))
+    x = m.get_similar_question_pks(1)
+    # print(len(x))
 
 
