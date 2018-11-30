@@ -108,14 +108,9 @@
   // Create the two dictionaries that are needed
   var dict = {
     {% for lem_item in lem_items %}
-
       {% for possible_word in lem_item.possible_words %}
-
         "{% remove_non_alpha possible_word %}": "{{ lem_item.id }}",
-
       {% endfor %}
-
-
     {% endfor %}
   };
 
@@ -124,11 +119,7 @@
     {% for lem_item in lem_items %}
 
     "{{ lem_item.id }}": [
-      {% for possible_word in lem_item.possible_words %}
-
-        "{% remove_non_alpha possible_word %}",
-
-      {% endfor %}
+      {% for possible_word in lem_item.possible_words %}"{% remove_non_alpha possible_word %}",{% endfor %}
     ],
 
     {% endfor %}
@@ -150,7 +141,12 @@
     typed = typed.replace("n't", ' nt');
 
     // now remove all other apostrophes and punctuation
-    typed = typed.replace(/[^\w\s]/g, '');
+   // typed = typed.replace(/[^\w\s]/g, '');
+
+   /*
+   I don't know if I need this or not^^^ apart from nt you want to keep the apostrophes because
+   you are going to split on it next.
+   */
 
     // split it into words
     var words = typed.split(/[\s']+/);
@@ -164,7 +160,6 @@
       // make all words lower case
       words[i] = words[i].toLowerCase();
     }
-
 
     // Before you change the colour, you need to check if there are any duplicates
     var dup = 0;

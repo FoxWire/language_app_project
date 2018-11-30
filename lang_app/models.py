@@ -160,7 +160,7 @@ class Block(models.Model):
 
 class Session(models.Model):
 
-    user_state = models.ForeignKey('UserState', on_delete=None)
+    user_state = models.ForeignKey('UserState', on_delete=None, null=True, blank=True)
     current_block = models.OneToOneField(Block, default=None, blank=True, on_delete=models.SET_NULL,
                                          related_name='current_block', null=True)
     # This should keep track of which policy it was used with.
@@ -206,8 +206,7 @@ class UserState(models.Model):
     over to the next one.
     """
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-
+    user = models.OneToOneField(User, on_delete=None, null=True, blank=True)
     current_policy_id = models.IntegerField(default=1, null=True, blank=True)
     policy_ids = models.CharField(max_length=1024, default="123")
     current_session = models.OneToOneField(Session, default=None, blank=True, on_delete=models.SET_NULL,

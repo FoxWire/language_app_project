@@ -14,8 +14,6 @@ from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.core.management import call_command
-from lang_app.management.commands import output_session
-
 
 
 # picker = Picker()
@@ -74,13 +72,19 @@ def index(request):
 
                 lem_items = lem.lemmatize(question)
 
-                # Find any duplicate words in the lem items
+                # Get a list of the word stems that occur more than once in the sentence chunk
                 lems = [lem_item['lem'].lower() for lem_item in lem_items]
-                duplicates = list(set([l for l in lems if lems.count(l) > 1]))
+                duplicate_stems = list(set([l for l in lems if lems.count(l) > 1]))
+
+                # Create a list of all the possible words that could be duplicated
+                all_duplicates = [d for d in duplicate_stems]
+                for l in lem_items:
+                    if l['lem'] in all_duplicates:
+                        all_duplicates += l['possible_words']
 
                 # For each of the possible words that corresponds to a duplicate, an extra tag must be added
                 # to differentiate them on client side.
-                for duplicate in duplicates:
+                for duplicate in duplicate_stems:
                     i = 0
                     for lem_item in lem_items:
                         if lem_item['lem'].lower() == duplicate:
@@ -93,7 +97,7 @@ def index(request):
                     'lem_items': lem_items,
                     'session_complete': user_state.current_session.is_complete,
                     'session_number': user_state.current_policy_id,
-                    'duplicate_lems': duplicates
+                    'duplicate_lems': all_duplicates
                 }
 
         '''

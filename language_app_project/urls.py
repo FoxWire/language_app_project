@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from registration.backends.simple.views import RegistrationView
 from lang_app.models import UserState
+from django.contrib.auth import authenticate, login
 
 
 class MyRegistrationView(RegistrationView):
@@ -36,6 +37,15 @@ class MyRegistrationView(RegistrationView):
     def register(self, form):
         if form.is_valid():
             user = form.save()
+
+            username_field = getattr(user, 'USERNAME_FIELD', 'username')
+            user = authenticate(
+                username=getattr(user, username_field),
+                password=form.cleaned_data['password1']
+            )
+
+            login(self.request, user)
+
             user.save()
             user_state = UserState(user=user)
             user_state.save()
