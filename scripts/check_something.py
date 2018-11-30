@@ -14,9 +14,9 @@ from utils.matrix_wrapper import MatrixWrapper
 from tqdm import tqdm
 
 
-for question in Question.objects.all():
-    if '106' in question.chunk:
-        print(question.sentence, question.pk)
+# s = Session.objects.get(pk=67)
+user_state = UserState.objects.all()[0]
+print(user_state.current_session.failed_qandas)
 
 
 

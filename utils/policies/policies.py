@@ -51,10 +51,17 @@ class Policy:
     def update_state(self, user_state, question_pk, answer, correct_bool): pass
 
     @staticmethod
-    def get_random(user_state):
-        # This will return a random question /qanda that hasn't been asked yet in this session
+    def get_random(user_state, exclude_pks=None):
+        """
+        Gets a random question that hasn't been seen in the current session.
+        Optional exclude can be used to further questions to be excluded
+        :param user_state:
+        :param exclude:
+        :return:
+        """
         if user_state.current_session:
             seen_pks = [qanda.question.pk for qanda in user_state.session_history]
+            seen_pks = seen_pks + exclude_pks if exclude_pks else seen_pks
             qs = Question.objects.exclude(pk__in=seen_pks)
         else:
             qs = Question.objects.all()
@@ -73,10 +80,7 @@ class PolicyOne(Policy):
         # Update with the answer from the user
         user_state.current_session.current_block.add_answer(question_pk, answer, correct_bool)
 
-        if user_state.current_session.is_complete:
-            return
-
-        if user_state.current_session.current_block.is_complete:
+        if user_state.current_session.current_block.is_complete and not user_state.current_session.is_complete:
 
             # Create a new block ...
             new_block = Block.objects.create(session=user_state.current_session)
@@ -114,10 +118,7 @@ class PolicyTwo(Policy):
         # Update with the answer from the user
         user_state.current_session.current_block.add_answer(question_pk, answer, correct_bool)
 
-        if user_state.current_session.is_complete:
-            return
-
-        if user_state.current_session.current_block.is_complete:
+        if user_state.current_session.current_block.is_complete and not user_state.current_session.is_complete:
 
             # Create a new block
             new_block = Block.objects.create(session=user_state.current_session)
@@ -167,6 +168,14 @@ class PolicyThree(Policy):
     questions based on all of the answers given so far.
     Each block will consist of an explore and exploit phase and the focus will shift from
     more explore to more exploit over the course of the session.
+
+    Rejig: after the initial set of random questions, this policy will look at all the questions that you have got wrong so
+    far in this session and find the next most similar one that hasn't already been asked and doesn't have the same sentence to
+    the one that was failed. It will fill up the block based on that and then fill the rest up with random questions
+    The ratio will be determined by the number of right and wrong answers in the previous block. If they got more right, then
+    we'll let them explore some more before exploiting.
+
+
     """
     def update_state(self, user_state, question_pk, answer, correct_bool):
         '''
@@ -179,127 +188,78 @@ class PolicyThree(Policy):
         # There will always be an answer passed in here. Update the answer
         user_state.current_session.current_block.add_answer(question_pk, answer, correct_bool)
 
-        if user_state.current_session.is_complete:
-            return
+        # Check if the current block is now complete after having added the answer
+        if user_state.current_session.current_block.is_complete and not user_state.current_session.is_complete:
 
-        # Check if the current block now complete after you added the answer
-        if user_state.current_session.current_block.is_complete:
+            # Get the failed questions so far
+            failed_qandas = [q for q in user_state.current_session.failed_qandas]
 
-            # Get the previous exploit questions
-            exploit_previous = user_state.current_session.current_block.all_qandas.filter(qanda_type='exploit')
-            exploit_previous_correct = exploit_previous.filter(answer_correct=True)
+            # Get a list of the questions that have been seen already
+            seen_questions = [qanda.question for qanda in user_state.session_history]
+            shuffle(failed_qandas)
 
-            # If they got them all right, increase split by 0.1, if only one wrong increase by 0.05
-            difference = abs(len(exploit_previous) - len(exploit_previous_correct))
-            split_val = 0.05
-            values = {0: 0.15, 1: 0.1}
-            if difference in values:
-                split_val = values[difference]
-            split = user_state.current_session.increment_split(split_val)
+            # Set default values for the number of explore and exploit questions in next block
+            exploit_size = 0
+            explore_size = user_state.current_session.block_size
 
-            # The ratio between explore and exploit in the block
-            explore_size = ceil(user_state.current_session.block_size * split)
-            exploit_size = user_state.current_session.block_size - explore_size
+            # If they have previously failed some questions, adjust the ratios
+            if failed_qandas:
 
-            # Get the list of the pks to explore. This is just the list that represents the model
-            model = self._get_model(user_state)
+                # Get the previous exploit questions for the current (completed) block
+                exploit_previous = user_state.current_session.current_block.all_qandas.filter(qanda_type='exploit')
+                exploit_previous_correct = exploit_previous.filter(answer_correct=True)
 
-            # Get the all the wrongly answered questions
-            wrong_qandas = user_state.session_history.filter(answer_correct=False)
-            seen_qandas = user_state.session_history.all()
-            seen_questions = [qanda.question for qanda in seen_qandas]
+                # If they get them all right, increase by 0.15, one wrong, 0.1 everything else 0.05
+                difference = abs(len(exploit_previous) - len(exploit_previous_correct))
+                split_val = 0.05
+                values = {0: 0.15, 1: 0.1}
+                if difference in values:
+                    split_val = values[difference]
+                split = user_state.current_session.increment_split(split_val)
+
+                # The ratio between explore and exploit in the block
+                explore_size = ceil(user_state.current_session.block_size * split)
+                exploit_size = user_state.current_session.block_size - explore_size
 
             # make the block
             new_block = Block.objects.create(session=user_state.current_session)
 
-            '''
-            To get the explore questions, you iterate over the model, looking for the first (most difficult)
-            questions that haven't been seen yet. 
-            '''
-            explore_qandas = []
-            for pk in model:
-                question = Question.objects.get(pk=pk)
-                if question not in seen_questions:
-                    explore_qandas.append(QandA.objects.create(question=question,
-                                                               block=new_block,
-                                                               qanda_type='explore'))
-                if len(explore_qandas) >= explore_size:
+            exploit_questions, explore_questions = [], []
+
+            # If you don't get enough in the first run here, it will just keep iterating over the failed questions
+            # because the new ones are added to the seen questions, they won't be repeated lots of times.
+            while len(exploit_questions) < exploit_size:
+
+                next_question = None
+
+                # Find the next question
+                for failed_qanda in failed_qandas:
+
+                    # For each of the failed qandas, find the next question and add it to the list
+                    for pk in matrix.get_similar_question_pks(failed_qanda.question.pk):
+                        question = Question.objects.get(pk=pk)
+
+                        if question.sentence != failed_qanda.question.sentence and question not in seen_questions:
+                            next_question = question
+                            break
                     break
 
-            '''
-            To get the exploit questions. There might be a lot of wrong questions, you need to pick which ones are 
-            most worthwhile for the learner to see. Look at all the questions that they have got wrong so far 
-            and find out which ones are most difficult according to the model. 
-            For each of these, you can then find the similar questions that haven't been seen yet 
-            and put them into the block.
-            '''
+                exploit_questions.append(next_question)
+                seen_questions.append(next_question)
 
-            # Create a list of the wrong questions and their postions within the model
-            # tuples = [(wrong_q.question.pk, model.index(wrong_q.question.pk)) for wrong_q in wrong_qandas]
+            # fill up the explore questions with random questions that haven't been seen already and weren't just picked
+            while len(explore_questions) < explore_size:
+                explore_questions.append(self.get_random(user_state, exclude_pks=[q.pk for q in seen_questions]))
 
-            tuples = []
-            for wrong_q in wrong_qandas:
-                a = wrong_q.question.pk
-                b = model.index(wrong_q.question.pk)
-                tuples.append((a, b))
+            # Create the qandas
+            for question in exploit_questions:
+                QandA.objects.create(question=question, block=new_block, qanda_type='exploit')
 
-            # sort these on the position to get the highest pks
-            tuples = sorted(tuples, key=lambda y: y[1])
-
-            exploit_qandas = []
-            for tup in tuples[:exploit_size]:
-                pk = tup[0]
-                similar = matrix.get_similar_question_pks(pk)
-                for similar_pk in similar:
-                    question = Question.objects.get(pk=similar_pk)
-                    if question not in seen_questions:
-                        exploit_qandas.append(QandA.objects.create(question=question,
-                                                                   block=new_block,
-                                                                   qanda_type='exploit'))
-                        break
+            for question in explore_questions:
+                QandA.objects.create(question=question, block=new_block, qanda_type='explore')
 
             user_state.current_session.current_block = new_block
             user_state.current_session.save()
-
-    @staticmethod
-    def _get_model(user_state):
-
-        '''
-        This function creates a basic model to allow for some prediction. It starts by getting the
-        history of all of the right and wrong answers from the sitting (current test, collection of sessions)
-        and gets the comparisons from the matrix based on the pk of the question. If the questions was answered correctly
-        the order of the values is reversed.
-        Then a dict is created that keeps track of the comparison scores and and the total of their indices in the lists
-        Then the questions are sorted by the score that is assigned to it.
-
-        You might also need to filter out the questions that have already been seen and the questions
-        with the same sentences that have already been seen?
-
-        you might want to use numpy here to make this faster, you are dealing with big arrays.
-        :param user_state:
-        :return: a list of all the question pk, sorted from hardest to easiest
-        '''
-
-        # For each qanda object in this sitting, get the comparison values for the questions with right answers
-        value_lists = []
-        for qanda in user_state.session_history:
-            values = matrix.get_similar_question_pks(qanda.question.pk)
-            # If they got the answer correct, reverse the list
-            if qanda.answer_correct:
-                values = reversed(values)
-
-            value_lists.append(values)
-
-        # create the scores
-        scores = {}
-        for i, values in enumerate(zip(*value_lists)):
-
-            for comparison_value in values:
-                scores[comparison_value] = i if comparison_value not in scores else scores[comparison_value] + i
-
-        tuples = [(key, val) for key, val in scores.items()]
-        tuples = sorted(tuples, key=lambda x: x[1])
-        return [pk for pk, val in tuples]
 
 
 

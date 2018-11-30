@@ -70,9 +70,7 @@ def index(request):
                 call_command('output_session', user_state.current_session.pk)
             else:
                 # Get the next question from the policy, passing in the user state
-                # question = policy.get_question(user_state)
-
-                question = Question.objects.get(pk=142)
+                question = policy.get_question(user_state)
 
                 lem_items = lem.lemmatize(question)
 
@@ -88,8 +86,6 @@ def index(request):
                         if lem_item['lem'].lower() == duplicate:
                             lem_item['possible_words'] = [possible_word.lower() + '_' + str(i) for possible_word in lem_item['possible_words']]
                             i += 1
-
-                print(lem_items)
 
                 context = {
                     'question_number': question.pk,

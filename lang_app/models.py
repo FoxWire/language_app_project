@@ -166,7 +166,7 @@ class Session(models.Model):
     # This should keep track of which policy it was used with.
     policy_id = models.IntegerField(default=None)
     session_size = models.IntegerField(default=2)
-    block_size = models.IntegerField(default=3)
+    block_size = models.IntegerField(default=7)
     split = models.FloatField(default=0.5, null=True, blank=True)
 
     def increment_split(self, ratio):
