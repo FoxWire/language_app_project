@@ -141,7 +141,7 @@
     {% endfor %}
   ];
 
-  $('#answer-box').keypress(function(event){
+  $('#answer-box').keyup(function(event){
 
     // read in the text from the input box
     var typed = $('#answer-box').val();
