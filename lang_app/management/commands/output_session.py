@@ -4,6 +4,7 @@ from lang_app.models import UserState, Session, Block, QandA
 import json
 from django.conf import settings
 import os
+import datetime
 
 
 class Command(BaseCommand):
@@ -25,6 +26,7 @@ class Command(BaseCommand):
 
         session_data = {
             'user_name': user_name,
+            'session_complete_time': str(datetime.datetime.now()),
             'session_pk': session.pk,
             'session_size': session.session_size,
             'block_size': session.block_size,

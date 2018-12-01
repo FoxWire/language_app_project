@@ -9,13 +9,14 @@ django.setup()
 from lang_app.models import Question, Block, Session, UserState, Sentence
 from utils.policies.policies import PolicyOne, PolicyTwo, PolicyThree
 import re
-from random import randint
+from random import randint, shuffle
 from utils.matrix_wrapper import MatrixWrapper
 from tqdm import tqdm
 
 from django.contrib.auth.models import User
-# Find the question with chunk
 
-user = User.objects.get(username='userone')
-user.delete()
 
+
+import datetime
+
+print(datetime.datetime.now())

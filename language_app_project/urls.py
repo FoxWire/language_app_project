@@ -22,6 +22,7 @@ from django.conf import settings
 from registration.backends.simple.views import RegistrationView
 from lang_app.models import UserState
 from django.contrib.auth import authenticate, login
+from random import shuffle
 
 
 class MyRegistrationView(RegistrationView):
@@ -48,6 +49,12 @@ class MyRegistrationView(RegistrationView):
 
             user.save()
             user_state = UserState(user=user)
+
+            # Randomise the order of the policies
+            policy_ids = [policy_id for policy_id in user_state.policy_ids]
+            shuffle(policy_ids)
+            policy_ids = "".join(policy_ids)
+            user_state.policy_ids = policy_ids
             user_state.save()
             return user
 
