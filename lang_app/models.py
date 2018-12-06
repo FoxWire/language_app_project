@@ -135,7 +135,7 @@ class Block(models.Model):
 
     # Add the answer to the question
     def add_answer(self, question_pk, answer, correct_bool):
-        qanda = QandA.objects.get(question__pk=question_pk)
+        qanda = QandA.objects.get(question__pk=question_pk, block=self)
         qanda.answer = answer
         qanda.answer_correct = correct_bool
         qanda.save()

@@ -1,0 +1,400 @@
+{
+    "user_name": "Susanna",
+    "session_complete_time": "2018-12-04 18:54:19.209236",
+    "session_pk": 5,
+    "session_size": 6,
+    "block_size": 6,
+    "policy_id": 1,
+    "block_data": [
+        {
+            "block_id": 10,
+            "qanda_data": [
+                {
+                    "qanda_pk": 57,
+                    "question_pk": 1116,
+                    "question": "It's not going to happen to everybody.",
+                    "chunk": "to happen to everybody",
+                    "chunk_translation": "jedem passieren",
+                    "answer": "to happen to everybody",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 58,
+                    "question_pk": 700,
+                    "question": "The boys said the movement was just the wind and wanted to keep going, but I went over and saw the head and hooves of a lamb coming out of her body.",
+                    "chunk": "was just the wind ",
+                    "chunk_translation": "war nur der Wind",
+                    "answer": "was just the wind",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 59,
+                    "question_pk": 723,
+                    "question": "The boys were really uncertain  they felt nature should take its course  and Becky went very quiet.",
+                    "chunk": "nature should take its course  ",
+                    "chunk_translation": "Die Natur sollte ihren Lauf nehmen",
+                    "answer": "nature should take its course",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 60,
+                    "question_pk": 1171,
+                    "question": "(My own background is in communications and public relations.)",
+                    "chunk": "in communications and public relations",
+                    "chunk_translation": "in der Kommunikation und \u00d6ffentlichkeitsarbeit",
+                    "answer": "in communication and public relation",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 61,
+                    "question_pk": 220,
+                    "question": "My roommate said I should post them online  I did the first one at 4am, and by the time I woke up, it was everywhere.",
+                    "chunk": "by the time ",
+                    "chunk_translation": "Zu der Zeit",
+                    "answer": "by the time",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 62,
+                    "question_pk": 372,
+                    "question": "My next memory is Gordon giving me a hug and a sloppy kiss and saying, Rhianna, I've never been so pleased to see you!",
+                    "chunk": "been so pleased to see you",
+                    "chunk_translation": "Ich habe mich sehr gefreut, dich zu sehen",
+                    "answer": "been so pleased to see you",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 15,
+            "qanda_data": [
+                {
+                    "qanda_pk": 87,
+                    "question_pk": 337,
+                    "question": "In our training as ski reps, we had been told that if someone is buried in an avalanche, after about 11 minutes you're looking for a corpse.",
+                    "chunk": "about 11 minutes ",
+                    "chunk_translation": "ungef\u00e4hr 11 Minuten",
+                    "answer": "about 11 minutes",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 88,
+                    "question_pk": 396,
+                    "question": "After 36 hours in hospital, I flew home to England and within a week I was back in Ischgl to finish the ski season.",
+                    "chunk": "within a week ",
+                    "chunk_translation": "innerhalb einer Woche",
+                    "answer": "within a week",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 89,
+                    "question_pk": 295,
+                    "question": "I later found out that our collision had caused an avalanche that had carried me along for about 150 metres.",
+                    "chunk": "carried me along for about 150 metres",
+                    "chunk_translation": "trug mich etwa 150 Meter mit",
+                    "answer": "carried me along for about 150 metres",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 90,
+                    "question_pk": 782,
+                    "question": "She gave it a lick and the lamb slowly got to its wobbly feet.",
+                    "chunk": "the lamb slowly ",
+                    "chunk_translation": "das Lamm langsam",
+                    "answer": "the lamb slowly",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 91,
+                    "question_pk": 882,
+                    "question": "All the experts we were calling told us the safe was airtight and he was going to die.",
+                    "chunk": "All the experts ",
+                    "chunk_translation": "Alle Experten",
+                    "answer": "All the experts",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 92,
+                    "question_pk": 612,
+                    "question": "I'd copy my friend's work; he knew something was wrong, so let me.",
+                    "chunk": "he knew something was wrong, so let me",
+                    "chunk_translation": "Er wusste, dass etwas nicht stimmte, also lass mich",
+                    "answer": "he knew something was wrong so let me",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 18,
+            "qanda_data": [
+                {
+                    "qanda_pk": 105,
+                    "question_pk": 348,
+                    "question": "I was thinking of the summer I had planned with my sister, and my last thought was, That's a shame.",
+                    "chunk": "my last thought was, That's a shame",
+                    "chunk_translation": "Mein letzter Gedanke war: Das ist eine Schande",
+                    "answer": "my last thought was that's a shame",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 106,
+                    "question_pk": 975,
+                    "question": "He had a cuddle with his tearful mother, a checkup from the doctor, and then went for a shower  he was sweaty and his clothes were wet from breathing in that tiny space for so long.",
+                    "chunk": "a shower  ",
+                    "chunk_translation": "eine Dusche",
+                    "answer": "a shower",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 107,
+                    "question_pk": 629,
+                    "question": "I came out in my late 20s, but still couldn't bring myself to tell anyone about the reading and writing.",
+                    "chunk": "tell anyone about the reading and writing",
+                    "chunk_translation": "erz\u00e4hle irgendjemandem vom Lesen und Schreiben",
+                    "answer": "tell anyone about the reading and writing",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 108,
+                    "question_pk": 793,
+                    "question": "When we got home, I put the coat straight in a hot wash.",
+                    "chunk": "put the coat straight in a hot wash",
+                    "chunk_translation": "Legen Sie den Mantel gerade in eine hei\u00dfe W\u00e4sche",
+                    "answer": "put the coat straight in a hot wash",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 109,
+                    "question_pk": 1265,
+                    "question": "The fact that others now have the freedom to make that choice is something I'm very proud of.",
+                    "chunk": "have the freedom to make that choice ",
+                    "chunk_translation": "habe die Freiheit, diese Wahl zu treffen",
+                    "answer": "have the freedom to make that choice",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 110,
+                    "question_pk": 990,
+                    "question": "My husband and I were excited as the cruise ship pulled into its final stop, a small port in Mexico, in April 2016.",
+                    "chunk": "My husband and I ",
+                    "chunk_translation": "Mein Mann und ich",
+                    "answer": "My husband and I",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 19,
+            "qanda_data": [
+                {
+                    "qanda_pk": 111,
+                    "question_pk": 1251,
+                    "question": "Commercial devices similar to ours are now being trialled and gradually coming on to the market: we're happy to be helping companies to speed up development.",
+                    "chunk": "to speed up development",
+                    "chunk_translation": "um die Entwicklung zu beschleunigen",
+                    "answer": "to speed up development",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 112,
+                    "question_pk": 249,
+                    "question": "It's important to show the world amputees who are happy and continuing with their lives, although I was self-conscious in the early days, especially when people would draw their kids away from me.",
+                    "chunk": "who are happy and continuing with their lives",
+                    "chunk_translation": "die gl\u00fccklich sind und mit ihrem Leben weitermachen",
+                    "answer": "who are happy and continue with their lives",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 113,
+                    "question_pk": 228,
+                    "question": "Now, I dance in a different way.",
+                    "chunk": "dance in a different way",
+                    "chunk_translation": "Tanz auf eine andere Art und Weise",
+                    "answer": "dance in a different way",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 114,
+                    "question_pk": 558,
+                    "question": "I now know that I had a trio of conditions: dyslexia, attention deficit hyperactivity disorder and Irlen Syndrome, a neurological condition that makes it hard to process visual information.",
+                    "chunk": "it hard to process visual information",
+                    "chunk_translation": "es ist schwierig, visuelle Informationen zu verarbeiten",
+                    "answer": "it hard to process visual information",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 115,
+                    "question_pk": 461,
+                    "question": "There was traffic on the road and, although I was pretty out of it, I knew we weren't going to make it to the hospital.",
+                    "chunk": "was traffic on the road ",
+                    "chunk_translation": "war Verkehr auf der Stra\u00dfe",
+                    "answer": "was traffic on the road",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 116,
+                    "question_pk": 557,
+                    "question": "I was the class jester at school in the 70s and 80s, because I wanted to be liked.",
+                    "chunk": "because I wanted to be liked",
+                    "chunk_translation": "weil ich gemocht werden wollte",
+                    "answer": "because I wanted to be liked",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 20,
+            "qanda_data": [
+                {
+                    "qanda_pk": 117,
+                    "question_pk": 1092,
+                    "question": "I was in an immobiliser for six weeks, to keep my leg straight, and it was three months before I could drive.",
+                    "chunk": "was three months before I could drive",
+                    "chunk_translation": "war drei Monate bevor ich fahren konnte",
+                    "answer": "was three months before I could drive",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 118,
+                    "question_pk": 754,
+                    "question": "I felt joyous, but there was still more we had to do to make sure the lamb stayed alive.",
+                    "chunk": "do to make sure the lamb stayed alive",
+                    "chunk_translation": "tun, um sicherzustellen, dass das Lamm am Leben blieb",
+                    "answer": "do to make sure the lamb stayed alive",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 119,
+                    "question_pk": 1097,
+                    "question": "While it wasn't broken, the muscle was balled up.",
+                    "chunk": "While it wasn't broken",
+                    "chunk_translation": "Es war zwar nicht kaputt",
+                    "answer": "While it wasn't broken",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 120,
+                    "question_pk": 375,
+                    "question": "even though moments earlier he had given me the kiss of life.",
+                    "chunk": "had given me the kiss of life",
+                    "chunk_translation": "hatte mir den Kuss des Lebens gegeben",
+                    "answer": "had given me the kiss of life",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 121,
+                    "question_pk": 1207,
+                    "question": "I decided I was never going to leave home without it.",
+                    "chunk": "going to leave home without it",
+                    "chunk_translation": "ohne es zu verlassen",
+                    "answer": "to go leave home without it",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 122,
+                    "question_pk": 312,
+                    "question": "Then I realised it definitely was not a dream.",
+                    "chunk": "was not a dream",
+                    "chunk_translation": "war kein Traum",
+                    "answer": "was not a dream",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 21,
+            "qanda_data": [
+                {
+                    "qanda_pk": 123,
+                    "question_pk": 661,
+                    "question": "I knew the alphabet and some words, but my vocabulary was small.",
+                    "chunk": "my vocabulary was small",
+                    "chunk_translation": "Mein Vokabular war klein",
+                    "answer": "my vocabulary was small",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 124,
+                    "question_pk": 857,
+                    "question": "We asked how it had happened: during a game of hide and seek with his five-year-old brother, he had thought the safe would be a good place to hide.",
+                    "chunk": "be a good place to hide",
+                    "chunk_translation": "sei ein guter Ort zum Verstecken",
+                    "answer": "be a good place to hide",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 125,
+                    "question_pk": 1099,
+                    "question": "I have to sleep with the TV on, as I can't bear the silence.",
+                    "chunk": "can't bear the silence",
+                    "chunk_translation": "kann die Stille nicht ertragen",
+                    "answer": "can't bear the silence",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 126,
+                    "question_pk": 243,
+                    "question": "It's important to show the world amputees who are happy and continuing with their lives, although I was self-conscious in the early days, especially when people would draw their kids away from me.",
+                    "chunk": "in the early days",
+                    "chunk_translation": "fr\u00fcher",
+                    "answer": "in the early days",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 127,
+                    "question_pk": 428,
+                    "question": "My husband Richard and I stayed at home until my contractions were five minutes apart  we didn't realise that, because this was my second birth, we weren't supposed to wait.",
+                    "chunk": "Richard and I ",
+                    "chunk_translation": "Richard und ich",
+                    "answer": "Richard and I",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 128,
+                    "question_pk": 30,
+                    "question": "The rollercoaster ride went on for three or four minutes, and I enjoyed every second.",
+                    "chunk": "three or four minutes",
+                    "chunk_translation": "drei oder vier Minuten",
+                    "answer": "three or four minutes",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,400 @@
+{
+    "user_name": "Eleni",
+    "session_complete_time": "2018-12-02 10:53:20.358852",
+    "session_pk": 7,
+    "session_size": 6,
+    "block_size": 6,
+    "policy_id": 1,
+    "block_data": [
+        {
+            "block_id": 22,
+            "qanda_data": [
+                {
+                    "qanda_pk": 129,
+                    "question_pk": 1242,
+                    "question": "Many of us have no medical or engineering training and we work on improvements in the evening or at the weekend, for free.",
+                    "chunk": "have no medical or engineering training ",
+                    "chunk_translation": "keine medizinische oder technische Ausbildung haben",
+                    "answer": "have no medical or engineering training",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 130,
+                    "question_pk": 1103,
+                    "question": "We didn't sign any waiver at the ecopark, but we weren't entitled to compensation.",
+                    "chunk": "we weren't entitled to compensation",
+                    "chunk_translation": "wir hatten keinen Anspruch auf Entsch\u00e4digung",
+                    "answer": "we weren't entitled to compensation",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 131,
+                    "question_pk": 931,
+                    "question": "He gave us six birth dates and anniversaries to try.",
+                    "chunk": "gave us six birth dates ",
+                    "chunk_translation": "gab uns sechs Geburtsdaten",
+                    "answer": "gave us six birth dates",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 132,
+                    "question_pk": 828,
+                    "question": "On the other hand, if we were in time, how long would it take us to open the safe?",
+                    "chunk": "us to open the safe",
+                    "chunk_translation": "uns, um den Safe zu \u00f6ffnen",
+                    "answer": "us to open the safe",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 133,
+                    "question_pk": 1051,
+                    "question": "Ryan was so relieved when he heard me screaming, though he couldn't kn!ow if I was impaled on a branch or paralysed.",
+                    "chunk": "on a branch ",
+                    "chunk_translation": "auf einem Zweig",
+                    "answer": "on a branch",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 134,
+                    "question_pk": 762,
+                    "question": "James Googled how to clear mucus from its nose and mouth  it said to put a blade of grass up its nostrils to make it sneeze, and a finger inside her mouth to hook the mucus out.",
+                    "chunk": "from its nose and mouth  ",
+                    "chunk_translation": "von seiner Nase und Mund",
+                    "answer": "from its nose and mouth",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 23,
+            "qanda_data": [
+                {
+                    "qanda_pk": 135,
+                    "question_pk": 212,
+                    "question": "My muscle memory kicked in; I could still do things with my left foot, and then dropped in the peg leg for extra beats.",
+                    "chunk": "My muscle memory ",
+                    "chunk_translation": "Mein Muskelged\u00e4chtnis",
+                    "answer": "My muscle memory",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 136,
+                    "question_pk": 564,
+                    "question": "Words swim on the page for me; it's difficult to see them, let alone read them.",
+                    "chunk": "to see them, let alone read them",
+                    "chunk_translation": "um sie zu sehen, geschweige denn, sie zu lesen",
+                    "answer": "to see them let alone read them",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 137,
+                    "question_pk": 397,
+                    "question": "After 36 hours in hospital, I flew home to England and within a week I was back in Ischgl to finish the ski season.",
+                    "chunk": "finish the ski season",
+                    "chunk_translation": "Beende die Skisaison",
+                    "answer": "finish the ski season",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 138,
+                    "question_pk": 424,
+                    "question": "My husband Richard and I stayed at home until my contractions were five minutes apart  we didn't realise that, because this was my second birth, we weren't supposed to wait.",
+                    "chunk": "five minutes apart  ",
+                    "chunk_translation": "f\u00fcnf Minuten auseinander",
+                    "answer": "five minutes apart",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 139,
+                    "question_pk": 983,
+                    "question": "Hopefully the boy will be more careful next time he plays hide and seek  but at least we know the combination to the safe now.",
+                    "chunk": "we know the combination to the safe now",
+                    "chunk_translation": "Wir kennen die Kombination jetzt zum Safe",
+                    "answer": "we now know the combination to the safe",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 140,
+                    "question_pk": 920,
+                    "question": "We started typing them in  but we had to wait 10 minutes between each attempt before we could try again.",
+                    "chunk": "wait 10 minutes between each attempt ",
+                    "chunk_translation": "warten Sie 10 Minuten zwischen jedem Versuch",
+                    "answer": "wait 10 minutes between each attempt",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 24,
+            "qanda_data": [
+                {
+                    "qanda_pk": 141,
+                    "question_pk": 697,
+                    "question": "From afar, it looked as if it was dead, but then I saw a leg move.",
+                    "chunk": "then I saw a leg move",
+                    "chunk_translation": "dann sah ich eine Beinbewegung",
+                    "answer": "then I saw a leg move",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 142,
+                    "question_pk": 32,
+                    "question": "People were saying I'd got a place in the Guinness World Records and I hoped they were right, but you don't know until it's done.",
+                    "chunk": "you don't know until it's done",
+                    "chunk_translation": "Sie wissen nicht, bis es fertig ist",
+                    "answer": "you don't know until it's done",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 143,
+                    "question_pk": 165,
+                    "question": "I was really upset: why had I been through so many operations?",
+                    "chunk": "been through so many operations",
+                    "chunk_translation": "war durch so viele Operationen",
+                    "answer": "been through so many operations",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 144,
+                    "question_pk": 324,
+                    "question": "It was horrible, lying there not being able to move, nobody knowing where I was or having any way of finding me.",
+                    "chunk": "having any way of finding me",
+                    "chunk_translation": "Irgendeine M\u00f6glichkeit, mich zu finden",
+                    "answer": "having any way of finding me",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 145,
+                    "question_pk": 511,
+                    "question": "Uber gave Priesh some money to deep-clean the cab, and later they reimbursed us the fee for the trip and sent presents for the baby.",
+                    "chunk": "sent presents for the baby",
+                    "chunk_translation": "schickte Geschenke f\u00fcr das Baby",
+                    "answer": "sent presents for the baby",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 146,
+                    "question_pk": 288,
+                    "question": "When we were skiing and snowboarding down, I wanted to be at the front to get fresh tracks.",
+                    "chunk": "be at the front to get fresh tracks",
+                    "chunk_translation": "an der Front sein, um neue Spuren zu bekommen",
+                    "answer": "be at the front to get fresh tracks",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 25,
+            "qanda_data": [
+                {
+                    "qanda_pk": 147,
+                    "question_pk": 1175,
+                    "question": "This allowed me to create a remote monitoring system so that if I still slept through an alarm, Scott would be alerted and call me or drive over.",
+                    "chunk": "a remote monitoring system ",
+                    "chunk_translation": "ein Fern\u00fcberwachungssystem",
+                    "answer": "a remote monitoring system",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 148,
+                    "question_pk": 333,
+                    "question": "Initially, the guys thought I'd skied on and would be waiting around the corner.",
+                    "chunk": "would be waiting around the corner",
+                    "chunk_translation": "w\u00fcrde um die Ecke warten",
+                    "answer": "would be waiting around the corner",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 149,
+                    "question_pk": 690,
+                    "question": "We'd recently bought a house five minutes from the Downs, in Lewes, East Sussex, and headed towards Mount Caburn, the highest point in the area.",
+                    "chunk": "the highest point ",
+                    "chunk_translation": "der h\u00f6chste Punkt",
+                    "answer": "the highest point",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 150,
+                    "question_pk": 1046,
+                    "question": "Ryan was waiting for me on the landing platform when he heard a loud noise and saw the metal cable slip past his foot and disappear.",
+                    "chunk": "past his foot ",
+                    "chunk_translation": "hinter seinem Fu\u00df",
+                    "answer": "past his foot",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 151,
+                    "question_pk": 12,
+                    "question": "I didn't choose to go on that  it was a bit too gentle.",
+                    "chunk": "it was a bit too gentle",
+                    "chunk_translation": "Es war ein bisschen zu sanft",
+                    "answer": "it was a bit too gentle",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 152,
+                    "question_pk": 241,
+                    "question": "There's been a shift since.",
+                    "chunk": "'s been a shift since",
+                    "chunk_translation": "ist eine Verschiebung seit",
+                    "answer": "'s been a shift since",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 26,
+            "qanda_data": [
+                {
+                    "qanda_pk": 153,
+                    "question_pk": 420,
+                    "question": "I'm a computer scientist and I was doing presentations in the office but, after lunch, I decided to go home early.",
+                    "chunk": "to go home early",
+                    "chunk_translation": "fr\u00fch nach Hause gehen",
+                    "answer": "to go home early",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 154,
+                    "question_pk": 963,
+                    "question": "We had been trying for three hours and now all of a sudden this little boy was standing in front of me, rubbing his eyes.",
+                    "chunk": "for three hours ",
+                    "chunk_translation": "f\u00fcr drei Stunden",
+                    "answer": "for three hours",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 155,
+                    "question_pk": 805,
+                    "question": "I was the watch manager at a local station of the Berlin fire department that Friday, 15 December 2017.",
+                    "chunk": "of the Berlin fire department ",
+                    "chunk_translation": "von der Berliner Feuerwehr",
+                    "answer": "of the Berlin fire department",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 156,
+                    "question_pk": 70,
+                    "question": "It turned out that I was probably the oldest person in the world to do it, and the video clip of me was very popular.",
+                    "chunk": "the world to do it",
+                    "chunk_translation": "die Welt, es zu tun",
+                    "answer": "in the world to do it",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 157,
+                    "question_pk": 1180,
+                    "question": "Scott and I also created an algorithm that forecasted when my blood sugar was likely to become low or too high, sending alerts to my phone or smartwatch.",
+                    "chunk": "my blood sugar ",
+                    "chunk_translation": "mein Blutzucker",
+                    "answer": "my blood sugar",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 158,
+                    "question_pk": 1111,
+                    "question": "You hear about deaths on zip lines.",
+                    "chunk": "about deaths on zip lines",
+                    "chunk_translation": "\u00fcber Todesf\u00e4lle auf Zip-Linien",
+                    "answer": "about death on zip lines",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 27,
+            "qanda_data": [
+                {
+                    "qanda_pk": 159,
+                    "question_pk": 1134,
+                    "question": "After I was diagnosed in 2002, I had to set my alarm for 7am to take my insulin and eat something, then continue testing my blood sugar and inject myself several times a day.",
+                    "chunk": "set my alarm for 7am ",
+                    "chunk_translation": "setze meinen Wecker auf 7 Uhr",
+                    "answer": "set my alarm for 7 am",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 160,
+                    "question_pk": 268,
+                    "question": "I didn't choose any of this, but my career will probably be bigger and better because of my peg leg.",
+                    "chunk": "didn't choose any of this",
+                    "chunk_translation": "Ich habe nichts davon gew\u00e4hlt",
+                    "answer": "didn't choose any of this",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 161,
+                    "question_pk": 573,
+                    "question": "I couldn't understand why I couldn't read or write like my friends, so I made a joke of it.",
+                    "chunk": "couldn't read or write like my friends",
+                    "chunk_translation": "konnte nicht lesen oder schreiben wie meine Freunde",
+                    "answer": "couldn't read or write like my friends",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 162,
+                    "question_pk": 180,
+                    "question": "Seeing what amputees could do got me really excited about becoming one.",
+                    "chunk": "got me really excited about becoming one",
+                    "chunk_translation": "hat mich wirklich aufgeregt, eins zu werden",
+                    "answer": "got me really excited about becoming one",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 163,
+                    "question_pk": 289,
+                    "question": "When we were skiing and snowboarding down, I wanted to be at the front to get fresh tracks.",
+                    "chunk": "at the front to get fresh tracks",
+                    "chunk_translation": "an der Front, um neue Spuren zu bekommen",
+                    "answer": "at the front to get fresh tracks",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 164,
+                    "question_pk": 990,
+                    "question": "My husband and I were excited as the cruise ship pulled into its final stop, a small port in Mexico, in April 2016.",
+                    "chunk": "My husband and I ",
+                    "chunk_translation": "Mein Mann und ich",
+                    "answer": "My husband and I",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        }
+    ]
+}

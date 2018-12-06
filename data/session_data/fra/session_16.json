@@ -1,0 +1,400 @@
+{
+    "user_name": "fra",
+    "session_complete_time": "2018-12-05 20:55:39.931469",
+    "session_pk": 16,
+    "session_size": 6,
+    "block_size": 6,
+    "policy_id": 3,
+    "block_data": [
+        {
+            "block_id": 71,
+            "qanda_data": [
+                {
+                    "qanda_pk": 423,
+                    "question_pk": 1004,
+                    "question": "We got off the ship at 8am and had to be back by 5pm.",
+                    "chunk": "got off the ship at 8am ",
+                    "chunk_translation": "um 8 Uhr von Bord gegangen",
+                    "answer": "get off the ship at 8 am",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 424,
+                    "question_pk": 205,
+                    "question": "I'd been tapdancing at a high level for over a decade and I was missing it.",
+                    "chunk": "over a decade ",
+                    "chunk_translation": "\u00fcber ein Jahrzehnt",
+                    "answer": "over a decade",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 425,
+                    "question_pk": 540,
+                    "question": "The whole experience was intense at some points, of course, but I'm just so happy that everything ended so well.",
+                    "chunk": "that everything ended so well",
+                    "chunk_translation": "dass alles so gut endete",
+                    "answer": "that everything ended so well",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 426,
+                    "question_pk": 710,
+                    "question": "The sheep was barely breathing, and I thought it had completely exhausted itself  she didn't even flicker when I approached.",
+                    "chunk": "The sheep was barely breathing",
+                    "chunk_translation": "Das Schaf atmete kaum",
+                    "answer": "The sheep was barely breathing",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 427,
+                    "question_pk": 602,
+                    "question": "When I had to write anything down, I guessed, forming what I hoped were the right words.",
+                    "chunk": "When I had to write anything down",
+                    "chunk_translation": "Als ich etwas niederschreiben musste",
+                    "answer": "When I had to write anything down",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 428,
+                    "question_pk": 1185,
+                    "question": "I was happier and no longer feared going to sleep, but this was still an open loop system: it was up to me to take any needed action.",
+                    "chunk": "was still an open loop system",
+                    "chunk_translation": "war immer noch ein offenes System",
+                    "answer": "was still an open loop system",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 72,
+            "qanda_data": [
+                {
+                    "qanda_pk": 429,
+                    "question_pk": 931,
+                    "question": "He gave us six birth dates and anniversaries to try.",
+                    "chunk": "gave us six birth dates ",
+                    "chunk_translation": "gab uns sechs Geburtsdaten",
+                    "answer": "gave us six birth dates",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 430,
+                    "question_pk": 776,
+                    "question": "We put the lamb on the ground to try to encourage Mum towards it.",
+                    "chunk": "on the ground ",
+                    "chunk_translation": "auf dem Boden",
+                    "answer": "on the ground",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 431,
+                    "question_pk": 226,
+                    "question": "There is a different technique; with a real foot you've got a heel and toe, and you can make different sounds and rhythms.",
+                    "chunk": "a real foot ",
+                    "chunk_translation": "ein echter Fu\u00df",
+                    "answer": "a real foot",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 432,
+                    "question_pk": 498,
+                    "question": "About 10 minutes after the birth, while I was still in the medical centre and we were waiting for the ambulance, my husband scrubbed down the taxi.",
+                    "chunk": "in the medical centre ",
+                    "chunk_translation": "im medizinischen Zentrum",
+                    "answer": "in the medical centre",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 433,
+                    "question_pk": 1193,
+                    "question": "A few months later, working with others in the open-source diabetes community, we realised that by adding a small computer and a radio stick to the pump and CGM, we could create a system that not only processed the data, but also sent commands directly to the pump.",
+                    "chunk": "the open-source diabetes community",
+                    "chunk_translation": "die Open-Source-Diabetes-Community",
+                    "answer": "the open-source diabetes community ",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 434,
+                    "question_pk": 722,
+                    "question": "The boys were really uncertain  they felt nature should take its course  and Becky went very quiet.",
+                    "chunk": "should take its course  ",
+                    "chunk_translation": "sollte seinen Lauf nehmen",
+                    "answer": "should take its course",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 73,
+            "qanda_data": [
+                {
+                    "qanda_pk": 435,
+                    "question_pk": 932,
+                    "question": "He gave us six birth dates and anniversaries to try.",
+                    "chunk": "six birth dates ",
+                    "chunk_translation": "sechs Geburtsdaten",
+                    "answer": "six birth dates",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 436,
+                    "question_pk": 1201,
+                    "question": "The first day I woke up after closing the loop, I was blown away by how much better I felt.",
+                    "chunk": "how much better ",
+                    "chunk_translation": "wie viel besser",
+                    "answer": "how much better",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 437,
+                    "question_pk": 572,
+                    "question": "I couldn't understand why I couldn't read or write like my friends, so I made a joke of it.",
+                    "chunk": "I couldn't read or write like my friends",
+                    "chunk_translation": "Ich konnte nicht lesen oder schreiben wie meine Freunde",
+                    "answer": "I couldn't read or write like my friend",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 438,
+                    "question_pk": 1016,
+                    "question": "The first I knew that something had gone wrong was an eerie silence.",
+                    "chunk": "I knew that something had gone wrong ",
+                    "chunk_translation": "Ich wusste, dass etwas schief gegangen war",
+                    "answer": "I knew that something had gone wrong",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 439,
+                    "question_pk": 1155,
+                    "question": "The alarms on my phone woke me, though, and it occurred to me that if I could send the data from my device to my phone, I could solve the problem myself.",
+                    "chunk": "on my phone ",
+                    "chunk_translation": "auf meinem Telefon",
+                    "answer": "on my phone",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 440,
+                    "question_pk": 1109,
+                    "question": "The company denied that the line had become detached or broken, but the fact that I ended up upside down in a tree means something went very wrong.",
+                    "chunk": "something went very wrong",
+                    "chunk_translation": "etwas ist sehr falsch gelaufen",
+                    "answer": "something went very wrong",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 74,
+            "qanda_data": [
+                {
+                    "qanda_pk": 441,
+                    "question_pk": 355,
+                    "question": "It was really quite peaceful: I saw a forest either side of me, and I was just walking into it.",
+                    "chunk": "I was just walking into it",
+                    "chunk_translation": "Ich bin gerade hineingelaufen",
+                    "answer": "I am just walked into it ",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 442,
+                    "question_pk": 676,
+                    "question": "I also teach children and adults with learning difficulties, because I want to give others the chances I had.",
+                    "chunk": "the chances I had",
+                    "chunk_translation": "die Chancen, die ich hatte",
+                    "answer": "the chance that I had",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 443,
+                    "question_pk": 634,
+                    "question": "Most of the work was in the field and I relied on my team for any written work.",
+                    "chunk": "on my team ",
+                    "chunk_translation": "in meinem Team",
+                    "answer": "on my team",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 444,
+                    "question_pk": 223,
+                    "question": "There is a different technique; with a real foot you've got a heel and toe, and you can make different sounds and rhythms.",
+                    "chunk": "is a different technique",
+                    "chunk_translation": "ist eine andere Technik",
+                    "answer": "is a different technique",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 445,
+                    "question_pk": 1105,
+                    "question": "How does a zip line give way like that?",
+                    "chunk": "does a zip line give way like that",
+                    "chunk_translation": "macht eine Zip-Linie so nach",
+                    "answer": "does a zip line give way like that",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 446,
+                    "question_pk": 698,
+                    "question": "From afar, it looked as if it was dead, but then I saw a leg move.",
+                    "chunk": "saw a leg move",
+                    "chunk_translation": "sah eine Beinbewegung",
+                    "answer": "saw a leg move",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 75,
+            "qanda_data": [
+                {
+                    "qanda_pk": 447,
+                    "question_pk": 790,
+                    "question": "I wanted a hug, but nobody would touch me.",
+                    "chunk": "nobody would touch me",
+                    "chunk_translation": "Niemand w\u00fcrde mich ber\u00fchren",
+                    "answer": "nobody would touch me",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 448,
+                    "question_pk": 508,
+                    "question": "As we left the medical centre, the people in the waiting room applauded us.",
+                    "chunk": "in the waiting room ",
+                    "chunk_translation": "im Wartezimmer",
+                    "answer": "in the waiting room",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 449,
+                    "question_pk": 517,
+                    "question": "I had left my clothes in the car, and the next day Priesh turned up with them, all washed, plus some gifts for the baby.",
+                    "chunk": "left my clothes in the car",
+                    "chunk_translation": "Ich habe meine Sachen im Auto liegen lassen",
+                    "answer": "left my clothes in the car",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 450,
+                    "question_pk": 271,
+                    "question": "I'm now auditioning for principal Broadway roles, and was nominated for outstanding actor in a musical at the Drama Desk awards this year.",
+                    "chunk": "at the Drama Desk awards ",
+                    "chunk_translation": "bei den Drama Desk Awards",
+                    "answer": "at the drama desk award",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 451,
+                    "question_pk": 564,
+                    "question": "Words swim on the page for me; it's difficult to see them, let alone read them.",
+                    "chunk": "to see them, let alone read them",
+                    "chunk_translation": "um sie zu sehen, geschweige denn, sie zu lesen",
+                    "answer": "to see them read alone ",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 452,
+                    "question_pk": 1073,
+                    "question": "After 20 minutes, they loosened the tension at the end of the zip line, which was still attached to the base platform.",
+                    "chunk": "attached to the base platform",
+                    "chunk_translation": "an der Basisplattform befestigt",
+                    "answer": "attached to the platform base",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 76,
+            "qanda_data": [
+                {
+                    "qanda_pk": 453,
+                    "question_pk": 826,
+                    "question": "On the other hand, if we were in time, how long would it take us to open the safe?",
+                    "chunk": "would it take us to open the safe",
+                    "chunk_translation": "W\u00e4re es n\u00f6tig, den Safe zu \u00f6ffnen?",
+                    "answer": "would it take to open us the safe",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 454,
+                    "question_pk": 578,
+                    "question": "But the joke carried on for too long.",
+                    "chunk": "carried on for too long",
+                    "chunk_translation": "zu lange durchgef\u00fchrt",
+                    "answer": "carried on for too long",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 455,
+                    "question_pk": 128,
+                    "question": "I'm taking it easy now, so I find challenges to spice things up.",
+                    "chunk": "I'm taking it easy now",
+                    "chunk_translation": "Ich nehme es jetzt ruhig",
+                    "answer": "I'm now taking it easy",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 456,
+                    "question_pk": 811,
+                    "question": "Information sometimes gets lost over the phone, so I was doubtful.",
+                    "chunk": "lost over the phone",
+                    "chunk_translation": "\u00fcber das Telefon verloren",
+                    "answer": "lose over the phone",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 457,
+                    "question_pk": 952,
+                    "question": "Then, just as we started to make the first cut, my colleague punched in the correct code.",
+                    "chunk": "to make the first cut",
+                    "chunk_translation": "um den ersten Schnitt zu machen",
+                    "answer": "to make the first cut",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 458,
+                    "question_pk": 126,
+                    "question": "I'm taking it easy now, so I find challenges to spice things up.",
+                    "chunk": "find challenges to spice things up",
+                    "chunk_translation": "Finde Herausforderungen, um die Dinge aufzupeppen",
+                    "answer": "find challenges to spice things up",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        }
+    ]
+}

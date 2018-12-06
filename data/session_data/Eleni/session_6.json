@@ -1,0 +1,400 @@
+{
+    "user_name": "Eleni",
+    "session_complete_time": "2018-12-02 10:21:40.212671",
+    "session_pk": 6,
+    "session_size": 6,
+    "block_size": 6,
+    "policy_id": 3,
+    "block_data": [
+        {
+            "block_id": 11,
+            "qanda_data": [
+                {
+                    "qanda_pk": 63,
+                    "question_pk": 235,
+                    "question": "In 2010, when I first became one, amputees were just about to break through into the mainstream.",
+                    "chunk": "about to break through into the mainstream",
+                    "chunk_translation": "kurz vor dem Mainstream",
+                    "answer": "about to break through into the mainstream",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 64,
+                    "question_pk": 517,
+                    "question": "I had left my clothes in the car, and the next day Priesh turned up with them, all washed, plus some gifts for the baby.",
+                    "chunk": "left my clothes in the car",
+                    "chunk_translation": "Ich habe meine Sachen im Auto liegen lassen",
+                    "answer": "left my clothes in the car",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 65,
+                    "question_pk": 1051,
+                    "question": "Ryan was so relieved when he heard me screaming, though he couldn't kn!ow if I was impaled on a branch or paralysed.",
+                    "chunk": "on a branch ",
+                    "chunk_translation": "auf einem Zweig",
+                    "answer": "on a branch",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 66,
+                    "question_pk": 1176,
+                    "question": "This allowed me to create a remote monitoring system so that if I still slept through an alarm, Scott would be alerted and call me or drive over.",
+                    "chunk": "call me or drive over",
+                    "chunk_translation": "Ruf mich an oder fahre r\u00fcber",
+                    "answer": "call me or drive over",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 67,
+                    "question_pk": 36,
+                    "question": "People were saying I'd got a place in the Guinness World Records and I hoped they were right, but you don't know until it's done.",
+                    "chunk": "hoped they were right",
+                    "chunk_translation": "Ich hoffe, sie hatten Recht",
+                    "answer": "hoped they were right",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 68,
+                    "question_pk": 545,
+                    "question": "The whole experience was intense at some points, of course, but I'm just so happy that everything ended so well.",
+                    "chunk": "at some points, of course",
+                    "chunk_translation": "An einigen Punkten nat\u00fcrlich",
+                    "answer": "at some points of course",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 12,
+            "qanda_data": [
+                {
+                    "qanda_pk": 69,
+                    "question_pk": 305,
+                    "question": "It was like trying to breathe through a heavy cloth.",
+                    "chunk": "trying to breathe through a heavy cloth",
+                    "chunk_translation": "versuchen, durch ein schweres Tuch zu atmen",
+                    "answer": "trying to breathe through a heavy cloth",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 70,
+                    "question_pk": 61,
+                    "question": "My daughter and grandson got the same one at the same time  and the tattoo artist even did the same one on his own leg.",
+                    "chunk": "the same one ",
+                    "chunk_translation": "Das gleiche",
+                    "answer": "the same one",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 71,
+                    "question_pk": 884,
+                    "question": "We put a light to the door of the safe and moved it, and he told us where he could see it, so we knew there was a paper-thin gap.",
+                    "chunk": "he told us where he could see it",
+                    "chunk_translation": "Er sagte uns, wo er es sehen k\u00f6nnte",
+                    "answer": "He told us where he could see it",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 72,
+                    "question_pk": 273,
+                    "question": "I'm now auditioning for principal Broadway roles, and was nominated for outstanding actor in a musical at the Drama Desk awards this year.",
+                    "chunk": "a musical at the Drama Desk awards ",
+                    "chunk_translation": "ein Musical am Drama Desk Award",
+                    "answer": "a musical at the drama desk award",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 73,
+                    "question_pk": 1148,
+                    "question": "Once I went to college and lived alone, this became a bigger problem; I was increasingly afraid of going to sleep at night.",
+                    "chunk": "went to college and lived alone",
+                    "chunk_translation": "ging aufs College und lebte alleine",
+                    "answer": "went to college and lived alone",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 74,
+                    "question_pk": 880,
+                    "question": "All the experts we were calling told us the safe was airtight and he was going to die.",
+                    "chunk": "he was going to die",
+                    "chunk_translation": "Er w\u00fcrde sterben",
+                    "answer": "he was going to die",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 13,
+            "qanda_data": [
+                {
+                    "qanda_pk": 75,
+                    "question_pk": 210,
+                    "question": "I treated it like an instrument, an extension of my body.",
+                    "chunk": "an extension of my body",
+                    "chunk_translation": "eine Verl\u00e4ngerung meines K\u00f6rpers",
+                    "answer": "an extension of my body",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 76,
+                    "question_pk": 1025,
+                    "question": "The handlebars of the zip line had caught in the V of a tree branch.",
+                    "chunk": "the V of a tree branch",
+                    "chunk_translation": "das V eines Baumastes",
+                    "answer": "the v of a tree branch",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 77,
+                    "question_pk": 357,
+                    "question": "It was really quite peaceful: I saw a forest either side of me, and I was just walking into it.",
+                    "chunk": "was really quite peaceful",
+                    "chunk_translation": "war wirklich sehr friedlich",
+                    "answer": "was really quite peaceful",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 78,
+                    "question_pk": 689,
+                    "question": "Last April, my husband, James, and I had friends, Petey and Becky, visiting, and we decided to go for a walk on the South Downs.",
+                    "chunk": "my husband, James, and I ",
+                    "chunk_translation": "mein Ehemann, James und ich",
+                    "answer": "my husband James and I",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 79,
+                    "question_pk": 1248,
+                    "question": "Commercial devices similar to ours are now being trialled and gradually coming on to the market: we're happy to be helping companies to speed up development.",
+                    "chunk": "helping companies to speed up development",
+                    "chunk_translation": "Unternehmen helfen, die Entwicklung zu beschleunigen",
+                    "answer": "helping companies to speed up development",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 80,
+                    "question_pk": 140,
+                    "question": "I've got a few ideas for the next charity challenge on my 106th birthday on 6 April, but nothing has been confirmed yet.",
+                    "chunk": "for the next charity challenge ",
+                    "chunk_translation": "f\u00fcr die n\u00e4chste Wohlt\u00e4tigkeits-Challenge",
+                    "answer": "for the next charity challenge",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 14,
+            "qanda_data": [
+                {
+                    "qanda_pk": 81,
+                    "question_pk": 208,
+                    "question": "I treated it like an instrument, an extension of my body.",
+                    "chunk": "an instrument, an extension of my body",
+                    "chunk_translation": "ein Instrument, eine Erweiterung meines K\u00f6rpers",
+                    "answer": "an instrument an extension of my body",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 82,
+                    "question_pk": 653,
+                    "question": "I applied to do a degree, biological medicine and health sciences, at the Open University.",
+                    "chunk": "at the Open University",
+                    "chunk_translation": "an der offenen Universit\u00e4t",
+                    "answer": "at the open university",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 83,
+                    "question_pk": 1099,
+                    "question": "I have to sleep with the TV on, as I can't bear the silence.",
+                    "chunk": "can't bear the silence",
+                    "chunk_translation": "kann die Stille nicht ertragen",
+                    "answer": "can't bear the silence",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 84,
+                    "question_pk": 942,
+                    "question": "We were fully prepared at this point to open the safe by force, starting with a drill.",
+                    "chunk": "to open the safe by force",
+                    "chunk_translation": "den Safe mit Gewalt \u00f6ffnen",
+                    "answer": "to open the safe by force",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 85,
+                    "question_pk": 772,
+                    "question": "James and Petey hauled her to her feet, and once gravity started helping she passed the whole thing.",
+                    "chunk": "she passed the whole thing",
+                    "chunk_translation": "Sie hat die ganze Sache bestanden",
+                    "answer": "she passed the whole thing",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 86,
+                    "question_pk": 58,
+                    "question": "My daughter and grandson got the same one at the same time  and the tattoo artist even did the same one on his own leg.",
+                    "chunk": "the tattoo artist ",
+                    "chunk_translation": "der T\u00e4towierer",
+                    "answer": "the tattoo artist",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 16,
+            "qanda_data": [
+                {
+                    "qanda_pk": 93,
+                    "question_pk": 127,
+                    "question": "I'm taking it easy now, so I find challenges to spice things up.",
+                    "chunk": "challenges to spice things ",
+                    "chunk_translation": "Herausforderungen, Dinge zu w\u00fcrzen",
+                    "answer": "challenges to spice things",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 94,
+                    "question_pk": 3,
+                    "question": "I can proudly say that last year I broke the record for the oldest person in the world to ride a rollercoaster.",
+                    "chunk": "the oldest person in the world ",
+                    "chunk_translation": "die \u00e4lteste Person der Welt",
+                    "answer": "the oldest person in the world",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 95,
+                    "question_pk": 124,
+                    "question": "I'm taking it easy now, so I find challenges to spice things up.",
+                    "chunk": "taking it easy now",
+                    "chunk_translation": "es jetzt leicht machen",
+                    "answer": "taking it easy now",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 96,
+                    "question_pk": 606,
+                    "question": "When I had to write anything down, I guessed, forming what I hoped were the right words.",
+                    "chunk": "forming what I hoped were the right words",
+                    "chunk_translation": "was ich hoffte, waren die richtigen Worte",
+                    "answer": "what I hoped to be the right word foem",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 97,
+                    "question_pk": 1035,
+                    "question": "I could hear a branch snap.",
+                    "chunk": "hear a branch snap",
+                    "chunk_translation": "h\u00f6re einen Zweig-Snap",
+                    "answer": "hear a branch snap",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 98,
+                    "question_pk": 1223,
+                    "question": "Endocrinologists have been interested in our developments, and for me, having a computer make adjustments while I sleep is far safer than trying groggily to make decisions overnight.",
+                    "chunk": "to make decisions overnight",
+                    "chunk_translation": "\u00fcber Nacht Entscheidungen treffen",
+                    "answer": "to make decisions overnight",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 17,
+            "qanda_data": [
+                {
+                    "qanda_pk": 99,
+                    "question_pk": 1066,
+                    "question": "There were huge abrasions on my right leg from where the metal cables had zipped through my skin  I don't know how they didn't cut my legs off.",
+                    "chunk": "didn't cut my legs off",
+                    "chunk_translation": "Ich habe mir die Beine nicht abgeschnitten",
+                    "answer": "didn't cut off my legs",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 100,
+                    "question_pk": 475,
+                    "question": "Richard returned seconds later with three doctors and a wheelchair, but by the time they arrived the baby was already crowning and I couldn't be moved.",
+                    "chunk": "by the time ",
+                    "chunk_translation": "Zu der Zeit",
+                    "answer": "by the time",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 101,
+                    "question_pk": 1043,
+                    "question": "Ryan was waiting for me on the landing platform when he heard a loud noise and saw the metal cable slip past his foot and disappear.",
+                    "chunk": "the landing platform ",
+                    "chunk_translation": "die Landeplattform",
+                    "answer": "the landing platform",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 102,
+                    "question_pk": 1115,
+                    "question": "Some people fall from 20ft and die, so to fall from 500ft and walk away without serious injuries is mind-boggling.",
+                    "chunk": "without serious injuries ",
+                    "chunk_translation": "ohne ernsthafte Verletzungen",
+                    "answer": "without serious injuries",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 103,
+                    "question_pk": 312,
+                    "question": "Then I realised it definitely was not a dream.",
+                    "chunk": "was not a dream",
+                    "chunk_translation": "war kein Traum",
+                    "answer": "was not a dream",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 104,
+                    "question_pk": 427,
+                    "question": "My husband Richard and I stayed at home until my contractions were five minutes apart  we didn't realise that, because this was my second birth, we weren't supposed to wait.",
+                    "chunk": "we weren't supposed to wait",
+                    "chunk_translation": "Wir sollten nicht warten",
+                    "answer": "we weren't supposed to wait",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        }
+    ]
+}

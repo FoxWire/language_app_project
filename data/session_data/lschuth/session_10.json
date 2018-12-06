@@ -1,0 +1,400 @@
+{
+    "user_name": "lschuth",
+    "session_complete_time": "2018-12-03 10:51:26.824339",
+    "session_pk": 10,
+    "session_size": 6,
+    "block_size": 6,
+    "policy_id": 1,
+    "block_data": [
+        {
+            "block_id": 40,
+            "qanda_data": [
+                {
+                    "qanda_pk": 237,
+                    "question_pk": 130,
+                    "question": "I tried abseiling recently, as part of a family fun day.",
+                    "chunk": "of a family fun day",
+                    "chunk_translation": "eines Familienspa\u00dftages",
+                    "answer": "of a family fun day",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 238,
+                    "question_pk": 1091,
+                    "question": "Days later, back home in California, I was purple from the waist down.",
+                    "chunk": "Days later, back home in California",
+                    "chunk_translation": "Tage sp\u00e4ter, zur\u00fcck in Kalifornien",
+                    "answer": "Days later back home in California",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 239,
+                    "question_pk": 471,
+                    "question": "Sebastian began to cry: he could see I was in pain.",
+                    "chunk": "he could see I was in pain",
+                    "chunk_translation": "Er konnte sehen, dass ich Schmerzen hatte",
+                    "answer": "He could see I was in pain",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 240,
+                    "question_pk": 1202,
+                    "question": "The first day I woke up after closing the loop, I was blown away by how much better I felt.",
+                    "chunk": "how much better I felt",
+                    "chunk_translation": "Wie viel besser f\u00fchlte ich mich",
+                    "answer": "how much better I felt",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 241,
+                    "question_pk": 345,
+                    "question": "I was thinking of the summer I had planned with my sister, and my last thought was, That's a shame.",
+                    "chunk": "had planned with my sister",
+                    "chunk_translation": "hatte mit meiner Schwester geplant",
+                    "answer": "had plans with my sister",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 242,
+                    "question_pk": 1254,
+                    "question": "The most important thing is that people don't have to wait.",
+                    "chunk": "that people don't have to wait",
+                    "chunk_translation": "dass die Leute nicht warten m\u00fcssen",
+                    "answer": "that people don't have to wait",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 41,
+            "qanda_data": [
+                {
+                    "qanda_pk": 243,
+                    "question_pk": 1199,
+                    "question": "That's how we created what is in effect an artificial pancreas, or a closed loop system.",
+                    "chunk": "a closed loop system",
+                    "chunk_translation": "ein geschlossenes System",
+                    "answer": "a loop closed system",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 244,
+                    "question_pk": 704,
+                    "question": "The boys said the movement was just the wind and wanted to keep going, but I went over and saw the head and hooves of a lamb coming out of her body.",
+                    "chunk": "of a lamb coming out of her body",
+                    "chunk_translation": "eines Lammes, das aus ihrem K\u00f6rper kommt",
+                    "answer": "of a lamb coming out of her body",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 245,
+                    "question_pk": 789,
+                    "question": "I felt very attached to the brave pair and found it quite hard to leave them.",
+                    "chunk": "to the brave pair ",
+                    "chunk_translation": "zu dem tapferen Paar",
+                    "answer": "to the brave pair",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 246,
+                    "question_pk": 691,
+                    "question": "We'd recently bought a house five minutes from the Downs, in Lewes, East Sussex, and headed towards Mount Caburn, the highest point in the area.",
+                    "chunk": "the highest point in the area",
+                    "chunk_translation": "der h\u00f6chste Punkt in der Gegend",
+                    "answer": "the highest point in the area",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 247,
+                    "question_pk": 679,
+                    "question": "I also teach children and adults with learning difficulties, because I want to give others the chances I had.",
+                    "chunk": "to give others the chances I had",
+                    "chunk_translation": "um anderen die Chancen zu geben, die ich hatte",
+                    "answer": "to give others the chances I had",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 248,
+                    "question_pk": 1214,
+                    "question": "We designed it for safety: if something breaks or I lose it, I can go back to using my insulin pump manually.",
+                    "chunk": "go back to using my insulin pump manually",
+                    "chunk_translation": "gehe zur\u00fcck, um meine Insulinpumpe manuell zu benutzen",
+                    "answer": "go back to use my insulin pump manually",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 42,
+            "qanda_data": [
+                {
+                    "qanda_pk": 249,
+                    "question_pk": 331,
+                    "question": "Initially, the guys thought I'd skied on and would be waiting around the corner.",
+                    "chunk": "waiting around the corner",
+                    "chunk_translation": "Warte um die Ecke",
+                    "answer": "waiting around the corner",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 250,
+                    "question_pk": 756,
+                    "question": "I felt joyous, but there was still more we had to do to make sure the lamb stayed alive.",
+                    "chunk": "to make sure the lamb stayed alive",
+                    "chunk_translation": "um sicherzustellen, dass das Lamm am Leben blieb",
+                    "answer": "to make sure the lamb stayed alive",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 251,
+                    "question_pk": 64,
+                    "question": "I was 102 then, but thought, Why not?",
+                    "chunk": "I was 102 then, but thought",
+                    "chunk_translation": "Ich war damals 102, dachte aber",
+                    "answer": "I was 102 then but thought",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 252,
+                    "question_pk": 1094,
+                    "question": "I was in an immobiliser for six weeks, to keep my leg straight, and it was three months before I could drive.",
+                    "chunk": "keep my leg straight",
+                    "chunk_translation": "halte mein Bein gerade",
+                    "answer": "keep my leg straight",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 253,
+                    "question_pk": 357,
+                    "question": "It was really quite peaceful: I saw a forest either side of me, and I was just walking into it.",
+                    "chunk": "was really quite peaceful",
+                    "chunk_translation": "war wirklich sehr friedlich",
+                    "answer": "was really quite peaceful",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 254,
+                    "question_pk": 325,
+                    "question": "It was horrible, lying there not being able to move, nobody knowing where I was or having any way of finding me.",
+                    "chunk": "knowing where I was ",
+                    "chunk_translation": "zu wissen, wo ich war",
+                    "answer": "knew where I was",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 43,
+            "qanda_data": [
+                {
+                    "qanda_pk": 255,
+                    "question_pk": 1232,
+                    "question": "This is why we created OpenAPS  the Open Artificial Pancreas System project: to make the code, design and documentation available to others for free, so they can build a pancreas of their own.",
+                    "chunk": "the code, design and documentation ",
+                    "chunk_translation": "der Code, das Design und die Dokumentation",
+                    "answer": "the code the design and the documentation",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 256,
+                    "question_pk": 1122,
+                    "question": "I was diagnosed with type 1 diabetes when I was 14.",
+                    "chunk": "when I was 14",
+                    "chunk_translation": "als ich 14 war",
+                    "answer": "when I was 14",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 257,
+                    "question_pk": 100,
+                    "question": "I was married, for a very long time, to the best wife in the world and she died very suddenly of a stroke when she was 68.",
+                    "chunk": "the best wife ",
+                    "chunk_translation": "die beste Frau",
+                    "answer": "the best wife",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 258,
+                    "question_pk": 805,
+                    "question": "I was the watch manager at a local station of the Berlin fire department that Friday, 15 December 2017.",
+                    "chunk": "of the Berlin fire department ",
+                    "chunk_translation": "von der Berliner Feuerwehr",
+                    "answer": "of the Berlin Fire Department",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 259,
+                    "question_pk": 705,
+                    "question": "The boys said the movement was just the wind and wanted to keep going, but I went over and saw the head and hooves of a lamb coming out of her body.",
+                    "chunk": "coming out of her body",
+                    "chunk_translation": "aus ihrem K\u00f6rper kommen",
+                    "answer": "coming out of her body",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 260,
+                    "question_pk": 1204,
+                    "question": "The first day I woke up after closing the loop, I was blown away by how much better I felt.",
+                    "chunk": "The first day ",
+                    "chunk_translation": "Der erste Tag",
+                    "answer": "The first day",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 44,
+            "qanda_data": [
+                {
+                    "qanda_pk": 261,
+                    "question_pk": 1024,
+                    "question": "The handlebars of the zip line had caught in the V of a tree branch.",
+                    "chunk": "the zip line ",
+                    "chunk_translation": "die Zip-Linie",
+                    "answer": "the zip line",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 262,
+                    "question_pk": 19,
+                    "question": "I was securely fastened in, so I knew I wouldn't fall out.",
+                    "chunk": "I knew I wouldn't fall out",
+                    "chunk_translation": "Ich wusste, dass ich nicht herausfallen w\u00fcrde",
+                    "answer": "I knew I wouldn't fall out",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 263,
+                    "question_pk": 866,
+                    "question": "The unlocked safe had been there when they moved in and was in an area they didn't use much.",
+                    "chunk": "when they moved in and was ",
+                    "chunk_translation": "als sie eingezogen sind und war",
+                    "answer": "when they were moved in and",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 264,
+                    "question_pk": 1200,
+                    "question": "The first day I woke up after closing the loop, I was blown away by how much better I felt.",
+                    "chunk": "after closing the loop",
+                    "chunk_translation": "nach dem Schlie\u00dfen der Schleife",
+                    "answer": "after closing the loop",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 265,
+                    "question_pk": 983,
+                    "question": "Hopefully the boy will be more careful next time he plays hide and seek  but at least we know the combination to the safe now.",
+                    "chunk": "we know the combination to the safe now",
+                    "chunk_translation": "Wir kennen die Kombination jetzt zum Safe",
+                    "answer": "we know the combination to the safe now",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 266,
+                    "question_pk": 453,
+                    "question": "There was traffic on the road and, although I was pretty out of it, I knew we weren't going to make it to the hospital.",
+                    "chunk": "was pretty out of it",
+                    "chunk_translation": "war ziemlich draus",
+                    "answer": "was pretty out of it",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 45,
+            "qanda_data": [
+                {
+                    "qanda_pk": 267,
+                    "question_pk": 1099,
+                    "question": "I have to sleep with the TV on, as I can't bear the silence.",
+                    "chunk": "can't bear the silence",
+                    "chunk_translation": "kann die Stille nicht ertragen",
+                    "answer": "can't bear the silence",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 268,
+                    "question_pk": 1096,
+                    "question": "I was in an immobiliser for six weeks, to keep my leg straight, and it was three months before I could drive.",
+                    "chunk": "before I could drive",
+                    "chunk_translation": "bevor ich fahren konnte",
+                    "answer": "before I could drive",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 269,
+                    "question_pk": 360,
+                    "question": "No one had any avalanche gear  no transceivers to locate me, no probes and no shovels to dig me out  so the boys were just sticking their hands in the snow.",
+                    "chunk": "to dig me out  ",
+                    "chunk_translation": "um mich auszugraben",
+                    "answer": "to dig me out",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 270,
+                    "question_pk": 548,
+                    "question": "Probably, but I do think that this way it's a nice story to remember.",
+                    "chunk": "think that this way ",
+                    "chunk_translation": "denke das so",
+                    "answer": "think that this way",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 271,
+                    "question_pk": 738,
+                    "question": "There was a moment when I thought: I'm really going to put my hands inside a sheep.",
+                    "chunk": "put my hands inside a sheep",
+                    "chunk_translation": "leg meine H\u00e4nde in ein Schaf",
+                    "answer": "put my hands inside a sheep",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 272,
+                    "question_pk": 90,
+                    "question": "That was an achievement  for me or my mother, I'm not sure.",
+                    "chunk": "an achievement  for me or my mother",
+                    "chunk_translation": "eine Leistung f\u00fcr mich oder meine Mutter",
+                    "answer": "an achievement for me or my mother",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                }
+            ]
+        }
+    ]
+}

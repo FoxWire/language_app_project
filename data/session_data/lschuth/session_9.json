@@ -1,0 +1,400 @@
+{
+    "user_name": "lschuth",
+    "session_complete_time": "2018-12-03 10:16:19.150343",
+    "session_pk": 9,
+    "session_size": 6,
+    "block_size": 6,
+    "policy_id": 2,
+    "block_data": [
+        {
+            "block_id": 34,
+            "qanda_data": [
+                {
+                    "qanda_pk": 201,
+                    "question_pk": 885,
+                    "question": "We put a light to the door of the safe and moved it, and he told us where he could see it, so we knew there was a paper-thin gap.",
+                    "chunk": "told us where he could see it",
+                    "chunk_translation": "sagte uns, wo er es sehen k\u00f6nnte",
+                    "answer": "told us where he could see it",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 202,
+                    "question_pk": 759,
+                    "question": "Becky had read that hypothermia is a common cause of death in newborn lambs, so I wrapped it in my jacket.",
+                    "chunk": "a common cause ",
+                    "chunk_translation": "eine gemeinsame Ursache",
+                    "answer": "a common cause",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 203,
+                    "question_pk": 953,
+                    "question": "Then, just as we started to make the first cut, my colleague punched in the correct code.",
+                    "chunk": "we started to make the first cut",
+                    "chunk_translation": "Wir fingen an, den ersten Schnitt zu machen",
+                    "answer": "we started to make the first cut",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 204,
+                    "question_pk": 452,
+                    "question": "He was telling me all about his wife's birthing experiences, and advising me on how I should breathe.",
+                    "chunk": "how I should breathe",
+                    "chunk_translation": "wie ich atmen sollte",
+                    "answer": "how I should breathe",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 205,
+                    "question_pk": 278,
+                    "question": "On my day off, I woke to a clear blue sky and half a metre of fresh powder: a skier's dream.",
+                    "chunk": "a clear blue sky ",
+                    "chunk_translation": "ein klarer blauer Himmel",
+                    "answer": "a clear blue skye",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 206,
+                    "question_pk": 291,
+                    "question": "My skis came straight off and I tumbled a bit.",
+                    "chunk": "came straight off ",
+                    "chunk_translation": "kam geradeaus",
+                    "answer": "came straight off",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 35,
+            "qanda_data": [
+                {
+                    "qanda_pk": 207,
+                    "question_pk": 151,
+                    "question": "On reflection, I've had many good days, and many exciting times.",
+                    "chunk": "had many good days, and many exciting times",
+                    "chunk_translation": "hatte viele gute Tage und viele aufregende Zeiten",
+                    "answer": "had many good days and many exciting times",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 208,
+                    "question_pk": 1118,
+                    "question": "It's not going to happen to everybody.",
+                    "chunk": "'s not going to happen to everybody",
+                    "chunk_translation": "wird nicht jedem passieren",
+                    "answer": "'s not going to happen to everybody",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 209,
+                    "question_pk": 388,
+                    "question": "I had a voicemail from one of the ski instructors saying: Hey, just to let you know it's a really high avalanche risk today, there have been three people buried in avalanches in different areas already, so just be very careful.",
+                    "chunk": "in different areas ",
+                    "chunk_translation": "in verschiedenen Bereichen",
+                    "answer": "in different areas",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 210,
+                    "question_pk": 156,
+                    "question": "It was during a production in 2009 at university, where I was studying musical theatre, that I started to feel pain in my right leg.",
+                    "chunk": "in my right leg",
+                    "chunk_translation": "in meinem rechten Bein",
+                    "answer": "in my right leg",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 211,
+                    "question_pk": 673,
+                    "question": "It took nine years to get that degree  something I had never dreamed of.",
+                    "chunk": "that degree  something ",
+                    "chunk_translation": "dieser Grad etwas",
+                    "answer": "that degree something",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 212,
+                    "question_pk": 1178,
+                    "question": "Scott and I also created an algorithm that forecasted when my blood sugar was likely to become low or too high, sending alerts to my phone or smartwatch.",
+                    "chunk": "to become low or too high",
+                    "chunk_translation": "zu niedrig oder zu hoch werden",
+                    "answer": "to become too low or high",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 36,
+            "qanda_data": [
+                {
+                    "qanda_pk": 213,
+                    "question_pk": 152,
+                    "question": "On reflection, I've had many good days, and many exciting times.",
+                    "chunk": "many good days, and many exciting times",
+                    "chunk_translation": "viele gute Tage und viele aufregende Zeiten",
+                    "answer": "many good days and many exciting times",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 214,
+                    "question_pk": 1008,
+                    "question": "It took about a minute for him to cross.",
+                    "chunk": "about a minute ",
+                    "chunk_translation": "ungef\u00e4hr eine Minute",
+                    "answer": "about a minute",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 215,
+                    "question_pk": 1172,
+                    "question": "We created an alarm that would rouse me if my blood glucose levels were too low or too high.",
+                    "chunk": "were too low or too high",
+                    "chunk_translation": "waren zu niedrig oder zu hoch",
+                    "answer": "were too low or too high",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 216,
+                    "question_pk": 1195,
+                    "question": "A few months later, working with others in the open-source diabetes community, we realised that by adding a small computer and a radio stick to the pump and CGM, we could create a system that not only processed the data, but also sent commands directly to the pump.",
+                    "chunk": "A few months later",
+                    "chunk_translation": "Ein paar Monate sp\u00e4ter",
+                    "answer": "A few months later",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 217,
+                    "question_pk": 682,
+                    "question": "I still struggle to read a menu if I'm not wearing my tinted glasses, but luckily my fiance, Alexandro, is usually on hand to help.",
+                    "chunk": "to read a menu ",
+                    "chunk_translation": "um ein Men\u00fc zu lesen",
+                    "answer": "to read a menu",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 218,
+                    "question_pk": 349,
+                    "question": "I was thinking of the summer I had planned with my sister, and my last thought was, That's a shame.",
+                    "chunk": "my last thought ",
+                    "chunk_translation": "mein letzter Gedanke",
+                    "answer": "my last thought",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 37,
+            "qanda_data": [
+                {
+                    "qanda_pk": 219,
+                    "question_pk": 263,
+                    "question": "In one show, my character was in bed with his girlfriend.",
+                    "chunk": "in bed with his girlfriend",
+                    "chunk_translation": "im Bett mit seiner Freundin",
+                    "answer": "in bed with his girlfriend",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 220,
+                    "question_pk": 215,
+                    "question": "I used videos to track my progress.",
+                    "chunk": "to track my progress",
+                    "chunk_translation": "um meine Fortschritte zu verfolgen",
+                    "answer": "to track my progress",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 221,
+                    "question_pk": 706,
+                    "question": "The head was dry, which suggested it had been there for quite a while.",
+                    "chunk": "been there for quite a while",
+                    "chunk_translation": "war dort f\u00fcr eine ganze Weile",
+                    "answer": "been there for quite a while",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 222,
+                    "question_pk": 363,
+                    "question": "After about 15 minutes, by pure chance, one of the boys hit the back of my leg.",
+                    "chunk": "of the boys ",
+                    "chunk_translation": "von den Jungs",
+                    "answer": "of the boys",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 223,
+                    "question_pk": 884,
+                    "question": "We put a light to the door of the safe and moved it, and he told us where he could see it, so we knew there was a paper-thin gap.",
+                    "chunk": "he told us where he could see it",
+                    "chunk_translation": "Er sagte uns, wo er es sehen k\u00f6nnte",
+                    "answer": "he told us where he could see it",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 224,
+                    "question_pk": 980,
+                    "question": "I remember thinking: This might be the greatest thing you'll ever do in your job.",
+                    "chunk": "you'll ever do in your job",
+                    "chunk_translation": "Das wirst du in deinem Job machen",
+                    "answer": "you'll ever do in your job",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 38,
+            "qanda_data": [
+                {
+                    "qanda_pk": 225,
+                    "question_pk": 264,
+                    "question": "In one show, my character was in bed with his girlfriend.",
+                    "chunk": "bed with his girlfriend",
+                    "chunk_translation": "Bett mit seiner Freundin",
+                    "answer": "in bed with his girlfriend",
+                    "answer_correct": false,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 226,
+                    "question_pk": 390,
+                    "question": "He had left that message while I was buried.",
+                    "chunk": "left that message while I was buried",
+                    "chunk_translation": "verlie\u00df diese Nachricht, w\u00e4hrend ich begraben wurde",
+                    "answer": "left that message while I was buried",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 227,
+                    "question_pk": 1017,
+                    "question": "The first I knew that something had gone wrong was an eerie silence.",
+                    "chunk": "had gone wrong ",
+                    "chunk_translation": "war falsch gelaufen",
+                    "answer": "had gone wrong",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 228,
+                    "question_pk": 97,
+                    "question": "I was married, for a very long time, to the best wife in the world and she died very suddenly of a stroke when she was 68.",
+                    "chunk": "of a stroke ",
+                    "chunk_translation": "von einem Schlaganfall",
+                    "answer": "of a stroke",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 229,
+                    "question_pk": 801,
+                    "question": "They had a leg of lamb in the oven, and I said, I'm not eating lamb any more.",
+                    "chunk": "had a leg of lamb in the oven",
+                    "chunk_translation": "hatte eine Lammkeule im Ofen",
+                    "answer": "had a leg of lamb in the oven",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 230,
+                    "question_pk": 321,
+                    "question": "It was horrible, lying there not being able to move, nobody knowing where I was or having any way of finding me.",
+                    "chunk": "not being able to move",
+                    "chunk_translation": "nicht in der Lage zu bewegen",
+                    "answer": "not being able to move",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 39,
+            "qanda_data": [
+                {
+                    "qanda_pk": 231,
+                    "question_pk": 276,
+                    "question": "In 2012, I was 22 and doing a ski season in Ischgl, Austria.",
+                    "chunk": "a ski season ",
+                    "chunk_translation": "eine Skisaison",
+                    "answer": "a ski season",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 232,
+                    "question_pk": 982,
+                    "question": "I remember thinking: This might be the greatest thing you'll ever do in your job.",
+                    "chunk": "the greatest thing ",
+                    "chunk_translation": "Die gr\u00f6\u00dfte Sache",
+                    "answer": "the greatest thing",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 233,
+                    "question_pk": 707,
+                    "question": "The head was dry, which suggested it had been there for quite a while.",
+                    "chunk": "it had been there for quite a while",
+                    "chunk_translation": "Es war schon eine ganze Weile dort",
+                    "answer": "it had been there for quite a while",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 234,
+                    "question_pk": 876,
+                    "question": "From the outset, the biggest priority was getting oxygen to the boy.",
+                    "chunk": "getting oxygen to the boy",
+                    "chunk_translation": "Sauerstoff zu dem Jungen bekommen",
+                    "answer": "to get the boy oxygen",
+                    "answer_correct": false,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 235,
+                    "question_pk": 727,
+                    "question": "Becky Googled how to birth a lamb and read me the instructions.",
+                    "chunk": "read me the instructions",
+                    "chunk_translation": "lies mir die Anleitung",
+                    "answer": "read me the instruction",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 236,
+                    "question_pk": 1239,
+                    "question": "More than 725 people worldwide have now built various types of DIY closed-loop systems, and the growing community has continued to improve the code and the systems.",
+                    "chunk": "to improve the code and the systems",
+                    "chunk_translation": "um den Code und die Systeme zu verbessern",
+                    "answer": "to improve the code and the systems",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        }
+    ]
+}

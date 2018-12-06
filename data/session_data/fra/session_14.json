@@ -1,0 +1,400 @@
+{
+    "user_name": "fra",
+    "session_complete_time": "2018-12-05 20:30:00.646291",
+    "session_pk": 14,
+    "session_size": 6,
+    "block_size": 6,
+    "policy_id": 2,
+    "block_data": [
+        {
+            "block_id": 64,
+            "qanda_data": [
+                {
+                    "qanda_pk": 381,
+                    "question_pk": 769,
+                    "question": "When the lamb was breathing and more robust, I tried to stand it up, but because it had been in the birthing position for so long, its legs kept curling under.",
+                    "chunk": "was breathing and more robust",
+                    "chunk_translation": "atmete und war robuster",
+                    "answer": "was breathing and more robust",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 382,
+                    "question_pk": 1149,
+                    "question": "Once I went to college and lived alone, this became a bigger problem; I was increasingly afraid of going to sleep at night.",
+                    "chunk": "became a bigger problem",
+                    "chunk_translation": "wurde ein gr\u00f6\u00dferes Problem",
+                    "answer": "became a big problem",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 383,
+                    "question_pk": 201,
+                    "question": "As soon as I finished my treatment in 2011, I said to my prosthetist that it was time to try a peg leg so I could dance.",
+                    "chunk": "I finished my treatment in 2011",
+                    "chunk_translation": "Ich beendete meine Behandlung im Jahr 2011",
+                    "answer": "I finished my treatment in 2011",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 384,
+                    "question_pk": 234,
+                    "question": "Well, that's because I'm dancing on one leg!",
+                    "chunk": "'s because I'm dancing on one leg",
+                    "chunk_translation": "weil ich auf einem Bein tanze",
+                    "answer": "'s because I dance on one leg",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 385,
+                    "question_pk": 780,
+                    "question": "She slowly went towards the lamb and eventually picked up the scent.",
+                    "chunk": "towards the lamb ",
+                    "chunk_translation": "auf das Lamm zu",
+                    "answer": "towards the lamb",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 386,
+                    "question_pk": 1123,
+                    "question": "I was diagnosed with type 1 diabetes when I was 14.",
+                    "chunk": "type 1 diabetes ",
+                    "chunk_translation": "Diabetes Typ 1",
+                    "answer": "type 1 diabetes",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 65,
+            "qanda_data": [
+                {
+                    "qanda_pk": 387,
+                    "question_pk": 335,
+                    "question": "When I didn't answer, they started to look for me.",
+                    "chunk": "When I didn't answer",
+                    "chunk_translation": "Als ich nicht antwortete",
+                    "answer": "When I didn't answer",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 388,
+                    "question_pk": 647,
+                    "question": "The problem was that I'd failed the written exam.",
+                    "chunk": "was that I'd failed the written exam",
+                    "chunk_translation": "war, dass ich die schriftliche Pr\u00fcfung nicht bestanden hatte",
+                    "answer": "was that I'd fail the written exam",
+                    "answer_correct": false,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 389,
+                    "question_pk": 563,
+                    "question": "Words swim on the page for me; it's difficult to see them, let alone read them.",
+                    "chunk": "Words swim on the page for me",
+                    "chunk_translation": "Worte schwimmen auf der Seite f\u00fcr mich",
+                    "answer": "Words swim on the page for me ",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 390,
+                    "question_pk": 612,
+                    "question": "I'd copy my friend's work; he knew something was wrong, so let me.",
+                    "chunk": "he knew something was wrong, so let me",
+                    "chunk_translation": "Er wusste, dass etwas nicht stimmte, also lass mich",
+                    "answer": "He knew something was wrong so let me",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 391,
+                    "question_pk": 1099,
+                    "question": "I have to sleep with the TV on, as I can't bear the silence.",
+                    "chunk": "can't bear the silence",
+                    "chunk_translation": "kann die Stille nicht ertragen",
+                    "answer": "can't bear the silence",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 392,
+                    "question_pk": 1142,
+                    "question": "At night, I relied on the CGM's built-in alarm to wake me if my glucose passed the threshold that required immediate action; but though I tried several CGMs, the alarms were never loud enough, and they couldn't be turned up or changed.",
+                    "chunk": "they couldn't be turned up or changed",
+                    "chunk_translation": "Sie konnten nicht aufgedeckt oder ver\u00e4ndert werden",
+                    "answer": "They couldn't turn up or be changed ",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 66,
+            "qanda_data": [
+                {
+                    "qanda_pk": 393,
+                    "question_pk": 207,
+                    "question": "I went to a rehearsal space alone, put it on and started creating rhythms.",
+                    "chunk": "put it on ",
+                    "chunk_translation": "Zieh es an",
+                    "answer": "put it on",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 394,
+                    "question_pk": 644,
+                    "question": "The problem was that I'd failed the written exam.",
+                    "chunk": "that I'd failed the written exam",
+                    "chunk_translation": "dass ich die schriftliche Pr\u00fcfung nicht bestanden hatte",
+                    "answer": "that I'd failed the written exam",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 395,
+                    "question_pk": 5,
+                    "question": "Even the doctor agrees I'm in good shape.",
+                    "chunk": "agrees I'm in good shape",
+                    "chunk_translation": "stimmt zu, dass ich in guter Verfassung bin",
+                    "answer": "agrees I'm in good shape",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 396,
+                    "question_pk": 622,
+                    "question": "I was a great soldier  I got my green beret  but I couldn't write a report.",
+                    "chunk": "I couldn't write a report",
+                    "chunk_translation": "Ich konnte keinen Bericht schreiben",
+                    "answer": "I couldn't write a report",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 397,
+                    "question_pk": 609,
+                    "question": "When I had to write anything down, I guessed, forming what I hoped were the right words.",
+                    "chunk": "I hoped were the right words",
+                    "chunk_translation": "Ich hoffte, dass es die richtigen Worte waren",
+                    "answer": "I hoped were the right words",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 398,
+                    "question_pk": 815,
+                    "question": "I was thinking, It's just going to be a cupboard that looks like a safe.",
+                    "chunk": "looks like a safe",
+                    "chunk_translation": "sieht wie ein Safe aus",
+                    "answer": "looks like a safe",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 67,
+            "qanda_data": [
+                {
+                    "qanda_pk": 399,
+                    "question_pk": 336,
+                    "question": "When I didn't answer, they started to look for me.",
+                    "chunk": "to look for me",
+                    "chunk_translation": "nach mir zu suchen",
+                    "answer": "to look for me",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 400,
+                    "question_pk": 645,
+                    "question": "The problem was that I'd failed the written exam.",
+                    "chunk": "I'd failed the written exam",
+                    "chunk_translation": "Ich hatte die schriftliche Pr\u00fcfung nicht bestanden",
+                    "answer": "I'd failed the written exam",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 401,
+                    "question_pk": 7,
+                    "question": "Even the doctor agrees I'm in good shape.",
+                    "chunk": "I'm in good shape",
+                    "chunk_translation": "Ich bin in guter Verfassung",
+                    "answer": "I'm in good shape",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 402,
+                    "question_pk": 427,
+                    "question": "My husband Richard and I stayed at home until my contractions were five minutes apart  we didn't realise that, because this was my second birth, we weren't supposed to wait.",
+                    "chunk": "we weren't supposed to wait",
+                    "chunk_translation": "Wir sollten nicht warten",
+                    "answer": "we aren't supposed to wait",
+                    "answer_correct": false,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 403,
+                    "question_pk": 246,
+                    "question": "It's important to show the world amputees who are happy and continuing with their lives, although I was self-conscious in the early days, especially when people would draw their kids away from me.",
+                    "chunk": "happy and continuing with their lives",
+                    "chunk_translation": "gl\u00fccklich und weiter mit ihrem Leben",
+                    "answer": "happy and continue with their life",
+                    "answer_correct": false,
+                    "qanda_type": "explore"
+                },
+                {
+                    "qanda_pk": 404,
+                    "question_pk": 449,
+                    "question": "I was trying to hold it back, but the labour had begun.",
+                    "chunk": "the labour had begun",
+                    "chunk_translation": "die Arbeit hatte begonnen",
+                    "answer": "the labour had begun",
+                    "answer_correct": true,
+                    "qanda_type": "explore"
+                }
+            ]
+        },
+        {
+            "block_id": 68,
+            "qanda_data": [
+                {
+                    "qanda_pk": 405,
+                    "question_pk": 508,
+                    "question": "As we left the medical centre, the people in the waiting room applauded us.",
+                    "chunk": "in the waiting room ",
+                    "chunk_translation": "im Wartezimmer",
+                    "answer": "in the waiting room",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 406,
+                    "question_pk": 726,
+                    "question": "But I felt we had to do something.",
+                    "chunk": "felt we had to do something",
+                    "chunk_translation": "Ich f\u00fchlte, dass wir etwas tun mussten",
+                    "answer": "felt we had to do something",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 407,
+                    "question_pk": 1077,
+                    "question": "I knew Ryan would catch me.",
+                    "chunk": "knew Ryan would catch me",
+                    "chunk_translation": "Ich wusste, dass Ryan mich fangen w\u00fcrde",
+                    "answer": "knew Ryan would catch me",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 408,
+                    "question_pk": 623,
+                    "question": "I was a great soldier  I got my green beret  but I couldn't write a report.",
+                    "chunk": "couldn't write a report",
+                    "chunk_translation": "konnte keinen Bericht schreiben",
+                    "answer": "couldn't write a report",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 409,
+                    "question_pk": 880,
+                    "question": "All the experts we were calling told us the safe was airtight and he was going to die.",
+                    "chunk": "he was going to die",
+                    "chunk_translation": "Er w\u00fcrde sterben",
+                    "answer": "he was going to die",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 410,
+                    "question_pk": 351,
+                    "question": "I was thinking of the summer I had planned with my sister, and my last thought was, That's a shame.",
+                    "chunk": "I had planned with my sister",
+                    "chunk_translation": "Ich hatte mit meiner Schwester geplant",
+                    "answer": "I had planned with my sister",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                }
+            ]
+        },
+        {
+            "block_id": 69,
+            "qanda_data": [
+                {
+                    "qanda_pk": 411,
+                    "question_pk": 334,
+                    "question": "When I didn't answer, they started to look for me.",
+                    "chunk": "started to look for me",
+                    "chunk_translation": "fing an, nach mir zu suchen",
+                    "answer": "started to look for me",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 412,
+                    "question_pk": 311,
+                    "question": "Then I realised it definitely was not a dream.",
+                    "chunk": "it definitely was not a dream",
+                    "chunk_translation": "Es war definitiv kein Traum",
+                    "answer": "it was definitely not a dream",
+                    "answer_correct": false,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 413,
+                    "question_pk": 1076,
+                    "question": "I knew Ryan would catch me.",
+                    "chunk": "Ryan would catch me",
+                    "chunk_translation": "Ryan w\u00fcrde mich fangen",
+                    "answer": "Ryan would catch me",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 414,
+                    "question_pk": 422,
+                    "question": "My husband Richard and I stayed at home until my contractions were five minutes apart  we didn't realise that, because this was my second birth, we weren't supposed to wait.",
+                    "chunk": "weren't supposed to wait",
+                    "chunk_translation": "sollten nicht warten",
+                    "answer": "we weren't supposed to wait",
+                    "answer_correct": false,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 415,
+                    "question_pk": 883,
+                    "question": "All the experts we were calling told us the safe was airtight and he was going to die.",
+                    "chunk": "was going to die",
+                    "chunk_translation": "w\u00fcrde sterben",
+                    "answer": "was going to die",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                },
+                {
+                    "qanda_pk": 416,
+                    "question_pk": 345,
+                    "question": "I was thinking of the summer I had planned with my sister, and my last thought was, That's a shame.",
+                    "chunk": "had planned with my sister",
+                    "chunk_translation": "hatte mit meiner Schwester geplant",
+                    "answer": "had planned with my sister",
+                    "answer_correct": true,
+                    "qanda_type": "exploit"
+                }
+            ]
+        }
+    ]
+}
