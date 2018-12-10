@@ -25,7 +25,7 @@ you can put it file called `api.key` in `language_app_project/utils/google_trans
 3. If you did decide to rebuild the database, you'll need to create a new super user account
     `python manage.py createsuperuser`
      You will not be able to log in via the front end straight away, instead you'll have to go to django admin and create a `user_state` object
-    and link it to your newly created user account.
+    and link it to your newly created user account. Alternatively, you can create an account via a the frontend.
 
 
 
