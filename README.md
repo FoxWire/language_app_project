@@ -18,13 +18,13 @@ db for example.
     Unzip the file and point your class path to it.
 
 
-2. The google translate module is needed to construct sentences but it won't work without an api key. If you have an google translate api key,
+2. The google translate module is needed to construct sentences but it won't work without an api key. If you have a google translate api key,
 you can put it file called `api.key` in `language_app_project/utils/google_translate`. Otherwise one can be provided on request.
 
 
 3. If you did decide to rebuild the database, you'll need to create a new super user account
-    `python manage.py createsuperuser'
-    You will not be able to log in via the front end straight away, instead you'll have to go to django admin and create a `user_state` object
+    `python manage.py createsuperuser`
+     You will not be able to log in via the front end straight away, instead you'll have to go to django admin and create a `user_state` object
     and link it to your newly created user account.
 
 
