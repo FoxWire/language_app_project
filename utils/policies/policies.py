@@ -6,19 +6,6 @@ from math import ceil
 matrix = MatrixWrapper()
 
 
-# Just returns some random pks, for testing
-class DummyMatrix:
-
-    def get_similar_question_pks(self, pk):
-        pks = [q.pk for q in Question.objects.all()]
-        shuffle(pks)
-        return pks
-
-
-# matrix = DummyMatrix()
-
-
-# Abstract class
 class Policy:
 
     def get_question(self, user_state):

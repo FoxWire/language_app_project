@@ -78,13 +78,3 @@ class Lemmatizer:
     @staticmethod
     def get_lemmatized_verb(verb):
         return WordNetLemmatizer().lemmatize(verb, pos=wordnet.VERB)
-
-
-if __name__ == "__main__":
-    # card = Question.objects.all()[1399]
-    lem = Lemmatizer()
-    # result = lem.lemmatize(card)
-    # # print(card.chunk)
-    # # print(result)
-    # print(Question.objects.all()[183])
-    print(lem.verb_forms)

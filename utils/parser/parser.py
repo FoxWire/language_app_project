@@ -9,14 +9,10 @@ django.setup()
 
 import os
 from nltk.parse import stanford
-import nltk
-from scipy.spatial import distance
 import re
 import json
 from language_app_project.settings import BASE_DIR
-# from utils.comparer.comparer import TreeComparer
-from utils.sentence_reader.sentence_reader import SentenceReader
-from tqdm import tqdm
+
 
 text = '''
 S - simple declarative clause, i.e. one that is not introduced by a (possible empty) subordinating conjunction or a wh-word and that does not exhibit subject-verb inversion.
@@ -74,16 +70,6 @@ class Parser:
         with open(path + "common_words_10000.txt", 'r') as file:
             for word in file:
                 self.common_words.add(word.lower().strip())
-
-    # def load_labels(self):
-    #
-    #     '''
-    #     Reads in the labels from a text file. These are only the labels that feature higher up in
-    #     the parse tree hierarchies and so represent the 'deeper' structure of the sentence.
-    #     '''
-    #
-    #     with open(self.labels_file) as data_file:
-    #         all_labels = {line.split('-')[0].strip() for line in data_file.read().split('\n')}
 
     def parse(self, sentence):
         '''
@@ -156,11 +142,6 @@ class Parser:
 
             return parsed_object
 
-    # def common_chunk(self, sentence):
-    #     tokens = nltk.word_tokenize(sentence)
-    #     uncommon_count = [token in self.common_words for token in tokens].count(False)
-    #     return uncommon_count < (len(tokens) * 0.2)
-
     def common_chunk(self, chunk):
 
         # strip the punctuation (keep the hyphens though for join words)
@@ -179,26 +160,6 @@ class Parser:
         words = list(set(words))
 
         return all([word in self.common_words for word in words])
-
-
-    # def get_tree_string(self, chunk):
-    #     results = self._check_cache(chunk)
-    #     if results and results.get('tree_string'):
-    #         return results['tree_string']
-    #     else:
-    #         chunks = self.get_chunks(chunk)
-    #         return self.get_tree_string(chunk)
-    #
-    # def get_labels(self, sentence):
-    #     results = self._check_cache(sentence)
-    #     if results:
-    #         return results['labels']
-    #     else:
-    #         # If the chunk or sentence that is passed in is not in the cache, you will need to parse it
-    #         #  the get chunks method actually does the parsing and caching, so you can just call it
-    #         #  (ignore the chunks that come back) and then recursively call the get labels method again
-    #         chunks = self.get_chunks(sentence)
-    #         return self.get_labels(sentence)
 
     def _check_cache(self, sentence):
 
@@ -224,26 +185,3 @@ class Parser:
         # write to the cache file again
         with open(self.cache_file, 'w') as cache_file:
             json.dump(cache, cache_file, indent=4)
-
-
-if __name__ == '__main__':
-    # path_to_texts = os.path.join(BASE_DIR, 'input_texts')
-    # comp = TreeComparer()
-    #
-    # # Iterate over all the input texts, break each up into sentences and gather all into one
-    # # list of sentences.
-    # sr = SentenceReader()
-    # sentences = []
-    # for file in os.listdir(path_to_texts):
-    #     path = os.path.join(path_to_texts, file)
-    #     sentences.extend([sentence for sentence in sr.get_sentences(path)])
-    #
-    # parser = Parser()
-    #
-    # for sentence in sentences:
-    #     parser.parse(sentence)
-
-
-    parser = Parser()
-    x = parser.parse("I said 'Let's go for it'")
-    print(x)

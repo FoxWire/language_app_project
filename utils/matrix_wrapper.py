@@ -8,10 +8,6 @@ django.setup()
 import csv
 import numpy as np
 from language_app_project.settings import BASE_DIR
-import re
-from lang_app.models import Question
-from random import randint
-from utils.comparer.comparer import TreeComparer
 
 '''
 The initialiser takes a path, it reads in from the path to create a numpy array.
@@ -25,16 +21,6 @@ class MatrixWrapper:
     matrix = None
 
     def __init__(self):
-
-        # Find the biggest matrix you can that we have created so far
-        # path = os.path.join(BASE_DIR, "data")
-        # matrices = [file for file in os.listdir(path) if 'matrix_' in file]
-        #
-        # file_name, file_size = '', 0
-        # for matrix in matrices:
-        #     number = int(re.findall(r'[0-9]+', matrix)[0])
-        #     if number > file_size:
-        #         largest = matrix
 
         # Read in the comparison array from the file
         path = os.path.join(BASE_DIR, 'data', 'matrix_1265_master.csv')
@@ -60,8 +46,13 @@ class MatrixWrapper:
 
         self.matrix = np_array
 
-    def get_value(self, x, y):
+    def get_value(self, x, y, pk=False):
         # Returns the values if within the size of the array else none
+
+        if pk:
+            x -= 1
+            y -= 1
+
         a, b = self.matrix.shape
         return self.matrix[x][y] if x < a and x < b and y < a and y < b else None
 
@@ -91,39 +82,4 @@ class MatrixWrapper:
 
     def get_matrix(self):
         return self.matrix
-
-
-if __name__ == "__main__":
-    m = MatrixWrapper()
-
-    # comp = TreeComparer()
-    #
-    # size = m.matrix.shape[0] - 1
-    # # Now compose a proper test for the 10 matrix
-    # randnums = [(randint(0, size), randint(0, size)) for x in range(10000)]
-    #
-    # correct = 0
-    # for a, b in randnums:
-    #     result = m.get_value(a, b)
-    #     x = comp.compare(Question.objects.get(pk=a + 1), Question.objects.get(pk=b + 1))
-    #     # print(result, x, result == x)
-    #     if result == x:
-    #         correct += 1
-    #
-    # print("{} correct out of 1000".format(correct))
-
-    # nums = [x for x in range(1, 1265)]
-    #
-    # counter = 0
-    # for i in range(1, 1265):
-    #     row = m.get_similar_pks(i)
-    #     sorted_row = sorted(row)
-    #     if sorted_row == nums:
-    #         counter += 1
-    #
-    # print(counter)
-
-    x = m.get_similar_question_pks(1)
-    # print(len(x))
-
 

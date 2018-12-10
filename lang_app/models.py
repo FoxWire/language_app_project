@@ -8,14 +8,16 @@ verb_tags = {'MD', 'VB', 'VBD', 'VBG', 'VBN', 'VBP'}
 
 
 class Sentence(models.Model):
-
     sentence = models.CharField(max_length=1024, unique=True)
     sentence_tree_string = models.CharField(max_length=1024, default=None)
     uncommon_words_score = models.IntegerField(default=0)
 
     @property
     def verbs(self):
-        # Returns all the verbs in this sentence
+        """
+        Returns all the verb in the sentence
+        :return: list
+        """
 
         results = re.findall(r'\([A-Z]+ [A-Za-z\']+\)', self.sentence_tree_string)
         results = [result[1:-1].split(' ') for result in results]
@@ -37,13 +39,11 @@ class Question(models.Model):
 
     def ask_question(self):
 
-        # sentence = self.sentence.sentence
-        # close_deletion = sentence.replace(self.chunk, '_' * len(self.chunk))
-        # spaces = ' ' * (len(close_deletion.split("_")[0].strip()) - 1)
-        # question = "{}\n{}<{}>".format(close_deletion, spaces, self.chunk_translation)
-
-        # In order to use the question in the html, we need to sentence, split on the chunk
-        # we will return both parts and the chunk
+        """
+        Returns the question data diveded into three parts, ready to be inserted into
+        the html
+        :return:dictionary
+        """
 
         sentence = self.sentence.sentence
         data = {'b': self.chunk_translation}
@@ -73,7 +73,12 @@ class Question(models.Model):
 
     @staticmethod
     def _format_tree_string(self, tree_string):
-        # remove the newlines and whitespace that comes with tree string
+        """
+        Removed the new lines and whitespaces that are in tree string
+        :param self:
+        :param tree_string:
+        :return:
+        """
         return "".join(tree_string.split())
 
     def __str__(self):
@@ -82,11 +87,9 @@ class Question(models.Model):
 
 
 class QandA(models.Model):
-    '''
-    this will represent one question and answer pair.
-    This will just be a link from a specific question to an answer
-    you might want to store the users actual answer.
-    '''
+    """
+    Represents one question and answer pair
+    """
 
     class Meta:
         verbose_name = _("QandA")
@@ -105,49 +108,57 @@ class QandA(models.Model):
 
 
 class Block(models.Model):
-    '''
-    This will represent a block of questions and answers.
-    This will have the type of the session, explore, train test
-    It will also have a list of the qandq objects that are attached to it
-    '''
 
-    # user = models.ForeignKey(User, on_delete=None)
-    # block_type = models.CharField(max_length=1024)
-    # you could still keep this if you want to preserve the order between the blocks
+    """
+    Represents a block of questions and answers
+    """
     next_block = models.OneToOneField('Block', on_delete=models.SET_NULL, default=None, null=True)
     session = models.ForeignKey('Session', default=None, blank=True, null=True,
                                 on_delete=models.CASCADE, related_name='blocks')
 
     @property
     def is_full(self):
-        # Return true if there is no more space in the block for qandas
+        """
+        Return true if there is no more space left in the block for qanads
+        :return:
+        """
         return len(self.all_qandas) == self.session.block_size
 
-    # Return true if all answers are complete
     @property
     def is_complete(self):
         return all([qanda.answer is not None for qanda in QandA.objects.filter(block=self)])
 
     @property
     def all_qandas(self):
-        # Gets all the qandas for this session
+        """
+        Returns all the qandas for this session
+        :return:
+        """
         return QandA.objects.filter(block=self)
 
-    # Add the answer to the question
     def add_answer(self, question_pk, answer, correct_bool):
+        """
+        Applies the answer passed in to the appropriate question in the block
+        :param question_pk:
+        :param answer:
+        :param correct_bool:
+        :return:
+        """
         qanda = QandA.objects.get(question__pk=question_pk, block=self)
         qanda.answer = answer
         qanda.answer_correct = correct_bool
         qanda.save()
 
-    # Return the first question you find that doesn't have an answer
     def get_question(self):
+        """
+        Returns the first question in the block wihtout an answer
+        :return:
+        """
         for qanda in QandA.objects.filter(block=self):
             if qanda.answer is None:
                 return qanda.question
 
     def add_next_block(self, new_block):
-        # recursively add the session to the chain of sessions
         if not self.next_block:
             self.next_block = new_block
             self.save()
@@ -163,7 +174,6 @@ class Session(models.Model):
     user_state = models.ForeignKey('UserState', on_delete=None, null=True, blank=True)
     current_block = models.OneToOneField(Block, default=None, blank=True, on_delete=models.SET_NULL,
                                          related_name='current_block', null=True)
-    # This should keep track of which policy it was used with.
     policy_id = models.IntegerField(default=None)
     session_size = models.IntegerField(default=6)
     block_size = models.IntegerField(default=6)
@@ -171,7 +181,6 @@ class Session(models.Model):
 
     def increment_split(self, ratio):
         self.split += ratio
-        # The split value should not go higher than one.
         if self.split > 1:
             self.split = 1
         self.save()
@@ -183,7 +192,6 @@ class Session(models.Model):
 
     @property
     def all_qandas(self):
-        # This is the history of all the quandas for this session
         return QandA.objects.filter(block__in=self.blocks.all())
 
     @property
@@ -192,7 +200,6 @@ class Session(models.Model):
 
     @property
     def failed_qandas(self):
-        # Returns all the wrong answers for this session so far.
         return self.all_qandas.filter(answer_correct=False)
 
     def __str__(self):
@@ -201,9 +208,7 @@ class Session(models.Model):
 
 class UserState(models.Model):
     """
-    This should also track the number of blocks in a session and be able to tell when the session
-    is over. When that happens, the user should be told and the policy should switch
-    over to the next one.
+    Represents the user in teh database.
     """
 
     user = models.OneToOneField(User, on_delete=None, null=True, blank=True)
@@ -223,27 +228,13 @@ class UserState(models.Model):
         return self.current_session
 
     def add_block(self, block):
-        '''
-
-        This is where you can track when new blocks are being added. When you reach ten, you will need to stop
-        and show a message to the user and switch to the next policy
-
-        There will be a different number of blocks for each policy as well. you need to bear that in mind
-        '''
 
         if not self.current_session.current_block:
             self.current_session.current_block = block
             self.current_session.save()
 
-        # Find out how many blocks are in this session already
-        # if not self.current_session.is_complete:
-        #     self.current_session.current_block.add_next_block(block)
-
-        ''' YOU NEED TO FIX THIS, I'VE JUST LEFT IT HALF DONE'''
-
     def switch_policy(self):
 
-        # If there is another policy id, move onto it
         if len(self.policy_ids) > 0:
             self.current_policy_id = int(self.policy_ids[0])
             self.policy_ids = self.policy_ids[1:]

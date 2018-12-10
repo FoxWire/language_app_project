@@ -1,24 +1,13 @@
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from lang_app.models import Question, UserState, Session
-from lang_app.forms import UserForm, UserProfileForm
-from utils.question_picker.picker import Picker
-from utils.parser.parser import Parser
 from utils.policies.policies import PolicyOne, PolicyTwo, PolicyThree
 from utils.parser.lemmatizer import Lemmatizer
-from utils.comparer.comparer import TreeComparer
-from random import choice
-import csv
-from django.conf import settings
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import logout
 from django.urls import reverse
 from django.core.management import call_command
 
-
-# picker = Picker()
-# parser = Parser()
-# comp = TreeComparer()
 lem = Lemmatizer()
 
 policies = {
@@ -34,7 +23,6 @@ def user_logout(request):
     return HttpResponseRedirect(reverse('index'))
 
 
-# This is the normal index
 def index(request):
 
     context = {}
@@ -49,19 +37,16 @@ def index(request):
 
         context = None
 
-        '''
-        The get request will only be made when the user logs onto the site.
-        '''
         if request.method == 'GET':
 
-            # If they are starting the next session
             if request.GET.get('next_session'):
                 user_state.current_session = None
 
             if user_state.current_session and user_state.current_session.is_complete:
                 context = {
                     'session_complete': True,
-                    # you don't want to pass the actual session number here, just the count of session
+
+                    # Don't want to pass the actual session number here, just the count of session
                     'session_number': len(Session.objects.filter(user_state=user_state))
                 }
                 # The session is over so dump to json
@@ -100,10 +85,8 @@ def index(request):
                     'duplicate_lems': all_duplicates
                 }
 
-        '''
-        With the post request, the user will pass their answer for the previous question and 
-        return the result
-        '''
+        # With the post request, the user will pass their answer for the previous question and
+        # return the result
         if request.method == 'POST':
 
             # Get the previous question that has just been answered
@@ -126,23 +109,4 @@ def index(request):
 
     return render(request, 'lang_app/index.html', context)
 
-
-# # Ajax listener
-def get_hint(request):
-
-    if request.method == 'GET':
-        card_id = request.GET.get('card_id')
-        shown_words = request.GET.get('shown_words')
-        word = ""
-        if card_id:
-            chunk = Card.objects.get(id=int(card_id)).chunk
-
-            if shown_words:
-                # split the chunk and remove any words that have already been shown
-                words = [word for word in chunk.split(' ') if word not in shown_words]
-                word = choice(words) if words else ''
-            else:
-                word = choice([word for word in chunk.split(' ')])
-
-        return HttpResponse(word)
 
