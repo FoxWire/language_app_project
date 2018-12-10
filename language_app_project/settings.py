@@ -29,7 +29,7 @@ SECRET_KEY = 'ois&v8@c)glg4=h-w-pe40^8byl@4-85ve+pj@+2^8f#ntxgxe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sdmiller.pythonanywhere.com', 'localhost']
 INTERNAL_IPS = ['127.0.0.1', '::1']
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'lang_app',
+    'registration',
 ]
 
 MIDDLEWARE = [
@@ -77,6 +78,8 @@ TEMPLATES = [
 
 STATICFILES_DIRS = [STATIC_DIR]
 MEDIA_ROOT = MEDIA_DIR
+
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 
 WSGI_APPLICATION = 'language_app_project.wsgi.application'
@@ -131,3 +134,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+
+# Stuff for Django Redux
+REGISTRATION_OPEN = True    # If true the users can log in
+ACCOUNT_ACTIVATION_DAYS = True  # activation window in days
+REGISTRATION_AUTO_LOGIN = True  # the user will be automatically logged in
+LOGIN_REDIRECT_URL = '/lang-app/'  # Redirect to this page after a successful login
+LOGIN_URL = '/accounts/login/'  # Redirect to this page after unsuccessful login

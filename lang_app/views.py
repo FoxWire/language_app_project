@@ -1,155 +1,112 @@
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from lang_app.models import Card
-from random import randint
-from utils.question_picker.naive_picker import NaivePicker
-from utils.parser.parser import Parser
-from utils.comparer.comparer import TreeComparer
-from random import choice
-import csv
+from lang_app.models import Question, UserState, Session
+from utils.policies.policies import PolicyOne, PolicyTwo, PolicyThree
+from utils.parser.lemmatizer import Lemmatizer
+from django.contrib.auth import logout
+from django.urls import reverse
+from django.core.management import call_command
+
+lem = Lemmatizer()
+
+policies = {
+    1: PolicyOne(),
+    2: PolicyTwo(),
+    3: PolicyThree()
+}
 
 
-picker = NaivePicker()
-parser = Parser()
-comp = TreeComparer()
+@login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('index'))
 
-# This is the normal index
+
 def index(request):
 
-    context = None
-    if request.method == 'GET':
+    context = {}
 
-        question_number = request.GET.get('question_number')
-        if not question_number:
-            # This is the first question so just return a random card
-            all_cards = Card.objects.all()
-            card = all_cards[randint(0, len(all_cards))]
-        else:
-            # use the question number to pick the next card
-            answered_correctly = request.GET.get('answered_correctly')
-            current_card = Card.objects.get(pk=question_number)
-            card = picker.pick(current_card, answered_correctly)
+    if request.user.is_authenticated:
 
-        data = card.ask_question()
+        # Get the user state object
+        user_state = UserState.objects.get(user=request.user)
 
-        context = {
-            'question_number': card.pk,
-            'question_data': data,
-        }
+        # Get the policy for this user state
+        policy = policies[user_state.current_policy_id]
 
-    if request.method == 'POST':
-        user_answer = request.POST.get('user_answer')
+        context = None
 
-        card = Card.objects.get(pk=request.POST.get('question_number'))
-        correct_bool = card.give_answer(user_answer)[0]
+        if request.method == 'GET':
 
-        context = {
-            'show_answer': True,
-            'question_number': card.pk,
-            'question_data': card.ask_question(),
-            'correct_bool': correct_bool,
-            'user_answer': user_answer,
-            'chunk': card.chunk,
-            'chunk_translation': card.chunk_translation
-        }
+            if request.GET.get('next_session'):
+                user_state.current_session = None
 
-    return render(request, 'lang_app/template.html', context)
+            if user_state.current_session and user_state.current_session.is_complete:
+                context = {
+                    'session_complete': True,
 
-
-# Ajax listener
-def get_hint(request):
-
-    if request.method == 'GET':
-        card_id = request.GET.get('card_id')
-        shown_words = request.GET.get('shown_words')
-        word = ""
-        if card_id:
-            chunk = Card.objects.get(id=int(card_id)).chunk
-
-            if shown_words:
-                # split the chunk and remove any words that have already been shown
-                words = [word for word in chunk.split(' ') if word not in shown_words]
-                word = choice(words) if words else ''
+                    # Don't want to pass the actual session number here, just the count of session
+                    'session_number': len(Session.objects.filter(user_state=user_state))
+                }
+                # The session is over so dump to json
+                call_command('output_session', user_state.current_session.pk)
             else:
-                word = choice([word for word in chunk.split(' ')])
+                # Get the next question from the policy, passing in the user state
+                question = policy.get_question(user_state)
 
-        return HttpResponse(word)
+                lem_items = lem.lemmatize(question)
 
-# This is the test index that will record your answers
-# def index(request):
-#     '''
-#     The random numbers are read in from file each time. When you get a new question, you look for the last line
-#     in the user function file and then reference that line in the random numbers.
-#
-#     This is how you maintain the order.
-#     '''
-#
-#     rand_nums = [None,]   # dummy value to get counting from 1
-#     # Read in the data to a list
-#     with open("/home/stuart/PycharmProjects/workspaces/language_app_project/data/rand_nums.csv", 'r') as file:
-#         reader = csv.reader(file, delimiter='\n')
-#         for row in reader:
-#             rand_nums.append(row[0])
-#
-#     path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/user_function_c.csv'
-#     context = None
-#     if request.method == 'GET':
-#
-#         # get the number of the current question, so that we can stop the server here
-#         # if needed
-#         row_count = 1
-#         with open(path, 'r') as file:
-#             reader = csv.reader(file, delimiter=',')
-#             for row in reader:
-#                 row_count += 1
-#
-#         # Use the row number to get the pk from the list
-#         pk = rand_nums[row_count]
-#         card = Card.objects.get(pk=pk)
-#
-#         data = card.ask_question()
-#
-#         context = {
-#             'question_number': card.pk,
-#             'question_data': data,
-#         }
-#
-#         print("asking question: ", card.pk)
-#
-#     if request.method == 'POST':
-#
-#         user_answer = request.POST.get('user_answer')
-#
-#         card = Card.objects.get(pk=request.POST.get('question_number'))
-#         correct_bool = card.give_answer(user_answer)[0]
-#
-#         # use the parser to get the tree string for the user answer
-#         user_answer_tree_string = parser.parse(user_answer)[2]
-#
-#         # do the same to get the actual answer
-#         actual_answer_tree_string = parser.parse(card.chunk)[2]
-#
-#         score = comp.compare_tree_strings(user_answer_tree_string, actual_answer_tree_string)
-#         print("The score between these two answers was:", score)
-#
-#         # put the score and pk into the csv
-#         with open(path, 'a') as file:
-#             writer = csv.writer(file, delimiter=',')
-#             writer.writerow([card.pk, score])
-#
-#         context = {
-#             'show_answer': True,
-#             'question_number': card.pk,
-#             'question_data': card.ask_question(),
-#             'correct_bool': correct_bool,
-#             'user_answer': user_answer,
-#             'chunk': card.chunk,
-#             'chunk_translation': card.chunk_translation
-#         }
-#
-#     return render(request, 'lang_app/template.html', context)
+                # Get a list of the word stems that occur more than once in the sentence chunk
+                lems = [lem_item['lem'].lower() for lem_item in lem_items]
+                duplicate_stems = list(set([l for l in lems if lems.count(l) > 1]))
 
+                # Create a list of all the possible words that could be duplicated
+                all_duplicates = [d for d in duplicate_stems]
+                for l in lem_items:
+                    if l['lem'] in all_duplicates:
+                        all_duplicates += l['possible_words']
 
+                # For each of the possible words that corresponds to a duplicate, an extra tag must be added
+                # to differentiate them on client side.
+                for duplicate in duplicate_stems:
+                    i = 0
+                    for lem_item in lem_items:
+                        if lem_item['lem'].lower() == duplicate:
+                            lem_item['possible_words'] = [possible_word.lower() + '_' + str(i) for possible_word in lem_item['possible_words']]
+                            i += 1
 
+                context = {
+                    'question_number': question.pk,
+                    'question_data': question.ask_question(),
+                    'lem_items': lem_items,
+                    'session_complete': user_state.current_session.is_complete,
+                    'session_number': user_state.current_policy_id,
+                    'duplicate_lems': all_duplicates
+                }
+
+        # With the post request, the user will pass their answer for the previous question and
+        # return the result
+        if request.method == 'POST':
+
+            # Get the previous question that has just been answered
+            question_number = request.POST.get('question_number')
+            user_answer = request.POST.get('user_answer')
+            question = Question.objects.get(pk=question_number)
+            correct_bool = question.give_answer(user_answer)[0]
+
+            policy.update_state(user_state, question_number, user_answer, correct_bool)
+
+            context = {
+                'show_answer': True,
+                'question_number': question.pk,
+                'question_data': question.ask_question(),
+                'correct_bool': correct_bool,
+                'user_answer': user_answer,
+                'chunk': question.chunk,
+                'chunk_translation': question.chunk_translation,
+            }
+
+    return render(request, 'lang_app/index.html', context)
 
 

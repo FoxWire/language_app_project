@@ -45,7 +45,7 @@ class Translator:
             response = requests.post(self.url, data=data)
             data = json.loads(response.text)
             translations = data['data']['translations']
-            print("***   INFO: Translation made via API call   ***")
+            print("***   INFO: Translation made via API call:: {}   ***".format(chunk))
             self.characters_translated += len(chunk)
             self._update_character_data()
 

@@ -1,10 +1,18 @@
+# Django stuff
+import os
+import sys
+import django
+sys.path.append('/home/stuart/PycharmProjects/workspaces/language_app_project')
+os.environ['DJANGO_SETTINGS_MODULE'] = 'language_app_project.settings'
+django.setup()
+
+
 import os
 from nltk.parse import stanford
-import nltk
-from scipy.spatial import distance
 import re
 import json
 from language_app_project.settings import BASE_DIR
+
 
 text = '''
 S - simple declarative clause, i.e. one that is not introduced by a (possible empty) subordinating conjunction or a wh-word and that does not exhibit subject-verb inversion.
@@ -23,7 +31,7 @@ PRT - Particle. Category for words that should be tagged RP.
 QP - Quantifier Phrase (i.e. complex measure/amount phrase); used within NP.
 RRC - Reduced Relative Clause. 
 UCP - Unlike Coordinated Phrase. 
-VP - Vereb Phrase. 
+VP - Verb Phrase. 
 WHADJP - Wh-adjective Phrase. Adjectival phrase containing a wh-adverb, as in how hot.
 WHAVP - Wh-adverb Phrase. Introduces a clause with an NP gap. May be null (containing the 0 complementizer) or lexical, containing a wh-adverb such as how or why.
 WHNP - Wh-noun Phrase. Introduces a clause with an NP gap. May be null (containing the 0 complementizer) or lexical, containing some wh-word, e.g. who, which book, whose daughter, none of which, or how many leopards.
@@ -53,15 +61,15 @@ class Parser:
         self.labels_file = 'higher_level_labels.txt'
         # self.all_labels = self.load_labels()
 
-    # def load_labels(self):
-    #
-    #     '''
-    #     Reads in the labels from a text file. These are only the labels that feature higher up in
-    #     the parse tree hierarchies and so represent the 'deeper' structure of the sentence.
-    #     '''
-    #
-    #     with open(self.labels_file) as data_file:
-    #         all_labels = {line.split('-')[0].strip() for line in data_file.read().split('\n')}
+        path = "/home/stuart/PycharmProjects/workspaces/language_app_project/data/"
+        self.common_words = set()
+        with open(path + "common_words_3000.txt", 'r') as file:
+            for word in file:
+                self.common_words.add(word.lower().strip())
+
+        with open(path + "common_words_10000.txt", 'r') as file:
+            for word in file:
+                self.common_words.add(word.lower().strip())
 
     def parse(self, sentence):
         '''
@@ -81,11 +89,12 @@ class Parser:
         # Only attempt to chunk the sentence if it's not in the cache
         else:
             # print("***   INFO: Parsing sentences. This may take some time.   ***")
-            #  Work out the number of parts of speech in the sentence
-            no_of_pos = len(sentence.split(' '))
 
             # Get the parse tree
             tree = next(self.parser.raw_parse(sentence))
+
+            # get the number of parts of speech in this sentence
+            no_of_pos = len(tree.leaves())
 
             # Get all the subtrees flattened as tuples
             phrases = [(sub.flatten().label(), sub.leaves()) for sub in tree.subtrees()]
@@ -100,6 +109,15 @@ class Parser:
             # filter out the one word phrases and the full sentence
             chunks = [chunk for chunk in chunks if 1 < len(chunk[1]) < no_of_pos]
 
+            # This is a bit hacky, you just need to filter out a few problematic characters
+            y = []
+            for chunk in chunks:
+                x = ['\(' if c == '-LRB-' else c for c in chunk[1]]
+                x = ['\)' if c == '-RRB-' else c for c in x]
+                x = ['"' if c == '``' or c == "''" else c for c in x]
+                y.append((chunk[0], x))
+            chunks = y
+
             # Use regex to rebuild the lists of leaves into strings.
             formatted_chunks = []
             for chunk in chunks:
@@ -107,34 +125,41 @@ class Parser:
                 for leaf in chunk[1]:
                     regex += leaf + '\s*'
 
-                result = re.search(regex, sentence)
+                result = re.findall(regex, sentence)
                 if not result:
                     print("***   INFO: Regex: {} didn't match sentence {}   ***".format(regex, sentence))
                 else:
-                    formatted_chunks.append(result.group())
+                    formatted_chunks.append(result[0])
 
-            parsed_object = (sentence, formatted_chunks, str(tree))
+            # remove any duplicates
+            formatted_chunks = list(set(formatted_chunks))
+
+            # Filter out some of the uncommon chunks
+            chunks = [chunk for chunk in formatted_chunks if self.common_chunk(chunk)]
+
+            parsed_object = (sentence, chunks, str(tree))
             self._write_to_cache(parsed_object)
+
             return parsed_object
 
-    # def get_tree_string(self, chunk):
-    #     results = self._check_cache(chunk)
-    #     if results and results.get('tree_string'):
-    #         return results['tree_string']
-    #     else:
-    #         chunks = self.get_chunks(chunk)
-    #         return self.get_tree_string(chunk)
-    #
-    # def get_labels(self, sentence):
-    #     results = self._check_cache(sentence)
-    #     if results:
-    #         return results['labels']
-    #     else:
-    #         # If the chunk or sentence that is passed in is not in the cache, you will need to parse it
-    #         #  the get chunks method actually does the parsing and caching, so you can just call it
-    #         #  (ignore the chunks that come back) and then recursively call the get labels method again
-    #         chunks = self.get_chunks(sentence)
-    #         return self.get_labels(sentence)
+    def common_chunk(self, chunk):
+
+        # strip the punctuation (keep the hyphens though for join words)
+        words = re.sub(r'[^\w\s\'-]', '', chunk).lower()
+
+        # strip out the digits
+        words = re.sub(r'[0-9]+', '', words)
+
+        # split on spaces and hyphens
+        words = re.split(r'[ -]', words)
+
+        # remove any words that are just empty strings
+        words = [word for word in words if word]
+
+        # Don't count any duplicate words
+        words = list(set(words))
+
+        return all([word in self.common_words for word in words])
 
     def _check_cache(self, sentence):
 
@@ -160,11 +185,3 @@ class Parser:
         # write to the cache file again
         with open(self.cache_file, 'w') as cache_file:
             json.dump(cache, cache_file, indent=4)
-
-
-if __name__ == '__main__':
-    parser = Parser()
-    chunks = parser.parse("My name is Stuart.")
-    print(chunks)
-
-

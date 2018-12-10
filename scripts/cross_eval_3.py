@@ -12,16 +12,15 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
 
-
 class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
 
     def __init__(self, length_scale=25.0):
 
         root = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/'
-        file = 'matrix_250.csv'
+        file = 'matrix_500.csv'
         path = root + file
 
-        # Read in from the file
+        # Read in the comparison array from the file
         temp_array = []
         with open(path, 'r') as file:
             reader = csv.reader(file, delimiter=',')
@@ -37,6 +36,7 @@ class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
         if only half of the array is present and mirrors it.
         '''
         if not (np_array[0] == np_array[:, 0, None].T[0]).all():
+
             # Use mask to combine the array and the transposed array.
             mask = np_array != 0
             np_array.T[mask] = np_array[mask]
@@ -67,29 +67,32 @@ class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
         return np.atleast_2d(kernel)
 
 
-# Read in the question data. Roughly the first 200 odd questions.
+# Read in the test data, user answer scores. This is all just read into a dictionary
 def read_user_data():
     dict = {}
-    path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/new_user_function.csv'
+    path = '/home/stuart/PycharmProjects/workspaces/language_app_project/data/third_user_function.csv'
     with open(path, 'r') as file:
         reader = csv.reader(file, delimiter=',')
         for row in reader:
-            dict[row[0]] = row[2]
+            dict[row[0]] = row[3]
     return dict
+
 
 user = read_user_data()
 
+
+# Put in a question number pk or array of pks and get the user's answers
 def ask_user(x):
     y_values = [float(user[str(val[0])]) for val in x]
     return np.atleast_2d(y_values).T
 
+
 def make_binary(array):
     '''
-    Converts the data to 'binary' (1 for a correct answer and -1 for incorrect)
+    Converts the user scores to 'binary' (1 for a correct answer and -1 for incorrect)
     This can be toggled when the evaluate function is called.
     '''
-    x = [[1] if a[0] == 2 else [-1] for a in array]
-    # x = [[1] if a[0] >= 0 and a[0] <= 2 else [-1] for a in array]
+    x = [[1] if a[0] == 0 else [-1] for a in array]  # only 0 counts as a correct answer
     return np.atleast_2d(x)
 
 
@@ -99,9 +102,7 @@ def evaluate(binary=True):
     kernel = CustomKernel()
     gp = GaussianProcessRegressor(kernel=kernel, optimizer=None, alpha=0.9, normalize_y=True)
 
-    # You need a list of all the question numbers. Because I left out the questions, with uncommon words
-    # I can't just use a complete list of pks, because there will be gaps. You need to get the sequence
-    # of pks from the user data
+    # Get the question numbers of the questions that the user was asked
     pk_sequence = [int(pk) for pk in user.keys()]
     questions = np.atleast_2d(pk_sequence).T
 
@@ -110,11 +111,10 @@ def evaluate(binary=True):
 
     if binary:
         answers = make_binary(answers)
-  
-    # Get answers to all of the questions
+
     answers = np.atleast_2d(answers.ravel()).T
 
-    kfold = KFold(n_splits=198)
+    kfold = KFold(n_splits=135)
     results = []
 
     for train, test in kfold.split(questions):
@@ -126,37 +126,19 @@ def evaluate(binary=True):
         predictions, sigma = gp.predict(X_test, return_std=True)
 
         if binary:
-            prediction = make_binary(predictions)
+            predictions = make_binary(predictions)
 
-        results.append(prediction[0][0] == y_test[0][0])
+        results.append(predictions[0][0] == y_test[0][0])
 
-    correct = results.count(True)
-    print("correct:", correct)
+    print("correct:", results.count(True))
+
 
 if __name__ == '__main__':
     evaluate(binary=True)
 
-    # ones = 0
-    # twos = 0
-    # threes = 0
-    # fours = 0
-    # for key, val in user.items():
-    #     if int(val) == 1:
-    #         ones += 1
-    #     elif int(val) == 2:
-    #         twos += 1
-    #     elif int(val) == 3:
-    #         threes += 1
-    #     elif int(val) == 4:
-    #         fours += 1
-    #     else:
-    #         print("problem", val)
-    #         break
 
-    # print(ones)
-    # print(twos)
-    # print(threes)
-    # print(fours)
+
+
 
 '''
 In this version of the script, we want to analyse the information that we gathered from Eleni. We will

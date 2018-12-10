@@ -1,0 +1,29 @@
+{% extends "lang_app/base.html" %}
+
+{% block main %}
+
+    <h3>Register here</h3>
+    <br><br>
+    <form action="." method="post">
+        {% csrf_token %}
+
+        <div class="container" style="margin: 0 auto;">
+            {% for field in form %}
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    {{ field.label }}
+                </div>
+                <div class="col-md-3">
+                    {{ field }}
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+            {% if field.errors %}{{ field.errors }}{% endif %}
+            {% endfor %}
+        </div>
+
+        <input class="btn btn-primary btn-round" type="submit" value="submit">
+    </form>
+
+{% endblock %}

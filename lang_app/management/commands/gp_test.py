@@ -85,9 +85,7 @@ class Command(BaseCommand):
         plt.show()
 
 
-
 class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
-
 
     def __init__(self, length_scale=1.0):
 
@@ -102,10 +100,7 @@ class CustomKernel(StationaryKernelMixin, NormalizedKernelMixin, Kernel):
                 counter += 1
         self.array = np.array(array)
         self.length_scale = length_scale
-        
 
-       
-    
     def __call__(self, X, Y=None):
         '''
         Implements this:

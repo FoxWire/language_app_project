@@ -1,15 +1,13 @@
 import os
 import sys
 import django
-
 sys.path.append('/home/stuart/PycharmProjects/workspaces/language_app_project')
 os.environ['DJANGO_SETTINGS_MODULE'] = 'language_app_project.settings'
 django.setup()
 
 import csv
 import numpy as np
-from lang_app.models import Card, Sentence
-from utils.comparer.comparer import TreeComparer
+from language_app_project.settings import BASE_DIR
 
 '''
 The initialiser takes a path, it reads in from the path to create a numpy array.
@@ -17,56 +15,71 @@ This allows you to interact with the underlying matrix.
 Only requires the upper triangle of the matrix. 
 '''
 
+
 class MatrixWrapper:
 
-	def __init__(self, path):
+    matrix = None
 
-		with open(path, 'r') as file:
-			matrix = []
-			reader = csv.reader(file, delimiter=',')
-			for row in reader:
-				matrix.append(row)
-		self.matrix = np.array(matrix)
+    def __init__(self):
 
-	def get(self, x, y, use_pks=True):
+        # Read in the comparison array from the file
+        path = os.path.join(BASE_DIR, 'data', 'matrix_1265_master.csv')
+        temp_array = []
+        with open(path, 'r') as file:
+            reader = csv.reader(file, delimiter=',')
+            for row in reader:
+                float_row = [float(r) for r in row]
+                temp_array.append(float_row)
 
-		if use_pks:
-			x -= 1  
-			y -= 1
+        np_array = np.array(temp_array)
 
-		if x == y:
-			return 0.0
+        '''
+        For some of the larger arrays, I am only computing half of the values because of the
+        time needed for the tree comparison to run on all questions. The next block just checks
+        if only half of the array is present and mirrors it.
+        '''
+        if not (np_array[0] == np_array[:, 0, None].T[0]).all():
 
-		# If you know you are accessing a value in the lower triangle, you can 
-		# just flip the coordinates and get the value form the upper triangle
-		if x > y:
-			x, y = y, x
+            # Use mask to combine the array and the transposed array.
+            mask = np_array != 0
+            np_array.T[mask] = np_array[mask]
 
-		return float(self.matrix[x, y])
+        self.matrix = np_array
 
-		# elif x > y:
-		# 	# You are in the lower triangle
-		# 	return float(self.matrix[y, x])
-		# else:
-		# 	# You are in the upper triangle
-		# 	return float(self.matrix[x, y])
-		
+    def get_value(self, x, y, pk=False):
+        # Returns the values if within the size of the array else none
 
+        if pk:
+            x -= 1
+            y -= 1
 
-if __name__ == '__main__':
-	
-	comp = TreeComparer()
-	wrapper = MatrixWrapper('/home/stuart/PycharmProjects/workspaces/language_app_project/data/matrix_1989.csv')
-	card_a = Card.objects.get(pk=100)
-	card_b = Card.objects.get(pk=567)
+        a, b = self.matrix.shape
+        return self.matrix[x][y] if x < a and x < b and y < a and y < b else None
 
-	val = comp.compare(card_a, card_b)
+    def get_row(self, pk):
+        return self.matrix[pk - 1]
 
-	assert val == wrapper.get(card_a.pk, card_b.pk)
-	assert val == wrapper.get(card_b.pk, card_a.pk)
-	assert 0.0 == wrapper.get(card_b.pk, card_b.pk)
-	print('tests completed')
+    def get_similar_question_pks(self, pk):
 
+        """
+        For the pk passed in get a list of all other question pk, sorted in the order of
+        similarity to pk passed in.
+        :param pk:
+        :return:
+        """
+        size = self.matrix.shape[0]
 
+        # Get list of tuples with matrix indexes and comparison values for all other questions
+        # NOTE: why i + 1 here? You need to return a list of pks not of indices in for the matrix
 
-	
+        pks = [(i + 1, self.get_value(pk - 1, i)) for i in range(size)]
+
+        # sort on comparison value
+        sorted_values = sorted(pks, key=lambda y: y[1])
+
+        # remove the values and remove the first value, ie the comparison to its self
+        return [tup[0] for tup in sorted_values][1:]
+
+    def get_matrix(self):
+        return self.matrix
+
