@@ -1,6 +1,6 @@
 If you only want see a demo of the application, it can be found [here](sdmiller.pythonanywhere.com)
  
-#Installation
+# Installation
 
 1. Clone repo:
     `git clone https://github.com/FoxWire/language_app_project.git`
