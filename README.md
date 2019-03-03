@@ -1,6 +1,6 @@
 # Language App
 
-## About
+### About
 
 Masters project for Software Development Msc at the University of Glasgow.
 
@@ -12,7 +12,7 @@ The project also explored the idea of using a Gaussian Process as a means of mak
 
 The live site can be found [here](https://sdmiller.pythonanywhere.com)
  
-## Installation
+### Installation
 
 1. Clone repo:
     `git clone https://github.com/FoxWire/language_app_project.git`
