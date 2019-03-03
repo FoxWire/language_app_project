@@ -1,6 +1,18 @@
-If you only want see a demo of the application, it can be found [here](https://sdmiller.pythonanywhere.com)
+# Language App
+
+## About
+
+Masters project for Software Development Msc at the University of Glasgow.
+
+The aim of the project was to design, implement and test a language learning application that is capable of finding weaknesses in learner syntax and suggest practise sentences. 
+
+The system takes preloaded, example sentences and obtains their structure from NLTK and the Stanford Parser in the form of a parse tree. This tree can then be compared with that of every other sentence in the system via the Zhang-Shasha Tree Edit Distance algorithm. 
+
+The project also explored the idea of using a Gaussian Process as a means of making predictions based on distance between sentences. 
+
+The live site can be found [here](https://sdmiller.pythonanywhere.com)
  
-# Installation
+## Installation
 
 1. Clone repo:
     `git clone https://github.com/FoxWire/language_app_project.git`
