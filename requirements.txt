@@ -16,7 +16,7 @@ inflect==0.2.5
 jmespath==0.9.3
 kiwisolver==1.0.1
 matplotlib==2.2.3
-nltk==3.2.1
+nltk==3.4.5
 numpy==1.15.0
 pyemd==0.5.1
 pyparsing==2.2.0
