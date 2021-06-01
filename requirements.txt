@@ -32,5 +32,5 @@ smart-open==1.7.1
 sqlparse==0.2.4
 tqdm==4.24.0
 Unipath==1.1
-urllib3==1.24
+urllib3==1.26.5
 zss==1.2.0
