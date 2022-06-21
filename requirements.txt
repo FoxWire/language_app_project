@@ -17,7 +17,7 @@ jmespath==0.9.3
 kiwisolver==1.0.1
 matplotlib==2.2.3
 nltk==3.2.1
-numpy==1.15.0
+numpy==1.22.0
 pyemd==0.5.1
 pyparsing==2.2.0
 python-dateutil==2.7.3
